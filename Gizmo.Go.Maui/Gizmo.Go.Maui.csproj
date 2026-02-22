@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <ApplicationTitle>Gizmo Go</ApplicationTitle>
+    <ApplicationId>com.gizmo.go</ApplicationId>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="10.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="10.*" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.*" />
+  </ItemGroup>
+
+  <!-- Make appsettings.json available as an embedded resource for configuration loading -->
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gizmo.Go.UI\Gizmo.Go.UI.csproj" />
+    <ProjectReference Include="..\Gizmo.Go.Core\Gizmo.Go.Core.csproj" />
+    <ProjectReference Include="..\Gizmo.Go.Provider.Direct\Gizmo.Go.Provider.Direct.csproj" />
+    <ProjectReference Include="..\Gizmo.Go.Provider.Platform\Gizmo.Go.Provider.Platform.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,19 +1,17 @@
 using System.Globalization;
-using System.Reflection;
 using Gizmo;
 using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Extensions;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
-using Gizmo.Go.Web;
-using Gizmo.Go.Web.Providers;
+using Gizmo.Go.UI;
+using Gizmo.Go.UI.Providers;
 using Gizmo.Go.Web.Services;
 using Gizmo.UI;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Localization;
 using Microsoft.JSInterop;
@@ -26,16 +24,16 @@ builder.Services.AddGizmoGoCore(builder.Configuration);
 
 // localization
 builder.Services.AddLocalization(opt => opt.ResourcesPath = "Resources");
-builder.Services.AddSingleton<IStringLocalizer, StringLocalizer<Resources>>();
+builder.Services.AddSingleton<IStringLocalizer, StringLocalizer<Gizmo.Go.UI.Resources>>();
 builder.Services.AddSingleton<AssemblyResourcesLocalizationService>();
 builder.Services.AddSingleton<IAssemblyResourcesLocalizationService>(sp => sp.GetRequiredService<AssemblyResourcesLocalizationService>());
 builder.Services.AddSingleton<ILocalizationService, GoLocalizationService>();
 
 // UI services, view states, and view services
-var webAssembly = Assembly.GetExecutingAssembly();
+var uiAssembly = typeof(App).Assembly;
 builder.Services.AddUIServices();
-builder.Services.AddViewStates(webAssembly);
-builder.Services.AddViewServices(webAssembly);
+builder.Services.AddViewStates(uiAssembly);
+builder.Services.AddViewServices(uiAssembly);
 
 // token storage
 builder.Services.AddSingleton<ITokenStorageService, LocalStorageTokenStorageService>();
@@ -45,8 +43,7 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddSingleton<GoAuthenticationStateProvider>();
 builder.Services.AddSingleton<AuthenticationStateProvider>(sp => sp.GetRequiredService<GoAuthenticationStateProvider>());
-builder.Services.AddSingleton<IAccessTokenProvider>(sp => sp.GetRequiredService<GoAuthenticationStateProvider>());
-builder.Services.AddTransient<GoAuthorizationMessageHandler>();
+builder.Services.AddTransient<BearerTokenHandler>();
 builder.Services.AddTransient<CultureDelegatingHandler>();
 
 // provider
