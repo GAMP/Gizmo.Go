@@ -1,5 +1,4 @@
 @inherits LayoutComponentBase
-@inject NavigationManager Navigation
 
 <div class="app">
     <header class="app-header">
@@ -42,38 +41,3 @@
         </NavLink>
     </nav>
 </div>
-
-@code {
-    private string _pageTitle = "Gizmo Go";
-
-    protected override void OnInitialized()
-    {
-        Navigation.LocationChanged += OnLocationChanged;
-        UpdatePageTitle(Navigation.Uri);
-    }
-
-    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
-    {
-        UpdatePageTitle(e.Location);
-        StateHasChanged();
-    }
-
-    private void UpdatePageTitle(string uri)
-    {
-        var path = new Uri(uri).AbsolutePath.TrimStart('/').ToLowerInvariant();
-        _pageTitle = path switch
-        {
-            "" => "Gizmo Go",
-            "branches" => "Branches",
-            "favorites" => "Favorites",
-            "account" => "Account",
-            "login" => "Login",
-            _ => "Gizmo Go"
-        };
-    }
-
-    public void Dispose()
-    {
-        Navigation.LocationChanged -= OnLocationChanged;
-    }
-}

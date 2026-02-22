@@ -45,7 +45,7 @@ namespace Gizmo.Go.Web.Providers
             var token = await _authService.GetTokenAsync();
 
             if (string.IsNullOrWhiteSpace(token))
-                return new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null!, "/login", null);
+                return new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null!, "login", null);
 
             var accessToken = new AccessToken
             {

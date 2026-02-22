@@ -33,6 +33,11 @@ namespace Gizmo.Go.Core.Services
         Task<string?> GetTokenAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Attempts to restore a previously persisted session from token storage.
+        /// </summary>
+        Task TryRestoreSessionAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Raised when authentication state changes.
         /// </summary>
         event EventHandler<AuthState> StateChanged;

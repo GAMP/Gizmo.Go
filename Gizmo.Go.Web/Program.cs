@@ -3,6 +3,7 @@ using System.Reflection;
 using Gizmo;
 using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Extensions;
+using Gizmo.Go.Core.Services;
 using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
 using Gizmo.Go.Web;
@@ -35,6 +36,9 @@ var webAssembly = Assembly.GetExecutingAssembly();
 builder.Services.AddUIServices();
 builder.Services.AddViewStates(webAssembly);
 builder.Services.AddViewServices(webAssembly);
+
+// token storage
+builder.Services.AddSingleton<ITokenStorageService, LocalStorageTokenStorageService>();
 
 // auth infrastructure
 builder.Services.AddAuthorizationCore();
@@ -70,6 +74,9 @@ if (!string.IsNullOrWhiteSpace(storedCulture))
     CultureInfo.DefaultThreadCurrentCulture = culture;
     CultureInfo.DefaultThreadCurrentUICulture = culture;
 }
+
+// restore persisted auth session (before first render to avoid login flash)
+await host.Services.GetRequiredService<IAuthService>().TryRestoreSessionAsync();
 
 // initialize all view services (sets up EditContext subscriptions, navigation lifecycle, etc.)
 await host.Services.InitializeViewsServices();

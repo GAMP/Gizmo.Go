@@ -22,5 +22,8 @@ namespace Gizmo.Go.Provider.Platform.Services
 
         public Task LogoutAsync(CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
+
+        public Task TryRestoreSessionAsync(CancellationToken cancellationToken = default) =>
+            throw new NotImplementedException();
     }
 }

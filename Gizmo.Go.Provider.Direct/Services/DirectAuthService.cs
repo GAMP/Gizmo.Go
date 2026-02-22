@@ -1,6 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using System.Net.Http;
 using System.Security.Claims;
 using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Services;
@@ -17,6 +16,7 @@ namespace Gizmo.Go.Provider.Direct.Services
     internal sealed class DirectAuthService : IAuthService
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly ITokenStorageService _tokenStorageService;
         private readonly SemaphoreSlim _tokenLock = new(1, 1);
         private readonly JwtSecurityTokenHandler _jwtHandler = new();
 
@@ -24,9 +24,10 @@ namespace Gizmo.Go.Provider.Direct.Services
         private string? _refreshToken;
         private DateTime? _expiresUtc;
 
-        public DirectAuthService(IServiceProvider serviceProvider)
+        public DirectAuthService(IServiceProvider serviceProvider, ITokenStorageService tokenStorageService)
         {
             _serviceProvider = serviceProvider;
+            _tokenStorageService = tokenStorageService;
         }
 
         public AuthState State { get; private set; } = AuthState.Unknown;
@@ -62,6 +63,8 @@ namespace Gizmo.Go.Provider.Direct.Services
                     _tokenLock.Release();
                 }
 
+                await PersistTokensAsync(cancellationToken);
+
                 SetState(AuthState.Authenticated);
                 return AuthResult.Succeeded();
             }
@@ -82,15 +85,16 @@ namespace Gizmo.Go.Provider.Direct.Services
             }
         }
 
-        public Task LogoutAsync(CancellationToken cancellationToken = default)
+        public async Task LogoutAsync(CancellationToken cancellationToken = default)
         {
+            await _tokenStorageService.ClearAsync(cancellationToken);
+
             _accessToken = null;
             _refreshToken = null;
             _expiresUtc = null;
             CurrentUser = null;
 
             SetState(AuthState.Unauthenticated);
-            return Task.CompletedTask;
         }
 
         public async Task<string?> GetTokenAsync(CancellationToken cancellationToken = default)
@@ -115,6 +119,50 @@ namespace Gizmo.Go.Provider.Direct.Services
             }
         }
 
+        public async Task TryRestoreSessionAsync(CancellationToken cancellationToken = default)
+        {
+            var stored = await _tokenStorageService.GetAsync(cancellationToken);
+
+            if (stored == null || string.IsNullOrWhiteSpace(stored.Token))
+            {
+                SetState(AuthState.Unauthenticated);
+                return;
+            }
+
+            await _tokenLock.WaitAsync(cancellationToken);
+            try
+            {
+                _accessToken = stored.Token;
+                _refreshToken = stored.RefreshToken;
+                _expiresUtc = stored.ExpiresUtc ?? ReadExpiration(stored.Token);
+                CurrentUser = ReadUserProfile(stored.Token);
+            }
+            finally
+            {
+                _tokenLock.Release();
+            }
+
+            // if the access token is expired, attempt a refresh
+            if (_expiresUtc.HasValue && _expiresUtc.Value <= DateTime.UtcNow)
+            {
+                await _tokenLock.WaitAsync(cancellationToken);
+                try
+                {
+                    await RefreshTokenAsync(cancellationToken);
+                }
+                finally
+                {
+                    _tokenLock.Release();
+                }
+
+                // RefreshTokenAsync calls LogoutAsync on failure, which clears everything
+                if (State == AuthState.Unauthenticated)
+                    return;
+            }
+
+            SetState(AuthState.Authenticated);
+        }
+
         private async Task RefreshTokenAsync(CancellationToken cancellationToken)
         {
             if (string.IsNullOrWhiteSpace(_accessToken) || string.IsNullOrWhiteSpace(_refreshToken))
@@ -137,11 +185,26 @@ namespace Gizmo.Go.Provider.Direct.Services
                 _refreshToken = result.RefreshToken;
                 _expiresUtc = ReadExpiration(result.Token);
                 CurrentUser = ReadUserProfile(result.Token);
+
+                await PersistTokensAsync(cancellationToken);
             }
             catch
             {
                 await LogoutAsync(cancellationToken);
             }
+        }
+
+        private async Task PersistTokensAsync(CancellationToken cancellationToken)
+        {
+            if (string.IsNullOrWhiteSpace(_accessToken) || string.IsNullOrWhiteSpace(_refreshToken))
+                return;
+
+            await _tokenStorageService.SetAsync(new AuthToken
+            {
+                Token = _accessToken,
+                RefreshToken = _refreshToken,
+                ExpiresUtc = _expiresUtc
+            }, cancellationToken);
         }
 
         private DateTime? ReadExpiration(string token)

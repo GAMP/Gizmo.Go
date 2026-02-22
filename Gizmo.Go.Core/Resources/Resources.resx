@@ -58,31 +58,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GO_APP_TITLE" xml:space="preserve">
-    <value>Gizmo Go</value>
+  <data name="GO_AUTH_ERROR_INVALID_CREDENTIALS" xml:space="preserve">
+    <value>Invalid username or password.</value>
   </data>
-  <data name="GO_LOGIN_PAGE_TITLE" xml:space="preserve">
-    <value>Login - Gizmo Go</value>
+  <data name="GO_AUTH_ERROR_CONNECTION_FAILED" xml:space="preserve">
+    <value>Unable to connect to the server.</value>
   </data>
-  <data name="GO_LOGIN_USERNAME_LABEL" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="GO_LOGIN_USERNAME_PLACEHOLDER" xml:space="preserve">
-    <value>Enter your username</value>
-  </data>
-  <data name="GO_LOGIN_PASSWORD_LABEL" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="GO_LOGIN_PASSWORD_PLACEHOLDER" xml:space="preserve">
-    <value>Enter your password</value>
-  </data>
-  <data name="GO_LOGIN_SUBMIT" xml:space="preserve">
-    <value>Sign in</value>
-  </data>
-  <data name="GO_LOGIN_SUBMIT_LOADING" xml:space="preserve">
-    <value>Signing in...</value>
-  </data>
-  <data name="GO_VE_REQUIRED" xml:space="preserve">
-    <value>This field is required.</value>
+  <data name="GO_AUTH_ERROR_UNEXPECTED" xml:space="preserve">
+    <value>An unexpected error occurred.</value>
   </data>
 </root>
