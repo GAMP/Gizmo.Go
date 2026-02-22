@@ -1,0 +1,117 @@
+// ============================================
+// Login page styles.
+// ============================================
+@use '../themes/default/theme' as *;
+
+.page-login {
+  width: 100%;
+  max-width: 24rem;
+  padding: $spacing-lg;
+}
+
+.page-login__logo {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+
+  h1 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+  }
+}
+
+.page-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.page-login__field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.page-login__label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.page-login__input {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-text-primary;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+  outline: none;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $color-text-disabled;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+  }
+
+  &--invalid {
+    border-color: $color-error;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-error, 0.15);
+    }
+  }
+
+  &:disabled {
+    background-color: $color-surface-variant;
+    color: $color-text-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.page-login__validation {
+  font-size: $font-size-xs;
+  color: $color-error;
+  min-height: 1rem;
+}
+
+.page-login__error {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-error;
+  background-color: rgba($color-error, 0.08);
+  border-radius: $radius-md;
+  text-align: center;
+}
+
+.page-login__submit {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-on-primary;
+  background-color: $color-primary;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: background-color $transition-fast, opacity $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-dark;
+  }
+
+  &:active:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

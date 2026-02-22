@@ -1,0 +1,24 @@
+// ============================================
+// Gizmo Go - Main stylesheet entry point.
+//
+// Theme is loaded first (variables + mixins),
+// then base, layout, components, utilities.
+//
+// To create a custom theme:
+// 1. Copy themes/default/ to themes/yourtheme/
+// 2. Override variables in _variables.scss
+// 3. Update @use references below.
+// ============================================
+
+// -- Base --
+@use 'base/reset';
+@use 'base/typography';
+
+// -- Layout --
+@use 'layout/layout';
+
+// -- Pages --
+@use 'pages/login';
+
+// -- Utilities (last, for overrides) --
+@use 'utilities/utilities';

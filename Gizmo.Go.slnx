@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Gizmo.Go.Core/Gizmo.Go.Core.csproj" />
+  <Project Path="Gizmo.Go.Provider.Direct/Gizmo.Go.Provider.Direct.csproj" />
+  <Project Path="Gizmo.Go.Provider.Platform/Gizmo.Go.Provider.Platform.csproj" />
+  <Project Path="Gizmo.Go.Web/Gizmo.Go.Web.csproj" />
+</Solution>

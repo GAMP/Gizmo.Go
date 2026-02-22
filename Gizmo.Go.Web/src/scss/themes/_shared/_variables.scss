@@ -1,0 +1,83 @@
+// ============================================
+// Shared variable definitions (structure only)
+// Themes override these values.
+// ============================================
+
+// -- Colors --
+$color-primary: null !default;
+$color-primary-light: null !default;
+$color-primary-dark: null !default;
+$color-secondary: null !default;
+$color-accent: null !default;
+
+$color-success: null !default;
+$color-warning: null !default;
+$color-error: null !default;
+$color-info: null !default;
+
+$color-background: null !default;
+$color-surface: null !default;
+$color-surface-variant: null !default;
+
+$color-text-primary: null !default;
+$color-text-secondary: null !default;
+$color-text-disabled: null !default;
+$color-text-on-primary: null !default;
+
+$color-border: null !default;
+$color-divider: null !default;
+
+// -- Typography --
+$font-family-base: null !default;
+$font-family-heading: null !default;
+
+$font-size-xs: null !default;
+$font-size-sm: null !default;
+$font-size-base: null !default;
+$font-size-md: null !default;
+$font-size-lg: null !default;
+$font-size-xl: null !default;
+
+$font-weight-light: null !default;
+$font-weight-regular: null !default;
+$font-weight-medium: null !default;
+$font-weight-bold: null !default;
+
+$line-height-base: null !default;
+$line-height-tight: null !default;
+$line-height-loose: null !default;
+
+// -- Spacing --
+$spacing-xs: null !default;
+$spacing-sm: null !default;
+$spacing-md: null !default;
+$spacing-lg: null !default;
+$spacing-xl: null !default;
+
+// -- Border radius --
+$radius-sm: null !default;
+$radius-md: null !default;
+$radius-lg: null !default;
+$radius-full: null !default;
+
+// -- Shadows --
+$shadow-sm: null !default;
+$shadow-md: null !default;
+$shadow-lg: null !default;
+
+// -- Transitions --
+$transition-fast: null !default;
+$transition-base: null !default;
+$transition-slow: null !default;
+
+// -- Z-index layers --
+$z-index-dropdown: null !default;
+$z-index-overlay: null !default;
+$z-index-modal: null !default;
+$z-index-toast: null !default;
+
+// -- Breakpoints --
+$breakpoint-sm: null !default;
+$breakpoint-md: null !default;
+$breakpoint-lg: null !default;
+$breakpoint-xl: null !default;
