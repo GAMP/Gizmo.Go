@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GO_APP_TITLE" xml:space="preserve">
-    <value>Gizmo Go</value>
+    <value>Gizmo</value>
   </data>
   <data name="GO_LOGIN_PAGE_TITLE" xml:space="preserve">
     <value>Login - Gizmo Go</value>
@@ -71,18 +71,198 @@
     <value>Enter your username</value>
   </data>
   <data name="GO_LOGIN_PASSWORD_LABEL" xml:space="preserve">
-    <value>Password</value>
+    <value>Пароль</value>
   </data>
   <data name="GO_LOGIN_PASSWORD_PLACEHOLDER" xml:space="preserve">
     <value>Enter your password</value>
   </data>
   <data name="GO_LOGIN_SUBMIT" xml:space="preserve">
-    <value>Sign in</value>
+    <value>Войти</value>
   </data>
   <data name="GO_LOGIN_SUBMIT_LOADING" xml:space="preserve">
-    <value>Signing in...</value>
+    <value>Входим...</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_HEADING" xml:space="preserve">
+    <value>Вход в Gizmo</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_SUBTITLE" xml:space="preserve">
+    <value>Выберите способ входа</value>
+  </data>
+  <data name="GO_LOGIN_TAB_PHONE" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="GO_LOGIN_TAB_NICKNAME" xml:space="preserve">
+    <value>Никнейм</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_LABEL" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+7 000-000-00-00</value>
+  </data>
+  <data name="GO_LOGIN_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Забыли пароль?</value>
+  </data>
+  <data name="GO_LOGIN_NO_ACCOUNT" xml:space="preserve">
+    <value>Нет аккаунта?</value>
   </data>
   <data name="GO_VE_REQUIRED" xml:space="preserve">
     <value>This field is required.</value>
+  </data>
+  <data name="GO_WELCOME_PAGE_TITLE" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_WELCOME_SECTION_LABEL" xml:space="preserve">
+    <value>Киберспортивные клубы</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE1" xml:space="preserve">
+    <value>Игровой клуб —</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE2" xml:space="preserve">
+    <value>прямо в кармане</value>
+  </data>
+  <data name="GO_WELCOME_DESCRIPTION" xml:space="preserve">
+    <value>Выбирай клуб на карте, брони ПК заранее, входи по QR-коду и пополняй баланс — всё без очередей.</value>
+  </data>
+  <data name="GO_WELCOME_SIGN_IN" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="GO_WELCOME_CREATE_ACCOUNT" xml:space="preserve">
+    <value>Создать аккаунт</value>
+  </data>
+  <data name="GO_WELCOME_CONTINUE_AS_GUEST" xml:space="preserve">
+    <value>Продолжить как гость</value>
+  </data>
+  <data name="GO_WELCOME_CHIP_FIND_CLUB" xml:space="preserve">
+    <value>Найти клуб</value>
+  </data>
+  <data name="GO_WELCOME_CHIP_BOOK_PC" xml:space="preserve">
+    <value>Бронь ПК</value>
+  </data>
+  <data name="GO_WELCOME_CHIP_QR_LOGIN" xml:space="preserve">
+    <value>QR-вход</value>
+  </data>
+  <data name="GO_WELCOME_CHIP_TOP_UP" xml:space="preserve">
+    <value>Пополнение</value>
+  </data>
+  <data name="GO_WELCOME_CHIP_NEWS" xml:space="preserve">
+    <value>Новости</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>Создать аккаунт - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HEADING" xml:space="preserve">
+    <value>Создать аккаунт</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBTITLE" xml:space="preserve">
+    <value>Введите номер телефона. Мы отправим код подтверждения.</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_COUNTRY_LABEL" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_COUNTRY_PLACEHOLDER" xml:space="preserve">
+    <value>Выберите страну</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>000 000-00-00</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_TERMS_PREFIX" xml:space="preserve">
+    <value>Я принимаю </value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_TERMS_LINK1" xml:space="preserve">
+    <value>Условия использования</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_TERMS_AND" xml:space="preserve">
+    <value> и </value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_TERMS_LINK2" xml:space="preserve">
+    <value>Политику конфиденциальности</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_TERMS_SUFFIX" xml:space="preserve">
+    <value>. Мне есть 18 лет.</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBMIT" xml:space="preserve">
+    <value>Отправить код</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HAS_ACCOUNT" xml:space="preserve">
+    <value>Уже есть аккаунт?</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SIGN_IN" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="GO_CONFIRMATION_PAGE_TITLE" xml:space="preserve">
+    <value>Подтверждение - Gizmo Go</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING" xml:space="preserve">
+    <value>Подтверждение</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Мы отправили 6-значный код на номер </value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. Введите его ниже.</value>
+  </data>
+  <data name="GO_CONFIRMATION_TIMER_PREFIX" xml:space="preserve">
+    <value>Отправить повторно через </value>
+  </data>
+  <data name="GO_CONFIRMATION_RESEND" xml:space="preserve">
+    <value>Отправить повторно</value>
+  </data>
+  <data name="GO_CONFIRMATION_CHANGE_NUMBER" xml:space="preserve">
+    <value>Изменить номер</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBMIT" xml:space="preserve">
+    <value>Подтвердить</value>
+  </data>
+  <data name="GO_CONFIRMATION_HINT" xml:space="preserve">
+    <value>Код действует 10 минут. Не пришёл — проверьте номер или запросите повторно.</value>
+  </data>
+  <data name="GO_CONFIRMATION_BACK" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PAGE_TITLE" xml:space="preserve">
+    <value>Создайте пароль - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_HEADING" xml:space="preserve">
+    <value>Создайте пароль</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBTITLE" xml:space="preserve">
+    <value>Придумайте надёжный пароль для вашего аккаунта Gizmo.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_BACK" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_LABEL" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>Введите пароль</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_LABEL" xml:space="preserve">
+    <value>Повторите пароль</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_PLACEHOLDER" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_TITLE" xml:space="preserve">
+    <value>Требования к паролю:</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQ_LENGTH" xml:space="preserve">
+    <value>Не менее 8 символов</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQ_UPPERCASE" xml:space="preserve">
+    <value>Заглавная буква</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQ_DIGIT" xml:space="preserve">
+    <value>Цифра</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQ_SPECIAL" xml:space="preserve">
+    <value>Спецсимвол (!@#$...)</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBMIT" xml:space="preserve">
+    <value>Создать аккаунт</value>
   </data>
 </root>

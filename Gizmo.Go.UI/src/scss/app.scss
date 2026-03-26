@@ -16,9 +16,14 @@
 
 // -- Layout --
 @use 'layout/layout';
+@use 'layout/auth-shell';
 
 // -- Pages --
+@use 'pages/welcome';
 @use 'pages/login';
+@use 'pages/create-account';
+@use 'pages/confirmation';
+@use 'pages/create-password';
 
 // -- Utilities (last, for overrides) --
 @use 'utilities/utilities';

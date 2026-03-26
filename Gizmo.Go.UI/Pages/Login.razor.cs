@@ -10,6 +10,8 @@ namespace Gizmo.Go.UI.Pages
 {
     public partial class Login : ComponentBase, IDisposable
     {
+        #region PROPERTIES
+
         [Inject]
         private LoginViewState LoginViewState { get; set; } = null!;
 
@@ -19,11 +21,40 @@ namespace Gizmo.Go.UI.Pages
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
+        #endregion
+
+        #region FIELDS
+
+        private bool _isPhoneTab = true;
+        private bool _showPassword;
+
+        #endregion
+
+        #region OVERRIDES
+
         protected override void OnInitialized()
         {
             this.SubscribeChange(LoginViewState);
             base.OnInitialized();
         }
+
+        #endregion
+
+        #region METHODS
+
+        public void Dispose()
+        {
+            this.UnsubscribeChange(LoginViewState);
+        }
+
+        private bool IsPhoneTab => _isPhoneTab;
+        private bool ShowPassword => _showPassword;
+
+        private void SetPhoneTab() => _isPhoneTab = true;
+
+        private void SetNicknameTab() => _isPhoneTab = false;
+
+        private void TogglePasswordVisibility() => _showPassword = !_showPassword;
 
         private async Task OnKeyDownAsync(KeyboardEventArgs args)
         {
@@ -31,10 +62,9 @@ namespace Gizmo.Go.UI.Pages
                 await SubmitAsync();
         }
 
-        private async Task SubmitAsync()
-        {
-            await LoginViewService.SubmitAsync();
-        }
+        private async Task SubmitAsync() => await LoginViewService.SubmitAsync();
+
+        private async Task NavigateToCreateAccount() => await LoginViewService.NavigateToCreateAccountAsync();
 
         private bool HasErrors<T>(Expression<Func<T>> accessor)
         {
@@ -42,9 +72,6 @@ namespace Gizmo.Go.UI.Pages
             return LoginViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
         }
 
-        public void Dispose()
-        {
-            this.UnsubscribeChange(LoginViewState);
-        }
+        #endregion
     }
 }

@@ -26,6 +26,13 @@ module.exports = {
           filename: "fonts/[name][ext]",
         },
       },
+      {
+        test: /\.(png|jpg|jpeg|webp|gif)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]",
+        },
+      },
     ],
   },
   performance: {

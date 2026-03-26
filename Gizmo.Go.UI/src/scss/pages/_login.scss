@@ -1,117 +1,171 @@
 // ============================================
 // Login page styles.
+// Matches Figma: "Auth / 02 · Вход"
+//
+// Shared auth shell styles (card, fields, submit, footer)
+// live in layout/_auth-shell.scss.
 // ============================================
 @use '../themes/default/theme' as *;
+@use 'sass:color';
+
+// ---- Page shell ----
 
 .page-login {
-  width: 100%;
-  max-width: 24rem;
-  padding: $spacing-lg;
-}
-
-.page-login__logo {
-  text-align: center;
-  margin-bottom: $spacing-xl;
-
-  h1 {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-primary;
-  }
-}
-
-.page-login__form {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
-}
-
-.page-login__field {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
-}
-
-.page-login__label {
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  color: $color-text-primary;
-}
-
-.page-login__input {
-  width: 100%;
-  padding: $spacing-sm $spacing-md;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $color-text-primary;
-  background-color: $color-surface;
-  border: 1px solid $color-border;
-  border-radius: $radius-md;
-  transition: border-color $transition-fast, box-shadow $transition-fast;
-  outline: none;
+  min-height: 100%;
+  background-color: $color-welcome-bg;
+  color: #ffffff;
+  font-family: 'Noto Sans', $font-family-base;
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   box-sizing: border-box;
 
-  &::placeholder {
-    color: $color-text-disabled;
+  // Background hero image
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/arena-hero-bg.png');
+    background-size: auto 100%;
+    background-position: 69.3% top;
+    background-repeat: no-repeat;
+    opacity: 0.55;
+    z-index: 0;
   }
 
-  &:focus {
-    border-color: $color-primary;
-    box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
-  }
-
-  &--invalid {
-    border-color: $color-error;
-
-    &:focus {
-      box-shadow: 0 0 0 3px rgba($color-error, 0.15);
-    }
-  }
-
-  &:disabled {
-    background-color: $color-surface-variant;
-    color: $color-text-disabled;
-    cursor: not-allowed;
+  // Dark gradient overlay
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba($color-welcome-bg, 0.30) 0%,
+        rgba($color-welcome-bg, 0.75) 45%,
+        rgba($color-welcome-bg, 0.97) 70%,
+        $color-welcome-bg 100%
+      );
+    z-index: 0;
   }
 }
 
-.page-login__validation {
-  font-size: $font-size-xs;
-  color: $color-error;
-  min-height: 1rem;
+.page-login > * {
+  position: relative;
+  z-index: 1;
 }
 
-.page-login__error {
-  padding: $spacing-sm $spacing-md;
-  font-size: $font-size-sm;
+// ---- Hero backdrop ----
+
+.login-hero-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 15%, rgba($color-welcome-btn-primary, 0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 45% at 80% 8%, rgba($color-welcome-accent, 0.06) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(#1b2535, 0.25) 0%, transparent 100%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba($color-welcome-accent, 0.015) 3px,
+      rgba($color-welcome-accent, 0.015) 4px
+    );
+  }
+}
+
+// ---- Tab switcher ----
+
+.login-tabs {
+  display: flex;
+  border: 1px solid rgba(#f6fbfd, 0.28);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 0;
+}
+
+.login-tab {
+  flex: 1;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.80);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: none;
+  transition: background $transition-fast;
+  -webkit-tap-highlight-color: transparent;
+
+  &--active {
+    background: #22272b;
+  }
+
+  &:hover:not(.login-tab--active) {
+    background: rgba(#ffffff, 0.05);
+  }
+}
+
+// EditForm inside the card
+.auth-card > form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+// ---- Forgot password link ----
+
+.login-forgot {
+  font-size: 12px;
+  font-weight: $font-weight-regular;
+  color: $color-welcome-accent;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  font-family: 'Noto Sans', $font-family-base;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// ---- Error banner ----
+
+.login-error {
+  padding: 10px 14px;
+  font-size: 13px;
   color: $color-error;
   background-color: rgba($color-error, 0.08);
   border-radius: $radius-md;
   text-align: center;
-}
-
-.page-login__submit {
-  width: 100%;
-  padding: $spacing-sm $spacing-md;
-  font-size: $font-size-base;
-  font-weight: $font-weight-medium;
-  color: $color-text-on-primary;
-  background-color: $color-primary;
-  border: none;
-  border-radius: $radius-md;
-  cursor: pointer;
-  transition: background-color $transition-fast, opacity $transition-fast;
-
-  &:hover:not(:disabled) {
-    background-color: $color-primary-dark;
-  }
-
-  &:active:not(:disabled) {
-    opacity: 0.9;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+  font-family: 'Noto Sans', $font-family-base;
+  border: 1px solid rgba($color-error, 0.18);
 }

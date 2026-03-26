@@ -15,6 +15,8 @@ namespace Gizmo.Go.UI.View.Services
     [Route("/login")]
     public sealed class LoginViewService : ValidatingViewStateServiceBase<LoginViewState>
     {
+        #region CONSTRUCTOR
+
         private readonly IAuthService _authService;
         private readonly NavigationService _navigationService;
         private readonly IAssemblyResourcesLocalizationService _assemblyResourcesLocalizationService;
@@ -32,6 +34,10 @@ namespace Gizmo.Go.UI.View.Services
             _navigationService = navigationService;
             _assemblyResourcesLocalizationService = assemblyResourcesLocalizationService;
         }
+
+        #endregion
+
+        #region METHODS
 
         public ValueTask SetUsernameAsync(string value)
         {
@@ -86,6 +92,16 @@ namespace Gizmo.Go.UI.View.Services
             }
         }
 
+        public ValueTask NavigateToCreateAccountAsync()
+        {
+            _navigationService.NavigateTo("/create-account");
+            return ValueTask.CompletedTask;
+        }
+
+        #endregion
+
+        #region OVERRIDES
+
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             ViewState.Username = string.Empty;
@@ -93,7 +109,6 @@ namespace Gizmo.Go.UI.View.Services
             ViewState.IsLoading = false;
             ViewState.ErrorMessage = null;
 
-            // capture return URL from query string
             var currentUri = _navigationService.GetUri();
             if (!string.IsNullOrEmpty(currentUri))
             {
@@ -103,5 +118,7 @@ namespace Gizmo.Go.UI.View.Services
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
+
+        #endregion
     }
 }

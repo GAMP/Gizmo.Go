@@ -41,6 +41,17 @@
   &--centered {
     @include flex-center;
   }
+
+  &--fill {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// -- Dark variant (for Welcome / Auth screens) --
+.app--dark {
+  background-color: #0c0f11;
 }
 
 // -- Bottom navigation --

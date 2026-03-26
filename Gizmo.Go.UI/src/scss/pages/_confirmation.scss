@@ -1,0 +1,217 @@
+// ============================================
+// Confirmation (OTP) page styles.
+// Matches Figma: "Auth / 04 · Подтверждение OTP"
+// ============================================
+@use '../themes/default/theme' as *;
+@use 'sass:color';
+
+// ---- Page shell ----
+
+.page-confirmation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: $color-welcome-bg;
+  color: #ffffff;
+  font-family: 'Noto Sans', $font-family-base;
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
+
+  // Background hero image — same crop/position as CreateAccount
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/arena-hero-bg.png');
+    background-size: auto 100%;
+    background-position: 69.3% top;
+    background-repeat: no-repeat;
+    opacity: 0.55;
+    z-index: 0;
+  }
+
+  // Dark gradient overlay
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba($color-welcome-bg, 0.30) 0%,
+        rgba($color-welcome-bg, 0.75) 45%,
+        rgba($color-welcome-bg, 0.97) 70%,
+        $color-welcome-bg 100%
+      );
+    z-index: 0;
+  }
+}
+
+.page-confirmation > * {
+  position: relative;
+  z-index: 1;
+}
+
+// ---- Header override: back button on the left ----
+
+.confirmation-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.confirmation-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  border: 1px solid rgba(#ffffff, 0.12);
+  background: rgba(#ffffff, 0.07);
+  cursor: pointer;
+  appearance: none;
+  color: rgba(#ffffff, 0.70);
+  -webkit-tap-highlight-color: transparent;
+  transition: background $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    background: rgba(#ffffff, 0.11);
+    border-color: rgba(#ffffff, 0.2);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+}
+
+// ---- Body offset: card sits ~83px from body top (per Figma) ----
+
+.page-confirmation .auth-body {
+  padding-top: 83px;
+}
+
+// ---- Card icon — empty box matching auth-card__logo ----
+
+.confirmation-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  border: 1px solid rgba(#f6fbfd, 0.12);
+  background: #1a2332;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+// ---- Phone number highlight in subtitle ----
+
+.confirmation-phone {
+  color: rgba(#ffffff, 0.80);
+  font-weight: $font-weight-medium;
+}
+
+// ---- OTP input row ----
+
+.confirmation-otp-row {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.confirmation-otp-input {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  border: 1px solid rgba(#f6fbfd, 0.28);
+  border-radius: 8px;
+  background: transparent;
+  color: #ffffff;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  outline: none;
+  caret-color: $color-welcome-accent;
+  box-sizing: border-box;
+  transition: border-color $transition-fast, box-shadow $transition-fast, background $transition-fast;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+
+  &:focus {
+    border-color: rgba($color-welcome-accent, 0.60);
+    box-shadow: 0 0 0 3px rgba($color-welcome-accent, 0.10);
+  }
+
+  &--filled {
+    border-color: rgba($color-welcome-accent, 0.45);
+    background: rgba($color-welcome-accent, 0.06);
+  }
+}
+
+// ---- Resend / timer row ----
+
+.confirmation-resend-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.confirmation-timer {
+  margin: 0;
+  font-size: 13px;
+  font-family: 'Noto Sans', $font-family-base;
+  color: rgba(#ffffff, 0.35);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.confirmation-resend-btn {
+  font-size: 13px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-weight: $font-weight-regular;
+  color: $color-welcome-accent;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.confirmation-change-number-btn {
+  font-size: 13px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.35);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// ---- Hint text ----
+
+.confirmation-hint {
+  margin: 0;
+  font-size: 11px;
+  font-family: 'Noto Sans', $font-family-base;
+  color: rgba(#ffffff, 0.25);
+  text-align: center;
+  line-height: 1.55;
+}

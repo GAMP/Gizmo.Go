@@ -1,0 +1,341 @@
+// ============================================
+// Welcome / Auth landing page styles.
+// Matches Figma: "Auth / 01 · Добро пожаловать"
+// ============================================
+@use '../themes/default/theme' as *;
+@use 'sass:color';
+
+// ---- Page shell ----
+
+.page-welcome {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: $color-welcome-bg;
+  color: #ffffff;
+  font-family: 'Noto Sans', $font-family-base;
+  overflow-x: hidden;
+  // Prevent content from being clipped behind device notch / home indicator
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
+}
+
+// ---- Hero backdrop ----
+// Full-page photo background (gaming laptop with RGB lighting).
+// Matches Figma node "img" (1:74) — covers the entire viewport with slight overflow.
+// Gradient overlays fade the image into the dark content area below.
+
+.welcome-hero-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+
+  background-image: url('../img/welcome-hero-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  // Dark gradient overlay: subtle at the top, solid at the bottom (content area)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba($color-welcome-bg, 0.35) 0%,
+        rgba($color-welcome-bg, 0.55) 40%,
+        rgba($color-welcome-bg, 0.82) 65%,
+        $color-welcome-bg 88%
+      ),
+      radial-gradient(ellipse 80% 50% at 50% 15%, rgba($color-welcome-btn-primary, 0.20) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 80% 5%,  rgba($color-welcome-accent, 0.10) 0%, transparent 55%);
+  }
+
+  // Subtle scan-line texture (gaming / CRT vibe)
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba($color-welcome-accent, 0.02) 3px,
+      rgba($color-welcome-accent, 0.02) 4px
+    );
+  }
+}
+
+// ---- Header ----
+
+.welcome-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 34px 22px 0;
+  height: 100px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.welcome-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.welcome-logo__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(#f6fbfd, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #1a2332 0%, #111820 100%);
+}
+
+.welcome-logo__name {
+  font-family: 'Rubik', $font-family-heading;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+// ---- Hero spacer ----
+// Flexible spacer that pushes content below the photo area.
+// Shrinks on small screens so layout never overflows.
+
+.welcome-hero-spacer {
+  flex: 1 1 0;
+  min-height: 80px;
+  max-height: 270px;
+  position: relative;
+  z-index: 1;
+}
+
+// ---- Feature chips ----
+
+.welcome-chips {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 22px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex-shrink: 0;
+  margin-top: -20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.welcome-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 11px;
+  height: 34px;
+  border-radius: $radius-full;
+  background: rgba(#ffffff, 0.06);
+  border: 1px solid rgba($color-welcome-accent, 0.20);
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: default;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: rgba(#ffffff, 0.10);
+  }
+
+  svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    color: $color-welcome-accent;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: $font-weight-regular;
+    color: rgba(#ffffff, 0.75);
+  }
+}
+
+// ---- Content section ----
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  padding: 30px 22px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.welcome-section-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.welcome-section-label__dot {
+  width: 20px;
+  height: 1px;
+  border-radius: 4px;
+  background: rgba($color-welcome-accent-mid, 0.6);
+  flex-shrink: 0;
+}
+
+.welcome-section-label__text {
+  font-size: 11px;
+  font-weight: $font-weight-regular;
+  color: $color-welcome-accent-mid;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.welcome-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Rubik', $font-family-heading;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.welcome-title__line1 {
+  color: #ffffff;
+}
+
+.welcome-title__line2 {
+  color: $color-welcome-accent;
+}
+
+.welcome-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(#ffffff, 0.55);
+}
+
+// ---- Actions ----
+
+.welcome-actions {
+  position: relative;
+  z-index: 2;
+  margin-top: 32px;
+  padding: 0 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.welcome-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 12px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 15px;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  transition: opacity $transition-fast, background $transition-fast;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    opacity: 0.85;
+  }
+
+  // Primary: "Войти" — gradient #0078D2 → #005FA8, two drop shadows
+  &--primary {
+    height: 50px;
+    background: linear-gradient(135deg, #0078d2 0%, #005fa8 100%);
+    color: #ffffff;
+    box-shadow:
+      0 0 20px rgba(#0078d2, 0.45),
+      0 8px 20px rgba(#005fa8, 0.55);
+
+    &:hover {
+      background: linear-gradient(135deg, color.adjust(#0078d2, $lightness: 5%) 0%, color.adjust(#005fa8, $lightness: 5%) 100%);
+    }
+  }
+
+  // Secondary: "Создать аккаунт" — glass button
+  &--secondary {
+    height: 50px;
+    background: rgba(#ffffff, 0.07);
+    border: 1px solid rgba(#f6fbfd, 0.22);
+    color: #ffffff;
+
+    &:hover {
+      background: rgba(#ffffff, 0.11);
+    }
+  }
+
+  // Ghost: "Продолжить как гость" — text only
+  &--ghost {
+    height: 39.5px;
+    background: transparent;
+    color: rgba(#ffffff, 0.35);
+    font-size: 13px;
+    font-weight: $font-weight-regular;
+
+    &:hover {
+      color: rgba(#ffffff, 0.55);
+    }
+  }
+}
+
+// ---- Mobile compact adjustments ----
+// On very short screens compress hero spacer and content padding.
+
+@media (max-height: 680px) {
+  .welcome-header {
+    height: 80px;
+    padding-top: 20px;
+  }
+
+  .welcome-hero-spacer {
+    min-height: 40px;
+    max-height: 120px;
+  }
+
+  .welcome-content {
+    padding-top: 20px;
+    gap: 8px;
+  }
+
+  .welcome-title {
+    font-size: 26px;
+  }
+
+  .welcome-actions {
+    margin-top: 20px;
+    padding-bottom: 16px;
+  }
+}
