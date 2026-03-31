@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "GizmoPowered",
   "license": "ISC",
+  "dependencies": {
+    "intl-tel-input": "^25.12.4"
+  },
   "devDependencies": {
     "css-loader": "^6.8.1",
     "mini-css-extract-plugin": "^2.7.6",

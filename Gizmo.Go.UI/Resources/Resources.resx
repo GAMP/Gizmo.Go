@@ -109,6 +109,18 @@
   <data name="GO_VE_REQUIRED" xml:space="preserve">
     <value>This field is required.</value>
   </data>
+  <data name="GO_VE_PHONE_REQUIRED" xml:space="preserve">
+    <value>Введите номер телефона</value>
+  </data>
+  <data name="GO_VE_PHONE_INVALID" xml:space="preserve">
+    <value>Введите корректный номер телефона</value>
+  </data>
+  <data name="GO_VE_PHONE_COUNTRY_REQUIRED" xml:space="preserve">
+    <value>Выберите страну</value>
+  </data>
+  <data name="GO_VE_TERMS_REQUIRED" xml:space="preserve">
+    <value>Необходимо принять условия</value>
+  </data>
   <data name="GO_WELCOME_PAGE_TITLE" xml:space="preserve">
     <value>Gizmo Go</value>
   </data>

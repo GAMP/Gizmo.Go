@@ -1,15 +1,13 @@
 using System.Web;
-using Gizmo;
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.UI.View.States;
-using Gizmo.UI;
+using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Gizmo.Go.UI.View.Services
+namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
     [Route("/login")]

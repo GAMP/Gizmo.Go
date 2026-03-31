@@ -42,7 +42,7 @@ module.exports = {
     filename: "js/[name].js",
     path: path.resolve(__dirname, "../wwwroot/"),
     clean: {
-      keep: /\.(dll|pdb|json|html|png)$/,
+      keep: /\.(dll|pdb|json|html|png|webp)$/,
     },
   },
 };
