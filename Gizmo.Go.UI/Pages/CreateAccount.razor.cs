@@ -54,6 +54,11 @@ namespace Gizmo.Go.UI.Pages
 
         #region METHODS
 
+        private string GetPhoneFieldCssClass() =>
+            string.IsNullOrWhiteSpace(CreateAccountViewState.PhoneValidationMessage)
+                ? string.Empty
+                : "auth-field__input-wrap--invalid";
+
         private async Task ToggleTerms() => await CreateAccountViewService.ToggleTermsAsync();
 
         private void OnTermsKeyDown(KeyboardEventArgs args)
@@ -83,8 +88,10 @@ namespace Gizmo.Go.UI.Pages
             catch (JSDisconnectedException)
             {
             }
-
-            _dotNetReference?.Dispose();
+            finally
+            {
+                _dotNetReference?.Dispose();
+            }
         }
 
         #endregion

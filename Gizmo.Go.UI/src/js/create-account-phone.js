@@ -6,7 +6,7 @@ const instances = new WeakMap();
 function getInitialCountry() {
   const language = globalThis.navigator?.language ?? '';
   const parts = language.split('-');
-  return parts.length > 1 ? parts.at(-1).toLowerCase() : 'us';
+  return parts.length > 1 ? parts.at(-1).toLowerCase() : '';
 }
 
 function buildPayload(input, iti) {
@@ -22,7 +22,6 @@ function buildPayload(input, iti) {
     dialCode: countryData?.dialCode ?? '',
     e164: isValid ? iti.getNumber() : '',
     isValid,
-    validationError: hasValue && !isValid ? 'GO_VE_PHONE_INVALID' : null,
   };
 }
 

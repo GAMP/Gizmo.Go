@@ -13,7 +13,5 @@ namespace Gizmo.Go.UI.View.Models
         public string E164 { get; set; } = string.Empty;
 
         public bool IsValid { get; set; }
-
-        public string? ValidationError { get; set; }
     }
 }

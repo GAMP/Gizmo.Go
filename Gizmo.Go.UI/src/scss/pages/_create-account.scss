@@ -73,11 +73,6 @@
   overflow: visible;
   z-index: 3;
 
-  &--invalid {
-    border-color: $color-error;
-    box-shadow: 0 0 0 1px rgba($color-error, 0.25);
-  }
-
   .iti {
     width: 100%;
   }
@@ -105,6 +100,7 @@
   .iti__country-name {
     color: rgba(#ffffff, 0.90);
     font-family: 'Noto Sans', $font-family-base;
+    font-size: 14px;
   }
 
   .iti__search-input,
