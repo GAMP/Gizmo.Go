@@ -62,7 +62,6 @@ namespace Gizmo.Go.UI.Pages
         {
             _phoneInputValue = args.Value?.ToString() ?? string.Empty;
             await CreateAccountViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
-            
         }
 
         private async Task OnPhoneFormattedAsync(ChangeEventArgs args)

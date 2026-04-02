@@ -19,13 +19,13 @@ public static class PhoneCountryList
 
         return util.GetSupportedRegions()
             .Select(iso2 => new PhoneCountry
-        {
-            Iso2 = iso2,
-            Name = GetDisplayName(iso2),
-            DialCode = "+" + util.GetCountryCodeForRegion(iso2),
-            Flag = GetFlagEmoji(iso2),
-            Placeholder = GetPlaceHolder(iso2)
-        })
+            {
+                Iso2 = iso2,
+                Name = GetDisplayName(iso2),
+                DialCode = "+" + util.GetCountryCodeForRegion(iso2),
+                Flag = GetFlagEmoji(iso2),
+                Placeholder = GetPlaceHolder(iso2)
+            })
             .OrderBy(p => p.Name)
             .ToList();
     }
@@ -56,7 +56,7 @@ public static class PhoneCountryList
     {
         try
         {
-            var util = PhoneNumberUtil.GetInstance(); //TODO возможно надо рассмотреть один вызов инстанса на класс
+            var util = PhoneNumberUtil.GetInstance();
             var example = util.GetExampleNumber(iso2);
             var formatted = util.Format(example, PhoneNumberFormat.NATIONAL);
             var ndd = util.GetNddPrefixForRegion(iso2, true);

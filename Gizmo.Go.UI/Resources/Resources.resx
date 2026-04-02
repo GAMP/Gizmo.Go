@@ -169,13 +169,10 @@
   <data name="GO_CREATE_ACCOUNT_SUBTITLE" xml:space="preserve">
     <value>Введите номер телефона. Мы отправим код подтверждения.</value>
   </data>
-  <data name="GO_CREATE_ACCOUNT_COUNTRY_LABEL" xml:space="preserve">
-    <value>Страна</value>
-  </data>
   <data name="GO_CREATE_ACCOUNT_COUNTRY_PLACEHOLDER" xml:space="preserve">
-    <value>Ввести свой номер</value>
+    <value>Выберите страну</value>
   </data>
-  <data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
+<data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
     <value>Номер телефона</value>
   </data>
   <data name="GO_CREATE_ACCOUNT_PHONE_PLACEHOLDER" xml:space="preserve">
