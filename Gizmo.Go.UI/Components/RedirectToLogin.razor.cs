@@ -1,3 +1,4 @@
+using Gizmo.Go.UI.Helpers;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -21,7 +22,7 @@ namespace Gizmo.Go.UI.Components
                 returnUrl = Uri.EscapeDataString(currentUri[baseUri.Length..]);
             }
 
-            NavigationService.NavigateTo($"login?returnUrl={returnUrl}");
+            NavigationService.NavigateTo($"{NavigationHelper.LoginPage.TrimStart('/')}?returnUrl={returnUrl}");
         }
     }
 }

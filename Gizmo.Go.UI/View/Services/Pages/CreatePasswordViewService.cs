@@ -1,3 +1,4 @@
+using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.States;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
@@ -9,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
-    [Route("/create-password")]
+    [Route(NavigationHelper.CreatePasswordPage)]
     public sealed class CreatePasswordViewService : ViewStateServiceBase<CreatePasswordViewState>
     {
         #region CONSTRUCTOR
@@ -48,13 +49,13 @@ namespace Gizmo.Go.UI.View.Services.Pages
             if (!ViewState.CanSubmit)
                 return ValueTask.CompletedTask;
 
-            _navigationService.NavigateTo("/home");
+            _navigationService.NavigateTo(NavigationHelper.WelcomePage);
             return ValueTask.CompletedTask;
         }
 
         public ValueTask NavigateBackAsync()
         {
-            _navigationService.NavigateTo("/create-account");
+            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
             return ValueTask.CompletedTask;
         }
 

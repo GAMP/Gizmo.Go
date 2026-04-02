@@ -1,5 +1,6 @@
 using System.Web;
 using Gizmo.Go.Core.Services;
+using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -10,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
-    [Route("/login")]
+    [Route(NavigationHelper.LoginPage)]
     public sealed class LoginViewService : ValidatingViewStateServiceBase<LoginViewState>
     {
         #region CONSTRUCTOR
@@ -92,7 +93,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public ValueTask NavigateToCreateAccountAsync()
         {
-            _navigationService.NavigateTo("/create-account");
+            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
             return ValueTask.CompletedTask;
         }
 

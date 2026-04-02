@@ -1,14 +1,14 @@
-using Gizmo.Go.UI.View.Models;
+using System.Linq.Expressions;
 using Gizmo.Go.UI.View.Services.Pages;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.JSInterop;
 
 namespace Gizmo.Go.UI.Pages
 {
-    public partial class CreateAccount : ComponentBase, IAsyncDisposable
+    public partial class CreateAccount : ComponentBase, IDisposable
     {
         #region PROPERTIES
 
@@ -21,16 +21,14 @@ namespace Gizmo.Go.UI.Pages
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; } = null!;
-
         #endregion
 
         #region FIELDS
 
-        private ElementReference _phoneInput;
-        private DotNetObjectReference<CreateAccount>? _dotNetReference;
-
+        private string _selectedCountryIso2 = string.Empty;
+        
+        private string _phoneInputValue = string.Empty;
+        
         #endregion
 
         #region OVERRIDES
@@ -38,28 +36,45 @@ namespace Gizmo.Go.UI.Pages
         protected override void OnInitialized()
         {
             this.SubscribeChange(CreateAccountViewState);
+            _selectedCountryIso2 = CreateAccountViewState.SelectedCountryIso2;
             base.OnInitialized();
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (!firstRender)
-                return;
-
-            _dotNetReference = DotNetObjectReference.Create(this);
-            await JSRuntime.InvokeVoidAsync("gizmoCreateAccountPhone.init", _phoneInput, _dotNetReference);
         }
 
         #endregion
 
         #region METHODS
 
-        private string GetPhoneFieldCssClass() =>
-            string.IsNullOrWhiteSpace(CreateAccountViewState.PhoneValidationMessage)
-                ? string.Empty
-                : "auth-field__input-wrap--invalid";
+        private bool HasErrors<T>(Expression<Func<T>> accessor)
+        {
+            var fieldIdentifier = FieldIdentifier.Create(accessor);
 
-        private async Task ToggleTerms() => await CreateAccountViewService.ToggleTermsAsync();
+            return CreateAccountViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
+        }
+
+        private async Task OnCountryChangedAsync(ChangeEventArgs args)
+        {
+            _selectedCountryIso2 = args.Value?.ToString() ?? string.Empty;
+            _phoneInputValue = string.Empty;
+            await CreateAccountViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+        }
+
+        private async Task OnPhoneInputAsync(ChangeEventArgs args)
+        {
+            _phoneInputValue = args.Value?.ToString() ?? string.Empty;
+            await CreateAccountViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+            
+        }
+
+        private async Task OnPhoneFormattedAsync(ChangeEventArgs args)
+        {
+            _phoneInputValue = args.Value?.ToString() ?? string.Empty;
+            await CreateAccountViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+            
+            if (!string.IsNullOrEmpty(CreateAccountViewState.FormattedPhoneInput))
+                _phoneInputValue = CreateAccountViewState.FormattedPhoneInput;
+        }
+        
+        private async Task ToggleTerms() => await CreateAccountViewService.ToggleTermsAsync(); //  что за Terms откуда и для чего нужен?
 
         private void OnTermsKeyDown(KeyboardEventArgs args)
         {
@@ -71,27 +86,9 @@ namespace Gizmo.Go.UI.Pages
 
         private async Task NavigateToLogin() => await CreateAccountViewService.NavigateBackAsync();
 
-        [JSInvokable]
-        public async Task OnPhoneChangedAsync(PhoneInputChangedModel model)
-        {
-            await CreateAccountViewService.UpdatePhoneAsync(model);
-        }
-
-        public async ValueTask DisposeAsync()
+        public void Dispose()
         {
             this.UnsubscribeChange(CreateAccountViewState);
-
-            try
-            {
-                await JSRuntime.InvokeVoidAsync("gizmoCreateAccountPhone.destroy", _phoneInput);
-            }
-            catch (JSDisconnectedException)
-            {
-            }
-            finally
-            {
-                _dotNetReference?.Dispose();
-            }
         }
 
         #endregion

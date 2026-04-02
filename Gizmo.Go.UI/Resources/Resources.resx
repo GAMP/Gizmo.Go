@@ -173,7 +173,7 @@
     <value>Страна</value>
   </data>
   <data name="GO_CREATE_ACCOUNT_COUNTRY_PLACEHOLDER" xml:space="preserve">
-    <value>Выберите страну</value>
+    <value>Ввести свой номер</value>
   </data>
   <data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
     <value>Номер телефона</value>

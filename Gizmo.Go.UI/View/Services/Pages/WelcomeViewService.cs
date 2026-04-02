@@ -1,3 +1,4 @@
+using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.States;
 using Gizmo.UI;
 using Gizmo.UI.Services;
@@ -9,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace Gizmo.Go.UI.View.Services
 {
     [Register()]
-    [Route("/")]
+    [Route(NavigationHelper.WelcomePage)]
     public sealed class WelcomeViewService : ViewStateServiceBase<WelcomeViewState>
     {
         #region CONSTRUCTOR
@@ -31,19 +32,19 @@ namespace Gizmo.Go.UI.View.Services
 
         public ValueTask NavigateToLoginAsync()
         {
-            _navigationService.NavigateTo("/login");
+            _navigationService.NavigateTo(NavigationHelper.LoginPage);
             return ValueTask.CompletedTask;
         }
 
         public ValueTask NavigateToRegisterAsync()
         {
-            _navigationService.NavigateTo("/create-account");
+            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
             return ValueTask.CompletedTask;
         }
 
         public ValueTask ContinueAsGuestAsync()
         {
-            _navigationService.NavigateTo("/home");
+            _navigationService.NavigateTo(NavigationHelper.WelcomePage);
             return ValueTask.CompletedTask;
         }
 

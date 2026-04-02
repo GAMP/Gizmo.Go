@@ -1,4 +1,5 @@
 using System.Web;
+using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -9,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
-    [Route("/confirmation")]
+    [Route(NavigationHelper.ConfirmationPage)]
     public sealed class ConfirmationViewService : ViewStateServiceBase<ConfirmationViewState>
     {
         #region FIELDS
@@ -61,14 +62,14 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return ValueTask.CompletedTask;
 
             CancelTimer();
-            _navigationService.NavigateTo("/create-password");
+            _navigationService.NavigateTo(NavigationHelper.CreatePasswordPage);
             return ValueTask.CompletedTask;
         }
 
         public ValueTask NavigateBackAsync()
         {
             CancelTimer();
-            _navigationService.NavigateTo("/create-account");
+            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
             return ValueTask.CompletedTask;
         }
 
