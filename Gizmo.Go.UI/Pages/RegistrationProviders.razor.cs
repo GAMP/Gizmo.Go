@@ -30,6 +30,8 @@ public partial class RegistrationProviders : ComponentBase, IDisposable
     {
         await RegistrationProvidersViewService.SelectProviderAsync(channelGuid);
     }
+    
+    private async Task NavigateBack() => await RegistrationProvidersViewService.NavigateBackAsync();
 
     public void Dispose()
     {

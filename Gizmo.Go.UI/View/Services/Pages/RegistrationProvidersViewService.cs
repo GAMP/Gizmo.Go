@@ -62,6 +62,12 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
         
         await base.OnNavigatedIn(navigationParameters, cancellationToken);
     }
+    
+    public ValueTask NavigateBackAsync()
+    {
+        _navigationService.NavigateTo(NavigationHelper.WelcomePage);
+        return ValueTask.CompletedTask;
+    }
 
     #endregion
 }

@@ -3,6 +3,12 @@
 
 <PageTitle>RegistrationProviders</PageTitle>
 
+<header class="auth-header create-password-header">
+    <button class="create-password-back-btn" type="button" @onclick="NavigateBack" aria-label="Назад">
+        <span>Назад</span>
+    </button>
+</header>
+
 <div style="display: flex; align-items: center; justify-content: center; min-height: 100%;">
     @if (RegistrationProvidersViewState.IsLoading)
     {
