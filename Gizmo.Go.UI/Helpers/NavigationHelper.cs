@@ -8,4 +8,5 @@ public static class NavigationHelper
     public const string CreatePasswordPage = "/create-password";
     public const string LoginPage = "/login";
     public const string CreateAccount = "/create-account";
+    public const string RegistrationProviders = "/registration-providers";
 }

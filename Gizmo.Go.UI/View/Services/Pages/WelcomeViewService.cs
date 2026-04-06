@@ -38,7 +38,7 @@ namespace Gizmo.Go.UI.View.Services
 
         public ValueTask NavigateToRegisterAsync()
         {
-            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
             return ValueTask.CompletedTask;
         }
 

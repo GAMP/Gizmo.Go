@@ -1,0 +1,31 @@
+@page "/registration-providers"
+@layout LoginLayout
+
+<PageTitle>RegistrationProviders</PageTitle>
+
+<div style="display: flex; align-items: center; justify-content: center; min-height: 100%;">
+    @if (RegistrationProvidersViewState.IsLoading)
+    {
+        <p style="color: white;">Loading ...</p>
+    }
+    else if (RegistrationProvidersViewState.Providers.Count == 0)
+    {
+        <p style="color: white;">No registration methods available.</p>
+    }
+    else
+    {
+        <div style="background: #ffffff; border-radius: 12px; padding: 32px 40px; min-width: 260px;">
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+                @foreach (var provider in RegistrationProvidersViewState.Providers)
+                {
+                    <li>
+                        <a href="#" @onclick="() => SelectProviders(provider.ChannelGuid)" @onclick:preventDefault="true"
+                           style="color: #1a1a1a; text-decoration: none; font-size: 16px; font-family: 'Noto Sans', sans-serif; display: block; padding: 8px 0;">
+                            @provider.Name
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

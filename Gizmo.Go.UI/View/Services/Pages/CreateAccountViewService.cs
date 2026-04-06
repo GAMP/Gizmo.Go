@@ -1,4 +1,5 @@
 using System.Globalization;
+using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.Models;
 using Gizmo.Go.UI.View.States.Pages;
@@ -20,14 +21,17 @@ namespace Gizmo.Go.UI.View.Services.Pages
         #region CONSTRUCTOR
 
         private readonly NavigationService _navigationService;
+        private readonly IRegistrationService _registrationService;
 
         public CreateAccountViewService(
             CreateAccountViewState viewState,
             ILogger<CreateAccountViewService> logger,
             IServiceProvider serviceProvider,
-            NavigationService navigationService) : base(viewState, logger, serviceProvider)
+            NavigationService navigationService,
+            IRegistrationService registrationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
+            _registrationService = registrationService;
         }
 
         #endregion
@@ -123,7 +127,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         #region OVERRIDES
 
-        protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
+        protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             const int separatorBuffer = 6; //TODO временное решение
             var culture = CultureInfo.CurrentUICulture.Name;
@@ -150,7 +154,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             
             ViewState.RaiseChanged();
             
-            return base.OnNavigatedIn(navigationParameters, cancellationToken);
+            await base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
 
         protected override void OnValidate(FieldIdentifier fieldIdentifier, ValidationTrigger trigger)

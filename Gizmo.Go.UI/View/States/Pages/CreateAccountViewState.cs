@@ -1,5 +1,7 @@
+using Gizmo.Go.Core.Models.Registration;
 using Gizmo.UI;
 using Gizmo.UI.View.States;
+using Gizmo.Web.Api.Models;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Gizmo.Go.UI.View.States.Pages
