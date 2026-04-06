@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Web;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.Models;
@@ -28,7 +29,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ILogger<CreateAccountViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
-            IRegistrationService registrationService) : base(viewState, logger, serviceProvider)
+            IRegistrationService registrationService) 
+            : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _registrationService = registrationService;
@@ -129,6 +131,18 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
+            var uri = new Uri(_navigationService.GetUri());
+            var raw = HttpUtility.ParseQueryString(uri.Query).Get("provider");
+
+            if (!Guid.TryParse(raw, out var channelId))
+            {
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
+                //TODO кинуть уведомление о том что провадер не найден
+                return;
+            }
+
+            ViewState.SelectedChannelId = channelId;
+            
             const int separatorBuffer = 6; //TODO временное решение
             var culture = CultureInfo.CurrentUICulture.Name;
             var parts = culture.Split('-');

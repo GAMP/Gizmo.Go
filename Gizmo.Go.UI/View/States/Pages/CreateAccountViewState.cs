@@ -26,5 +26,7 @@ namespace Gizmo.Go.UI.View.States.Pages
         public string PhoneE164 { get; internal set; } = string.Empty;
 
         public int PhoneLength { get; internal set; } = 15;
+        
+        public Guid SelectedChannelId { get; internal set; }
     }
 }

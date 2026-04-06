@@ -36,7 +36,18 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
 
     public ValueTask SelectProviderAsync(Guid channelGuid)
     {
-        //TODO заглушка на следующий шаг
+        var provider = ViewState.Providers.FirstOrDefault(p => p.ChannelGuid == channelGuid);
+        if (provider is null)
+        {
+            return ValueTask.CompletedTask;
+        }
+
+        if (provider is { CanDispatchCode: true, CanRedirect: false })
+        {
+            _navigationService.NavigateTo($"{NavigationHelper.CreateAccount}?provider={provider.ChannelGuid}");
+            return ValueTask.CompletedTask;
+        }
+        
         return ValueTask.CompletedTask;
     }
     
