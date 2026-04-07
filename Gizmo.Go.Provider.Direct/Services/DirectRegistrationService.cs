@@ -20,10 +20,20 @@ namespace Gizmo.Go.Provider.Direct.Services
         {
             var client = _serviceProvider.GetRequiredService<RegistrationsWebApiClient>();
             var providers = await client.GetProvidersAsync(cancellationToken);
-            
+
             return providers
                 .Select(VerificationProviderMapper.Map)
                 .ToList();
+        }
+
+        public async Task<RegistrationStartResult> StartAsync(
+            RegistrationStartRequest request,
+            CancellationToken cancellationToken = default)
+        {
+            var client = _serviceProvider.GetRequiredService<RegistrationsWebApiClient>();
+            var model = RegistrationStartRequestMapper.Map(request);
+            var result = await client.StartAsync(model, cancellationToken);
+            return VerificationStartResultMapper.Map(result);
         }
     }
 }

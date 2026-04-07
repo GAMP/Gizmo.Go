@@ -4,6 +4,7 @@ using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Extensions;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.Maui.Services;
+using Gizmo.Go.Maui.Services;
 using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
 using Gizmo.Go.UI.Providers;
@@ -59,6 +60,9 @@ namespace Gizmo.Go.Maui
 
             // token storage (MAUI SecureStorage)
             builder.Services.AddSingleton<ITokenStorageService, SecureStorageTokenStorageService>();
+
+            // external launcher
+            builder.Services.AddSingleton<IExternalLauncher, MauiExternalLauncher>();
 
             // auth infrastructure
             builder.Services.AddAuthorizationCore();

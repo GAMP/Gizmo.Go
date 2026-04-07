@@ -8,5 +8,9 @@ namespace Gizmo.Go.Core.Services
     {
         Task<IReadOnlyList<VerificationProvider>> GetProvidersAsync(
             CancellationToken cancellationToken = default);
+
+        Task<RegistrationStartResult> StartAsync(
+            RegistrationStartRequest request,
+            CancellationToken cancellationToken = default);
     }
 }

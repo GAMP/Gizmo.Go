@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.States.Pages;
@@ -17,38 +18,60 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
 
     private readonly IRegistrationService _registrationService;
     private readonly NavigationService _navigationService;
-    
+    private readonly IExternalLauncher _externalLauncher;
+
     public RegistrationProvidersViewService(
         RegistrationProvidersViewState viewState,
         ILogger<RegistrationProvidersViewService> logger,
         IServiceProvider serviceProvider,
         IRegistrationService registrationService,
-        NavigationService navigationService)
+        NavigationService navigationService,
+        IExternalLauncher externalLauncher)
         : base(viewState, logger, serviceProvider)
     {
         _registrationService = registrationService;
         _navigationService = navigationService;
+        _externalLauncher = externalLauncher;
     }
-    
+
     #endregion
 
     #region METHODS
 
-    public ValueTask SelectProviderAsync(Guid channelGuid)
+    public async Task SelectProviderAsync(Guid channelGuid, CancellationToken cancellationToken = default)
     {
         var provider = ViewState.Providers.FirstOrDefault(p => p.ChannelGuid == channelGuid);
         if (provider is null)
-        {
-            return ValueTask.CompletedTask;
-        }
+            return;
 
         if (provider is { CanDispatchCode: true, CanRedirect: false })
         {
             _navigationService.NavigateTo($"{NavigationHelper.CreateAccount}?provider={provider.ChannelGuid}");
-            return ValueTask.CompletedTask;
+            return;
         }
-        
-        return ValueTask.CompletedTask;
+
+        if (provider.CanRedirect)
+        {
+            try
+            {
+                var request = new RegistrationStartRequest
+                {
+                    IntegrationPublicId = provider.PublicId,
+                    DeliveryMethod = RegistrationDeliveryMethod.Redirect
+                };
+                var result = await _registrationService.StartAsync(request, cancellationToken);
+
+                if (result.Result == RegistrationStartResultCode.Success
+                    && !string.IsNullOrEmpty(result.RedirectUrl))
+                {
+                    await _externalLauncher.OpenAsync(result.RedirectUrl, cancellationToken);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Failed to start redirect registration for provider {ChannelGuid}.", channelGuid);
+            }
+        }
     }
     
     #endregion
