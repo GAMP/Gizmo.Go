@@ -13,6 +13,6 @@ namespace Gizmo.Go.Core.Services
             RegistrationStartRequest request,
             CancellationToken cancellationToken = default);
 
-        Task<> CompleteAsync();
+        Task CompleteAsync();
     }
 }

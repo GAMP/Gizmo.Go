@@ -36,7 +36,7 @@ namespace Gizmo.Go.Provider.Direct.Services
             return VerificationStartResultMapper.Map(result);
         }
 
-        public Task<> CompleteAsync()
+        public Task CompleteAsync()
         {
             throw new NotImplementedException();
         }

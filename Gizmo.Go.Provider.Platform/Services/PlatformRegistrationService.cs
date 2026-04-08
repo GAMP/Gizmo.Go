@@ -15,7 +15,7 @@ namespace Gizmo.Go.Provider.Platform.Services
             CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
 
-        public Task<> CompleteAsync()
+        public Task CompleteAsync()
         {
             throw new NotImplementedException();
         }

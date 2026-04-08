@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="libphonenumber-csharp" Version="9.0.26" />
+    <PackageReference Include="libphonenumber-csharp" Version="9.0.27" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="10.*" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.*" />
-    <PackageReference Include="Gizmo.UI" Version="1.0.0" />
+    <PackageReference Include="Gizmo.UI" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>

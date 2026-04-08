@@ -7,7 +7,6 @@ using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
 using Gizmo.Go.UI;
 using Gizmo.Go.UI.Providers;
-using Gizmo.Go.Core.Services;
 using Gizmo.Go.Web.Services;
 using Gizmo.UI;
 using Gizmo.UI.Services;
