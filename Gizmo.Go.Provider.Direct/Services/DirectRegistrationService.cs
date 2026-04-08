@@ -35,5 +35,10 @@ namespace Gizmo.Go.Provider.Direct.Services
             var result = await client.StartAsync(model, cancellationToken);
             return VerificationStartResultMapper.Map(result);
         }
+
+        public Task<> CompleteAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

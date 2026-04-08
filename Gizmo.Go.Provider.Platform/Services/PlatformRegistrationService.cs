@@ -14,5 +14,10 @@ namespace Gizmo.Go.Provider.Platform.Services
             RegistrationStartRequest request,
             CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
+
+        public Task<> CompleteAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

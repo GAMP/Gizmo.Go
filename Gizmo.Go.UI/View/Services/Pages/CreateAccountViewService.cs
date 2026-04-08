@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Web;
+using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.Models;
@@ -104,19 +105,36 @@ namespace Gizmo.Go.UI.View.Services.Pages
             return ValueTask.CompletedTask;
         }
 
-        public ValueTask SubmitAsync()
+        public async Task SubmitAsync(CancellationToken cancellationToken = default)
         {
             Validate();
 
             if (ViewState.IsValid != true)
             {
                 ViewState.RaiseChanged();
-                return ValueTask.CompletedTask;
+                return;
             }
 
-            var encodedPhone = Uri.EscapeDataString(ViewState.PhoneE164);
-            _navigationService.NavigateTo($"{NavigationHelper.ConfirmationPage}?phone={encodedPhone}");
-            return ValueTask.CompletedTask;
+            var request = new RegistrationStartRequest
+            {
+                IntegrationPublicId = ViewState.SelectedChannelId,
+                DeliveryMethod = RegistrationDeliveryMethod.CodeDispatch,
+                PhoneNumber = ViewState.PhoneE164
+            };
+
+            RegistrationStartResult result;
+            try
+            {
+                result = await _registrationService.StartAsync(request, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Failed to start SMS registration for provider {ChannelId}.", ViewState.SelectedChannelId);
+                return;
+            }
+
+            var encodedToken = Uri.EscapeDataString(result.Token ?? string.Empty);
+            _navigationService.NavigateTo($"{NavigationHelper.ConfirmationPage}?token={encodedToken}");
         }
 
         public ValueTask NavigateBackAsync()

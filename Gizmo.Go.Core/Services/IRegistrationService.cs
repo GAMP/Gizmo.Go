@@ -12,5 +12,7 @@ namespace Gizmo.Go.Core.Services
         Task<RegistrationStartResult> StartAsync(
             RegistrationStartRequest request,
             CancellationToken cancellationToken = default);
+
+        Task<> CompleteAsync();
     }
 }
