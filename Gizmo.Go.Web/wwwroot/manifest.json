@@ -1,0 +1,9 @@
+{
+  "name": "Gizmo Go",
+  "short_name": "Gizmo Go",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f13",
+  "theme_color": "#0f0f13",
+  "orientation": "portrait"
+}
