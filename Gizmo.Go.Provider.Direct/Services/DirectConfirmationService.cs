@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Gizmo.Go.Provider.Direct.Services;
 
-public class DirectConfirmationService : IConfirmationService
+internal class DirectConfirmationService : IConfirmationService
 {
     private readonly IServiceProvider _serviceProvider;
 

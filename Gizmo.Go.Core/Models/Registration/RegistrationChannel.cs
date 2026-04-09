@@ -1,3 +1,4 @@
+using System;
 using Gizmo;
 
 namespace Gizmo.Go.Core.Models.Registration

@@ -9,18 +9,18 @@ internal static class RegistrationCompleteResultMapper
         {
             Result = resultCode switch
             {
-                AccountCreationByTokenCompleteResultCode.Success => RegistrationCompleteResult.Success,
-                AccountCreationByTokenCompleteResultCode.Failure => RegistrationCompleteResult.Failure,
-                AccountCreationByTokenCompleteResultCode.InvalidToken => RegistrationCompleteResult.InvalidToken,
-                AccountCreationByTokenCompleteResultCode.InvalidTokenInput => RegistrationCompleteResult.InvalidTokenInput,
-                AccountCreationByTokenCompleteResultCode.ExpiredToken => RegistrationCompleteResult.ExpiredToken,
-                AccountCreationByTokenCompleteResultCode.UsedToken => RegistrationCompleteResult.UsedToken,
-                AccountCreationByTokenCompleteResultCode.RevokedToken => RegistrationCompleteResult.RevokedToken,
-                AccountCreationByTokenCompleteResultCode.InvalidVerification => RegistrationCompleteResult.InvalidVerification,
-                AccountCreationByTokenCompleteResultCode.AlreadyVerified => RegistrationCompleteResult.AlreadyVerified,
-                AccountCreationByTokenCompleteResultCode.InvalidInput => RegistrationCompleteResult.InvalidInput,
-                AccountCreationByTokenCompleteResultCode.NoUserGroup => RegistrationCompleteResult.NoUserGroup,
-                _ => RegistrationCompleteResult.Unknown
+                AccountCreationByTokenCompleteResultCode.Success            => RegistrationCompleteResultCode.Success,
+                AccountCreationByTokenCompleteResultCode.Failure            => RegistrationCompleteResultCode.Failure,
+                AccountCreationByTokenCompleteResultCode.InvalidToken       => RegistrationCompleteResultCode.InvalidToken,
+                AccountCreationByTokenCompleteResultCode.InvalidTokenInput  => RegistrationCompleteResultCode.InvalidTokenInput,
+                AccountCreationByTokenCompleteResultCode.ExpiredToken       => RegistrationCompleteResultCode.ExpiredToken,
+                AccountCreationByTokenCompleteResultCode.UsedToken          => RegistrationCompleteResultCode.UsedToken,
+                AccountCreationByTokenCompleteResultCode.RevokedToken       => RegistrationCompleteResultCode.RevokedToken,
+                AccountCreationByTokenCompleteResultCode.InvalidVerification => RegistrationCompleteResultCode.InvalidVerification,
+                AccountCreationByTokenCompleteResultCode.AlreadyVerified    => RegistrationCompleteResultCode.AlreadyVerified,
+                AccountCreationByTokenCompleteResultCode.InvalidInput       => RegistrationCompleteResultCode.InvalidInput,
+                AccountCreationByTokenCompleteResultCode.NoUserGroup        => RegistrationCompleteResultCode.NoUserGroup,
+                _                                                           => RegistrationCompleteResultCode.Unknown
             }
         };
 }

@@ -9,18 +9,18 @@ internal static class TokenConfirmationResultMapper
         {
             Result = resultCode switch
             {
-                VerificationCompleteResultCode.Success => TokenConfirmationResult.Success,
-                VerificationCompleteResultCode.Failure => TokenConfirmationResult.Failure,
-                VerificationCompleteResultCode.InvalidToken => TokenConfirmationResult.InvalidToken,
-                VerificationCompleteResultCode.InvalidTokenInput => TokenConfirmationResult.InvalidTokenInput,
-                VerificationCompleteResultCode.ExpiredToken => TokenConfirmationResult.ExpiredToken,
-                VerificationCompleteResultCode.UsedToken => TokenConfirmationResult.UsedToken,
-                VerificationCompleteResultCode.RevokedToken => TokenConfirmationResult.RevokedToken,
-                VerificationCompleteResultCode.InvalidVerification => TokenConfirmationResult.InvalidVerification,
-                VerificationCompleteResultCode.AlreadyVerified => TokenConfirmationResult.AlreadyVerified,
-                VerificationCompleteResultCode.InvalidConfirmationCode => TokenConfirmationResult.InvalidConfirmationCode,
-                VerificationCompleteResultCode.PartialSuccess => TokenConfirmationResult.PartialSuccess,
-                _ => TokenConfirmationResult.Unknown
+                VerificationCompleteResultCode.Success                => TokenConfirmationResultCode.Success,
+                VerificationCompleteResultCode.Failure                => TokenConfirmationResultCode.Failure,
+                VerificationCompleteResultCode.InvalidToken           => TokenConfirmationResultCode.InvalidToken,
+                VerificationCompleteResultCode.InvalidTokenInput      => TokenConfirmationResultCode.InvalidTokenInput,
+                VerificationCompleteResultCode.ExpiredToken           => TokenConfirmationResultCode.ExpiredToken,
+                VerificationCompleteResultCode.UsedToken              => TokenConfirmationResultCode.UsedToken,
+                VerificationCompleteResultCode.RevokedToken           => TokenConfirmationResultCode.RevokedToken,
+                VerificationCompleteResultCode.InvalidVerification    => TokenConfirmationResultCode.InvalidVerification,
+                VerificationCompleteResultCode.AlreadyVerified        => TokenConfirmationResultCode.AlreadyVerified,
+                VerificationCompleteResultCode.InvalidConfirmationCode => TokenConfirmationResultCode.InvalidConfirmationCode,
+                VerificationCompleteResultCode.PartialSuccess         => TokenConfirmationResultCode.PartialSuccess,
+                _                                                     => TokenConfirmationResultCode.Unknown
             }
         };
 }
