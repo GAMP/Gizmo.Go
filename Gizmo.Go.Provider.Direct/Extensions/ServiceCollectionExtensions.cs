@@ -41,8 +41,7 @@ namespace Gizmo.Go.Provider.Direct.Extensions
             services.AddSecureWebApiClients("GizmoGoDirectSecure", httpClientConfig)
                 .WithMessagePackSerialization()
                 .WithCurrentUICultureMessageHandler();
-
-            //TODO точно ли синглтоны?
+            
             services.AddSingleton<IAuthService, DirectAuthService>();
             services.AddSingleton<IBranchProvider, DirectBranchProvider>();
             services.AddSingleton<IRegistrationService, DirectRegistrationService>();
