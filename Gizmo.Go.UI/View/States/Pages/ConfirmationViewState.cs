@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models.Confirmation;
 using Gizmo.UI.View.States;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,7 +7,11 @@ namespace Gizmo.Go.UI.View.States.Pages
     [Register()]
     public sealed class ConfirmationViewState : ViewStateBase
     {
-        public string Phone { get; internal set; } = string.Empty;
+        public string Token { get; internal set; } = string.Empty;
+
+        public TokenConfirmationResultCode? ErrorCode { get; internal set; }
+
+        public bool IsSubmitting { get; internal set; }
 
         public string[] Digits { get; internal set; } = new string[] { "", "", "", "", "", "" };
 

@@ -1,4 +1,6 @@
 using System.Web;
+using Gizmo.Go.Core.Models.Confirmation;
+using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
@@ -22,14 +24,17 @@ namespace Gizmo.Go.UI.View.Services.Pages
         #region CONSTRUCTOR
 
         private readonly NavigationService _navigationService;
+        private readonly IConfirmationService _confirmationService;
 
         public ConfirmationViewService(
             ConfirmationViewState viewState,
             ILogger<ConfirmationViewService> logger,
             IServiceProvider serviceProvider,
-            NavigationService navigationService) : base(viewState, logger, serviceProvider)
+            NavigationService navigationService,
+            IConfirmationService confirmationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
+            _confirmationService = confirmationService;
         }
 
         #endregion
@@ -56,14 +61,47 @@ namespace Gizmo.Go.UI.View.Services.Pages
             return ValueTask.CompletedTask;
         }
 
-        public ValueTask ConfirmAsync()
+        public async ValueTask ConfirmAsync(CancellationToken cancellationToken = default)
         {
-            if (!ViewState.CanSubmit)
-                return ValueTask.CompletedTask;
+            if (!ViewState.CanSubmit || ViewState.IsSubmitting)
+                return;
 
-            CancelTimer();
-            _navigationService.NavigateTo(NavigationHelper.CreatePasswordPage);
-            return ValueTask.CompletedTask;
+            ViewState.IsSubmitting = true;
+            ViewState.ErrorCode = null;
+            ViewState.RaiseChanged();
+
+            var request = new TokenConfirmationRequest
+            {
+                Token = ViewState.Token,
+                ConfirmationCode = string.Concat(ViewState.Digits)
+            };
+
+            TokenConfirmationResult result;
+            try
+            {
+                result = await _confirmationService.ConfirmAsync(request, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Confirmation request failed.");
+                ViewState.IsSubmitting = false;
+                ViewState.ErrorCode = TokenConfirmationResultCode.Unknown;
+                ViewState.RaiseChanged();
+                return;
+            }
+
+            ViewState.IsSubmitting = false;
+
+            if (result.Result == TokenConfirmationResultCode.Success)
+            {
+                CancelTimer();
+                var encodedToken = Uri.EscapeDataString(ViewState.Token);
+                _navigationService.NavigateTo($"{NavigationHelper.CreatePasswordPage}?token={encodedToken}");
+                return;
+            }
+
+            ViewState.ErrorCode = result.Result;
+            ViewState.RaiseChanged();
         }
 
         public ValueTask NavigateBackAsync()
@@ -89,9 +127,19 @@ namespace Gizmo.Go.UI.View.Services.Pages
             if (!string.IsNullOrEmpty(currentUri))
             {
                 var uri = new Uri(currentUri);
-                var phone = HttpUtility.ParseQueryString(uri.Query).Get("phone");
-                ViewState.Phone = !string.IsNullOrEmpty(phone) ? Uri.UnescapeDataString(phone) : "+7**********";
+                var token = HttpUtility.ParseQueryString(uri.Query).Get("token");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+                    return base.OnNavigatedIn(navigationParameters, cancellationToken);
+                }
+
+                ViewState.Token = Uri.UnescapeDataString(token);
             }
+
+            ViewState.ErrorCode = null;
+            ViewState.IsSubmitting = false;
 
             ViewState.Digits = new string[] { "", "", "", "", "", "" };
             ViewState.RaiseChanged();

@@ -232,6 +232,21 @@
   <data name="GO_CONFIRMATION_BACK" xml:space="preserve">
     <value>Назад</value>
   </data>
+  <data name="GO_CONFIRMATION_ERROR_INVALID_CODE" xml:space="preserve">
+    <value>Неверный код подтверждения.</value>
+  </data>
+  <data name="GO_CONFIRMATION_ERROR_EXPIRED" xml:space="preserve">
+    <value>Срок действия кода истёк. Запросите новый.</value>
+  </data>
+  <data name="GO_CONFIRMATION_ERROR_USED" xml:space="preserve">
+    <value>Код уже был использован.</value>
+  </data>
+  <data name="GO_CONFIRMATION_ERROR_REVOKED" xml:space="preserve">
+    <value>Код недействителен.</value>
+  </data>
+  <data name="GO_CONFIRMATION_ERROR_GENERAL" xml:space="preserve">
+    <value>Произошла ошибка. Попробуйте снова.</value>
+  </data>
   <data name="GO_CREATE_PASSWORD_PAGE_TITLE" xml:space="preserve">
     <value>Создайте пароль - Gizmo Go</value>
   </data>
