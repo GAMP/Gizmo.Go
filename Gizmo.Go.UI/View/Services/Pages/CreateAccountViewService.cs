@@ -117,7 +117,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
             var request = new RegistrationStartRequest
             {
-                IntegrationPublicId = ViewState.SelectedChannelId,
+                IntegrationPublicId = ViewState.IntegrationPublicId,
                 DeliveryMethod = RegistrationDeliveryMethod.CodeDispatch,
                 PhoneNumber = ViewState.PhoneE164
             };
@@ -129,7 +129,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to start SMS registration for provider {ChannelId}.", ViewState.SelectedChannelId);
+                Logger.LogError(ex, "Failed to start SMS registration for provider {IntegrationPublicId}.", ViewState.IntegrationPublicId);
                 return;
             }
 
@@ -159,7 +159,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return;
             }
 
-            ViewState.SelectedChannelId = channelId;
+            ViewState.IntegrationPublicId = channelId;
             
             const int separatorBuffer = 6; //TODO временное решение
             var culture = CultureInfo.CurrentUICulture.Name;
