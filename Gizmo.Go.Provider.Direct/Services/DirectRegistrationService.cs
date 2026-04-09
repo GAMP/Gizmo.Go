@@ -42,12 +42,8 @@ namespace Gizmo.Go.Provider.Direct.Services
             CancellationToken cancellationToken = default)
         {
             var client = _serviceProvider.GetRequiredService<RegistrationsWebApiClient>();
-            var result = await client.CompleteAsync(new RegistrationCompleteModel
-            {
-                Token = request.Token,
-                Profile = null!,
-                Password = null // TODO возможно будет отправляться в конце регистрации
-            }, cancellationToken);
+            var model = RegistrationCompleteRequestMapper.Map(request);
+            var result = await client.CompleteAsync(model, cancellationToken);
             return RegistrationCompleteResultMapper.Map(result);
         }
     }
