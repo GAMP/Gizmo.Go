@@ -3,13 +3,13 @@ using Gizmo.Web.Api.Models;
 
 namespace Gizmo.Go.Provider.Direct.Mappers.Registration;
 
-internal static class VerificationProviderMapper
+internal static class RegistrationProviderMapper
 {
-    public static VerificationProvider Map(VerificationProviderModel model)
+    public static RegistrationProvider Map(VerificationProviderModel model)
     {
         ArgumentNullException.ThrowIfNull(model);
 
-        return new VerificationProvider
+        return new RegistrationProvider
         {
             PublicId = model.PublicId,
             Name = model.Name,

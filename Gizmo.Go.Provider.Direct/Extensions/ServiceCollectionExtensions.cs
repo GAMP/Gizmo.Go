@@ -42,9 +42,11 @@ namespace Gizmo.Go.Provider.Direct.Extensions
                 .WithMessagePackSerialization()
                 .WithCurrentUICultureMessageHandler();
 
+            //TODO точно ли синглтоны?
             services.AddSingleton<IAuthService, DirectAuthService>();
             services.AddSingleton<IBranchProvider, DirectBranchProvider>();
             services.AddSingleton<IRegistrationService, DirectRegistrationService>();
+            services.AddSingleton<IConfirmationService, DirectConfirmationService>(); 
 
             return services;
         }

@@ -7,7 +7,7 @@ namespace Gizmo.Go.UI.View.States.Pages;
 [Register()]
 public sealed class RegistrationProvidersViewState : ViewStateBase
 {
-    public IReadOnlyList<VerificationProvider> Providers { get; internal set; } = [];
+    public IReadOnlyList<RegistrationProvider> Providers { get; internal set; } = [];
     
     public bool IsLoading { get; internal set; }
 }

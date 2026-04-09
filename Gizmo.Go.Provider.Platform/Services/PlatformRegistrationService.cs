@@ -1,12 +1,11 @@
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
-using Gizmo.Web.Api.Models;
 
 namespace Gizmo.Go.Provider.Platform.Services
 {
     internal sealed class PlatformRegistrationService : IRegistrationService
     {
-        public Task<IReadOnlyList<VerificationProvider>> GetProvidersAsync(
+        public Task<IReadOnlyList<RegistrationProvider>> GetProvidersAsync(
             CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
 
@@ -15,9 +14,9 @@ namespace Gizmo.Go.Provider.Platform.Services
             CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
 
-        public Task CompleteAsync()
-        {
+        public Task<RegistrationCompleteResult> CompleteAsync(
+            RegistrationCompleteRequest request,
+            CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
-        }
-    }
+    }   
 }

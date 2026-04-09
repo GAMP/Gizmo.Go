@@ -1,6 +1,6 @@
 namespace Gizmo.Go.Core.Models.Registration;
 
-public sealed class VerificationProvider
+public sealed class RegistrationProvider
 {
     public Guid PublicId { get; init; }
     public string Name { get; init; } = string.Empty;

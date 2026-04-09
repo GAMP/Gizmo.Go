@@ -27,6 +27,7 @@ namespace Gizmo.Go.Provider.Platform.Extensions
             services.AddSingleton<IAuthService, PlatformAuthService>();
             services.AddSingleton<IBranchProvider, PlatformBranchProvider>();
             services.AddSingleton<IRegistrationService, PlatformRegistrationService>();
+            services.AddSingleton<IConfirmationService, PlatformConfirmationService>();
 
             return services;
         }

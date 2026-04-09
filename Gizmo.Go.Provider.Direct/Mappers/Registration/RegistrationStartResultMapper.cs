@@ -3,7 +3,7 @@ using Gizmo.Web.Api.Models;
 
 namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
-    internal static class VerificationStartResultMapper
+    internal static class RegistrationStartResultMapper
     {
         public static RegistrationStartResult Map(VerificationStartResultModel model)
         {
