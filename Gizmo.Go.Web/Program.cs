@@ -6,6 +6,7 @@ using Gizmo.Go.Core.Services;
 using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
 using Gizmo.Go.UI;
+using Gizmo.Go.UI.Services;
 using Gizmo.Go.UI.Providers;
 using Gizmo.Go.Web.Services;
 using Gizmo.UI;
@@ -37,6 +38,7 @@ builder.Services.AddViewServices(uiAssembly);
 
 // token storage
 builder.Services.AddSingleton<ITokenStorageService, LocalStorageTokenStorageService>();
+builder.Services.AddSingleton<IRegistrationSessionService, RegistrationSessionService>();
 
 // external launcher
 builder.Services.AddSingleton<IExternalLauncher, WebExternalLauncher>();

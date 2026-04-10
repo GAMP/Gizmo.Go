@@ -3,6 +3,7 @@ using System.Web;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services;
 using Gizmo.Go.UI.View.Models;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI;
@@ -24,17 +25,20 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         private readonly NavigationService _navigationService;
         private readonly IRegistrationService _registrationService;
+        private readonly IRegistrationSessionService _registrationSession;
 
         public CreateAccountViewService(
             CreateAccountViewState viewState,
             ILogger<CreateAccountViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
-            IRegistrationService registrationService) 
+            IRegistrationService registrationService,
+            IRegistrationSessionService registrationSession)
             : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _registrationService = registrationService;
+            _registrationSession = registrationSession;
         }
 
         #endregion
@@ -133,8 +137,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return;
             }
 
-            var encodedToken = Uri.EscapeDataString(result.Token ?? string.Empty);
-            _navigationService.NavigateTo($"{NavigationHelper.ConfirmationPage}?token={encodedToken}");
+            _registrationSession.SetToken(result.Token ?? string.Empty);
+            _navigationService.NavigateTo(NavigationHelper.ConfirmationPage);
         }
 
         public ValueTask NavigateBackAsync()

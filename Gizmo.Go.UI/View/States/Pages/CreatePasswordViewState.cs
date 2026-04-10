@@ -23,5 +23,7 @@ namespace Gizmo.Go.UI.View.States.Pages
         public bool Mismatch => Confirm.Length > 0 && Password != Confirm;
 
         public bool CanSubmit => AllRequirementsMet && Password == Confirm && Confirm.Length > 0;
+
+        public bool IsSubmitting { get; internal set; }
     }
 }

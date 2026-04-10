@@ -1,4 +1,5 @@
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services;
 using Gizmo.Go.UI.View.States;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
@@ -16,14 +17,17 @@ namespace Gizmo.Go.UI.View.Services.Pages
         #region CONSTRUCTOR
 
         private readonly NavigationService _navigationService;
+        private readonly IRegistrationSessionService _registrationSession;
 
         public CreatePasswordViewService(
             CreatePasswordViewState viewState,
             ILogger<CreatePasswordViewService> logger,
             IServiceProvider serviceProvider,
-            NavigationService navigationService) : base(viewState, logger, serviceProvider)
+            NavigationService navigationService,
+            IRegistrationSessionService registrationSession) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
+            _registrationSession = registrationSession;
         }
 
         #endregion
@@ -46,10 +50,18 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public ValueTask SubmitAsync()
         {
-            if (!ViewState.CanSubmit)
+            if (!ViewState.CanSubmit || ViewState.IsSubmitting)
                 return ValueTask.CompletedTask;
 
-            _navigationService.NavigateTo(NavigationHelper.WelcomePage);
+            ViewState.IsSubmitting = true;
+            ViewState.RaiseChanged();
+
+            _registrationSession.SetPassword(ViewState.Password);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationProfilePage);
+
+            ViewState.IsSubmitting = false;
+            ViewState.RaiseChanged();
+
             return ValueTask.CompletedTask;
         }
 
@@ -65,9 +77,17 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
+            if (!_registrationSession.HasToken)
+            {
+                _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+                return base.OnNavigatedIn(navigationParameters, cancellationToken);
+            }
+
+            ViewState.IsSubmitting = false;
             ViewState.Password = string.Empty;
             ViewState.Confirm = string.Empty;
             ViewState.RaiseChanged();
+
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
 

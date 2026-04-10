@@ -1,7 +1,7 @@
-using System.Web;
 using Gizmo.Go.Core.Models.Confirmation;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -25,16 +25,19 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         private readonly NavigationService _navigationService;
         private readonly IConfirmationService _confirmationService;
+        private readonly IRegistrationSessionService _registrationSession;
 
         public ConfirmationViewService(
             ConfirmationViewState viewState,
             ILogger<ConfirmationViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
-            IConfirmationService confirmationService) : base(viewState, logger, serviceProvider)
+            IConfirmationService confirmationService,
+            IRegistrationSessionService registrationSession) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _confirmationService = confirmationService;
+            _registrationSession = registrationSession;
         }
 
         #endregion
@@ -95,8 +98,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             if (result.Result == TokenConfirmationResultCode.Success)
             {
                 CancelTimer();
-                var encodedToken = Uri.EscapeDataString(ViewState.Token);
-                _navigationService.NavigateTo($"{NavigationHelper.CreatePasswordPage}?token={encodedToken}");
+                _navigationService.NavigateTo(NavigationHelper.CreatePasswordPage);
                 return;
             }
 
@@ -123,24 +125,15 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
-            var currentUri = _navigationService.GetUri();
-            if (!string.IsNullOrEmpty(currentUri))
+            if (!_registrationSession.HasToken)
             {
-                var uri = new Uri(currentUri);
-                var token = HttpUtility.ParseQueryString(uri.Query).Get("token");
-
-                if (string.IsNullOrEmpty(token))
-                {
-                    _navigationService.NavigateTo(NavigationHelper.CreateAccount);
-                    return base.OnNavigatedIn(navigationParameters, cancellationToken);
-                }
-
-                ViewState.Token = Uri.UnescapeDataString(token);
+                _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+                return base.OnNavigatedIn(navigationParameters, cancellationToken);
             }
 
+            ViewState.Token = _registrationSession.Token;
             ViewState.ErrorCode = null;
             ViewState.IsSubmitting = false;
-
             ViewState.Digits = new string[] { "", "", "", "", "", "" };
             ViewState.RaiseChanged();
 
