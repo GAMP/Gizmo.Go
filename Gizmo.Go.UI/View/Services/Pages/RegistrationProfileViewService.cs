@@ -170,7 +170,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         {
             if (!_registrationSession.HasSession)
             {
-                _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+                _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
                 return base.OnNavigatedIn(navigationParameters, cancellationToken);
             }
 

@@ -21,9 +21,9 @@
 // -- Pages --
 @use 'pages/welcome';
 @use 'pages/login';
-@use 'pages/create-account';
-@use 'pages/confirmation';
-@use 'pages/create-password';
+@use 'pages/registration-phone';
+@use 'pages/registration-confirmation';
+@use 'pages/registration-password';
 
 // -- Utilities (last, for overrides) --
 @use 'utilities/utilities';

@@ -9,15 +9,15 @@ using Microsoft.JSInterop;
 
 namespace Gizmo.Go.UI.Pages
 {
-    public partial class Confirmation : ComponentBase, IDisposable
+    public partial class RegistrationConfirmation : ComponentBase, IDisposable
     {
         #region PROPERTIES
 
         [Inject]
-        private ConfirmationViewState ConfirmationViewState { get; set; } = null!;
+        private RegistrationConfirmationViewState RegistrationConfirmationViewState { get; set; } = null!;
 
         [Inject]
-        private ConfirmationViewService ConfirmationViewService { get; set; } = null!;
+        private RegistrationConfirmationViewService RegistrationConfirmationViewService { get; set; } = null!;
 
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Gizmo.Go.UI.Pages
 
         protected override void OnInitialized()
         {
-            this.SubscribeChange(ConfirmationViewState);
+            this.SubscribeChange(RegistrationConfirmationViewState);
             base.OnInitialized();
         }
 
@@ -44,14 +44,14 @@ namespace Gizmo.Go.UI.Pages
 
         public void Dispose()
         {
-            this.UnsubscribeChange(ConfirmationViewState);
+            this.UnsubscribeChange(RegistrationConfirmationViewState);
         }
 
         private async Task OnDigitInput(int index, ChangeEventArgs e)
         {
-            await ConfirmationViewService.SetDigitAsync(index, e.Value?.ToString() ?? string.Empty);
+            await RegistrationConfirmationViewService.SetDigitAsync(index, e.Value?.ToString() ?? string.Empty);
 
-            if (ConfirmationViewState.Digits[index].Length == 1 && index < 5)
+            if (RegistrationConfirmationViewState.Digits[index].Length == 1 && index < 5)
             {
                 await Task.Yield();
                 await SafeFocusAsync(_inputRefs[index + 1]);
@@ -60,19 +60,19 @@ namespace Gizmo.Go.UI.Pages
 
         private async Task OnDigitKeyDown(int index, KeyboardEventArgs e)
         {
-            if (e.Key == "Backspace" && ConfirmationViewState.Digits[index].Length == 0 && index > 0)
+            if (e.Key == "Backspace" && RegistrationConfirmationViewState.Digits[index].Length == 0 && index > 0)
             {
-                await ConfirmationViewService.ClearDigitAsync(index - 1);
+                await RegistrationConfirmationViewService.ClearDigitAsync(index - 1);
                 await Task.Yield();
                 await SafeFocusAsync(_inputRefs[index - 1]);
             }
         }
 
-        private async Task ConfirmAsync() => await ConfirmationViewService.ConfirmAsync();
+        private async Task ConfirmAsync() => await RegistrationConfirmationViewService.ConfirmAsync();
 
-        private async Task NavigateBack() => await ConfirmationViewService.NavigateBackAsync();
+        private async Task NavigateBack() => await RegistrationConfirmationViewService.NavigateBackAsync();
 
-        private async Task RestartTimer() => await ConfirmationViewService.RestartTimerAsync();
+        private async Task RestartTimer() => await RegistrationConfirmationViewService.RestartTimerAsync();
 
         private string GetErrorMessage(TokenConfirmationResultCode code) =>
             LocalizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(code));

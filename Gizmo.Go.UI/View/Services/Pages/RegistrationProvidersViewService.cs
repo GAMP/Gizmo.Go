@@ -46,7 +46,7 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
 
         if (provider is { CanDispatchCode: true, CanRedirect: false })
         {
-            _navigationService.NavigateTo($"{NavigationHelper.CreateAccount}?provider={provider.PublicId}");
+            _navigationService.NavigateTo($"{NavigationHelper.RegistrationPhone}?provider={provider.PublicId}");
             return;
         }
 

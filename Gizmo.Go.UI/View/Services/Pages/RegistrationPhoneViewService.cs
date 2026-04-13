@@ -18,8 +18,8 @@ using PhoneNumbers;
 namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
-    [Route(NavigationHelper.CreateAccount)]
-    public sealed class CreateAccountViewService : ValidatingViewStateServiceBase<CreateAccountViewState>
+    [Route(NavigationHelper.RegistrationPhone)]
+    public sealed class RegistrationPhoneViewService : ValidatingViewStateServiceBase<RegistrationPhoneViewState>
     {
         #region CONSTRUCTOR
 
@@ -27,9 +27,9 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly IRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
 
-        public CreateAccountViewService(
-            CreateAccountViewState viewState,
-            ILogger<CreateAccountViewService> logger,
+        public RegistrationPhoneViewService(
+            RegistrationPhoneViewState viewState,
+            ILogger<RegistrationPhoneViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
             IRegistrationService registrationService,
@@ -137,8 +137,14 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return;
             }
 
-            _registrationSession.SetToken(result.Token ?? string.Empty);
-            _navigationService.NavigateTo(NavigationHelper.ConfirmationPage);
+            if (result.Result != RegistrationStartResultCode.Success || string.IsNullOrEmpty(result.Token))
+            {
+                Logger.LogWarning("Registration start failed with result {Result}.", result.Result);
+                return;
+            }
+
+            _registrationSession.SetToken(result.Token);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationConfirmationPage);
         }
 
         public ValueTask NavigateBackAsync()
@@ -195,9 +201,9 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         protected override void OnValidate(FieldIdentifier fieldIdentifier, ValidationTrigger trigger)
         {
-            if (fieldIdentifier.FieldName 
-                is nameof(CreateAccountViewState.PhoneInput) 
-                or nameof(CreateAccountViewState.SelectedCountryIso2))
+            if (fieldIdentifier.FieldName
+                is nameof(RegistrationPhoneViewState.PhoneInput)
+                or nameof(RegistrationPhoneViewState.SelectedCountryIso2))
             {
                 ClearError(() => ViewState.PhoneInput);
 
@@ -219,7 +225,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 }
             }
 
-            if (fieldIdentifier.FieldName == nameof(CreateAccountViewState.TermsAccepted))
+            if (fieldIdentifier.FieldName == nameof(RegistrationPhoneViewState.TermsAccepted))
             {
                 ClearError(() => ViewState.TermsAccepted);
 

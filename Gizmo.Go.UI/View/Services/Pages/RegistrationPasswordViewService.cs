@@ -11,17 +11,17 @@ using Microsoft.Extensions.Logging;
 namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
-    [Route(NavigationHelper.CreatePasswordPage)]
-    public sealed class CreatePasswordViewService : ViewStateServiceBase<CreatePasswordViewState>
+    [Route(NavigationHelper.RegistrationPasswordPage)]
+    public sealed class RegistrationPasswordViewService : ViewStateServiceBase<RegistrationPasswordViewState>
     {
         #region CONSTRUCTOR
 
         private readonly NavigationService _navigationService;
         private readonly IRegistrationSessionService _registrationSession;
 
-        public CreatePasswordViewService(
-            CreatePasswordViewState viewState,
-            ILogger<CreatePasswordViewService> logger,
+        public RegistrationPasswordViewService(
+            RegistrationPasswordViewState viewState,
+            ILogger<RegistrationPasswordViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
             IRegistrationSessionService registrationSession) : base(viewState, logger, serviceProvider)
@@ -67,7 +67,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public ValueTask NavigateBackAsync()
         {
-            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
             return ValueTask.CompletedTask;
         }
 
@@ -79,7 +79,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         {
             if (!_registrationSession.HasToken)
             {
-                _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+                _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
                 return base.OnNavigatedIn(navigationParameters, cancellationToken);
             }
 

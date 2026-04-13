@@ -93,7 +93,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public ValueTask NavigateToCreateAccountAsync()
         {
-            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
             return ValueTask.CompletedTask;
         }
 

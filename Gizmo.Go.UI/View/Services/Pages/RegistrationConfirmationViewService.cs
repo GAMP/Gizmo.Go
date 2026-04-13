@@ -12,8 +12,8 @@ using Microsoft.Extensions.Logging;
 namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
-    [Route(NavigationHelper.ConfirmationPage)]
-    public sealed class ConfirmationViewService : ViewStateServiceBase<ConfirmationViewState>
+    [Route(NavigationHelper.RegistrationConfirmationPage)]
+    public sealed class RegistrationConfirmationViewService : ViewStateServiceBase<RegistrationConfirmationViewState>
     {
         #region FIELDS
 
@@ -27,9 +27,9 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly IConfirmationService _confirmationService;
         private readonly IRegistrationSessionService _registrationSession;
 
-        public ConfirmationViewService(
-            ConfirmationViewState viewState,
-            ILogger<ConfirmationViewService> logger,
+        public RegistrationConfirmationViewService(
+            RegistrationConfirmationViewState viewState,
+            ILogger<RegistrationConfirmationViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
             IConfirmationService confirmationService,
@@ -98,7 +98,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             if (result.Result == TokenConfirmationResultCode.Success)
             {
                 CancelTimer();
-                _navigationService.NavigateTo(NavigationHelper.CreatePasswordPage);
+                _navigationService.NavigateTo(NavigationHelper.RegistrationPasswordPage);
                 return;
             }
 
@@ -109,7 +109,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         public ValueTask NavigateBackAsync()
         {
             CancelTimer();
-            _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
             return ValueTask.CompletedTask;
         }
 
@@ -127,7 +127,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         {
             if (!_registrationSession.HasToken)
             {
-                _navigationService.NavigateTo(NavigationHelper.CreateAccount);
+                _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
                 return base.OnNavigatedIn(navigationParameters, cancellationToken);
             }
 
