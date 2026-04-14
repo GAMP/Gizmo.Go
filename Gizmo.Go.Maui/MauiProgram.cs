@@ -8,7 +8,7 @@ using Gizmo.Go.Maui.Services;
 using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
 using Gizmo.Go.UI.Providers;
-using Gizmo.Go.UI.Services;
+using Gizmo.Go.UI.Extensions;
 using Gizmo.UI;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -61,8 +61,7 @@ namespace Gizmo.Go.Maui
 
             // token storage (MAUI SecureStorage)
             builder.Services.AddSingleton<ITokenStorageService, SecureStorageTokenStorageService>();
-            builder.Services.AddSingleton<IRegistrationSessionService, RegistrationSessionService>();
-            builder.Services.AddSingleton<IPhoneValidationService, PhoneValidationService>();
+            builder.Services.AddGizmoGoUI();
 
             // external launcher
             builder.Services.AddSingleton<IExternalLauncher, MauiExternalLauncher>();
