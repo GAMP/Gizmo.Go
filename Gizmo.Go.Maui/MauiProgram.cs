@@ -62,6 +62,7 @@ namespace Gizmo.Go.Maui
             // token storage (MAUI SecureStorage)
             builder.Services.AddSingleton<ITokenStorageService, SecureStorageTokenStorageService>();
             builder.Services.AddSingleton<IRegistrationSessionService, RegistrationSessionService>();
+            builder.Services.AddSingleton<IPhoneValidationService, PhoneValidationService>();
 
             // external launcher
             builder.Services.AddSingleton<IExternalLauncher, MauiExternalLauncher>();

@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PhoneNumbers;
 
 namespace Gizmo.Go.UI.View.Services.Pages
 {
@@ -26,6 +25,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly NavigationService _navigationService;
         private readonly IRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
+        private readonly IPhoneValidationService _phoneValidationService;
 
         public RegistrationPhoneViewService(
             RegistrationPhoneViewState viewState,
@@ -33,12 +33,14 @@ namespace Gizmo.Go.UI.View.Services.Pages
             IServiceProvider serviceProvider,
             NavigationService navigationService,
             IRegistrationService registrationService,
-            IRegistrationSessionService registrationSession)
+            IRegistrationSessionService registrationSession,
+            IPhoneValidationService phoneValidationService)
             : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _registrationService = registrationService;
             _registrationSession = registrationSession;
+            _phoneValidationService = phoneValidationService;
         }
 
         #endregion
@@ -49,53 +51,26 @@ namespace Gizmo.Go.UI.View.Services.Pages
         {
             var country = PhoneCountryList.FindByIso2(countryIso2);
 
-            var e164 = string.Empty;
-            var formattedLocal = string.Empty;
+            var result = !string.IsNullOrWhiteSpace(phoneInput) && country is not null
+                ? _phoneValidationService.Validate(phoneInput, country.Iso2)
+                : PhoneValidationResult.Invalid;
 
-            if (!string.IsNullOrWhiteSpace(phoneInput) && country is not null)
-            {
-                var util = PhoneNumberUtil.GetInstance();
-                try
-                {
-                    var parsed = util.Parse(phoneInput, country.Iso2.ToUpperInvariant());
-
-                    if (util.IsValidNumber(parsed))
-                    {
-                        e164 = util.Format(parsed, PhoneNumberFormat.E164);
-                        formattedLocal = FormatNationalLocal(parsed, country.Iso2);
-                    }
-                }
-                catch (NumberParseException)
-                {
-                    //TODO подумать о бизнес ошибках
-                }
-            }
+            var maxDigits = country is not null
+                ? _phoneValidationService.GetMaxLength(country.Iso2)
+                : 15;
 
             const int separatorBuffer = 6; //TODO временное решение
-            var maxDigits = 15;
 
-            if (country is not null)
-            {
-                var metaUtil = PhoneNumberUtil.GetInstance();
-                var metaData = metaUtil.GetMetadataForRegion(country.Iso2.ToUpperInvariant());
-
-                if (metaData?.GeneralDesc.PossibleLengthList.Count > 0)
-                {
-                    maxDigits = metaData.GeneralDesc.PossibleLengthList.Max();
-                }
-            }
-            
             ViewState.PhoneInput = phoneInput;
-            ViewState.PhoneE164 = e164;
-            ViewState.FormattedPhoneInput = formattedLocal;
+            ViewState.PhoneE164 = result.E164;
+            ViewState.FormattedPhoneInput = result.FormattedNational;
             ViewState.SelectedCountryIso2 = country?.Iso2 ?? string.Empty;
             ViewState.SelectedCountryName = country?.Name ?? string.Empty;
             ViewState.SelectedDialCode = country?.DialCode ?? string.Empty;
             ViewState.SelectedCountryPlaceholder = country?.Placeholder ?? string.Empty;
             ViewState.PhoneLength = maxDigits + separatorBuffer;
-            
+
             ValidateProperty(() => ViewState.PhoneInput);
-            
             ViewState.RaiseChanged();
 
             return ValueTask.CompletedTask;
@@ -176,12 +151,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             var parts = culture.Split('-');
             var defaultIso2 = parts.Length > 1 ? parts[^1] : "US";
             var defaultCountry = PhoneCountryList.FindByIso2(defaultIso2);
-            
-            var navUtil = PhoneNumberUtil.GetInstance();
-            var navMetadata = defaultCountry is not null
-                ? navUtil.GetMetadataForRegion(defaultCountry.Iso2.ToUpperInvariant())
-                : null;
-            
+
             ViewState.PhoneInput = string.Empty;
             ViewState.PhoneE164 = string.Empty;
             ViewState.FormattedPhoneInput = string.Empty;
@@ -189,9 +159,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.SelectedCountryName = defaultCountry?.Name ?? string.Empty;
             ViewState.SelectedDialCode = defaultCountry?.DialCode ?? string.Empty;
             ViewState.SelectedCountryPlaceholder = defaultCountry?.Placeholder ?? string.Empty;
-            ViewState.PhoneLength = navMetadata?.GeneralDesc.PossibleLengthList.Count > 0
-                ? navMetadata.GeneralDesc.PossibleLengthList.Max() + separatorBuffer
-                : 15 + separatorBuffer;
+            ViewState.PhoneLength = _phoneValidationService.GetMaxLength(defaultIso2) + separatorBuffer;
             ViewState.TermsAccepted = false;
             
             ViewState.RaiseChanged();
@@ -236,24 +204,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
             }
         }
         
-        #endregion
-
-        #region HELPERS
-
-        private static string FormatNationalLocal(PhoneNumber parsed, string iso2)
-        {
-            var util = PhoneNumberUtil.GetInstance();
-            var national = util.Format(parsed, PhoneNumberFormat.NATIONAL);
-            var ndd = util.GetNddPrefixForRegion(iso2.ToUpperInvariant(), true);
-
-            if (!string.IsNullOrEmpty(ndd) && national.StartsWith(ndd))
-            {
-                national = national[ndd.Length..].TrimStart();
-            }
-
-            return national;
-        }
-
         #endregion
     }
 }

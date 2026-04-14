@@ -56,20 +56,21 @@
                         </label>
                         <div class="auth-field__input-wrap @(HasErrors(() => RegistrationPhoneViewState.PhoneInput) ? "auth-field__input-wrap--invalid" : "")">
 
-                            @if (!string.IsNullOrEmpty(RegistrationPhoneViewState.SelectedCountryIso2))
-                            {
-                                <span class="auth-field__prefix">@RegistrationPhoneViewState.SelectedDialCode</span>
-                                <input
-                                    id="phone"
-                                    type="tel"
-                                    class="auth-field__input"
-                                    autocomplete="tel"
-                                    value="@_phoneInputValue"
-                                    placeholder="@RegistrationPhoneViewState.SelectedCountryPlaceholder"
-                                    maxlength="@RegistrationPhoneViewState.PhoneLength"
-                                    @oninput="OnPhoneInputAsync"
-                                    @onchange="OnPhoneFormattedAsync" />
-                            }
+                            <span class="auth-field__prefix"
+                                  style="@(string.IsNullOrEmpty(RegistrationPhoneViewState.SelectedCountryIso2) ? "visibility:hidden" : "")">
+                                @RegistrationPhoneViewState.SelectedDialCode
+                            </span>
+                            <input
+                                id="phone"
+                                type="tel"
+                                class="auth-field__input"
+                                autocomplete="tel"
+                                disabled="@(string.IsNullOrEmpty(RegistrationPhoneViewState.SelectedCountryIso2))"
+                                value="@_phoneInputValue"
+                                placeholder="@RegistrationPhoneViewState.SelectedCountryPlaceholder"
+                                maxlength="@RegistrationPhoneViewState.PhoneLength"
+                                @oninput="OnPhoneInputAsync"
+                                @onchange="OnPhoneFormattedAsync" />
 
                         </div>
                         <ValidationMessage For="@(() => RegistrationPhoneViewState.PhoneInput)" />

@@ -7,6 +7,7 @@ namespace Gizmo.Go.UI.View.Models;
 public static class PhoneCountryList
 {
     private static readonly Lazy<IReadOnlyList<PhoneCountry>> _countries = new(Build);
+    private static readonly PhoneNumberUtil _util = PhoneNumberUtil.GetInstance();
 
     public static IReadOnlyList<PhoneCountry> All => _countries.Value;
 
@@ -15,14 +16,12 @@ public static class PhoneCountryList
 
     private static IReadOnlyList<PhoneCountry> Build()
     {
-        var util = PhoneNumberUtil.GetInstance();
-
-        return util.GetSupportedRegions()
+        return _util.GetSupportedRegions()
             .Select(iso2 => new PhoneCountry
             {
                 Iso2 = iso2,
                 Name = GetDisplayName(iso2),
-                DialCode = "+" + util.GetCountryCodeForRegion(iso2),
+                DialCode = "+" + _util.GetCountryCodeForRegion(iso2),
                 Flag = GetFlagEmoji(iso2),
                 Placeholder = GetPlaceHolder(iso2)
             })
@@ -56,10 +55,9 @@ public static class PhoneCountryList
     {
         try
         {
-            var util = PhoneNumberUtil.GetInstance();
-            var example = util.GetExampleNumber(iso2);
-            var formatted = util.Format(example, PhoneNumberFormat.NATIONAL);
-            var ndd = util.GetNddPrefixForRegion(iso2, true);
+            var example = _util.GetExampleNumber(iso2);
+            var formatted = _util.Format(example, PhoneNumberFormat.NATIONAL);
+            var ndd = _util.GetNddPrefixForRegion(iso2, true);
 
             if (!string.IsNullOrEmpty(ndd) && formatted.StartsWith(ndd))
             {

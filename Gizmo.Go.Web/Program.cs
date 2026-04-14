@@ -39,6 +39,7 @@ builder.Services.AddViewServices(uiAssembly);
 // token storage
 builder.Services.AddSingleton<ITokenStorageService, LocalStorageTokenStorageService>();
 builder.Services.AddSingleton<IRegistrationSessionService, RegistrationSessionService>();
+builder.Services.AddSingleton<IPhoneValidationService, PhoneValidationService>();
 
 // external launcher
 builder.Services.AddSingleton<IExternalLauncher, WebExternalLauncher>();
