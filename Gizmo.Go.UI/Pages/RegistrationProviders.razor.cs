@@ -1,5 +1,6 @@
 using Gizmo.Go.UI.View.Services.Pages;
 using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace Gizmo.Go.UI.Pages;
@@ -11,6 +12,8 @@ public partial class RegistrationProviders : ComponentBase, IDisposable
     [Inject] private RegistrationProvidersViewState RegistrationProvidersViewState { get; set; } = null!;
 
     [Inject] private RegistrationProvidersViewService RegistrationProvidersViewService { get; set; } = null!;
+
+    [Inject] private ILocalizationService LocalizationService { get; set; } = null!;
 
     #endregion
 

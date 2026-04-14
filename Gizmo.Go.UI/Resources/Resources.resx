@@ -385,4 +385,22 @@
   <data name="GO_CREATE_PASSWORD_SUBMIT" xml:space="preserve">
     <value>Создать аккаунт</value>
   </data>
+  <data name="GO_REGISTRATION_PROVIDERS_PAGE_TITLE" xml:space="preserve">
+    <value>Провайдеры - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_BACK" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_LOADING" xml:space="preserve">
+    <value>Загрузка...</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_EMPTY" xml:space="preserve">
+    <value>Нет доступных методов регистрации.</value>
+  </data>
+  <data name="GO_EYE_TOGGLE_SHOW" xml:space="preserve">
+    <value>Показать пароль</value>
+  </data>
+  <data name="GO_EYE_TOGGLE_HIDE" xml:space="preserve">
+    <value>Скрыть пароль</value>
+  </data>
 </root>
