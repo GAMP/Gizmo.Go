@@ -13,7 +13,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
 {
     [Register()]
     [Route(NavigationHelper.RegistrationProfilePage)]
-    public sealed class RegistrationProfileViewService : ViewStateServiceBase<RegistrationProfileViewState>
+    public sealed class RegistrationProfileViewService : ValidatingViewStateServiceBase<RegistrationProfileViewState>
     {
         #region CONSTRUCTOR
 
@@ -41,7 +41,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         public ValueTask SetUsernameAsync(string value)
         {
             ViewState.Username = value;
-            ViewState.RaiseChanged();
+            ValidateProperty(() => ViewState.Username);
             return ValueTask.CompletedTask;
         }
 
@@ -124,7 +124,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public async ValueTask SubmitAsync(CancellationToken cancellationToken = default)
         {
-            if (!ViewState.CanSubmit || ViewState.IsSubmitting)
+            Validate();
+            if (ViewState.IsValid != true || ViewState.IsSubmitting)
                 return;
 
             ViewState.IsSubmitting = true;

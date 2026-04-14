@@ -247,6 +247,102 @@
   <data name="GO_CONFIRMATION_ERROR_GENERAL" xml:space="preserve">
     <value>Произошла ошибка. Попробуйте снова.</value>
   </data>
+  <data name="GO_REGISTRATION_COMPLETE_ERROR_INVALID_TOKEN" xml:space="preserve">
+    <value>Недействительный токен. Начните регистрацию заново.</value>
+  </data>
+  <data name="GO_REGISTRATION_COMPLETE_ERROR_EXPIRED_TOKEN" xml:space="preserve">
+    <value>Срок действия токена истёк. Начните регистрацию заново.</value>
+  </data>
+  <data name="GO_REGISTRATION_COMPLETE_ERROR_USED_TOKEN" xml:space="preserve">
+    <value>Токен уже был использован.</value>
+  </data>
+  <data name="GO_REGISTRATION_COMPLETE_ERROR_REVOKED_TOKEN" xml:space="preserve">
+    <value>Токен недействителен.</value>
+  </data>
+  <data name="GO_REGISTRATION_COMPLETE_ERROR_GENERAL" xml:space="preserve">
+    <value>Произошла ошибка. Попробуйте снова.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Профиль - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_HEADING" xml:space="preserve">
+    <value>Заполните профиль</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBTITLE" xml:space="preserve">
+    <value>Укажите данные для вашего аккаунта.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_LABEL" xml:space="preserve">
+    <value>Никнейм *</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>Введите никнейм</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_LABEL" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>Введите email</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_LABEL" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Введите имя</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_LABEL" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Введите фамилию</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_LABEL" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_LABEL" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_PLACEHOLDER" xml:space="preserve">
+    <value>Введите адрес</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_LABEL" xml:space="preserve">
+    <value>Город</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_PLACEHOLDER" xml:space="preserve">
+    <value>Введите город</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_LABEL" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_PLACEHOLDER" xml:space="preserve">
+    <value>Введите страну</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_LABEL" xml:space="preserve">
+    <value>Почтовый индекс</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_PLACEHOLDER" xml:space="preserve">
+    <value>Введите индекс</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PHONE_LABEL" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_MOBILE_PHONE_LABEL" xml:space="preserve">
+    <value>Мобильный телефон</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_LABEL" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>Не указан</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_MALE" xml:space="preserve">
+    <value>Мужской</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_FEMALE" xml:space="preserve">
+    <value>Женский</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBMIT" xml:space="preserve">
+    <value>Завершить регистрацию</value>
+  </data>
   <data name="GO_CREATE_PASSWORD_PAGE_TITLE" xml:space="preserve">
     <value>Создайте пароль - Gizmo Go</value>
   </data>

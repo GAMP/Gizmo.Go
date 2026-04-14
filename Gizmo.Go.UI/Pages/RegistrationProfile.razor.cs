@@ -2,6 +2,7 @@ using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.Services.Pages;
 using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace Gizmo.Go.UI.Pages
@@ -15,6 +16,9 @@ namespace Gizmo.Go.UI.Pages
 
         [Inject]
         private RegistrationProfileViewService RegistrationProfileViewService { get; set; } = null!;
+
+        [Inject]
+        private ILocalizationService LocalizationService { get; set; } = null!;
 
         #endregion
 
@@ -81,8 +85,8 @@ namespace Gizmo.Go.UI.Pages
         private async Task SubmitAsync() =>
             await RegistrationProfileViewService.SubmitAsync();
 
-        private static string GetErrorMessage(RegistrationCompleteResultCode code) =>
-            RegistrationCompleteErrorHelper.GetErrorMessage(code);
+        private string GetErrorMessage(RegistrationCompleteResultCode code) =>
+            LocalizationService.GetString(RegistrationCompleteErrorHelper.GetLocalizationKey(code));
 
         #endregion
     }
