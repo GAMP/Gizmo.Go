@@ -20,6 +20,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly NavigationService _navigationService;
         private readonly IRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
+        private readonly ILocalizationService _localizationService;
 
         public RegistrationProfileViewService(
             RegistrationProfileViewState viewState,
@@ -27,11 +28,13 @@ namespace Gizmo.Go.UI.View.Services.Pages
             IServiceProvider serviceProvider,
             NavigationService navigationService,
             IRegistrationService registrationService,
-            IRegistrationSessionService registrationSession) : base(viewState, logger, serviceProvider)
+            IRegistrationSessionService registrationSession,
+            ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _registrationService = registrationService;
             _registrationSession = registrationSession;
+            _localizationService = localizationService;
         }
 
         #endregion
@@ -129,7 +132,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return;
 
             ViewState.IsSubmitting = true;
-            ViewState.ErrorCode = null;
+            ViewState.ErrorMessage = null;
             ViewState.RaiseChanged();
 
             RegistrationCompleteResult result;
@@ -145,7 +148,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Registration complete request failed.");
-                ViewState.ErrorCode = RegistrationCompleteResultCode.Unknown;
+                ViewState.ErrorMessage = _localizationService.GetString(RegistrationCompleteErrorHelper.GetLocalizationKey(RegistrationCompleteResultCode.Unknown));
                 ViewState.IsSubmitting = false;
                 ViewState.RaiseChanged();
                 return;
@@ -158,7 +161,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return;
             }
 
-            ViewState.ErrorCode = result.Result;
+            ViewState.ErrorMessage = _localizationService.GetString(RegistrationCompleteErrorHelper.GetLocalizationKey(result.Result));
             ViewState.IsSubmitting = false;
             ViewState.RaiseChanged();
         }
@@ -188,7 +191,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.MobilePhone = string.Empty;
             ViewState.Sex = UserSex.Unspecified;
             ViewState.IsSubmitting = false;
-            ViewState.ErrorCode = null;
+            ViewState.ErrorMessage = null;
             ViewState.RaiseChanged();
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);

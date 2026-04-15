@@ -1,5 +1,4 @@
 using Gizmo.Go.Core.Models.Registration;
-using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.Services.Pages;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
@@ -84,9 +83,6 @@ namespace Gizmo.Go.UI.Pages
 
         private async Task SubmitAsync() =>
             await RegistrationProfileViewService.SubmitAsync();
-
-        private string GetErrorMessage(RegistrationCompleteResultCode code) =>
-            LocalizationService.GetString(RegistrationCompleteErrorHelper.GetLocalizationKey(code));
 
         #endregion
     }

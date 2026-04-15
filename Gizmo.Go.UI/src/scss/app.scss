@@ -25,5 +25,8 @@
 @use 'pages/registration-confirmation';
 @use 'pages/registration-password';
 
+// -- Components --
+@use 'components/error-block';
+
 // -- Utilities (last, for overrides) --
 @use 'utilities/utilities';

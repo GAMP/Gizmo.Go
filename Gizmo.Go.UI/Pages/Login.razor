@@ -95,12 +95,7 @@
 
                 </div>
 
-                @if (!string.IsNullOrEmpty(LoginViewState.ErrorMessage))
-                {
-                    <div class="login-error">
-                        @LoginViewState.ErrorMessage
-                    </div>
-                }
+                <ErrorBlock Message="@LoginViewState.ErrorMessage" />
 
                 <button type="button"
                         class="auth-submit"

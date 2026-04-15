@@ -1,5 +1,3 @@
-using Gizmo.Go.Core.Models.Confirmation;
-using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.Services.Pages;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
@@ -73,9 +71,6 @@ namespace Gizmo.Go.UI.Pages
         private async Task NavigateBack() => await RegistrationConfirmationViewService.NavigateBackAsync();
 
         private async Task RestartTimer() => await RegistrationConfirmationViewService.RestartTimerAsync();
-
-        private string GetErrorMessage(TokenConfirmationResultCode code) =>
-            LocalizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(code));
 
         private async Task SafeFocusAsync(ElementReference elementReference)
         {

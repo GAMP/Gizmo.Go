@@ -1,0 +1,11 @@
+@use '../themes/default/theme' as *;
+
+.giz-error-block {
+    padding: 10px 14px;
+    font-size: $font-size-sm;
+    color: $color-error;
+    background-color: rgba($color-error, 0.08);
+    border: 1px solid rgba($color-error, 0.18);
+    border-radius: $radius-md;
+    text-align: center;
+}

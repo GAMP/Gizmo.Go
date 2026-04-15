@@ -26,6 +26,6 @@ namespace Gizmo.Go.UI.View.States.Pages
         public UserSex Sex { get; internal set; } = UserSex.Unspecified;
 
         public bool IsSubmitting { get; internal set; }
-        public RegistrationCompleteResultCode? ErrorCode { get; internal set; }
+        public string? ErrorMessage { get; internal set; }
     }
 }

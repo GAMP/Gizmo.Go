@@ -26,6 +26,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly NavigationService _navigationService;
         private readonly IConfirmationService _confirmationService;
         private readonly IRegistrationSessionService _registrationSession;
+        private readonly ILocalizationService _localizationService;
 
         public RegistrationConfirmationViewService(
             RegistrationConfirmationViewState viewState,
@@ -33,11 +34,13 @@ namespace Gizmo.Go.UI.View.Services.Pages
             IServiceProvider serviceProvider,
             NavigationService navigationService,
             IConfirmationService confirmationService,
-            IRegistrationSessionService registrationSession) : base(viewState, logger, serviceProvider)
+            IRegistrationSessionService registrationSession,
+            ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _confirmationService = confirmationService;
             _registrationSession = registrationSession;
+            _localizationService = localizationService;
         }
 
         #endregion
@@ -70,7 +73,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return;
 
             ViewState.IsSubmitting = true;
-            ViewState.ErrorCode = null;
+            ViewState.ErrorMessage = null;
             ViewState.RaiseChanged();
 
             var request = new TokenConfirmationRequest
@@ -88,7 +91,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             {
                 Logger.LogError(ex, "Confirmation request failed.");
                 ViewState.IsSubmitting = false;
-                ViewState.ErrorCode = TokenConfirmationResultCode.Unknown;
+                ViewState.ErrorMessage = _localizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(TokenConfirmationResultCode.Unknown));
                 ViewState.RaiseChanged();
                 return;
             }
@@ -102,7 +105,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 return;
             }
 
-            ViewState.ErrorCode = result.Result;
+            ViewState.ErrorMessage = _localizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(result.Result));
             ViewState.RaiseChanged();
         }
 
@@ -132,7 +135,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             }
 
             ViewState.Token = _registrationSession.Token;
-            ViewState.ErrorCode = null;
+            ViewState.ErrorMessage = null;
             ViewState.IsSubmitting = false;
             ViewState.Digits = new string[] { "", "", "", "", "", "" };
             ViewState.RaiseChanged();

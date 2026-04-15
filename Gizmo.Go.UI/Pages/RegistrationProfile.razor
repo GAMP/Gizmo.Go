@@ -118,10 +118,7 @@
         </select>
     </div>
 
-    @if (RegistrationProfileViewState.ErrorCode != null)
-    {
-        <p style="color:red; margin:0;">@GetErrorMessage(RegistrationProfileViewState.ErrorCode.Value)</p>
-    }
+    <ErrorBlock Message="@RegistrationProfileViewState.ErrorMessage" />
 
     <button type="button"
             style="width:100%; padding:0.75rem; background:#5865f2; color:#fff; border:none; border-radius:6px; font-size:1rem; cursor:pointer;"

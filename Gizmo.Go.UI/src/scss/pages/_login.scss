@@ -157,15 +157,3 @@
   }
 }
 
-// ---- Error banner ----
-
-.login-error {
-  padding: 10px 14px;
-  font-size: 13px;
-  color: $color-error;
-  background-color: rgba($color-error, 0.08);
-  border-radius: $radius-md;
-  text-align: center;
-  font-family: 'Noto Sans', $font-family-base;
-  border: 1px solid rgba($color-error, 0.18);
-}

@@ -47,10 +47,7 @@
                 }
             </div>
 
-            @if (RegistrationConfirmationViewState.ErrorCode != null)
-            {
-                <p class="confirmation-error">@GetErrorMessage(RegistrationConfirmationViewState.ErrorCode.Value)</p>
-            }
+            <ErrorBlock Message="@RegistrationConfirmationViewState.ErrorMessage" />
 
             <div class="confirmation-resend-row">
                 @if (!RegistrationConfirmationViewState.TimerExpired)
