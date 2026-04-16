@@ -4,7 +4,7 @@ using Gizmo.UI;
 using Gizmo.UI.View.States;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Gizmo.Go.UI.View.States.Pages
+namespace Gizmo.Go.UI.View.States.Pages.Registration
 {
     [Register()]
     public sealed class RegistrationProfileViewState : ValidatingViewStateBase

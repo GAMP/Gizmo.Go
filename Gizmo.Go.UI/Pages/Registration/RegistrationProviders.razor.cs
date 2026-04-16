@@ -1,9 +1,9 @@
-using Gizmo.Go.UI.View.Services.Pages;
-using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.Go.UI.View.Services.Pages.Registration;
+using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace Gizmo.Go.UI.Pages;
+namespace Gizmo.Go.UI.Pages.Registration;
 
 public partial class RegistrationProviders : ComponentBase, IDisposable
 {

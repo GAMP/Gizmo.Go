@@ -1,12 +1,12 @@
 using System.Linq.Expressions;
-using Gizmo.Go.UI.View.Services.Pages;
-using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.Go.UI.View.Services.Pages.Registration;
+using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace Gizmo.Go.UI.Pages
+namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationPhone : ComponentBase, IDisposable
     {

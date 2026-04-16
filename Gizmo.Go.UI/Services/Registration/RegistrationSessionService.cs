@@ -1,4 +1,4 @@
-namespace Gizmo.Go.UI.Services
+namespace Gizmo.Go.UI.Services.Registration
 {
     public sealed class RegistrationSessionService : IRegistrationSessionService
     {

@@ -1,5 +1,5 @@
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.UI.Services;
+using Gizmo.Go.UI.Services.Registration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Gizmo.Go.UI.Extensions

@@ -21,9 +21,9 @@
 // -- Pages --
 @use 'pages/welcome';
 @use 'pages/login';
-@use 'pages/registration-phone';
-@use 'pages/registration-confirmation';
-@use 'pages/registration-password';
+@use 'pages/registration/registration-phone';
+@use 'pages/registration/registration-confirmation';
+@use 'pages/registration/registration-password';
 
 // -- Components --
 @use 'components/error-block';

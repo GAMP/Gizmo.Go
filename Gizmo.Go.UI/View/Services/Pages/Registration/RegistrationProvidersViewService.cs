@@ -1,14 +1,14 @@
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
-using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Gizmo.Go.UI.View.Services.Pages;
+namespace Gizmo.Go.UI.View.Services.Pages.Registration;
 
 [Register()]
 [Route(NavigationHelper.RegistrationProviders)]
@@ -73,7 +73,7 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
             }
         }
     }
-    
+
     #endregion
 
     #region OVERRIDES
@@ -93,10 +93,10 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
             ViewState.IsLoading = false;
             ViewState.RaiseChanged();
         }
-        
+
         await base.OnNavigatedIn(navigationParameters, cancellationToken);
     }
-    
+
     public ValueTask NavigateBackAsync()
     {
         _navigationService.NavigateTo(NavigationHelper.WelcomePage);

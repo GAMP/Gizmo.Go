@@ -1,11 +1,11 @@
-using Gizmo.Go.UI.View.Services.Pages;
-using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.Go.UI.View.Services.Pages.Registration;
+using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 
-namespace Gizmo.Go.UI.Pages
+namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationConfirmation : ComponentBase, IDisposable
     {

@@ -1,14 +1,14 @@
 using Gizmo.Go.UI.Helpers;
-using Gizmo.Go.UI.Services;
+using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States;
-using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Gizmo.Go.UI.View.Services.Pages
+namespace Gizmo.Go.UI.View.Services.Pages.Registration
 {
     [Register()]
     [Route(NavigationHelper.RegistrationPasswordPage)]

@@ -3,9 +3,9 @@ using System.Web;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
-using Gizmo.Go.UI.Services;
+using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.Models;
-using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Gizmo.Go.UI.View.Services.Pages
+namespace Gizmo.Go.UI.View.Services.Pages.Registration
 {
     [Register()]
     [Route(NavigationHelper.RegistrationPhone)]
@@ -145,7 +145,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             }
 
             ViewState.IntegrationPublicId = channelId;
-            
+
             const int separatorBuffer = 6; //TODO временное решение
             var culture = CultureInfo.CurrentUICulture.Name;
             var parts = culture.Split('-');
@@ -161,9 +161,9 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.SelectedCountryPlaceholder = defaultCountry?.Placeholder ?? string.Empty;
             ViewState.PhoneLength = _phoneValidationService.GetMaxLength(defaultIso2) + separatorBuffer;
             ViewState.TermsAccepted = false;
-            
+
             ViewState.RaiseChanged();
-            
+
             await base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
 
@@ -203,7 +203,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 }
             }
         }
-        
+
         #endregion
     }
 }
