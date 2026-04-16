@@ -1,0 +1,62 @@
+@use '../themes/default/theme' as *;
+
+.giz-toast-host {
+    position: fixed;
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    z-index: $z-index-toast;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    pointer-events: none;
+}
+
+.giz-toast {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+    font-size: $font-size-sm;
+    pointer-events: all;
+
+    &--info {
+        background-color: $color-info;
+        color: $color-text-on-primary;
+    }
+
+    &--success {
+        background-color: $color-success;
+        color: $color-text-on-primary;
+    }
+
+    &--warning {
+        background-color: $color-warning;
+        color: $color-text-on-primary;
+    }
+
+    &--error {
+        background-color: $color-error;
+        color: $color-text-on-primary;
+    }
+
+    &__message {
+        flex: 1;
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: $font-size-base;
+        line-height: 1;
+        padding: 0;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

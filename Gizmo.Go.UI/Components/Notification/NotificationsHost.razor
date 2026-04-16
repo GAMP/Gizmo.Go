@@ -1,0 +1,11 @@
+@using Gizmo.UI.Services
+
+@if (NotificationsHostViewState.Visible.Any())
+{
+    <div class="giz-toast-host">
+        @foreach (var controller in NotificationsHostViewState.Visible)
+        {
+            <DynamicComponent Type="controller.ComponentType" Parameters="controller.Parameters" />
+        }
+    </div>
+}
