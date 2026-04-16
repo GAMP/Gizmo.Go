@@ -1,6 +1,8 @@
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.Core.Services.Notification;
+using Gizmo.Go.Core.Services.Realtime;
 using Gizmo.Go.UI.Services.Notification;
+using Gizmo.Go.UI.Services.Realtime;
 using Gizmo.Go.UI.Services.Registration;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -21,6 +23,8 @@ namespace Gizmo.Go.UI.Extensions
             services.AddSingleton<INotificationsService>(sp => sp.GetRequiredService<GizmoGoNotificationsService>());
             services.AddSingleton<NotificationsHostViewState>();
             services.AddSingleton<NotificationsHostViewService>();
+
+            services.AddSingleton<IRealtimeEventService, SignalRRealtimeEventService>();
 
             return services;
         }
