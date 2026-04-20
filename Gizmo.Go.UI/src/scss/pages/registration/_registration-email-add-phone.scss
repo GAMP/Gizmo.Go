@@ -1,0 +1,127 @@
+// ============================================
+// Registration Email Add Phone page styles.
+// Matches Figma: node 1:493 "Container / AddPhone"
+//
+// Page shell reuses .page-create-account (hero backdrop).
+// Header reuses .auth-header + .create-password-header + .create-password-back-btn.
+// Phone input reuses .auth-field, .auth-field__label, .auth-field__input-wrap, .auth-field__input.
+// Submit reuses .auth-submit + .create-account-submit.
+// Only body, hero, email badge, and info box are page-specific.
+// ============================================
+@use '../../themes/default/theme' as *;
+
+// ---- Body: flat layout, no card wrapper ----
+
+.registration-email-add-phone-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 16px 32px;
+  box-sizing: border-box;
+}
+
+// ---- Hero / title block ----
+
+.registration-email-add-phone-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.registration-email-add-phone-title {
+  margin: 0;
+  font-family: 'Rubik', $font-family-heading;
+  font-size: 26px;
+  font-weight: $font-weight-bold;
+  color: #fafafa;
+  line-height: 1.2;
+}
+
+.registration-email-add-phone-subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.60);
+  line-height: 1.5;
+}
+
+// ---- Email confirmed badge ----
+// Figma: bg #57bcff 6%, border #57bcff 18%, radius 8, h=40px, padding-left 14px
+
+.registration-email-add-phone-email-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 14px;
+  background: rgba($color-welcome-accent, 0.06);
+  border: 1px solid rgba($color-welcome-accent, 0.18);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.registration-email-add-phone-email-badge__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: $color-welcome-accent;
+}
+
+.registration-email-add-phone-email-badge__text {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.registration-email-add-phone-email-badge__label {
+  font-size: 12px;
+  font-family: 'Noto Sans', $font-family-base;
+  color: rgba(#ffffff, 0.55);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.registration-email-add-phone-email-badge__value {
+  font-size: 12px;
+  font-family: 'Noto Sans', $font-family-base;
+  color: $color-welcome-accent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// ---- Info box ----
+// Figma: bg #0078d2 8%, border #0091e6 20%, radius 10, padding 15/17
+
+.registration-email-add-phone-info {
+  background: rgba(#0078d2, 0.08);
+  border: 1px solid rgba(#0091e6, 0.20);
+  border-radius: 10px;
+  padding: 15px 17px;
+  box-sizing: border-box;
+}
+
+.registration-email-add-phone-info__text {
+  margin: 0;
+  font-size: 12px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.50);
+  line-height: 1.55;
+}
+
+// ---- Mobile compact adjustments ----
+
+@media (max-height: 680px) {
+  .registration-email-add-phone-body {
+    gap: 18px;
+    padding-top: 24px;
+  }
+
+  .registration-email-add-phone-title {
+    font-size: 22px;
+  }
+}

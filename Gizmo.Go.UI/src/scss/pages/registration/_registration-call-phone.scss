@@ -1,0 +1,283 @@
+// ============================================
+// Registration Call Phone page styles.
+// Matches Figma: "PhoneCallScreen / Ввод номера"
+//
+// Flat full-screen layout (no auth-card).
+// Shared auth shell: auth-header, auth-field, auth-submit.
+// ============================================
+@use '../../themes/default/theme' as *;
+@use 'sass:color';
+
+// ---- Page shell ----
+
+.page-registration-call-phone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: $color-welcome-bg;
+  color: #ffffff;
+  font-family: 'Noto Sans', $font-family-base;
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/arena-hero-bg.png');
+    background-size: auto 100%;
+    background-position: 69.3% top;
+    background-repeat: no-repeat;
+    opacity: 0.55;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba($color-welcome-bg, 0.30) 0%,
+        rgba($color-welcome-bg, 0.75) 45%,
+        rgba($color-welcome-bg, 0.97) 70%,
+        $color-welcome-bg 100%
+      );
+    z-index: 0;
+  }
+}
+
+.page-registration-call-phone > * {
+  position: relative;
+  z-index: 1;
+}
+
+// ---- Header: back btn left + LangButton right ----
+
+.call-phone-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.call-phone-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  color: rgba(#ffffff, 0.60);
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  -webkit-tap-highlight-color: transparent;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: rgba(#ffffff, 0.85);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
+
+// ---- Body ----
+
+.call-phone-body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  padding: 32px 20px 32px;
+  box-sizing: border-box;
+}
+
+// ---- Content stack ----
+
+.call-phone-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+// ---- Hero: title + subtitle ----
+
+.call-phone-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.call-phone-title {
+  margin: 0;
+  font-family: 'Rubik', $font-family-heading;
+  font-size: 26px;
+  font-weight: $font-weight-bold;
+  color: #fafafa;
+  line-height: 1.2;
+}
+
+.call-phone-subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.55);
+  line-height: 1.55;
+  max-width: 322px;
+}
+
+// ---- Steps indicator ----
+
+.call-phone-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.call-phone-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  &--active {
+    .call-phone-step__dot {
+      background: rgba(#57bcff, 0.85);
+      border-color: transparent;
+      color: #ffffff;
+    }
+
+    .call-phone-step__label {
+      color: rgba(#ffffff, 0.70);
+    }
+  }
+}
+
+.call-phone-step__dot {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: $radius-full;
+  border: 1px solid rgba(#ffffff, 0.15);
+  background: rgba(#ffffff, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 9px;
+  font-weight: $font-weight-medium;
+  color: rgba(#ffffff, 0.30);
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.call-phone-step__label {
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 11px;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.25);
+  white-space: nowrap;
+}
+
+.call-phone-step__line {
+  flex: 0 0 12px;
+  height: 1px;
+  background: rgba(#ffffff, 0.10);
+  margin: 0 4px;
+}
+
+// ---- Phone step: field + submit ----
+
+.call-phone-phone-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// ---- Phone input: inline country selector ----
+
+.call-phone-input-wrap {
+  padding: 0;
+  gap: 0;
+}
+
+.call-phone-country-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 0 10px;
+  border-right: 1px solid rgba(#f6fbfd, 0.18);
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
+.call-phone-country-btn__flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.call-phone-country-btn__code {
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 13px;
+  color: rgba(#ffffff, 0.70);
+  line-height: 1;
+}
+
+.call-phone-country-btn__chevron {
+  width: 12px;
+  height: 12px;
+  color: rgba(#ffffff, 0.40);
+  flex-shrink: 0;
+}
+
+.call-phone-input-wrap .auth-field__input {
+  padding: 0 12px;
+  height: 100%;
+}
+
+// ---- Submit override: radius 10 to match Figma ----
+
+.call-phone-submit {
+  border-radius: 10px;
+  height: 48px;
+}
+
+// ---- Info hint box ----
+
+.call-phone-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(#0078d2, 0.08);
+  border: 1px solid rgba(#0091e6, 0.20);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.call-phone-info__icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: rgba(#57bcff, 0.70);
+  margin-top: 1px;
+}
+
+.call-phone-info__text {
+  margin: 0;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 12px;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.45);
+  line-height: 1.55;
+}

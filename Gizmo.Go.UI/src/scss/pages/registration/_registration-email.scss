@@ -1,0 +1,142 @@
+// ============================================
+// Registration Email page styles.
+// Matches Figma: "Auth / Registration Email"
+//
+// Page shell reuses .page-create-account (identical hero backdrop).
+// Header reuses .auth-header + .create-password-header + .create-password-back-btn.
+// Fields reuse .auth-field, .auth-field__label, .auth-field__input-wrap, .auth-field__input.
+// Submit reuses .auth-submit.
+// Footer reuses .auth-footer, .auth-footer__text, .auth-footer__link.
+// Only body, hero, hint, divider, and secondary button are page-specific.
+// ============================================
+@use '../../themes/default/theme' as *;
+@use 'sass:color';
+
+// ---- Body: flat layout, no card wrapper ----
+
+.registration-email-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 40px 16px 32px;
+  box-sizing: border-box;
+}
+
+// ---- Hero / title block ----
+
+.registration-email-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.registration-email-title {
+  margin: 0;
+  font-family: 'Rubik', $font-family-heading;
+  font-size: 26px;
+  font-weight: $font-weight-bold;
+  color: #fafafa;
+  line-height: 1.2;
+}
+
+.registration-email-subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.55);
+  line-height: 1.5;
+}
+
+// ---- Fields container ----
+
+.registration-email-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// ---- Info hint below the input ----
+
+.registration-email-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  font-family: 'Noto Sans', $font-family-base;
+  color: rgba(#ffffff, 0.45);
+  line-height: 1.55;
+}
+
+.registration-email-hint__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 1px;
+  color: rgba($color-welcome-accent, 0.65);
+}
+
+// ---- "или" divider ----
+
+.registration-email-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background: rgba(#ffffff, 0.08);
+  }
+
+  &__text {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-family: 'Noto Sans', $font-family-base;
+    color: rgba(#ffffff, 0.30);
+  }
+}
+
+// ---- Secondary button (glass border) ----
+
+.registration-email-secondary-btn {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  color: rgba(#ffffff, 0.70);
+  background: rgba(#ffffff, 0.04);
+  border: 1px solid rgba(#f6fbfd, 0.20);
+  border-radius: 8px;
+  cursor: pointer;
+  appearance: none;
+  box-sizing: border-box;
+  transition: background $transition-fast, opacity $transition-fast;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background: rgba(#ffffff, 0.07);
+  }
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+// ---- Mobile compact adjustments ----
+
+@media (max-height: 680px) {
+  .registration-email-body {
+    gap: 20px;
+    padding-top: 24px;
+  }
+
+  .registration-email-title {
+    font-size: 22px;
+  }
+}

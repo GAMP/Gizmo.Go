@@ -1,0 +1,147 @@
+// ============================================
+// Registration Providers page styles.
+// Matches Figma: "Auth / Registration Providers"
+//
+// Page shell reuses .page-create-account (identical hero backdrop).
+// Card reuses .auth-card, .auth-card__header, .auth-card__logo, etc.
+// Only provider-list and provider-button are page-specific.
+// ============================================
+@use '../../themes/default/theme' as *;
+@use 'sass:color';
+
+// ---- Provider buttons list ----
+
+.registration-providers-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ---- Single provider button ----
+// Glass style — works for any dynamic provider name.
+
+.registration-providers-btn {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 15px;
+  font-weight: $font-weight-regular;
+  color: #ffffff;
+  background: rgba(#ffffff, 0.07);
+  border: 1px solid rgba(#f6fbfd, 0.22);
+  border-radius: 10px;
+  cursor: pointer;
+  appearance: none;
+  box-sizing: border-box;
+  transition: background $transition-fast, opacity $transition-fast;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background: rgba(#ffffff, 0.11);
+  }
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+// ---- Alternative methods section ----
+// Shown after a failed registration attempt.
+
+.registration-providers-alt {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+
+  &__description {
+    font-size: 13px;
+    font-family: 'Noto Sans', $font-family-base;
+    color: rgba(#57bcff, 0.70);
+    line-height: $line-height-base;
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__btn {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    color: rgba(#ffffff, 0.75);
+    background: rgba(#ffffff, 0.04);
+    border: 1px solid rgba(#f6fbfd, 0.16);
+    border-radius: 10px;
+    cursor: pointer;
+    appearance: none;
+    box-sizing: border-box;
+    transition: background $transition-fast, opacity $transition-fast;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+      background: rgba(#ffffff, 0.07);
+    }
+
+    &:active {
+      opacity: 0.85;
+    }
+  }
+}
+
+// ---- Divider with "Другие способы" badge ----
+
+.registration-providers-divider {
+  display: flex;
+  align-items: center;
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background: rgba(#57bcff, 0.28);
+  }
+
+  &__badge {
+    padding: 0 13px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    background: rgba(#57bcff, 0.10);
+    border: 1px solid rgba(#57bcff, 0.28);
+    border-radius: 9999px;
+    font-size: 11px;
+    font-family: 'Noto Sans', $font-family-base;
+    color: #57bcff;
+    white-space: nowrap;
+  }
+}
+
+// ---- Terms text ----
+// Reuses .create-account-terms__text / .create-account-terms__link,
+// but needs a wrapper without the checkbox layout.
+
+.registration-providers-terms {
+  font-size: 11px;
+  font-family: 'Noto Sans', $font-family-base;
+  color: rgba(#ffffff, 0.30);
+  line-height: 1.55;
+}

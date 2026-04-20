@@ -9,6 +9,9 @@ namespace Gizmo.Go.UI.Components
         [Parameter]
         public string? Message { get; set; }
 
+        [Parameter]
+        public bool ShowIcon { get; set; }
+
         #endregion
     }
 }

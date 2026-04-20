@@ -1,0 +1,212 @@
+// ============================================
+// Registration Call Success page styles.
+// Matches Figma: "PhoneCallScreen / Успех" (node 1:1093)
+//
+// Flat full-screen layout identical to call-verify background.
+// Shared auth shell: auth-header.
+// ============================================
+@use '../../themes/default/theme' as *;
+@use 'sass:color';
+
+// ---- Page shell ----
+
+.page-registration-call-success {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-color: $color-welcome-bg;
+    color: #ffffff;
+    font-family: 'Noto Sans', $font-family-base;
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url('../img/arena-hero-bg.png');
+        background-size: auto 100%;
+        background-position: 69.3% top;
+        background-repeat: no-repeat;
+        opacity: 0.55;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(180deg,
+                rgba($color-welcome-bg, 0.30) 0%,
+                rgba($color-welcome-bg, 0.75) 45%,
+                rgba($color-welcome-bg, 0.97) 70%,
+                $color-welcome-bg 100%
+            );
+        z-index: 0;
+    }
+}
+
+.page-registration-call-success > * {
+    position: relative;
+    z-index: 1;
+}
+
+// ---- Body ----
+
+.call-success-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px 48px;
+    box-sizing: border-box;
+}
+
+// ---- Content stack ----
+
+.call-success-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+
+// ---- Icon: pulsing ring + checkmark ----
+
+.call-success-icon-wrapper {
+    position: relative;
+    width: 144px;
+    height: 144px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.call-success-ring-outer {
+    position: absolute;
+    inset: 0;
+    border-radius: $radius-full;
+    border: 1.5px solid rgba($color-welcome-accent, 0.12);
+    animation: call-success-pulse 2.4s ease-out infinite;
+    animation-delay: 0.4s;
+    pointer-events: none;
+}
+
+@keyframes call-success-pulse {
+    0% {
+        transform: scale(0.85);
+        opacity: 0.8;
+    }
+    70% {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+}
+
+.call-success-icon-circle {
+    position: relative;
+    z-index: 1;
+    width: 96px;
+    height: 96px;
+    border-radius: $radius-full;
+    border: 1.5px solid rgba($color-welcome-accent, 0.40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($color-welcome-btn-primary, 0.10);
+
+    svg {
+        width: 24px;
+        height: 16px;
+    }
+}
+
+// ---- Text block ----
+
+.call-success-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.call-success-title {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    color: #fafafa;
+    line-height: 1.25;
+}
+
+.call-success-subtitle {
+    margin: 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    color: rgba(#ffffff, 0.55);
+    line-height: 1.55;
+}
+
+.call-success-subtitle__phone {
+    color: rgba(#ffffff, 0.85);
+}
+
+// ---- Success notification card ----
+
+.call-success-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(#27ae60, 0.10);
+    border: 1px solid rgba(#2ecc71, 0.30);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.call-success-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: #2ecc71;
+}
+
+.call-success-card__texts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.call-success-card__primary {
+    margin: 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    font-weight: $font-weight-regular;
+    color: #2ecc71;
+    line-height: 1.4;
+}
+
+.call-success-card__secondary {
+    margin: 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 12px;
+    font-weight: $font-weight-regular;
+    color: rgba(#ffffff, 0.35);
+    line-height: 1.4;
+}

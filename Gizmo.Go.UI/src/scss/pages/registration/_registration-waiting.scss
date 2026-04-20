@@ -1,0 +1,101 @@
+// ============================================
+// Registration Waiting page styles.
+// Matches Figma: "Auth / Registration Waiting"
+//
+// Page shell reuses .page-create-account (hero backdrop + gradient overlay).
+// Header reuses .auth-header + .create-password-header + .create-password-back-btn.
+// Only the centered loading block is page-specific.
+// ============================================
+@use '../../themes/default/theme' as *;
+
+// ---- Body: vertically centered loading block ----
+
+.registration-waiting-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px 72px;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+// ---- Provider icon container ----
+
+.registration-waiting-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 28px;
+    border: 1px solid rgba(#f6fbfd, 0.12);
+    background: #1a2332;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+// ---- Title + subtitle ----
+
+.registration-waiting-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.registration-waiting-title {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.registration-waiting-subtitle {
+    margin: 0;
+    font-size: 15px;
+    font-family: 'Noto Sans', $font-family-base;
+    font-weight: $font-weight-regular;
+    color: #808185;
+    line-height: 1.5;
+    max-width: 300px;
+}
+
+// ---- 3-dot loader ----
+
+.registration-waiting-dots {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.registration-waiting-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: $radius-full;
+    background: $color-welcome-accent;
+    animation: registration-waiting-pulse 1.2s ease-in-out infinite;
+
+    &:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+}
+
+@keyframes registration-waiting-pulse {
+    0%, 80%, 100% {
+        opacity: 0.3;
+        transform: scale(0.85);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -36,6 +36,8 @@ public partial class RegistrationProviders : ComponentBase, IDisposable
     
     private async Task NavigateBack() => await RegistrationProvidersViewService.NavigateBackAsync();
 
+    private async Task NavigateToLogin() => await RegistrationProvidersViewService.NavigateToLoginAsync();
+
     public void Dispose()
     {
         this.UnsubscribeChange(RegistrationProvidersViewState);

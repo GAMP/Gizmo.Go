@@ -44,6 +44,11 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
         if (provider is null)
             return;
 
+        ViewState.HasError = false;
+        ViewState.ErrorMessage = string.Empty;
+        ViewState.FailedChannelGuid = null;
+        ViewState.RaiseChanged();
+
         if (provider is { CanDispatchCode: true, CanRedirect: false })
         {
             _navigationService.NavigateTo($"{NavigationHelper.RegistrationPhone}?provider={provider.PublicId}");
@@ -66,12 +71,25 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
                 {
                     await _externalLauncher.OpenAsync(result.RedirectUrl, cancellationToken);
                 }
+                else
+                {
+                    SetProviderError(channelGuid);
+                }
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Failed to start redirect registration for provider {ChannelGuid}.", channelGuid);
+                SetProviderError(channelGuid);
             }
         }
+    }
+
+    private void SetProviderError(Guid channelGuid)
+    {
+        ViewState.HasError = true;
+        ViewState.ErrorMessage = "Не удалось завершить регистрацию. Попробуйте другой способ.";
+        ViewState.FailedChannelGuid = channelGuid;
+        ViewState.RaiseChanged();
     }
 
     #endregion
@@ -100,6 +118,12 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
     public ValueTask NavigateBackAsync()
     {
         _navigationService.NavigateTo(NavigationHelper.WelcomePage);
+        return ValueTask.CompletedTask;
+    }
+
+    public ValueTask NavigateToLoginAsync()
+    {
+        _navigationService.NavigateTo(NavigationHelper.LoginPage);
         return ValueTask.CompletedTask;
     }
 
