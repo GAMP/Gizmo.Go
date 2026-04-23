@@ -31,7 +31,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         public ValueTask NavigateHomeAsync()
         {
-            // TODO: wire navigation to home after registration
+            _navigationService.NavigateTo(NavigationHelper.WelcomePage);
             return ValueTask.CompletedTask;
         }
 

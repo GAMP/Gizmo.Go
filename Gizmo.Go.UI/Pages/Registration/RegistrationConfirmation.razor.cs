@@ -24,7 +24,7 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #region FIELDS
 
-        private readonly ElementReference[] _inputRefs = new ElementReference[6];
+        private ElementReference[] _inputRefs = [];
 
         #endregion
 
@@ -34,6 +34,13 @@ namespace Gizmo.Go.UI.Pages.Registration
         {
             this.SubscribeChange(RegistrationConfirmationViewState);
             base.OnInitialized();
+        }
+
+        protected override void OnParametersSet()
+        {
+            var length = RegistrationConfirmationViewState.Digits.Length;
+            if (_inputRefs.Length != length)
+                _inputRefs = new ElementReference[length];
         }
 
         #endregion
@@ -49,10 +56,13 @@ namespace Gizmo.Go.UI.Pages.Registration
         {
             await RegistrationConfirmationViewService.SetDigitAsync(index, e.Value?.ToString() ?? string.Empty);
 
-            if (RegistrationConfirmationViewState.Digits[index].Length == 1 && index < 5)
+            var nextIndex = index + 1;
+            if (RegistrationConfirmationViewState.Digits[index].Length == 1
+                && nextIndex < RegistrationConfirmationViewState.Digits.Length
+                && nextIndex < _inputRefs.Length)
             {
                 await Task.Yield();
-                await SafeFocusAsync(_inputRefs[index + 1]);
+                await SafeFocusAsync(_inputRefs[nextIndex]);
             }
         }
 

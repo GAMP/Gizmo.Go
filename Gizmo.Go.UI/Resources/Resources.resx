@@ -227,7 +227,7 @@
     <value>Подтвердить</value>
   </data>
   <data name="GO_CONFIRMATION_HINT" xml:space="preserve">
-    <value>Код действует 10 минут. Не пришёл — проверьте номер или запросите повторно.</value>
+    <value>Код действует 10 минут. Если код не пришёл — проверьте номер или запросите повторно.</value>
   </data>
   <data name="GO_CONFIRMATION_BACK" xml:space="preserve">
     <value>Назад</value>
@@ -266,10 +266,10 @@
     <value>Профиль - Gizmo Go</value>
   </data>
   <data name="GO_REGISTRATION_PROFILE_HEADING" xml:space="preserve">
-    <value>Заполните профиль</value>
+    <value>Настройка профиля</value>
   </data>
   <data name="GO_REGISTRATION_PROFILE_SUBTITLE" xml:space="preserve">
-    <value>Укажите данные для вашего аккаунта.</value>
+    <value>Расскажите о себе. Никнейм обязателен.</value>
   </data>
   <data name="GO_REGISTRATION_PROFILE_USERNAME_LABEL" xml:space="preserve">
     <value>Никнейм *</value>
@@ -341,7 +341,7 @@
     <value>Женский</value>
   </data>
   <data name="GO_REGISTRATION_PROFILE_SUBMIT" xml:space="preserve">
-    <value>Завершить регистрацию</value>
+    <value>Создать аккаунт</value>
   </data>
   <data name="GO_REGISTRATION_PROFILE_BACK" xml:space="preserve">
     <value>Назад</value>
@@ -410,7 +410,7 @@
     <value>Спецсимвол (!@#$...)</value>
   </data>
   <data name="GO_CREATE_PASSWORD_SUBMIT" xml:space="preserve">
-    <value>Создать аккаунт</value>
+    <value>Продолжить</value>
   </data>
   <data name="GO_REGISTRATION_PROVIDERS_PAGE_TITLE" xml:space="preserve">
     <value>Провайдеры - Gizmo Go</value>
@@ -429,6 +429,27 @@
   </data>
   <data name="GO_REGISTRATION_PROVIDERS_ALT_DESCRIPTION" xml:space="preserve">
     <value>Попробуйте один из альтернативных способов:</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ERROR_START" xml:space="preserve">
+    <value>Не удалось завершить регистрацию. Попробуйте другой способ.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_SUBTITLE" xml:space="preserve">
+    <value>Выберите способ регистрации</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_CONTINUE_WITH" xml:space="preserve">
+    <value>Продолжить с </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_PREFIX" xml:space="preserve">
+    <value>Регистрируясь, вы соглашаетесь с&#160;</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_LINK1" xml:space="preserve">
+    <value>Условиями использования</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_AND" xml:space="preserve">
+    <value>&#160;и&#160;</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_LINK2" xml:space="preserve">
+    <value>Политикой конфиденциальности</value>
   </data>
   <data name="GO_EYE_TOGGLE_SHOW" xml:space="preserve">
     <value>Показать пароль</value>

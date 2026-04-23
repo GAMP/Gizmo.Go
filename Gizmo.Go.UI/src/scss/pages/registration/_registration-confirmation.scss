@@ -88,10 +88,17 @@
   }
 }
 
-// ---- Body offset: card sits ~83px from body top (per Figma) ----
+// ---- Content body: directly on background, no card ----
 
-.page-confirmation .auth-body {
-  padding-top: 83px;
+.confirmation-body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 83px 22px 32px;
+  box-sizing: border-box;
 }
 
 // ---- Card icon — empty box matching auth-card__logo ----

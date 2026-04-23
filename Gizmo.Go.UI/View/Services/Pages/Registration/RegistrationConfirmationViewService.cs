@@ -49,7 +49,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         public ValueTask SetDigitAsync(int index, string raw)
         {
-            if (index < 0 || index >= 6)
+            if (index < 0 || index >= ViewState.Digits.Length)
                 return ValueTask.CompletedTask;
 
             ViewState.Digits[index] = new string(raw.Where(char.IsDigit).Take(1).ToArray());
@@ -59,7 +59,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         public ValueTask ClearDigitAsync(int index)
         {
-            if (index < 0 || index >= 6)
+            if (index < 0 || index >= ViewState.Digits.Length)
                 return ValueTask.CompletedTask;
 
             ViewState.Digits[index] = string.Empty;
@@ -91,8 +91,10 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             {
                 Logger.LogError(ex, "Confirmation request failed.");
                 ViewState.IsSubmitting = false;
-                ViewState.ErrorMessage = _localizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(TokenConfirmationResultCode.Unknown));
                 ViewState.RaiseChanged();
+                _registrationSession.Clear();
+                CancelTimer();
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
                 return;
             }
 
@@ -105,8 +107,16 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                 return;
             }
 
-            ViewState.ErrorMessage = _localizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(result.Result));
-            ViewState.RaiseChanged();
+            if (result.Result == TokenConfirmationResultCode.InvalidConfirmationCode)
+            {
+                ViewState.ErrorMessage = _localizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(result.Result));
+                ViewState.RaiseChanged();
+                return;
+            }
+
+            _registrationSession.Clear();
+            CancelTimer();
+            _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
         }
 
         public ValueTask NavigateBackAsync()
@@ -135,9 +145,13 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }
 
             ViewState.Token = _registrationSession.Token;
+            ViewState.MaskedPhone = MaskPhone(_registrationSession.Phone);
             ViewState.ErrorMessage = null;
             ViewState.IsSubmitting = false;
-            ViewState.Digits = new string[] { "", "", "", "", "", "" };
+            var digits = new string[_registrationSession.CodeLength];
+            Array.Fill(digits, string.Empty);
+            ViewState.CodeLength = _registrationSession.CodeLength;
+            ViewState.Digits = digits;
             ViewState.RaiseChanged();
 
             _ = StartTimerAsync();
@@ -154,6 +168,18 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         #endregion
 
         #region PRIVATE METHODS
+
+        private static string MaskPhone(string phone)
+        {
+            if (string.IsNullOrEmpty(phone))
+                return string.Empty;
+
+            var digits = new string(phone.Where(char.IsDigit).ToArray());
+            var visibleCount = Math.Min(5, digits.Length);
+            var prefix = phone.StartsWith('+') ? "+" : string.Empty;
+
+            return prefix + digits[..visibleCount] + new string('*', digits.Length - visibleCount);
+        }
 
         private async Task StartTimerAsync()
         {

@@ -42,7 +42,8 @@
     width: 100px;
     height: 100px;
     border-radius: $radius-full;
-    border: 1px solid rgba($color-welcome-accent-mid, 0.40);
+    border: 2px solid rgba($color-welcome-accent-mid, 0.40);
+    background: radial-gradient(circle at center, rgba($color-welcome-accent-mid, 0.16) 0%, rgba($color-welcome-accent-mid, 0.07) 60%, transparent 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,7 +81,6 @@
     font-weight: $font-weight-regular;
     color: rgba(#ffffff, 0.55);
     line-height: 1.55;
-    max-width: 300px;
 }
 
 // ---- Feature chips ----

@@ -4,9 +4,13 @@ namespace Gizmo.Go.UI.Services.Registration
     {
         private string _token = string.Empty;
         private string _password = string.Empty;
+        private string _phone = string.Empty;
+        private int _codeLength;
 
         public string Token => _token;
         public string Password => _password;
+        public string Phone => _phone;
+        public int CodeLength => _codeLength;
         public bool HasToken => _token.Length > 0;
         public bool HasSession => HasToken && _password.Length > 0;
 
@@ -23,10 +27,22 @@ namespace Gizmo.Go.UI.Services.Registration
             _password = password ?? string.Empty;
         }
 
+        public void SetPhone(string phone)
+        {
+            _phone = phone ?? string.Empty;
+        }
+
+        public void SetCodeLength(int codeLength)
+        {
+            _codeLength = codeLength;
+        }
+
         public void Clear()
         {
             _token = string.Empty;
             _password = string.Empty;
+            _phone = string.Empty;
+            _codeLength = 0;
         }
     }
 }

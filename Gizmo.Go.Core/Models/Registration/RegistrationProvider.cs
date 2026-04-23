@@ -10,4 +10,5 @@ public sealed class RegistrationProvider
     public bool CanProvidePhone { get; init; }
     public bool CanProvideEmail { get; init; }
     public bool HasChannel { get; init; }
+    public bool Priority { get; init; }
 }

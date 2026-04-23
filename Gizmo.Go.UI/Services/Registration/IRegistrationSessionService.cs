@@ -4,11 +4,15 @@ namespace Gizmo.Go.UI.Services.Registration
     {
         string Token { get; }
         string Password { get; }
+        string Phone { get; }
+        int CodeLength { get; }
         bool HasToken { get; }
         bool HasSession { get; }
 
         void SetToken(string token);
         void SetPassword(string password);
+        void SetPhone(string phone);
+        void SetCodeLength(int codeLength);
         void Clear();
     }
 }

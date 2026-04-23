@@ -148,22 +148,28 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Registration complete request failed.");
-                ViewState.ErrorMessage = _localizationService.GetString(RegistrationCompleteErrorHelper.GetLocalizationKey(RegistrationCompleteResultCode.Unknown));
                 ViewState.IsSubmitting = false;
                 ViewState.RaiseChanged();
+                _registrationSession.Clear();
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
                 return;
             }
 
             if (result.Result == RegistrationCompleteResultCode.Success)
             {
                 _registrationSession.Clear();
-                _navigationService.NavigateTo(NavigationHelper.WelcomePage);
+                _navigationService.NavigateTo(NavigationHelper.RegistrationSuccess);
                 return;
             }
 
-            ViewState.ErrorMessage = _localizationService.GetString(RegistrationCompleteErrorHelper.GetLocalizationKey(result.Result));
-            ViewState.IsSubmitting = false;
-            ViewState.RaiseChanged();
+            _registrationSession.Clear();
+            _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
+        }
+
+        public ValueTask NavigateBackAsync()
+        {
+            _navigationService.NavigateTo(NavigationHelper.RegistrationPasswordPage);
+            return ValueTask.CompletedTask;
         }
 
         #endregion

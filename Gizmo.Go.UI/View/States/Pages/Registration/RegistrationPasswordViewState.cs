@@ -10,6 +10,10 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
 
         public string Confirm { get; internal set; } = string.Empty;
 
+        public string Phone { get; internal set; } = string.Empty;
+
+        public string MaskedPhone { get; internal set; } = string.Empty;
+
         public bool ReqLength => Password.Length >= 8;
 
         public bool ReqUppercase => Password.Any(char.IsUpper);

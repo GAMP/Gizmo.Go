@@ -8,11 +8,15 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
     {
         public string Token { get; internal set; } = string.Empty;
 
+        public string MaskedPhone { get; internal set; } = string.Empty;
+
         public string? ErrorMessage { get; internal set; }
 
         public bool IsSubmitting { get; internal set; }
 
-        public string[] Digits { get; internal set; } = new string[] { "", "", "", "", "", "" };
+        public int CodeLength { get; internal set; } = 6;
+
+        public string[] Digits { get; internal set; } = ["", "", "", "", "", ""];
 
         public int SecondsLeft { get; internal set; } = 60;
 

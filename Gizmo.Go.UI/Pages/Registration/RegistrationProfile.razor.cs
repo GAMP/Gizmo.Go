@@ -81,6 +81,9 @@ namespace Gizmo.Go.UI.Pages.Registration
                 await RegistrationProfileViewService.SetSexAsync((UserSex)val);
         }
 
+        private async Task NavigateBack() =>
+            await RegistrationProfileViewService.NavigateBackAsync();
+
         private async Task SubmitAsync() =>
             await RegistrationProfileViewService.SubmitAsync();
 

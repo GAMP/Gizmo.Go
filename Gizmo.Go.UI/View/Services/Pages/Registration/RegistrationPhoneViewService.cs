@@ -109,22 +109,26 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Failed to start SMS registration for provider {IntegrationPublicId}.", ViewState.IntegrationPublicId);
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
                 return;
             }
 
             if (result.Result != RegistrationStartResultCode.Success || string.IsNullOrEmpty(result.Token))
             {
                 Logger.LogWarning("Registration start failed with result {Result}.", result.Result);
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
                 return;
             }
 
             _registrationSession.SetToken(result.Token);
+            _registrationSession.SetCodeLength(result.CodeLength);
+            _registrationSession.SetPhone(ViewState.PhoneE164);
             _navigationService.NavigateTo(NavigationHelper.RegistrationConfirmationPage);
         }
 
         public ValueTask NavigateBackAsync()
         {
-            _navigationService.NavigateTo(NavigationHelper.LoginPage);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
             return ValueTask.CompletedTask;
         }
 

@@ -21,7 +21,8 @@
 }
 
 // ---- Single provider button ----
-// Glass style — works for any dynamic provider name.
+// Base: glass style (alternative providers).
+// --primary modifier: blue gradient for priority providers.
 
 .registration-providers-btn {
   width: 100%;
@@ -32,7 +33,7 @@
   padding: 0 15px;
   font-family: 'Noto Sans', $font-family-base;
   font-size: 15px;
-  font-weight: $font-weight-regular;
+  font-weight: $font-weight-medium;
   color: #ffffff;
   background: rgba(#ffffff, 0.07);
   border: 1px solid rgba(#f6fbfd, 0.22);
@@ -49,6 +50,19 @@
 
   &:active {
     opacity: 0.85;
+  }
+
+  // Priority providers — blue gradient (#37AEE2 → #1E96C8), same pattern as welcome-btn--primary
+  &--primary {
+    background: linear-gradient(135deg, #37aee2 0%, #1e96c8 100%);
+    border: none;
+    box-shadow:
+      0 0 12px rgba(#37aee2, 0.20),
+      0 4px 14px rgba(#1e96c8, 0.30);
+
+    &:hover {
+      background: linear-gradient(135deg, color.adjust(#37aee2, $lightness: 5%) 0%, color.adjust(#1e96c8, $lightness: 5%) 100%);
+    }
   }
 }
 
@@ -136,12 +150,16 @@
 }
 
 // ---- Terms text ----
-// Reuses .create-account-terms__text / .create-account-terms__link,
-// but needs a wrapper without the checkbox layout.
+// Reuses .create-account-terms__link for the link buttons.
+// Buttons forced to display: inline so text flows naturally across word boundaries.
 
 .registration-providers-terms {
   font-size: 11px;
   font-family: 'Noto Sans', $font-family-base;
   color: rgba(#ffffff, 0.30);
   line-height: 1.55;
+
+  .create-account-terms__link {
+    font-size: inherit;
+  }
 }
