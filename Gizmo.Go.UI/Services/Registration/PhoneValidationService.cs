@@ -48,6 +48,22 @@ namespace Gizmo.Go.UI.Services.Registration
                 : DefaultMaxDigits;
         }
 
+        public string MaskPhone(string phone)
+        {
+            if (string.IsNullOrEmpty(phone))
+                return string.Empty;
+
+            var digits = new string(phone.Where(char.IsDigit).ToArray());
+            if (digits.Length < 6)
+                return new string('*', digits.Length);
+
+            var prefix = phone.StartsWith('+') ? "+" : string.Empty;
+            var first4 = digits[..4];
+            var last2 = digits[^2..];
+
+            return $"{prefix}{first4[0]} {first4[1..]} ***-**-{last2}";
+        }
+
         #endregion
 
         #region HELPERS

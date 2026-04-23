@@ -4,5 +4,6 @@ namespace Gizmo.Go.UI.Services.Registration
     {
         PhoneValidationResult Validate(string input, string regionCode);
         int GetMaxLength(string regionCode);
+        string MaskPhone(string phone);
     }
 }

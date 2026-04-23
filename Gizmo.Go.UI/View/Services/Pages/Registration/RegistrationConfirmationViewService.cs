@@ -27,6 +27,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         private readonly IConfirmationService _confirmationService;
         private readonly IRegistrationSessionService _registrationSession;
         private readonly ILocalizationService _localizationService;
+        private readonly IPhoneValidationService _phoneValidationService;
 
         public RegistrationConfirmationViewService(
             RegistrationConfirmationViewState viewState,
@@ -35,12 +36,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             NavigationService navigationService,
             IConfirmationService confirmationService,
             IRegistrationSessionService registrationSession,
-            ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
+            ILocalizationService localizationService,
+            IPhoneValidationService phoneValidationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _confirmationService = confirmationService;
             _registrationSession = registrationSession;
             _localizationService = localizationService;
+            _phoneValidationService = phoneValidationService;
         }
 
         #endregion
@@ -144,13 +147,22 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                 return base.OnNavigatedIn(navigationParameters, cancellationToken);
             }
 
+            if (_registrationSession.CodeLength == 0)
+            {
+                _registrationSession.Clear();
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
+                return base.OnNavigatedIn(navigationParameters, cancellationToken);
+            }
+
+            var codeLength = Math.Clamp(_registrationSession.CodeLength, 4, 6);
+            var digits = new string[codeLength];
+            Array.Fill(digits, string.Empty);
+
             ViewState.Token = _registrationSession.Token;
-            ViewState.MaskedPhone = MaskPhone(_registrationSession.Phone);
+            ViewState.MaskedPhone = _phoneValidationService.MaskPhone(_registrationSession.Phone);
             ViewState.ErrorMessage = null;
             ViewState.IsSubmitting = false;
-            var digits = new string[_registrationSession.CodeLength];
-            Array.Fill(digits, string.Empty);
-            ViewState.CodeLength = _registrationSession.CodeLength;
+            ViewState.CodeLength = codeLength;
             ViewState.Digits = digits;
             ViewState.RaiseChanged();
 
@@ -168,18 +180,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         #endregion
 
         #region PRIVATE METHODS
-
-        private static string MaskPhone(string phone)
-        {
-            if (string.IsNullOrEmpty(phone))
-                return string.Empty;
-
-            var digits = new string(phone.Where(char.IsDigit).ToArray());
-            var visibleCount = Math.Min(5, digits.Length);
-            var prefix = phone.StartsWith('+') ? "+" : string.Empty;
-
-            return prefix + digits[..visibleCount] + new string('*', digits.Length - visibleCount);
-        }
 
         private async Task StartTimerAsync()
         {

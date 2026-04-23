@@ -18,16 +18,19 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         private readonly NavigationService _navigationService;
         private readonly IRegistrationSessionService _registrationSession;
+        private readonly IPhoneValidationService _phoneValidationService;
 
         public RegistrationPasswordViewService(
             RegistrationPasswordViewState viewState,
             ILogger<RegistrationPasswordViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
-            IRegistrationSessionService registrationSession) : base(viewState, logger, serviceProvider)
+            IRegistrationSessionService registrationSession,
+            IPhoneValidationService phoneValidationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _registrationSession = registrationSession;
+            _phoneValidationService = phoneValidationService;
         }
 
         #endregion
@@ -73,26 +76,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         #endregion
 
-        #region PRIVATE METHODS
-
-        private static string MaskPhone(string phone)
-        {
-            if (string.IsNullOrEmpty(phone))
-                return string.Empty;
-
-            var digits = new string(phone.Where(char.IsDigit).ToArray());
-            if (digits.Length < 6)
-                return phone;
-
-            var prefix = phone.StartsWith('+') ? "+" : string.Empty;
-            var first4 = digits[..4];
-            var last2 = digits[^2..];
-
-            return $"{prefix}{first4[0]} {first4[1..]} ***-**-{last2}";
-        }
-
-        #endregion
-
         #region OVERRIDES
 
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
@@ -107,7 +90,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             ViewState.Password = string.Empty;
             ViewState.Confirm = string.Empty;
             ViewState.Phone = _registrationSession.Phone;
-            ViewState.MaskedPhone = MaskPhone(_registrationSession.Phone);
+            ViewState.MaskedPhone = _phoneValidationService.MaskPhone(_registrationSession.Phone);
             ViewState.RaiseChanged();
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
