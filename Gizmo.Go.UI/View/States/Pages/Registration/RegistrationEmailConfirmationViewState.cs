@@ -8,6 +8,10 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
     {
         public string Email { get; internal set; } = string.Empty;
 
+        public string Token { get; internal set; } = string.Empty;
+
+        public int CodeLength { get; internal set; } = 6;
+
         public string? ErrorMessage { get; internal set; }
 
         public bool IsSubmitting { get; internal set; }

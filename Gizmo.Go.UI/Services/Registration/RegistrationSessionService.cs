@@ -5,11 +5,13 @@ namespace Gizmo.Go.UI.Services.Registration
         private string _token = string.Empty;
         private string _password = string.Empty;
         private string _phone = string.Empty;
+        private string _email = string.Empty;
         private int _codeLength;
 
         public string Token => _token;
         public string Password => _password;
         public string Phone => _phone;
+        public string Email => _email;
         public int CodeLength => _codeLength;
         public bool HasToken => _token.Length > 0;
         public bool HasSession => HasToken && _password.Length > 0;
@@ -32,6 +34,11 @@ namespace Gizmo.Go.UI.Services.Registration
             _phone = phone ?? string.Empty;
         }
 
+        public void SetEmail(string email)
+        {
+            _email = email ?? string.Empty;
+        }
+
         public void SetCodeLength(int codeLength)
         {
             _codeLength = codeLength;
@@ -42,6 +49,7 @@ namespace Gizmo.Go.UI.Services.Registration
             _token = string.Empty;
             _password = string.Empty;
             _phone = string.Empty;
+            _email = string.Empty;
             _codeLength = 0;
         }
     }

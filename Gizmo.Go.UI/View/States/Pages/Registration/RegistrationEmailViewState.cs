@@ -7,5 +7,7 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
     public sealed class RegistrationEmailViewState : ViewStateBase
     {
         public string Email { get; internal set; } = string.Empty;
+        public Guid IntegrationPublicId { get; internal set; }
+        public bool IsSubmitting { get; internal set; }
     }
 }

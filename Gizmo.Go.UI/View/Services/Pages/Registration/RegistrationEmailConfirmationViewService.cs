@@ -1,4 +1,7 @@
+using Gizmo.Go.Core.Models.Confirmation;
+using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -21,14 +24,23 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         #region CONSTRUCTOR
 
         private readonly NavigationService _navigationService;
+        private readonly IConfirmationService _confirmationService;
+        private readonly IRegistrationSessionService _registrationSession;
+        private readonly ILocalizationService _localizationService;
 
         public RegistrationEmailConfirmationViewService(
             RegistrationEmailConfirmationViewState viewState,
             ILogger<RegistrationEmailConfirmationViewService> logger,
             IServiceProvider serviceProvider,
-            NavigationService navigationService) : base(viewState, logger, serviceProvider)
+            NavigationService navigationService,
+            IConfirmationService confirmationService,
+            IRegistrationSessionService registrationSession,
+            ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
+            _confirmationService = confirmationService;
+            _registrationSession = registrationSession;
+            _localizationService = localizationService;
         }
 
         #endregion
@@ -37,7 +49,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         public ValueTask SetDigitAsync(int index, string raw)
         {
-            if (index < 0 || index >= 6)
+            if (index < 0 || index >= ViewState.Digits.Length)
                 return ValueTask.CompletedTask;
 
             ViewState.Digits[index] = new string(raw.Where(char.IsDigit).Take(1).ToArray());
@@ -47,7 +59,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         public ValueTask ClearDigitAsync(int index)
         {
-            if (index < 0 || index >= 6)
+            if (index < 0 || index >= ViewState.Digits.Length)
                 return ValueTask.CompletedTask;
 
             ViewState.Digits[index] = string.Empty;
@@ -64,11 +76,47 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             ViewState.ErrorMessage = null;
             ViewState.RaiseChanged();
 
-            // TODO: wire up to email confirmation API
-            await Task.Delay(0, cancellationToken);
+            var request = new TokenConfirmationRequest
+            {
+                Token = ViewState.Token,
+                ConfirmationCode = string.Concat(ViewState.Digits)
+            };
+
+            TokenConfirmationResult result;
+            try
+            {
+                result = await _confirmationService.ConfirmAsync(request, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Email confirmation request failed.");
+                ViewState.IsSubmitting = false;
+                ViewState.RaiseChanged();
+                _registrationSession.Clear();
+                CancelTimer();
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
+                return;
+            }
 
             ViewState.IsSubmitting = false;
-            ViewState.RaiseChanged();
+
+            if (result.Result == TokenConfirmationResultCode.Success)
+            {
+                CancelTimer();
+                _navigationService.NavigateTo(NavigationHelper.RegistrationEmailAddPhone);
+                return;
+            }
+
+            if (result.Result == TokenConfirmationResultCode.InvalidConfirmationCode)
+            {
+                ViewState.ErrorMessage = _localizationService.GetString(ConfirmationErrorHelper.GetLocalizationKey(result.Result));
+                ViewState.RaiseChanged();
+                return;
+            }
+
+            _registrationSession.Clear();
+            CancelTimer();
+            _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
         }
 
         public ValueTask NavigateBackAsync()
@@ -90,9 +138,29 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
+            if (!_registrationSession.HasToken)
+            {
+                _navigationService.NavigateTo(NavigationHelper.RegistrationEmail);
+                return base.OnNavigatedIn(navigationParameters, cancellationToken);
+            }
+
+            if (_registrationSession.CodeLength == 0)
+            {
+                _registrationSession.Clear();
+                _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
+                return base.OnNavigatedIn(navigationParameters, cancellationToken);
+            }
+
+            var codeLength = Math.Clamp(_registrationSession.CodeLength, 4, 6);
+            var digits = new string[codeLength];
+            Array.Fill(digits, string.Empty);
+
+            ViewState.Token = _registrationSession.Token;
+            ViewState.Email = _registrationSession.Email;
             ViewState.ErrorMessage = null;
             ViewState.IsSubmitting = false;
-            ViewState.Digits = new string[] { "", "", "", "", "", "" };
+            ViewState.CodeLength = codeLength;
+            ViewState.Digits = digits;
             ViewState.RaiseChanged();
 
             _ = StartTimerAsync();

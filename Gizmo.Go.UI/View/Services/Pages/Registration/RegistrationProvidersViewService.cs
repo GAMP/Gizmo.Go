@@ -55,7 +55,10 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
 
         if (provider is { CanDispatchCode: true, CanRedirect: false })
         {
-            _navigationService.NavigateTo($"{NavigationHelper.RegistrationPhone}?provider={provider.PublicId}");
+            if (provider.ChannelGuid == RegistrationChannel.Email)
+                _navigationService.NavigateTo($"{NavigationHelper.RegistrationEmail}?provider={provider.PublicId}");
+            else
+                _navigationService.NavigateTo($"{NavigationHelper.RegistrationPhone}?provider={provider.PublicId}");
             return;
         }
 

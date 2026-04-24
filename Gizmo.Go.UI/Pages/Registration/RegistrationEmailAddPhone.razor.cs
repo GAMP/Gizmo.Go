@@ -1,7 +1,9 @@
+using System.Linq.Expressions;
 using Gizmo.Go.UI.View.Services.Pages.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace Gizmo.Go.UI.Pages.Registration
 {
@@ -17,11 +19,20 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #endregion
 
+        #region FIELDS
+
+        private string _selectedCountryIso2 = string.Empty;
+
+        private string _phoneInputValue = string.Empty;
+
+        #endregion
+
         #region OVERRIDES
 
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationEmailAddPhoneViewState);
+            _selectedCountryIso2 = RegistrationEmailAddPhoneViewState.SelectedCountryIso2;
             base.OnInitialized();
         }
 
@@ -29,16 +40,37 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #region METHODS
 
-        private bool CanSubmit => RegistrationEmailAddPhoneViewState.Phone.Length >= 7;
+        private bool CanSubmit => RegistrationEmailAddPhoneViewState.CanSubmit;
 
-        private async Task OnPhoneInput(ChangeEventArgs e) =>
-            await RegistrationEmailAddPhoneViewService.SetPhoneAsync(e.Value?.ToString() ?? string.Empty);
+        private bool HasErrors<T>(Expression<Func<T>> accessor)
+        {
+            var fieldIdentifier = FieldIdentifier.Create(accessor);
 
-        private async Task SubmitAsync() =>
-            await RegistrationEmailAddPhoneViewService.SubmitAsync();
+            return RegistrationEmailAddPhoneViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
+        }
 
-        private async Task NavigateBack() =>
-            await RegistrationEmailAddPhoneViewService.NavigateBackAsync();
+        private async Task OnCountryChange(ChangeEventArgs e)
+        {
+            _selectedCountryIso2 = e.Value?.ToString() ?? string.Empty;
+            _phoneInputValue = string.Empty;
+            await RegistrationEmailAddPhoneViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+        }
+
+        private async Task OnPhoneInputAsync(ChangeEventArgs e)
+        {
+            _phoneInputValue = e.Value?.ToString() ?? string.Empty;
+            await RegistrationEmailAddPhoneViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+        }
+
+        private async Task OnPhoneFormattedAsync(ChangeEventArgs e)
+        {
+            _phoneInputValue = e.Value?.ToString() ?? string.Empty;
+            await RegistrationEmailAddPhoneViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+        }
+
+        private async Task SubmitAsync() => await RegistrationEmailAddPhoneViewService.SubmitAsync();
+
+        private async Task NavigateBack() => await RegistrationEmailAddPhoneViewService.NavigateBackAsync();
 
         public void Dispose()
         {
