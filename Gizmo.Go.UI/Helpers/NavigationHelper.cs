@@ -11,6 +11,7 @@ public static class NavigationHelper
     public const string RegistrationProviders = "/registration-providers";
     public const string RegistrationProfilePage = "/registration-profile";
     public const string RegistrationBotVerify = "/registration-bot-verify";
+    public const string RegistrationBotVerifySuccess = "/registration-bot-verify-success";
     public const string RegistrationEmail = "/registration-email";
     public const string RegistrationEmailConfirmation = "/registration-email-confirmation";
     public const string RegistrationEmailAddPhone = "/registration-email-add-phone";

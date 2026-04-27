@@ -1,6 +1,5 @@
 using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.Core.Services.Realtime;
 using Gizmo.Go.Provider.Direct.Services.Demo;
 using Gizmo.Go.Provider.Direct.Services;
 using Gizmo.Web.Api.Clients.Builder;
@@ -46,11 +45,8 @@ namespace Gizmo.Go.Provider.Direct.Extensions
             
             services.AddSingleton<IAuthService, DirectAuthService>();
             services.AddSingleton<IBranchProvider, DirectBranchProvider>();
-            services.AddSingleton<IRegistrationService, DemoRegistrationService>();
-            services.AddSingleton<IConfirmationService, DemoConfirmationService>();
-            services.AddSingleton<IRealtimeEventService, DemoRealtimeEventService>();
-            // services.AddSingleton<IRegistrationService, DirectRegistrationService>();
-            // services.AddSingleton<IConfirmationService, DirectConfirmationService>();
+            services.AddSingleton<IRegistrationService, DirectRegistrationService>();
+            services.AddSingleton<IConfirmationService, DirectConfirmationService>();
 
             return services;
         }

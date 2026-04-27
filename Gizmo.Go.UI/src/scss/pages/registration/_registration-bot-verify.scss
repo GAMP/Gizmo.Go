@@ -158,7 +158,9 @@
 .registration-bot-verify-card__phone-number {
     font-family: 'Rubik', $font-family-heading;
     font-size: 20px;
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-bold;
+    line-height: 28px;
+    letter-spacing: 0;
     color: #ffffff;
 }
 

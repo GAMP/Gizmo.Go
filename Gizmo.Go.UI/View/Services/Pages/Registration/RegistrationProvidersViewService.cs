@@ -2,6 +2,7 @@ using System.Web;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -21,6 +22,7 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
     private readonly NavigationService _navigationService;
     private readonly IExternalLauncher _externalLauncher;
     private readonly ILocalizationService _localizationService;
+    private readonly IRegistrationSessionService _registrationSession;
 
     public RegistrationProvidersViewService(
         RegistrationProvidersViewState viewState,
@@ -29,13 +31,15 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
         IRegistrationService registrationService,
         NavigationService navigationService,
         IExternalLauncher externalLauncher,
-        ILocalizationService localizationService)
+        ILocalizationService localizationService,
+        IRegistrationSessionService registrationSession)
         : base(viewState, logger, serviceProvider)
     {
         _registrationService = registrationService;
         _navigationService = navigationService;
         _externalLauncher = externalLauncher;
         _localizationService = localizationService;
+        _registrationSession = registrationSession;
     }
 
     #endregion
@@ -77,6 +81,9 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
                     && !string.IsNullOrEmpty(result.RedirectUrl))
                 {
                     await _externalLauncher.OpenAsync(result.RedirectUrl, cancellationToken);
+                    if (!string.IsNullOrEmpty(result.Token))
+                        _registrationSession.SetToken(result.Token);
+                    _navigationService.NavigateTo(NavigationHelper.RegistrationWaiting);
                 }
                 else
                 {

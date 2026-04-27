@@ -18,5 +18,8 @@ namespace Gizmo.Go.Provider.Platform.Services
             RegistrationCompleteRequest request,
             CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
-    }   
+
+        public Task<TokenConfirmedResult> IsTokenConfirmedAsync(string token, CancellationToken cancellationToken = default) =>
+            throw new NotImplementedException("Requires backend endpoint for token status check.");
+    }
 }

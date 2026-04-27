@@ -27,8 +27,8 @@
     width: 88px;
     height: 88px;
     border-radius: 28px;
-    border: 1px solid rgba(#f6fbfd, 0.12);
-    background: #1a2332;
+    border: none;
+    background: linear-gradient(180deg, $color-telegram-brand-start 0%, $color-telegram-brand-end 100%);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -14,5 +14,7 @@ namespace Gizmo.Go.Core.Services
         Task<RegistrationCompleteResult> CompleteAsync(
             RegistrationCompleteRequest request,
             CancellationToken cancellationToken = default);
+
+        Task<TokenConfirmedResult> IsTokenConfirmedAsync(string token, CancellationToken cancellationToken = default);
     }
 }

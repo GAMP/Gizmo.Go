@@ -12,7 +12,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="10.*" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.*" />
     <PackageReference Include="Gizmo.UI" Version="1.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="10.*" />
   </ItemGroup>
 
   <ItemGroup>

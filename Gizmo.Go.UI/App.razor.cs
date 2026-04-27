@@ -26,6 +26,9 @@ namespace Gizmo.Go.UI
         [Inject]
         private IServiceProvider ServiceProvider { get; set; } = null!;
 
+        [Inject]
+        private IAppLifecycleService AppLifecycleService { get; set; } = null!;
+
         protected override async Task OnInitializedAsync()
         {
             // Association pattern required for Blazor Hybrid (MAUI/WPF) where
@@ -35,6 +38,7 @@ namespace Gizmo.Go.UI
 
             await AuthService.TryRestoreSessionAsync();
             await ServiceProvider.InitializeViewsServices();
+            await AppLifecycleService.InitializeAsync();
 
             await base.OnInitializedAsync();
         }

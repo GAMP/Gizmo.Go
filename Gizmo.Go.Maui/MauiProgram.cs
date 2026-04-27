@@ -66,6 +66,11 @@ namespace Gizmo.Go.Maui
             // external launcher
             builder.Services.AddSingleton<IExternalLauncher, MauiExternalLauncher>();
 
+            // app lifecycle
+            builder.Services.AddSingleton<MauiAppLifecycleService>();
+            builder.Services.AddSingleton<IAppLifecycleService>(sp =>
+                sp.GetRequiredService<MauiAppLifecycleService>());
+
             // auth infrastructure
             builder.Services.AddAuthorizationCore();
             builder.Services.AddCascadingAuthenticationState();

@@ -65,6 +65,11 @@ switch (settings?.Provider)
         break;
 }
 
+// lifecycle service
+builder.Services.AddSingleton<WebAppLifecycleService>();
+builder.Services.AddSingleton<IAppLifecycleService>(sp =>
+    sp.GetRequiredService<WebAppLifecycleService>());
+
 var host = builder.Build();
 
 // restore persisted culture from localStorage
