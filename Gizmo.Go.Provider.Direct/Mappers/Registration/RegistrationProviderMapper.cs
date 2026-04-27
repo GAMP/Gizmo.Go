@@ -18,7 +18,8 @@ internal static class RegistrationProviderMapper
             CanProvideEmail = model.CanProvideEmail,
             CanProvidePhone = model.CanProvidePhone,
             CanRedirect = model.CanRedirect,
-            HasChannel = model.HasChannel
+            HasChannel = model.HasChannel,
+            Priority = model.ChannelGuid == RegistrationChannel.Telegram
         };
     }    
 }
