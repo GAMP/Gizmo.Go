@@ -1,9 +1,9 @@
 [submodule "libs/Gizmo.Web.Api.Client"]
 	path = libs/Gizmo.Web.Api.Client
-	url = https://github.com/GAMP/Gizmo.Web.Api.Client
+	url = git@github.com:GAMP/Gizmo.Web.Api.Client.git
 [submodule "libs/Gizmo.Shared"]
 	path = libs/Gizmo.Shared
-	url = https://github.com/GAMP/Gizmo.Shared
+	url = git@github.com:GAMP/Gizmo.Shared.git
 [submodule "libs/Gizmo.Web.Api.Models"]
 	path = libs/Gizmo.Web.Api.Models
-	url = https://github.com/GAMP/Gizmo.Web.Api.Models
+	url = git@github.com:GAMP/Gizmo.Web.Api.Models.git
