@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Gizmo.Shared" Version="1.0.13" />
-    <PackageReference Include="Gizmo.Web.Api.Client" Version="1.0.12" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.3" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.3" />
+    <ProjectReference Include="..\libs\Gizmo.Shared\Gizmo.Shared.csproj" />
+    <ProjectReference Include="..\libs\Gizmo.Web.Api.Client\Gizmo.Web.Api.Client\Gizmo.Web.Api.Client.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.6" />
   </ItemGroup>
 
   <ItemGroup>

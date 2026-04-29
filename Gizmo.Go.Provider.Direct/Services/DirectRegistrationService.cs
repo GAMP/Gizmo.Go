@@ -47,7 +47,12 @@ namespace Gizmo.Go.Provider.Direct.Services
             return RegistrationCompleteResultMapper.Map(result);
         }
 
-        public Task<TokenConfirmedResult> IsTokenConfirmedAsync(string token, CancellationToken cancellationToken = default) =>
-            throw new NotImplementedException("Requires backend endpoint for token status check.");
+        public async Task<TokenConfirmedResult> IsTokenConfirmedAsync(string token, CancellationToken cancellationToken = default)
+        {
+            var client = _serviceProvider.GetRequiredService<RegistrationsWebApiClient>();
+            var model = new TokenCheckModel { Token = token };
+            var result = await client.ConfirmedAsync(model, cancellationToken);
+            return TokenConfirmedResultMapper.Map(result);
+        }
     }
 }
