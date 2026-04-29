@@ -45,6 +45,8 @@ namespace Gizmo.Go.Provider.Direct.Extensions
             
             services.AddSingleton<IAuthService, DirectAuthService>();
             services.AddSingleton<IBranchProvider, DirectBranchProvider>();
+            // services.AddSingleton<IRegistrationService, DemoRegistrationService>();
+            // services.AddSingleton<IConfirmationService, DemoConfirmationService>();
             services.AddSingleton<IRegistrationService, DirectRegistrationService>();
             services.AddSingleton<IConfirmationService, DirectConfirmationService>();
 
