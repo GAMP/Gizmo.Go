@@ -31,6 +31,11 @@ namespace Gizmo.Go.Web.Services
             await _jsRuntime.InvokeVoidAsync("window.gizmoGoLifecycle.startWatching");
         }
 
+        public async Task<bool> IsActiveAsync()
+        {
+            return await _jsRuntime.InvokeAsync<bool>("window.gizmoGoLifecycle.isActive");
+        }
+
         [JSInvokable]
         public void OnResumed()
         {

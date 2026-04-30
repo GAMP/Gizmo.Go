@@ -10,6 +10,8 @@ namespace Gizmo.Go.Maui.Services
 
         public Task StartWatchingAsync() => Task.CompletedTask;
 
+        public Task<bool> IsActiveAsync() => Task.FromResult(true);
+
         internal void RaiseResumed() => Resumed?.Invoke(this, EventArgs.Empty);
     }
 }

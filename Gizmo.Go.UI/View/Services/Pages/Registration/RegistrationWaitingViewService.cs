@@ -22,6 +22,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         private readonly IRegistrationSessionService _registrationSession;
 
         private bool _isChecking;
+        private CancellationTokenSource? _pollingCts;
 
         public RegistrationWaitingViewService(
             RegistrationWaitingViewState viewState,
@@ -53,6 +54,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
             _appLifecycleService.Resumed += OnAppResumed;
             await _appLifecycleService.StartWatchingAsync();
+            StartPolling();
 
             await base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
@@ -61,6 +63,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             CancellationToken cancellationToken = default)
         {
             _appLifecycleService.Resumed -= OnAppResumed;
+            StopPolling();
             return base.OnNavigatedOut(navigationParameters, cancellationToken);
         }
 
@@ -70,6 +73,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         public ValueTask NavigateBackAsync()
         {
+            StopPolling();
             _registrationSession.Clear();
             _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
             return ValueTask.CompletedTask;
@@ -81,6 +85,11 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         private async void OnAppResumed(object? sender, EventArgs e)
         {
+            await CheckConfirmationAsync();
+        }
+
+        private async Task CheckConfirmationAsync()
+        {
             if (_isChecking)
                 return;
 
@@ -90,6 +99,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                 var result = await _registrationService.IsTokenConfirmedAsync(_registrationSession.Token);
                 if (result.IsConfirmed)
                 {
+                    StopPolling();
                     if (!string.IsNullOrEmpty(result.Phone))
                         _registrationSession.SetPhone(result.Phone);
                     _navigationService.NavigateTo(NavigationHelper.RegistrationBotVerifySuccess);
@@ -98,6 +108,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Token confirmation check failed.");
+                StopPolling();
                 _registrationSession.Clear();
                 _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
             }
@@ -105,6 +116,40 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             {
                 _isChecking = false;
             }
+        }
+
+        private void StartPolling()
+        {
+            StopPolling();
+            _pollingCts = new CancellationTokenSource();
+            _ = PollAsync(_pollingCts.Token);
+        }
+
+        private async Task PollAsync(CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                try
+                {
+                    await Task.Delay(5000, cancellationToken);
+                }
+                catch (OperationCanceledException)
+                {
+                    return;
+                }
+
+                if (!await _appLifecycleService.IsActiveAsync())
+                    continue;
+
+                await CheckConfirmationAsync();
+            }
+        }
+
+        private void StopPolling()
+        {
+            _pollingCts?.Cancel();
+            _pollingCts?.Dispose();
+            _pollingCts = null;
         }
 
         #endregion

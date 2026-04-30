@@ -277,6 +277,9 @@
   <data name="GO_REGISTRATION_PROFILE_USERNAME_PLACEHOLDER" xml:space="preserve">
     <value>Введите никнейм</value>
   </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_TAKEN" xml:space="preserve">
+    <value>Этот никнейм уже занят</value>
+  </data>
   <data name="GO_REGISTRATION_PROFILE_EMAIL_LABEL" xml:space="preserve">
     <value>Email</value>
   </data>

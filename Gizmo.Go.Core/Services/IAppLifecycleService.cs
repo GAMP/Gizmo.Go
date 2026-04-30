@@ -4,6 +4,7 @@ namespace Gizmo.Go.Core.Services
     {
         Task InitializeAsync();
         Task StartWatchingAsync();
+        Task<bool> IsActiveAsync();
         event EventHandler Resumed;
     }
 }

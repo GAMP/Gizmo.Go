@@ -49,6 +49,7 @@ namespace Gizmo.Go.Provider.Direct.Extensions
             // services.AddSingleton<IConfirmationService, DemoConfirmationService>();
             services.AddSingleton<IRegistrationService, DirectRegistrationService>();
             services.AddSingleton<IConfirmationService, DirectConfirmationService>();
+            services.AddSingleton<IUserService, DirectUserService>();
 
             return services;
         }

@@ -18,7 +18,7 @@ window.gizmoGoLifecycle = {
     // после подписки на Resumed, чтобы аннулировать stale blur от window.open("tg://..."),
     // который произошёл до загрузки страницы.
     _hiddenAt: null,
-    _MIN_AWAY_MS: 1500,
+    _MIN_AWAY_MS: 300,
     register: function(dotNetRef) {
         var lc = window.gizmoGoLifecycle;
 
@@ -42,6 +42,9 @@ window.gizmoGoLifecycle = {
         });
         window.addEventListener('blur', onHide);
         window.addEventListener('focus', onShow);
+    },
+    isActive: function() {
+        return !document.hidden && document.hasFocus();
     },
     startWatching: function() {
         var lc = window.gizmoGoLifecycle;

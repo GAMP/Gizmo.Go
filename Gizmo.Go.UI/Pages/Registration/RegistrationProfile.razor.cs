@@ -1,8 +1,12 @@
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.UI.View.Services.Pages.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace Gizmo.Go.UI.Pages.Registration
 {
@@ -21,6 +25,13 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #endregion
 
+        #region FIELDS
+
+        private string _usernameInputValue = string.Empty;
+        private CancellationTokenSource? _usernameDebounceCts;
+
+        #endregion
+
         #region OVERRIDES
 
         protected override void OnInitialized()
@@ -36,10 +47,30 @@ namespace Gizmo.Go.UI.Pages.Registration
         public void Dispose()
         {
             this.UnsubscribeChange(RegistrationProfileViewState);
+            _usernameDebounceCts?.Cancel();
+            _usernameDebounceCts?.Dispose();
         }
 
-        private async Task OnUsernameInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetUsernameAsync(e.Value?.ToString() ?? string.Empty);
+        private bool HasErrors<T>(Expression<Func<T>> accessor)
+        {
+            var fieldIdentifier = FieldIdentifier.Create(accessor);
+            return RegistrationProfileViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
+        }
+
+        private async Task OnUsernameInput(ChangeEventArgs e)
+        {
+            _usernameDebounceCts?.Cancel();
+            _usernameDebounceCts = new CancellationTokenSource();
+
+            _usernameInputValue = e.Value?.ToString() ?? string.Empty;
+
+            try
+            {
+                await Task.Delay(300, _usernameDebounceCts.Token);
+                await RegistrationProfileViewService.SetUsernameAsync(_usernameInputValue);
+            }
+            catch (OperationCanceledException) { }
+        }
 
         private async Task OnEmailInput(ChangeEventArgs e) =>
             await RegistrationProfileViewService.SetEmailAsync(e.Value?.ToString() ?? string.Empty);
