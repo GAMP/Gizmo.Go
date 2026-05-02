@@ -21,7 +21,10 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         private readonly IRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
 
+        private const int MaxPollAttempts = 3;
+
         private bool _isChecking;
+        private int _pollAttempts;
         private CancellationTokenSource? _pollingCts;
 
         public RegistrationWaitingViewService(
@@ -121,6 +124,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         private void StartPolling()
         {
             StopPolling();
+            _pollAttempts = 0;
             _pollingCts = new CancellationTokenSource();
             _ = PollAsync(_pollingCts.Token);
         }
@@ -140,6 +144,15 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
                 if (!await _appLifecycleService.IsActiveAsync())
                     continue;
+
+                _pollAttempts++;
+                if (_pollAttempts > MaxPollAttempts)
+                {
+                    StopPolling();
+                    _registrationSession.Clear();
+                    _navigationService.NavigateTo(NavigationHelper.RegistrationProviders + "?error=1");
+                    return;
+                }
 
                 await CheckConfirmationAsync();
             }

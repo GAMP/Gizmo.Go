@@ -4,5 +4,6 @@ namespace Gizmo.Go.Core.Models.Registration
     {
         public bool IsConfirmed { get; init; }
         public string? Phone { get; init; }
+        public bool UserAlreadyExists { get; init; }
     }
 }

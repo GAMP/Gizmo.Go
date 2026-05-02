@@ -9,6 +9,7 @@ internal static class TokenConfirmedResultMapper
         new()
         {
             IsConfirmed = model.IsConfirmed,
-            Phone = model.Phone
+            Phone = model.Phone,
+            UserAlreadyExists = model.UserAlreadyExists
         };
 }
