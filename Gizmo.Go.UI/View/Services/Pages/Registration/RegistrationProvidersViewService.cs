@@ -81,7 +81,7 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
                 if (result.Result == RegistrationStartResultCode.Success
                     && !string.IsNullOrEmpty(result.RedirectUrl))
                 {
-                    await _externalLauncher.OpenAsync(result.RedirectUrl, cancellationToken);
+                    await _externalLauncher.RedirectPlaceholderAsync(placeholder, result.RedirectUrl, cancellationToken);
                     if (!string.IsNullOrEmpty(result.Token))
                         _registrationSession.SetToken(result.Token);
                     _registrationSession.SetFlow(RegistrationFlow.Telegram);
