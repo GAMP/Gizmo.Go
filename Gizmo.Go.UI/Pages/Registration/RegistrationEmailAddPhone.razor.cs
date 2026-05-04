@@ -25,6 +25,8 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         private string _phoneInputValue = string.Empty;
 
+        private CancellationTokenSource? _phoneInputDebounceCts;
+
         #endregion
 
         #region OVERRIDES
@@ -40,8 +42,6 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #region METHODS
 
-        private bool CanSubmit => RegistrationEmailAddPhoneViewState.CanSubmit;
-
         private bool HasErrors<T>(Expression<Func<T>> accessor)
         {
             var fieldIdentifier = FieldIdentifier.Create(accessor);
@@ -49,23 +49,34 @@ namespace Gizmo.Go.UI.Pages.Registration
             return RegistrationEmailAddPhoneViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
         }
 
-        private async Task OnCountryChange(ChangeEventArgs e)
+        private async Task OnCountryChangedAsync(ChangeEventArgs args)
         {
-            _selectedCountryIso2 = e.Value?.ToString() ?? string.Empty;
+            _selectedCountryIso2 = args.Value?.ToString() ?? string.Empty;
             _phoneInputValue = string.Empty;
             await RegistrationEmailAddPhoneViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
         }
 
-        private async Task OnPhoneInputAsync(ChangeEventArgs e)
+        private async Task OnPhoneInputAsync(ChangeEventArgs args)
         {
-            _phoneInputValue = e.Value?.ToString() ?? string.Empty;
-            await RegistrationEmailAddPhoneViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+            _phoneInputDebounceCts?.Cancel();
+            _phoneInputDebounceCts = new CancellationTokenSource();
+            _phoneInputValue = args.Value?.ToString() ?? string.Empty;
+
+            try
+            {
+                await Task.Delay(150, _phoneInputDebounceCts.Token);
+                await RegistrationEmailAddPhoneViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+            }
+            catch (TaskCanceledException) { }
         }
 
-        private async Task OnPhoneFormattedAsync(ChangeEventArgs e)
+        private async Task OnPhoneFormattedAsync(ChangeEventArgs args)
         {
-            _phoneInputValue = e.Value?.ToString() ?? string.Empty;
+            _phoneInputValue = args.Value?.ToString() ?? string.Empty;
             await RegistrationEmailAddPhoneViewService.UpdatePhoneAsync(_phoneInputValue, _selectedCountryIso2);
+
+            if (!string.IsNullOrEmpty(RegistrationEmailAddPhoneViewState.PhoneInput))
+                _phoneInputValue = RegistrationEmailAddPhoneViewState.PhoneInput;
         }
 
         private async Task SubmitAsync() => await RegistrationEmailAddPhoneViewService.SubmitAsync();
@@ -75,6 +86,8 @@ namespace Gizmo.Go.UI.Pages.Registration
         public void Dispose()
         {
             this.UnsubscribeChange(RegistrationEmailAddPhoneViewState);
+            _phoneInputDebounceCts?.Cancel();
+            _phoneInputDebounceCts?.Dispose();
         }
 
         #endregion

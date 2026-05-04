@@ -24,7 +24,7 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #region FIELDS
 
-        private ElementReference[] _inputRefs = new ElementReference[6];
+        private ElementReference[] _inputRefs = [];
 
         #endregion
 
@@ -33,6 +33,7 @@ namespace Gizmo.Go.UI.Pages.Registration
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationEmailConfirmationViewState);
+            _inputRefs = new ElementReference[RegistrationEmailConfirmationViewState.Digits.Length];
             base.OnInitialized();
         }
 
@@ -66,7 +67,15 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         private async Task OnDigitKeyDown(int index, KeyboardEventArgs e)
         {
-            if (e.Key == "Backspace" && RegistrationEmailConfirmationViewState.Digits[index].Length == 0 && index > 0)
+            if (e.Key != "Backspace") return;
+
+            if (RegistrationEmailConfirmationViewState.Digits[index].Length > 0)
+            {
+                await RegistrationEmailConfirmationViewService.ClearDigitAsync(index);
+                return;
+            }
+
+            if (index > 0)
             {
                 await RegistrationEmailConfirmationViewService.ClearDigitAsync(index - 1);
                 await Task.Yield();

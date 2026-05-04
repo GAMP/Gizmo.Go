@@ -53,13 +53,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return ValueTask.CompletedTask;
         }
 
-        public ValueTask SetEmailAsync(string value)
-        {
-            ViewState.Email = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
         public ValueTask SetFirstNameAsync(string value)
         {
             ViewState.FirstName = value;
@@ -77,55 +70,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         public ValueTask SetBirthDateAsync(DateTime? value)
         {
             ViewState.BirthDate = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
-        public ValueTask SetAddressAsync(string value)
-        {
-            ViewState.Address = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
-        public ValueTask SetCityAsync(string value)
-        {
-            ViewState.City = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
-        public ValueTask SetCountryAsync(string value)
-        {
-            ViewState.Country = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
-        public ValueTask SetPostCodeAsync(string value)
-        {
-            ViewState.PostCode = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
-        public ValueTask SetPhoneAsync(string value)
-        {
-            ViewState.Phone = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
-        public ValueTask SetMobilePhoneAsync(string value)
-        {
-            ViewState.MobilePhone = value;
-            ViewState.RaiseChanged();
-            return ValueTask.CompletedTask;
-        }
-
-        public ValueTask SetSexAsync(UserSex value)
-        {
-            ViewState.Sex = value;
             ViewState.RaiseChanged();
             return ValueTask.CompletedTask;
         }
@@ -212,19 +156,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }
 
             ViewState.Username = string.Empty;
-            ViewState.Email = string.Empty;
             ViewState.FirstName = string.Empty;
             ViewState.LastName = string.Empty;
             ViewState.BirthDate = null;
-            ViewState.Address = string.Empty;
-            ViewState.City = string.Empty;
-            ViewState.Country = string.Empty;
-            ViewState.PostCode = string.Empty;
-            ViewState.Phone = string.Empty;
-            ViewState.MobilePhone = string.Empty;
-            ViewState.Sex = UserSex.Unspecified;
             ViewState.IsSubmitting = false;
             ViewState.ErrorMessage = null;
+
+            ClearError(() => ViewState.Username);
+
             ViewState.RaiseChanged();
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
@@ -239,17 +178,9 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return new RegistrationProfile
             {
                 Username = ViewState.Username,
-                Email = NullIfEmpty(ViewState.Email),
                 FirstName = NullIfEmpty(ViewState.FirstName),
                 LastName = NullIfEmpty(ViewState.LastName),
                 BirthDate = ViewState.BirthDate,
-                Address = NullIfEmpty(ViewState.Address),
-                City = NullIfEmpty(ViewState.City),
-                Country = NullIfEmpty(ViewState.Country),
-                PostCode = NullIfEmpty(ViewState.PostCode),
-                Phone = NullIfEmpty(ViewState.Phone),
-                MobilePhone = NullIfEmpty(ViewState.MobilePhone),
-                Sex = ViewState.Sex,
             };
         }
 

@@ -6,6 +6,5 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
     [Register()]
     public sealed class RegistrationCallSuccessViewState : ViewStateBase
     {
-        public string ServerPhoneNumber { get; internal set; } = string.Empty;
     }
 }

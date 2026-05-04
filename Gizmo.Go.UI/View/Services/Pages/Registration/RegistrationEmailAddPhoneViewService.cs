@@ -117,6 +117,9 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             ViewState.PhoneLength = _phoneValidationService.GetMaxLength(defaultIso2) + separatorBuffer;
             ViewState.IsSubmitting = false;
             ViewState.ErrorMessage = null;
+
+            ClearError(() => ViewState.PhoneInput);
+
             ViewState.RaiseChanged();
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);

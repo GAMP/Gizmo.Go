@@ -14,7 +14,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 {
     [Register()]
     [Route(NavigationHelper.RegistrationEmail)]
-    public sealed class RegistrationEmailViewService : ViewStateServiceBase<RegistrationEmailViewState>
+    public sealed class RegistrationEmailViewService : ValidatingViewStateServiceBase<RegistrationEmailViewState>
     {
         #region CONSTRUCTOR
 
@@ -42,13 +42,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         public ValueTask SetEmailAsync(string value)
         {
             ViewState.Email = value;
-            ViewState.RaiseChanged();
+            ValidateProperty(() => ViewState.Email);
             return ValueTask.CompletedTask;
         }
 
         public async ValueTask SubmitAsync()
         {
-            if (ViewState.IsSubmitting)
+            Validate();
+            if (ViewState.IsValid != true || ViewState.IsSubmitting)
                 return;
 
             ViewState.IsSubmitting = true;
@@ -83,6 +84,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _registrationSession.SetToken(result.Token);
             _registrationSession.SetCodeLength(result.CodeLength);
             _registrationSession.SetEmail(ViewState.Email);
+            _registrationSession.SetFlow(RegistrationFlow.Email);
             _navigationService.NavigateTo(NavigationHelper.RegistrationEmailConfirmation);
         }
 

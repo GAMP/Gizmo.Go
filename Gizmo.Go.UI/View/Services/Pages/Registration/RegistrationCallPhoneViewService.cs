@@ -22,17 +22,20 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         private readonly NavigationService _navigationService;
         private readonly IPhoneValidationService _phoneValidationService;
+        private readonly IRegistrationSessionService _registrationSession;
 
         public RegistrationCallPhoneViewService(
             RegistrationCallPhoneViewState viewState,
             ILogger<RegistrationCallPhoneViewService> logger,
             IServiceProvider serviceProvider,
             NavigationService navigationService,
-            IPhoneValidationService phoneValidationService)
+            IPhoneValidationService phoneValidationService,
+            IRegistrationSessionService registrationSession)
             : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
             _phoneValidationService = phoneValidationService;
+            _registrationSession = registrationSession;
         }
 
         #endregion
@@ -79,6 +82,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }
 
             //TODO: вызов API для call-based верификации когда будет реализован
+            _registrationSession.SetFlow(RegistrationFlow.Call);
             _navigationService.NavigateTo(NavigationHelper.RegistrationCallVerify);
 
             return ValueTask.CompletedTask;
@@ -121,6 +125,8 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             ViewState.SelectedDialCode = defaultCountry?.DialCode ?? string.Empty;
             ViewState.SelectedCountryPlaceholder = defaultCountry?.Placeholder ?? string.Empty;
             ViewState.PhoneLength = _phoneValidationService.GetMaxLength(defaultIso2) + separatorBuffer;
+
+            ClearError(() => ViewState.PhoneInput);
 
             ViewState.RaiseChanged();
 

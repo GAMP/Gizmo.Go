@@ -56,5 +56,34 @@ window.gizmoGoLifecycle = {
         } else {
             lc._hiddenAt = null;
         }
+    },
+    _placeholderWindow: null,
+    openPlaceholder: function() {
+        try {
+            var w = window.open('about:blank', '_blank');
+            if (w) { window.gizmoGoLifecycle._placeholderWindow = w; return true; }
+            return false;
+        } catch { return false; }
+    },
+    redirectPlaceholder: function(url) {
+        var w = window.gizmoGoLifecycle._placeholderWindow;
+        if (w && !w.closed) w.location.href = url;
+        window.gizmoGoLifecycle._placeholderWindow = null;
+    },
+    closePlaceholder: function() {
+        var lc = window.gizmoGoLifecycle;
+        if (lc._placeholderWindow && !lc._placeholderWindow.closed) {
+            try { lc._placeholderWindow.close(); } catch {}
+        }
+        lc._placeholderWindow = null;
+    },
+    triggerProtocol: function(url) {
+        var a = document.createElement('a');
+        a.href = url;
+        a.target = '_self';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     }
 };

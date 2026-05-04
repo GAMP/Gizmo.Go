@@ -68,6 +68,7 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
 
         if (provider.CanRedirect)
         {
+            var placeholder = await _externalLauncher.OpenPlaceholderAsync(cancellationToken);
             try
             {
                 var request = new RegistrationStartRequest
@@ -83,15 +84,18 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
                     await _externalLauncher.OpenAsync(result.RedirectUrl, cancellationToken);
                     if (!string.IsNullOrEmpty(result.Token))
                         _registrationSession.SetToken(result.Token);
+                    _registrationSession.SetFlow(RegistrationFlow.Telegram);
                     _navigationService.NavigateTo(NavigationHelper.RegistrationWaiting);
                 }
                 else
                 {
+                    await _externalLauncher.ClosePlaceholderAsync(placeholder, cancellationToken);
                     SetProviderError(channelGuid);
                 }
             }
             catch (Exception ex)
             {
+                await _externalLauncher.ClosePlaceholderAsync(placeholder, cancellationToken);
                 Logger.LogError(ex, "Failed to start redirect registration for provider {ChannelGuid}.", channelGuid);
                 SetProviderError(channelGuid);
             }

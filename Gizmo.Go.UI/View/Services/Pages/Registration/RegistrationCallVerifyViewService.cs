@@ -1,4 +1,5 @@
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -15,14 +16,20 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         #region CONSTRUCTOR
 
         private readonly NavigationService _navigationService;
+        private readonly IRegistrationSessionService _registrationSession;
+        private readonly IPhoneValidationService _phoneValidationService;
 
         public RegistrationCallVerifyViewService(
             RegistrationCallVerifyViewState viewState,
             ILogger<RegistrationCallVerifyViewService> logger,
             IServiceProvider serviceProvider,
-            NavigationService navigationService) : base(viewState, logger, serviceProvider)
+            NavigationService navigationService,
+            IRegistrationSessionService registrationSession,
+            IPhoneValidationService phoneValidationService) : base(viewState, logger, serviceProvider)
         {
             _navigationService = navigationService;
+            _registrationSession = registrationSession;
+            _phoneValidationService = phoneValidationService;
         }
 
         #endregion
@@ -50,6 +57,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         {
             // TODO: получить ServerPhoneNumber из ответа API call-верификации
             ViewState.ServerPhoneNumber = string.Empty;
+            ViewState.MaskedPhone = _phoneValidationService.MaskPhone(_registrationSession.Phone);
             ViewState.RaiseChanged();
 
             _ = StartTimerAsync();

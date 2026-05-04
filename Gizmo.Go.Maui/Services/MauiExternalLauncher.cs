@@ -19,6 +19,10 @@ namespace Gizmo.Go.Maui.Services
             _logger = logger;
         }
 
+        public ValueTask<IDisposable?> OpenPlaceholderAsync(CancellationToken ct = default) => new(default(IDisposable?));
+        public ValueTask RedirectPlaceholderAsync(IDisposable? p, string url, CancellationToken ct = default) => new(OpenAsync(url, ct));
+        public ValueTask ClosePlaceholderAsync(IDisposable? p, CancellationToken ct = default) => default;
+
         public async Task OpenAsync(string url, CancellationToken cancellationToken = default)
         {
             try

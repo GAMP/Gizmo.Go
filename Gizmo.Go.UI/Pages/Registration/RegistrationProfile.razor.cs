@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
-using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.UI.View.Services.Pages.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
@@ -72,9 +71,6 @@ namespace Gizmo.Go.UI.Pages.Registration
             catch (OperationCanceledException) { }
         }
 
-        private async Task OnEmailInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetEmailAsync(e.Value?.ToString() ?? string.Empty);
-
         private async Task OnFirstNameInput(ChangeEventArgs e) =>
             await RegistrationProfileViewService.SetFirstNameAsync(e.Value?.ToString() ?? string.Empty);
 
@@ -86,30 +82,6 @@ namespace Gizmo.Go.UI.Pages.Registration
             var raw = e.Value?.ToString();
             DateTime? parsed = DateTime.TryParse(raw, out var dt) ? dt : null;
             await RegistrationProfileViewService.SetBirthDateAsync(parsed);
-        }
-
-        private async Task OnAddressInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetAddressAsync(e.Value?.ToString() ?? string.Empty);
-
-        private async Task OnCityInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetCityAsync(e.Value?.ToString() ?? string.Empty);
-
-        private async Task OnCountryInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetCountryAsync(e.Value?.ToString() ?? string.Empty);
-
-        private async Task OnPostCodeInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetPostCodeAsync(e.Value?.ToString() ?? string.Empty);
-
-        private async Task OnPhoneInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetPhoneAsync(e.Value?.ToString() ?? string.Empty);
-
-        private async Task OnMobilePhoneInput(ChangeEventArgs e) =>
-            await RegistrationProfileViewService.SetMobilePhoneAsync(e.Value?.ToString() ?? string.Empty);
-
-        private async Task OnSexChange(ChangeEventArgs e)
-        {
-            if (int.TryParse(e.Value?.ToString(), out var val) && Enum.IsDefined(typeof(UserSex), val))
-                await RegistrationProfileViewService.SetSexAsync((UserSex)val);
         }
 
         private async Task NavigateBack() =>

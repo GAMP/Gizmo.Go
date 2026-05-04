@@ -70,7 +70,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         public ValueTask NavigateBackAsync()
         {
-            _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
+            var target = _registrationSession.Flow switch
+            {
+                RegistrationFlow.Email => NavigationHelper.RegistrationEmailAddPhone,
+                RegistrationFlow.Telegram => NavigationHelper.RegistrationBotVerifySuccess,
+                RegistrationFlow.Call => NavigationHelper.RegistrationCallSuccess,
+                _ => NavigationHelper.RegistrationPhone
+            };
+            _navigationService.NavigateTo(target);
             return ValueTask.CompletedTask;
         }
 

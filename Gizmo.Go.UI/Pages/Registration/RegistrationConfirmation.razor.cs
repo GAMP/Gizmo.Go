@@ -33,6 +33,7 @@ namespace Gizmo.Go.UI.Pages.Registration
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationConfirmationViewState);
+            _inputRefs = new ElementReference[RegistrationConfirmationViewState.Digits.Length];
             base.OnInitialized();
         }
 
@@ -68,7 +69,15 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         private async Task OnDigitKeyDown(int index, KeyboardEventArgs e)
         {
-            if (e.Key == "Backspace" && RegistrationConfirmationViewState.Digits[index].Length == 0 && index > 0)
+            if (e.Key != "Backspace") return;
+
+            if (RegistrationConfirmationViewState.Digits[index].Length > 0)
+            {
+                await RegistrationConfirmationViewService.ClearDigitAsync(index);
+                return;
+            }
+
+            if (index > 0)
             {
                 await RegistrationConfirmationViewService.ClearDigitAsync(index - 1);
                 await Task.Yield();

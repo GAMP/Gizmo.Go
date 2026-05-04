@@ -6,5 +6,9 @@ namespace Gizmo.Go.Core.Services
     public interface IExternalLauncher
     {
         Task OpenAsync(string url, CancellationToken cancellationToken = default);
+
+        ValueTask<IDisposable?> OpenPlaceholderAsync(CancellationToken ct = default);
+        ValueTask RedirectPlaceholderAsync(IDisposable? placeholder, string url, CancellationToken ct = default);
+        ValueTask ClosePlaceholderAsync(IDisposable? placeholder, CancellationToken ct = default);
     }
 }

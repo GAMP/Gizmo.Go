@@ -21,7 +21,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         private readonly IRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
 
-        private const int MaxPollAttempts = 3;
+        private const int MaxPollAttempts = 24;
 
         private bool _isChecking;
         private int _pollAttempts;

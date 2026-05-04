@@ -15,6 +15,8 @@ namespace Gizmo.Go.UI.Services.Registration
         void SetPhone(string phone);
         void SetEmail(string email);
         void SetCodeLength(int codeLength);
+        RegistrationFlow Flow { get; }
+        void SetFlow(RegistrationFlow flow);
         void Clear();
     }
 }

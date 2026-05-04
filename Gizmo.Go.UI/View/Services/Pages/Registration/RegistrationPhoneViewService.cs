@@ -123,6 +123,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _registrationSession.SetToken(result.Token);
             _registrationSession.SetCodeLength(result.CodeLength);
             _registrationSession.SetPhone(ViewState.PhoneE164);
+            _registrationSession.SetFlow(RegistrationFlow.Sms);
             _navigationService.NavigateTo(NavigationHelper.RegistrationConfirmationPage);
         }
 
@@ -165,6 +166,9 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             ViewState.SelectedCountryPlaceholder = defaultCountry?.Placeholder ?? string.Empty;
             ViewState.PhoneLength = _phoneValidationService.GetMaxLength(defaultIso2) + separatorBuffer;
             ViewState.TermsAccepted = false;
+
+            ClearError(() => ViewState.PhoneInput);
+            ClearError(() => ViewState.TermsAccepted);
 
             ViewState.RaiseChanged();
 

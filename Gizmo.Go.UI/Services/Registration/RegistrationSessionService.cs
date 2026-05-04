@@ -7,6 +7,7 @@ namespace Gizmo.Go.UI.Services.Registration
         private string _phone = string.Empty;
         private string _email = string.Empty;
         private int _codeLength;
+        private RegistrationFlow _flow = RegistrationFlow.None;
 
         public string Token => _token;
         public string Password => _password;
@@ -15,6 +16,12 @@ namespace Gizmo.Go.UI.Services.Registration
         public int CodeLength => _codeLength;
         public bool HasToken => _token.Length > 0;
         public bool HasSession => HasToken && _password.Length > 0;
+        public RegistrationFlow Flow => _flow;
+
+        public void SetFlow(RegistrationFlow flow)
+        {
+            _flow = flow;
+        }
 
         public void SetToken(string token)
         {
@@ -51,6 +58,7 @@ namespace Gizmo.Go.UI.Services.Registration
             _phone = string.Empty;
             _email = string.Empty;
             _codeLength = 0;
+            _flow = RegistrationFlow.None;
         }
     }
 }

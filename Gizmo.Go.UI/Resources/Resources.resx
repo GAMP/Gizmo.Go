@@ -109,6 +109,9 @@
   <data name="GO_VE_REQUIRED" xml:space="preserve">
     <value>This field is required.</value>
   </data>
+  <data name="GO_VE_EMAIL_INVALID" xml:space="preserve">
+    <value>Введите корректный email</value>
+  </data>
   <data name="GO_VE_PHONE_REQUIRED" xml:space="preserve">
     <value>Введите номер телефона</value>
   </data>
