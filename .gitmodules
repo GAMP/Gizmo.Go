@@ -1,9 +1,12 @@
 [submodule "libs/Gizmo.Web.Api.Client"]
 	path = libs/Gizmo.Web.Api.Client
-	url = git@github.com:GAMP/Gizmo.Web.Api.Client.git
+	url = https://github.com/GAMP/Gizmo.Web.Api.Client
+	branch = telegram-verification-status
 [submodule "libs/Gizmo.Shared"]
 	path = libs/Gizmo.Shared
-	url = git@github.com:GAMP/Gizmo.Shared.git
+	url = https://github.com/GAMP/Gizmo.Shared
+	branch = version-3
 [submodule "libs/Gizmo.Web.Api.Models"]
 	path = libs/Gizmo.Web.Api.Models
-	url = git@github.com:GAMP/Gizmo.Web.Api.Models.git
+	url = https://github.com/GAMP/Gizmo.Web.Api.Models
+	branch = mrdpod
