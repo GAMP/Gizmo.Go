@@ -97,8 +97,8 @@
     align-items: center;
     gap: 12px;
     padding: 16px;
-    background: rgba(#27ae60, 0.10);
-    border: 1px solid rgba(#2ecc71, 0.30);
+    background: rgba($color-success, 0.10);
+    border: 1px solid rgba($color-success-light, 0.30);
     border-radius: 12px;
     box-sizing: border-box;
 }
@@ -110,7 +110,7 @@
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    color: #2ecc71;
+    color: $color-success-light;
 }
 
 .call-success-card__texts {
@@ -124,7 +124,7 @@
     font-family: 'Noto Sans', $font-family-base;
     font-size: 13px;
     font-weight: $font-weight-regular;
-    color: #2ecc71;
+    color: $color-success-light;
     line-height: 1.4;
 }
 

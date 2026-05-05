@@ -54,14 +54,14 @@
 
   // Priority providers — blue gradient (#37AEE2 → #1E96C8), same pattern as welcome-btn--primary
   &--primary {
-    background: linear-gradient(135deg, #37aee2 0%, #1e96c8 100%);
+    background: linear-gradient(135deg, $color-provider-primary-start 0%, $color-provider-primary-end 100%);
     border: none;
     box-shadow:
-      0 0 12px rgba(#37aee2, 0.20),
-      0 4px 14px rgba(#1e96c8, 0.30);
+      0 0 12px rgba($color-provider-primary-start, 0.20),
+      0 4px 14px rgba($color-provider-primary-end, 0.30);
 
     &:hover {
-      background: linear-gradient(135deg, color.adjust(#37aee2, $lightness: 5%) 0%, color.adjust(#1e96c8, $lightness: 5%) 100%);
+      background: linear-gradient(135deg, color.adjust($color-provider-primary-start, $lightness: 5%) 0%, color.adjust($color-provider-primary-end, $lightness: 5%) 100%);
     }
   }
 }
