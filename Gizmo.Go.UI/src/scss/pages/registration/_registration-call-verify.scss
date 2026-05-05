@@ -7,53 +7,11 @@
 // ============================================
 @use '../../themes/default/theme' as *;
 @use 'sass:color';
+@use '../../layout/auth-shell';
 
 // ---- Page shell ----
 
-.page-registration-call-verify {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  background-color: $color-welcome-bg;
-  color: #ffffff;
-  font-family: 'Noto Sans', $font-family-base;
-  overflow-x: hidden;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  box-sizing: border-box;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('../img/arena-hero-bg.png');
-    background-size: auto 100%;
-    background-position: 69.3% top;
-    background-repeat: no-repeat;
-    opacity: 0.55;
-    z-index: 0;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba($color-welcome-bg, 0.30) 0%,
-        rgba($color-welcome-bg, 0.75) 45%,
-        rgba($color-welcome-bg, 0.97) 70%,
-        $color-welcome-bg 100%
-      );
-    z-index: 0;
-  }
-}
-
-.page-registration-call-verify > * {
-  position: relative;
-  z-index: 1;
-}
+.page-registration-call-verify { @include auth-shell.auth-page-shell; }
 
 // ---- Header: back btn left + LangButton right ----
 

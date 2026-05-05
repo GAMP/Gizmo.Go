@@ -4,59 +4,11 @@
 // ============================================
 @use '../../themes/default/theme' as *;
 @use 'sass:color';
+@use '../../layout/auth-shell';
 
 // ---- Page shell ----
 
-.page-create-account {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  background-color: $color-welcome-bg;
-  color: #ffffff;
-  font-family: 'Noto Sans', $font-family-base;
-  overflow-x: hidden;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  box-sizing: border-box;
-
-  // Background hero image.
-  // Figma: img (1443.5625×812) at x=-740.46875 within 375px container.
-  // CSS background-position X% = 740.46875 / (1443.5625 - 375) ≈ 69.3%
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('../img/arena-hero-bg.png');
-    background-size: auto 100%;
-    background-position: 69.3% top;
-    background-repeat: no-repeat;
-    opacity: 0.55;
-    z-index: 0;
-  }
-
-  // Dark gradient overlay — dims the bottom so the card reads cleanly
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba($color-welcome-bg, 0.30) 0%,
-        rgba($color-welcome-bg, 0.75) 45%,
-        rgba($color-welcome-bg, 0.97) 70%,
-        $color-welcome-bg 100%
-      );
-    z-index: 0;
-  }
-}
-
-// Ensure all direct content sits above the ::before / ::after backdrop layers
-
-.page-create-account > * {
-  position: relative;
-  z-index: 1;
-}
+.page-create-account { @include auth-shell.auth-page-shell; }
 
 // ---- Fields container ----
 
@@ -64,109 +16,6 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-}
-
-// ---- intl-tel-input host ----
-
-.create-account-phone-field {
-  padding: 0;
-  overflow: visible;
-  z-index: 3;
-
-  .iti {
-    width: 100%;
-  }
-
-  .iti__country-container {
-    background: transparent;
-  }
-
-  .iti__selected-country {
-    padding-left: 12px;
-    padding-right: 10px;
-    background: transparent;
-  }
-
-  .iti__selected-country-primary {
-    background: transparent;
-  }
-
-  .iti__arrow {
-    border-top-color: rgba(#ffffff, 0.50);
-  }
-
-  .iti__dial-code,
-  .iti__selected-dial-code,
-  .iti__country-name {
-    color: rgba(#ffffff, 0.90);
-    font-family: 'Noto Sans', $font-family-base;
-    font-size: 14px;
-  }
-
-  .iti__search-input,
-  .iti__country-list,
-  .iti__search-input::placeholder {
-    font-family: 'Noto Sans', $font-family-base;
-  }
-
-  .iti__search-input {
-    color: #ffffff;
-    background: rgba(#12171d, 0.98);
-  }
-
-  .iti__search-input::placeholder {
-    color: rgba(#ffffff, 0.45);
-  }
-
-  .iti__dropdown-content,
-  .iti__country-list {
-    background: rgba(#12171d, 0.98);
-    border: 1px solid rgba(#f6fbfd, 0.12);
-    color: #ffffff;
-  }
-
-  .iti__country.iti__highlight {
-    background: rgba($color-welcome-accent, 0.14);
-  }
-}
-
-.create-account-phone-field__input {
-  padding-left: 110px;
-}
-
-.iti--container {
-  z-index: 2000;
-
-  .iti__dropdown-content,
-  .iti__country-list,
-  .iti__search-input {
-    font-family: 'Noto Sans', $font-family-base;
-  }
-
-  .iti__dropdown-content,
-  .iti__country-list {
-    background: rgba(#12171d, 0.98);
-    border: 1px solid rgba(#f6fbfd, 0.12);
-    color: #ffffff;
-  }
-
-  .iti__search-input {
-    color: #ffffff;
-    background: rgba(#12171d, 0.98);
-  }
-
-  .iti__search-input::placeholder {
-    color: rgba(#ffffff, 0.45);
-  }
-
-  .iti__country.iti__highlight {
-    background: rgba($color-welcome-accent, 0.14);
-  }
-
-  .iti__dial-code,
-  .iti__country-name {
-    color: rgba(#ffffff, 0.90);
-  }
 }
 
 // ---- Terms checkbox row ----
