@@ -6,8 +6,6 @@ namespace Gizmo.Go.UI.Components.Notification
 {
     public partial class ToastNotification : ComponentBase
     {
-        #region PROPERTIES
-
         [Parameter]
         public string Message { get; set; } = string.Empty;
 
@@ -20,10 +18,6 @@ namespace Gizmo.Go.UI.Components.Notification
         [Parameter(CaptureUnmatchedValues = true)]
         public IDictionary<string, object>? ExtraParameters { get; set; }
 
-        #endregion
-
-        #region OVERRIDES
-
         protected string TypeClass => Type switch
         {
             GoNotificationType.Success => "giz-toast--success",
@@ -33,7 +27,5 @@ namespace Gizmo.Go.UI.Components.Notification
         };
 
         protected void OnDismiss() => Controller?.Dismiss();
-
-        #endregion
     }
 }

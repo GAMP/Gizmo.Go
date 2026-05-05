@@ -11,8 +11,6 @@ namespace Gizmo.Go.UI.Pages
 {
     public partial class Login : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject]
         private LoginViewState LoginViewState { get; set; } = null!;
 
@@ -22,26 +20,14 @@ namespace Gizmo.Go.UI.Pages
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
-        #endregion
-
-        #region FIELDS
-
         private bool _isPhoneTab = true;
         private bool _showPassword;
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override void OnInitialized()
         {
             this.SubscribeChange(LoginViewState);
             base.OnInitialized();
         }
-
-        #endregion
-
-        #region METHODS
 
         public void Dispose()
         {
@@ -72,7 +58,5 @@ namespace Gizmo.Go.UI.Pages
             var fieldIdentifier = FieldIdentifier.Create(accessor);
             return LoginViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
         }
-
-        #endregion
     }
 }

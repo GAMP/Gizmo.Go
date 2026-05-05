@@ -7,17 +7,11 @@ namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationCallSuccess : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject] private RegistrationCallSuccessViewState RegistrationCallSuccessViewState { get; set; } = null!;
 
         [Inject] private RegistrationCallSuccessViewService RegistrationCallSuccessViewService { get; set; } = null!;
 
         [Inject] private ILocalizationService LocalizationService { get; set; } = null!;
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override void OnInitialized()
         {
@@ -25,15 +19,9 @@ namespace Gizmo.Go.UI.Pages.Registration
             base.OnInitialized();
         }
 
-        #endregion
-
-        #region METHODS
-
         public void Dispose()
         {
             this.UnsubscribeChange(RegistrationCallSuccessViewState);
         }
-
-        #endregion
     }
 }

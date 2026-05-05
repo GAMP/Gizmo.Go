@@ -16,8 +16,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationEmail)]
     public sealed class RegistrationEmailViewService : ValidatingViewStateServiceBase<RegistrationEmailViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
         private readonly IRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
@@ -34,10 +32,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _registrationService = registrationService;
             _registrationSession = registrationSession;
         }
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask SetEmailAsync(string value)
         {
@@ -106,10 +100,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return ValueTask.CompletedTask;
         }
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             var uri = new Uri(_navigationService.GetUri());
@@ -128,7 +118,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
-
-        #endregion
     }
 }

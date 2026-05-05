@@ -12,8 +12,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationSuccess)]
     public sealed class RegistrationSuccessViewService : ViewStateServiceBase<RegistrationSuccessViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
 
         public RegistrationSuccessViewService(
@@ -25,16 +23,10 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _navigationService = navigationService;
         }
 
-        #endregion
-
-        #region METHODS
-
         public ValueTask NavigateHomeAsync()
         {
             _navigationService.NavigateTo(NavigationHelper.WelcomePage);
             return ValueTask.CompletedTask;
         }
-
-        #endregion
     }
 }

@@ -7,27 +7,17 @@ namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationSuccess : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject] private RegistrationSuccessViewState RegistrationSuccessViewState { get; set; } = null!;
 
         [Inject] private RegistrationSuccessViewService RegistrationSuccessViewService { get; set; } = null!;
 
         [Inject] private ILocalizationService LocalizationService { get; set; } = null!;
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationSuccessViewState);
             base.OnInitialized();
         }
-
-        #endregion
-
-        #region METHODS
 
         private async Task NavigateHomeAsync() =>
             await RegistrationSuccessViewService.NavigateHomeAsync();
@@ -36,7 +26,5 @@ namespace Gizmo.Go.UI.Pages.Registration
         {
             this.UnsubscribeChange(RegistrationSuccessViewState);
         }
-
-        #endregion
     }
 }

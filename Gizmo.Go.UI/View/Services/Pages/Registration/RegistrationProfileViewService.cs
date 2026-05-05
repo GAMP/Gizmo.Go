@@ -18,8 +18,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationProfilePage)]
     public sealed class RegistrationProfileViewService : ValidatingViewStateServiceBase<RegistrationProfileViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
         private readonly IRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
@@ -42,10 +40,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _localizationService = localizationService;
             _userService = userService;
         }
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask SetUsernameAsync(string value)
         {
@@ -122,11 +116,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return ValueTask.CompletedTask;
         }
 
-        #endregion
-
         private static readonly Regex UsernameRegex = new("^[a-zA-Z0-9_-]+$", RegexOptions.Compiled);
-
-        #region OVERRIDES
 
         protected override async Task<IEnumerable<string>> OnValidateAsync(FieldIdentifier fieldIdentifier, ValidationTrigger validationTrigger, CancellationToken cancellationToken)
         {
@@ -179,10 +169,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
 
-        #endregion
-
-        #region PRIVATE METHODS
-
         private RegistrationProfile BuildProfile()
         {
             return new RegistrationProfile
@@ -196,7 +182,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         private static string? NullIfEmpty(string s) =>
             string.IsNullOrEmpty(s) ? null : s;
-
-        #endregion
     }
 }

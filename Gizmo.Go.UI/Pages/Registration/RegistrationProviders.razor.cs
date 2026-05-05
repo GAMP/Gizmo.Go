@@ -7,27 +7,17 @@ namespace Gizmo.Go.UI.Pages.Registration;
 
 public partial class RegistrationProviders : ComponentBase, IDisposable
 {
-    #region PROPERTIES
-
     [Inject] private RegistrationProvidersViewState RegistrationProvidersViewState { get; set; } = null!;
 
     [Inject] private RegistrationProvidersViewService RegistrationProvidersViewService { get; set; } = null!;
 
     [Inject] private ILocalizationService LocalizationService { get; set; } = null!;
 
-    #endregion
-
-    #region OVERRIDES
-
     protected override void OnInitialized()
     {
         this.SubscribeChange(RegistrationProvidersViewState);
         base.OnInitialized();
     }
-
-    #endregion
-
-    #region METHODS
 
     private async Task SelectProviders(Guid channelGuid)
     {
@@ -43,5 +33,4 @@ public partial class RegistrationProviders : ComponentBase, IDisposable
         this.UnsubscribeChange(RegistrationProvidersViewState);
     }
 
-    #endregion
 }

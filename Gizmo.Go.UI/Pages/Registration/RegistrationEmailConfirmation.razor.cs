@@ -7,8 +7,6 @@ namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationEmailConfirmation : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject]
         private RegistrationEmailConfirmationViewState RegistrationEmailConfirmationViewState { get; set; } = null!;
 
@@ -18,19 +16,11 @@ namespace Gizmo.Go.UI.Pages.Registration
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationEmailConfirmationViewState);
             base.OnInitialized();
         }
-
-        #endregion
-
-        #region METHODS
 
         public void Dispose()
         {
@@ -42,7 +32,5 @@ namespace Gizmo.Go.UI.Pages.Registration
         private async Task NavigateBack() => await RegistrationEmailConfirmationViewService.NavigateBackAsync();
 
         private async Task RestartTimer() => await RegistrationEmailConfirmationViewService.RestartTimerAsync();
-
-        #endregion
     }
 }

@@ -4,14 +4,8 @@ namespace Gizmo.Go.UI.Services.Registration
 {
     public sealed class PhoneValidationService : IPhoneValidationService
     {
-        #region FIELDS
-
         private static readonly PhoneNumberUtil _util = PhoneNumberUtil.GetInstance();
         private const int DefaultMaxDigits = 15;
-
-        #endregion
-
-        #region METHODS
 
         public PhoneValidationResult Validate(string input, string regionCode)
         {
@@ -64,10 +58,6 @@ namespace Gizmo.Go.UI.Services.Registration
             return $"{prefix}{first4[0]} {first4[1..]} ***-**-{last2}";
         }
 
-        #endregion
-
-        #region HELPERS
-
         private static string FormatNationalLocal(PhoneNumber parsed, string iso2)
         {
             var national = _util.Format(parsed, PhoneNumberFormat.NATIONAL);
@@ -78,7 +68,5 @@ namespace Gizmo.Go.UI.Services.Registration
 
             return national;
         }
-
-        #endregion
     }
 }

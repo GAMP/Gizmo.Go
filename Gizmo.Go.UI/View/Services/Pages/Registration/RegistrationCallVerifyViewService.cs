@@ -13,8 +13,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationCallVerify)]
     public sealed class RegistrationCallVerifyViewService : ViewStateServiceBase<RegistrationCallVerifyViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
         private readonly IRegistrationSessionService _registrationSession;
         private readonly IPhoneValidationService _phoneValidationService;
@@ -32,15 +30,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _phoneValidationService = phoneValidationService;
         }
 
-        #endregion
-
-        #region FIELDS
-
         private readonly CountdownTimer _timer = new();
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask CancelAsync()
         {
@@ -48,10 +38,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _navigationService.NavigateTo(NavigationHelper.RegistrationCallPhone);
             return ValueTask.CompletedTask;
         }
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
@@ -71,10 +57,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return base.OnNavigatedOut(navigationParameters, cancellationToken);
         }
 
-        #endregion
-
-        #region PRIVATE METHODS
-
         private Task StartTimerAsync()
             => _timer.StartAsync(120, secs =>
             {
@@ -84,7 +66,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }, Logger);
 
         private void CancelTimer() => _timer.Cancel();
-
-        #endregion
     }
 }

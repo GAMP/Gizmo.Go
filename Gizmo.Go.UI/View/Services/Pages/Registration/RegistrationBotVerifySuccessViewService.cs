@@ -13,8 +13,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationBotVerifySuccess)]
     public sealed class RegistrationBotVerifySuccessViewService : ViewStateServiceBase<RegistrationBotVerifySuccessViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
         private readonly IRegistrationSessionService _registrationSession;
         private readonly IPhoneValidationService _phoneValidationService;
@@ -32,10 +30,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _phoneValidationService = phoneValidationService;
         }
 
-        #endregion
-
-        #region METHODS
-
         public ValueTask ConfirmAsync()
         {
             _navigationService.NavigateTo(NavigationHelper.RegistrationPasswordPage);
@@ -48,10 +42,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
             return ValueTask.CompletedTask;
         }
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
@@ -66,7 +56,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
-
-        #endregion
     }
 }

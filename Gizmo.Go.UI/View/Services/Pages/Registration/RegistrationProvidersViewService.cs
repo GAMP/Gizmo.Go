@@ -16,8 +16,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration;
 [Route(NavigationHelper.RegistrationProviders)]
 public sealed class RegistrationProvidersViewService : ViewStateServiceBase<RegistrationProvidersViewState>
 {
-    #region CONSTRUCTOR
-
     private readonly IRegistrationService _registrationService;
     private readonly NavigationService _navigationService;
     private readonly IExternalLauncher _externalLauncher;
@@ -41,10 +39,6 @@ public sealed class RegistrationProvidersViewService : ViewStateServiceBase<Regi
         _localizationService = localizationService;
         _registrationSession = registrationSession;
     }
-
-    #endregion
-
-    #region METHODS
 
     public async Task SelectProviderAsync(Guid channelGuid, CancellationToken cancellationToken = default)
     {
@@ -116,10 +110,6 @@ public sealed class RegistrationProvidersViewService : ViewStateServiceBase<Regi
         ViewState.RaiseChanged();
     }
 
-    #endregion
-
-    #region OVERRIDES
-
     protected override async Task OnNavigatedIn(NavigationParameters navigationParameters,
         CancellationToken cancellationToken = default)
     {
@@ -159,5 +149,4 @@ public sealed class RegistrationProvidersViewService : ViewStateServiceBase<Regi
         return ValueTask.CompletedTask;
     }
 
-    #endregion
 }

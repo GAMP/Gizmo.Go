@@ -4,8 +4,6 @@ namespace Gizmo.Go.UI.Components
 {
     public partial class PhoneInputField : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Parameter] public string Value { get; set; } = "";
         [Parameter] public EventCallback<string> ValueChanged { get; set; }
         [Parameter] public string CountryIso2 { get; set; } = "";
@@ -18,26 +16,14 @@ namespace Gizmo.Go.UI.Components
         [Parameter] public bool Disabled { get; set; }
         [Parameter] public string Id { get; set; } = "phone";
 
-        #endregion
-
-        #region FIELDS
-
         private string _phoneInputValue = "";
         private CancellationTokenSource? _debounceCts;
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override void OnParametersSet()
         {
             if (_phoneInputValue != Value && _debounceCts is null)
                 _phoneInputValue = Value;
         }
-
-        #endregion
-
-        #region METHODS
 
         private async Task OnCountrySelected(ChangeEventArgs e)
         {
@@ -71,7 +57,5 @@ namespace Gizmo.Go.UI.Components
             _debounceCts?.Cancel();
             _debounceCts?.Dispose();
         }
-
-        #endregion
     }
 }

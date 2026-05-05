@@ -10,8 +10,6 @@ namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationPhone : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject]
         private RegistrationPhoneViewState RegistrationPhoneViewState { get; set; } = null!;
 
@@ -21,19 +19,11 @@ namespace Gizmo.Go.UI.Pages.Registration
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationPhoneViewState);
             base.OnInitialized();
         }
-
-        #endregion
-
-        #region METHODS
 
         private bool HasErrors<T>(Expression<Func<T>> accessor)
         {
@@ -58,7 +48,5 @@ namespace Gizmo.Go.UI.Pages.Registration
         {
             this.UnsubscribeChange(RegistrationPhoneViewState);
         }
-
-        #endregion
     }
 }

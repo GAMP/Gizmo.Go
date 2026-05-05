@@ -8,8 +8,6 @@ namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationCallVerify : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject]
         private RegistrationCallVerifyViewState RegistrationCallVerifyViewState { get; set; } = null!;
 
@@ -25,19 +23,11 @@ namespace Gizmo.Go.UI.Pages.Registration
         [Inject]
         private IJSRuntime JSRuntime { get; set; } = null!;
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationCallVerifyViewState);
             base.OnInitialized();
         }
-
-        #endregion
-
-        #region METHODS
 
         public void Dispose()
         {
@@ -59,7 +49,5 @@ namespace Gizmo.Go.UI.Pages.Registration
         }
 
         private async Task CancelAsync() => await RegistrationCallVerifyViewService.CancelAsync();
-
-        #endregion
     }
 }

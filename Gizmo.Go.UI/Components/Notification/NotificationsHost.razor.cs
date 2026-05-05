@@ -7,17 +7,11 @@ namespace Gizmo.Go.UI.Components.Notification
 {
     public partial class NotificationsHost : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject]
         private NotificationsHostViewState NotificationsHostViewState { get; set; } = null!;
 
         [Inject]
         private NotificationsHostViewService NotificationsHostViewService { get; set; } = null!;
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override void OnInitialized()
         {
@@ -28,7 +22,5 @@ namespace Gizmo.Go.UI.Components.Notification
         {
             this.UnsubscribeChange(NotificationsHostViewState);
         }
-
-        #endregion
     }
 }

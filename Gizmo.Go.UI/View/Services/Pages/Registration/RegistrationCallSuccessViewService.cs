@@ -11,15 +11,11 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationCallSuccess)]
     public sealed class RegistrationCallSuccessViewService : ViewStateServiceBase<RegistrationCallSuccessViewState>
     {
-        #region CONSTRUCTOR
-
         public RegistrationCallSuccessViewService(
             RegistrationCallSuccessViewState viewState,
             ILogger<RegistrationCallSuccessViewService> logger,
             IServiceProvider serviceProvider) : base(viewState, logger, serviceProvider)
         {
         }
-
-        #endregion
     }
 }

@@ -8,33 +8,19 @@ namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationEmail : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject] private RegistrationEmailViewState RegistrationEmailViewState { get; set; } = null!;
 
         [Inject] private RegistrationEmailViewService RegistrationEmailViewService { get; set; } = null!;
 
         [Inject] private ILocalizationService LocalizationService { get; set; } = null!;
 
-        #endregion
-
-        #region FIELDS
-
         private CancellationTokenSource? _emailDebounceCts;
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationEmailViewState);
             base.OnInitialized();
         }
-
-        #endregion
-
-        #region METHODS
 
         private async Task OnEmailInput(ChangeEventArgs e)
         {
@@ -69,7 +55,5 @@ namespace Gizmo.Go.UI.Pages.Registration
             _emailDebounceCts?.Cancel();
             _emailDebounceCts?.Dispose();
         }
-
-        #endregion
     }
 }

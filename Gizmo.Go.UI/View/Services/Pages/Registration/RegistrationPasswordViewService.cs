@@ -14,8 +14,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationPasswordPage)]
     public sealed class RegistrationPasswordViewService : ViewStateServiceBase<RegistrationPasswordViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
         private readonly IRegistrationSessionService _registrationSession;
         private readonly IPhoneValidationService _phoneValidationService;
@@ -32,10 +30,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _registrationSession = registrationSession;
             _phoneValidationService = phoneValidationService;
         }
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask SetPasswordAsync(string value)
         {
@@ -75,10 +69,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return ValueTask.CompletedTask;
         }
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             if (!_registrationSession.HasToken)
@@ -96,7 +86,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
-
-        #endregion
     }
 }

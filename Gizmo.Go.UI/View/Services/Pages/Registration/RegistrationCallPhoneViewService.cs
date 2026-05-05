@@ -18,8 +18,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationCallPhone)]
     public sealed class RegistrationCallPhoneViewService : ValidatingViewStateServiceBase<RegistrationCallPhoneViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
         private readonly IPhoneValidationService _phoneValidationService;
         private readonly IRegistrationSessionService _registrationSession;
@@ -40,10 +38,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _registrationSession = registrationSession;
             _localizationService = localizationService;
         }
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask UpdatePhoneAsync(string phoneInput, string countryIso2)
         {
@@ -97,10 +91,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
             return ValueTask.CompletedTask;
         }
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
@@ -163,7 +153,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                 }
             }
         }
-
-        #endregion
     }
 }

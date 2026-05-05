@@ -9,8 +9,6 @@ namespace Gizmo.Go.UI.Pages.Registration
 {
     public partial class RegistrationPassword : ComponentBase, IDisposable
     {
-        #region PROPERTIES
-
         [Inject]
         private RegistrationPasswordViewState RegistrationPasswordViewState { get; set; } = null!;
 
@@ -20,26 +18,14 @@ namespace Gizmo.Go.UI.Pages.Registration
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
-        #endregion
-
-        #region FIELDS
-
         private bool _showPassword;
         private bool _showConfirm;
-
-        #endregion
-
-        #region OVERRIDES
 
         protected override void OnInitialized()
         {
             this.SubscribeChange(RegistrationPasswordViewState);
             base.OnInitialized();
         }
-
-        #endregion
-
-        #region METHODS
 
         public void Dispose()
         {
@@ -59,7 +45,5 @@ namespace Gizmo.Go.UI.Pages.Registration
         private async Task SubmitAsync() => await RegistrationPasswordViewService.SubmitAsync();
 
         private async Task NavigateBack() => await RegistrationPasswordViewService.NavigateBackAsync();
-
-        #endregion
     }
 }

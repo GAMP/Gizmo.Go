@@ -15,13 +15,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationEmailConfirmation)]
     public sealed class RegistrationEmailConfirmationViewService : ViewStateServiceBase<RegistrationEmailConfirmationViewState>
     {
-        #region FIELDS
-
         private readonly CountdownTimer _timer = new();
-
-        #endregion
-
-        #region CONSTRUCTOR
 
         private readonly NavigationService _navigationService;
         private readonly IConfirmationService _confirmationService;
@@ -42,10 +36,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _registrationSession = registrationSession;
             _localizationService = localizationService;
         }
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask SetDigitAsync(int index, string raw)
         {
@@ -133,10 +123,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return ValueTask.CompletedTask;
         }
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             if (!_registrationSession.HasToken)
@@ -175,10 +161,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return base.OnNavigatedOut(navigationParameters, cancellationToken);
         }
 
-        #endregion
-
-        #region PRIVATE METHODS
-
         private Task StartTimerAsync()
             => _timer.StartAsync(60, secs =>
             {
@@ -188,7 +170,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }, Logger);
 
         private void CancelTimer() => _timer.Cancel();
-
-        #endregion
     }
 }

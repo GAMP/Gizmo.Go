@@ -16,8 +16,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     [Route(NavigationHelper.RegistrationWaiting)]
     public sealed class RegistrationWaitingViewService : ViewStateServiceBase<RegistrationWaitingViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
         private readonly IAppLifecycleService _appLifecycleService;
         private readonly IRegistrationService _registrationService;
@@ -51,10 +49,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _localizationService = localizationService;
         }
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override async Task OnNavigatedIn(NavigationParameters navigationParameters,
             CancellationToken cancellationToken = default)
         {
@@ -82,10 +76,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return base.OnNavigatedOut(navigationParameters, cancellationToken);
         }
 
-        #endregion
-
-        #region METHODS
-
         public ValueTask NavigateBackAsync()
         {
             StopPolling();
@@ -93,10 +83,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
             return ValueTask.CompletedTask;
         }
-
-        #endregion
-
-        #region PRIVATE METHODS
 
         private async void OnAppResumed(object? sender, EventArgs e)
         {
@@ -185,7 +171,5 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             _pollingCts?.Dispose();
             _pollingCts = null;
         }
-
-        #endregion
     }
 }

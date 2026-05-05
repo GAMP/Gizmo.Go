@@ -14,8 +14,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
     [Route(NavigationHelper.LoginPage)]
     public sealed class LoginViewService : ValidatingViewStateServiceBase<LoginViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly IAuthService _authService;
         private readonly NavigationService _navigationService;
         private readonly IAssemblyResourcesLocalizationService _assemblyResourcesLocalizationService;
@@ -33,10 +31,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
             _navigationService = navigationService;
             _assemblyResourcesLocalizationService = assemblyResourcesLocalizationService;
         }
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask SetUsernameAsync(string value)
         {
@@ -97,10 +91,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
             return ValueTask.CompletedTask;
         }
 
-        #endregion
-
-        #region OVERRIDES
-
         protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             ViewState.Username = string.Empty;
@@ -117,7 +107,5 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
             return base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
-
-        #endregion
     }
 }

@@ -13,8 +13,6 @@ namespace Gizmo.Go.UI.View.Services
     [Route(NavigationHelper.WelcomePage)]
     public sealed class WelcomeViewService : ViewStateServiceBase<WelcomeViewState>
     {
-        #region CONSTRUCTOR
-
         private readonly NavigationService _navigationService;
 
         public WelcomeViewService(
@@ -25,10 +23,6 @@ namespace Gizmo.Go.UI.View.Services
         {
             _navigationService = navigationService;
         }
-
-        #endregion
-
-        #region METHODS
 
         public ValueTask NavigateToLoginAsync()
         {
@@ -47,7 +41,5 @@ namespace Gizmo.Go.UI.View.Services
             _navigationService.NavigateTo(NavigationHelper.WelcomePage);
             return ValueTask.CompletedTask;
         }
-
-        #endregion
     }
 }
