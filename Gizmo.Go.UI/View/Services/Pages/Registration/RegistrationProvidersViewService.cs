@@ -14,7 +14,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration;
 
 [Register()]
 [Route(NavigationHelper.RegistrationProviders)]
-public class RegistrationProvidersViewService : ViewStateServiceBase<RegistrationProvidersViewState>
+public sealed class RegistrationProvidersViewService : ViewStateServiceBase<RegistrationProvidersViewState>
 {
     #region CONSTRUCTOR
 
@@ -99,6 +99,12 @@ public class RegistrationProvidersViewService : ViewStateServiceBase<Registratio
                 Logger.LogError(ex, "Failed to start redirect registration for provider {ChannelGuid}.", channelGuid);
                 SetProviderError(channelGuid);
             }
+        }
+        else
+        {
+            Logger.LogWarning("Unsupported provider configuration: ChannelGuid={ChannelGuid}, CanRedirect={CanRedirect}, CanDispatchCode={CanDispatchCode}.",
+                provider.ChannelGuid, provider.CanRedirect, provider.CanDispatchCode);
+            SetProviderError(channelGuid);
         }
     }
 

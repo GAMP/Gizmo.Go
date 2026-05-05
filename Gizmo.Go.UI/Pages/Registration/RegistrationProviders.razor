@@ -49,9 +49,9 @@
             else
             {
                 <ul class="registration-providers-list" role="list">
-                    @foreach (var provider in RegistrationProvidersViewState.Providers.Where(p => p.Priority))
+                    @foreach (var provider in RegistrationProvidersViewState.PriorityProviders)
                     {
-                        <li>
+                        <li @key="provider.PublicId">
                             <button type="button"
                                     class="registration-providers-btn registration-providers-btn--primary"
                                     @onclick="() => SelectProviders(provider.ChannelGuid)">
@@ -63,11 +63,7 @@
 
                 @if (RegistrationProvidersViewState.HasError)
                 {
-                    var altProviders = RegistrationProvidersViewState.Providers
-                        .Where(p => !p.Priority)
-                        .ToList();
-
-                    if (altProviders.Count > 0)
+                    if (RegistrationProvidersViewState.AltProviders.Count > 0)
                     {
                         <div class="registration-providers-alt">
 
@@ -84,9 +80,9 @@
                             </p>
 
                             <ul class="registration-providers-alt__list" role="list">
-                                @foreach (var provider in altProviders)
+                                @foreach (var provider in RegistrationProvidersViewState.AltProviders)
                                 {
-                                    <li>
+                                    <li @key="provider.PublicId">
                                         <button type="button"
                                                 class="registration-providers-alt__btn"
                                                 @onclick="() => SelectProviders(provider.ChannelGuid)">

@@ -31,7 +31,8 @@
             @for (var i = 0; i < RegistrationEmailConfirmationViewState.Digits.Length; i++)
             {
                 var idx = i;
-                <input type="tel"
+                <input @key="idx"
+                       type="tel"
                        inputmode="numeric"
                        class="confirmation-otp-input @(RegistrationEmailConfirmationViewState.Digits[idx].Length == 1 ? "confirmation-otp-input--filled" : "")"
                        maxlength="1"

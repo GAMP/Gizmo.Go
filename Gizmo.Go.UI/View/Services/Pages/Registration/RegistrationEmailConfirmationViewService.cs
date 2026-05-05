@@ -126,6 +126,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return ValueTask.CompletedTask;
         }
 
+        // Restarts the countdown only — does NOT resend the email code. Real resend requires a new StartAsync call (Task 2.8 variant B).
         public ValueTask RestartTimerAsync()
         {
             _ = StartTimerAsync();

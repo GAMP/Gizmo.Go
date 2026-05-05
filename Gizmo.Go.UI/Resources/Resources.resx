@@ -221,7 +221,7 @@
     <value>Отправить повторно через </value>
   </data>
   <data name="GO_CONFIRMATION_RESEND" xml:space="preserve">
-    <value>Отправить повторно</value>
+    <value>Подождать ещё</value>
   </data>
   <data name="GO_CONFIRMATION_CHANGE_NUMBER" xml:space="preserve">
     <value>Изменить номер</value>
@@ -471,6 +471,9 @@
   </data>
   <data name="GO_REGISTRATION_WAITING_SUBTITLE" xml:space="preserve">
     <value>Выполняем вход через Telegram. Подождите немного.</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_USER_ALREADY_EXISTS" xml:space="preserve">
+    <value>Аккаунт уже зарегистрирован. Войдите в существующий аккаунт.</value>
   </data>
   <data name="GO_REGISTRATION_BOT_VERIFY_PAGE_TITLE" xml:space="preserve">
     <value>Подтверждение номера</value>

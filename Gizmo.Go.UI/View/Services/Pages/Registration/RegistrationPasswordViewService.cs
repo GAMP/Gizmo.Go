@@ -56,14 +56,8 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             if (!ViewState.CanSubmit || ViewState.IsSubmitting)
                 return ValueTask.CompletedTask;
 
-            ViewState.IsSubmitting = true;
-            ViewState.RaiseChanged();
-
             _registrationSession.SetPassword(ViewState.Password);
             _navigationService.NavigateTo(NavigationHelper.RegistrationProfilePage);
-
-            ViewState.IsSubmitting = false;
-            ViewState.RaiseChanged();
 
             return ValueTask.CompletedTask;
         }

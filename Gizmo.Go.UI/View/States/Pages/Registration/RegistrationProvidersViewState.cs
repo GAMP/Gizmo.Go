@@ -9,6 +9,12 @@ public sealed class RegistrationProvidersViewState : ViewStateBase
 {
     public IReadOnlyList<RegistrationProvider> Providers { get; internal set; } = [];
 
+    public IReadOnlyList<RegistrationProvider> PriorityProviders =>
+        Providers.Where(p => p.Priority).ToList();
+
+    public IReadOnlyList<RegistrationProvider> AltProviders =>
+        Providers.Where(p => !p.Priority).ToList();
+
     public bool IsLoading { get; internal set; }
 
     public bool HasError { get; internal set; }

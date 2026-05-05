@@ -141,7 +141,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Username existence check failed.");
+                Logger.LogWarning(ex, "Username existence check failed (fail-open).");
             }
 
             return Enumerable.Empty<string>();
