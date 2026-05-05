@@ -21,32 +21,6 @@
   box-sizing: border-box;
 }
 
-// ---- Hero / title block ----
-
-.registration-email-add-phone-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.registration-email-add-phone-title {
-  margin: 0;
-  font-family: 'Rubik', $font-family-heading;
-  font-size: 26px;
-  font-weight: $font-weight-bold;
-  color: #fafafa;
-  line-height: 1.2;
-}
-
-.registration-email-add-phone-subtitle {
-  margin: 0;
-  font-size: 14px;
-  font-family: 'Noto Sans', $font-family-base;
-  font-weight: $font-weight-regular;
-  color: rgba(#ffffff, 0.60);
-  line-height: 1.5;
-}
-
 // ---- Email confirmed badge ----
 // Figma: bg #57bcff 6%, border #57bcff 18%, radius 8, h=40px, padding-left 14px
 
@@ -96,15 +70,3 @@
 // ---- Info box: moved to <InfoBlock> component (components/info-block) ----
 
 
-// ---- Mobile compact adjustments ----
-
-@media (max-height: 680px) {
-  .registration-email-add-phone-body {
-    gap: 18px;
-    padding-top: 24px;
-  }
-
-  .registration-email-add-phone-title {
-    font-size: 22px;
-  }
-}

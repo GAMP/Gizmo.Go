@@ -10,63 +10,6 @@
 // ============================================
 @use '../../themes/default/theme' as *;
 
-// ---- Progress stepper ----
-
-.registration-profile-stepper {
-  display: flex;
-  align-items: center;
-  gap: 0;
-}
-
-.registration-profile-stepper__item {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.registration-profile-stepper__badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border-radius: $radius-full;
-  font-size: 11px;
-  font-family: 'Noto Sans', $font-family-base;
-  font-weight: $font-weight-medium;
-  box-sizing: border-box;
-
-  &--done {
-    background: rgba($color-welcome-accent, 0.15);
-    border: 1px solid rgba($color-welcome-accent, 0.30);
-    color: $color-welcome-accent;
-  }
-
-  &--active {
-    background: rgba($color-welcome-accent, 0.85);
-    color: $color-welcome-bg;
-  }
-}
-
-.registration-profile-stepper__label {
-  font-size: 11px;
-  font-family: 'Noto Sans', $font-family-base;
-  font-weight: $font-weight-regular;
-  color: rgba(#ffffff, 0.45);
-
-  &--active {
-    color: rgba(#ffffff, 0.85);
-  }
-}
-
-.registration-profile-stepper__line {
-  flex: 0 0 20px;
-  height: 1px;
-  background: rgba($color-welcome-accent, 0.30);
-  margin: 0 5px;
-}
-
 // ---- Notifications block ----
 
 .registration-profile-notifications {

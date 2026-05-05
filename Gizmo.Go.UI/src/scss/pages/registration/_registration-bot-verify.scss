@@ -19,32 +19,6 @@
     box-sizing: border-box;
 }
 
-// ---- Hero: title + subtitle ----
-
-.registration-bot-verify-hero {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.registration-bot-verify-title {
-    margin: 0;
-    font-family: 'Rubik', $font-family-heading;
-    font-size: 24px;
-    font-weight: $font-weight-bold;
-    color: #fafafa;
-    line-height: 1.2;
-}
-
-.registration-bot-verify-subtitle {
-    margin: 0;
-    font-size: 15px;
-    font-family: 'Noto Sans', $font-family-base;
-    font-weight: $font-weight-regular;
-    color: rgba(#ffffff, 0.60);
-    line-height: 1.5;
-}
-
 // ---- Verification card ----
 
 .registration-bot-verify-card {

@@ -89,34 +89,6 @@
     }
 }
 
-// ---- Text block ----
-
-.call-success-hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-}
-
-.call-success-title {
-    margin: 0;
-    font-family: 'Rubik', $font-family-heading;
-    font-size: 24px;
-    font-weight: $font-weight-bold;
-    color: #fafafa;
-    line-height: 1.25;
-}
-
-.call-success-subtitle {
-    margin: 0;
-    font-family: 'Noto Sans', $font-family-base;
-    font-size: 14px;
-    font-weight: $font-weight-regular;
-    color: rgba(#ffffff, 0.55);
-    line-height: 1.55;
-}
-
 // ---- Success notification card ----
 
 .call-success-card {

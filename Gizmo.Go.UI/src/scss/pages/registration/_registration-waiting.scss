@@ -35,35 +35,6 @@
     flex-shrink: 0;
 }
 
-// ---- Title + subtitle ----
-
-.registration-waiting-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
-}
-
-.registration-waiting-title {
-    margin: 0;
-    font-family: 'Rubik', $font-family-heading;
-    font-size: 22px;
-    font-weight: $font-weight-bold;
-    color: #ffffff;
-    line-height: 1.2;
-}
-
-.registration-waiting-subtitle {
-    margin: 0;
-    font-size: 15px;
-    font-family: 'Noto Sans', $font-family-base;
-    font-weight: $font-weight-regular;
-    color: #808185;
-    line-height: 1.5;
-    max-width: 300px;
-}
-
 // ---- 3-dot loader ----
 
 .registration-waiting-dots {

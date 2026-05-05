@@ -23,32 +23,6 @@
   box-sizing: border-box;
 }
 
-// ---- Hero / title block ----
-
-.registration-email-confirmation-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.registration-email-confirmation-title {
-  margin: 0;
-  font-family: 'Rubik', $font-family-heading;
-  font-size: 26px;
-  font-weight: $font-weight-bold;
-  color: #fafafa;
-  line-height: 1.2;
-}
-
-.registration-email-confirmation-subtitle {
-  margin: 0;
-  font-size: 14px;
-  font-family: 'Noto Sans', $font-family-base;
-  font-weight: $font-weight-regular;
-  color: rgba(#ffffff, 0.55);
-  line-height: 1.5;
-}
-
 // ---- Highlighted email address inside the subtitle ----
 
 .registration-email-confirmation-email {
@@ -56,15 +30,3 @@
   font-weight: $font-weight-regular;
 }
 
-// ---- Mobile compact adjustments ----
-
-@media (max-height: 680px) {
-  .registration-email-confirmation-body {
-    gap: 20px;
-    padding-top: 24px;
-  }
-
-  .registration-email-confirmation-title {
-    font-size: 22px;
-  }
-}
