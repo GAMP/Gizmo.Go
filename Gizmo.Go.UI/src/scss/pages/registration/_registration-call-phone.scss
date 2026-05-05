@@ -13,40 +13,6 @@
 
 .page-registration-call-phone { @include auth-shell.auth-page-shell; }
 
-// ---- Header: back btn left + LangButton right ----
-
-.call-phone-header {
-  justify-content: space-between;
-  align-items: center;
-}
-
-.call-phone-back-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  appearance: none;
-  color: rgba(#ffffff, 0.60);
-  font-family: 'Noto Sans', $font-family-base;
-  font-size: 14px;
-  font-weight: $font-weight-regular;
-  -webkit-tap-highlight-color: transparent;
-  transition: color $transition-fast;
-
-  &:hover {
-    color: rgba(#ffffff, 0.85);
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-  }
-}
-
 // ---- Body ----
 
 .call-phone-body {
@@ -210,32 +176,5 @@
   height: 48px;
 }
 
-// ---- Info hint box ----
+// ---- Info hint box: moved to <InfoBlock> component (components/info-block) ----
 
-.call-phone-info {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 14px;
-  background: rgba(#0078d2, 0.08);
-  border: 1px solid rgba(#0091e6, 0.20);
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-.call-phone-info__icon {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  color: rgba(#57bcff, 0.70);
-  margin-top: 1px;
-}
-
-.call-phone-info__text {
-  margin: 0;
-  font-family: 'Noto Sans', $font-family-base;
-  font-size: 12px;
-  font-weight: $font-weight-regular;
-  color: rgba(#ffffff, 0.45);
-  line-height: 1.55;
-}

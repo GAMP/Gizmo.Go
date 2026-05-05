@@ -20,14 +20,6 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #endregion
 
-        #region FIELDS
-
-        private string _phoneInputValue = string.Empty;
-
-        private CancellationTokenSource? _phoneInputDebounceCts;
-
-        #endregion
-
         #region OVERRIDES
 
         protected override void OnInitialized()
@@ -40,33 +32,6 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         #region METHODS
 
-        private async Task OnPhoneInputAsync(ChangeEventArgs args)
-        {
-            _phoneInputDebounceCts?.Cancel();
-            _phoneInputDebounceCts = new CancellationTokenSource();
-
-            _phoneInputValue = args.Value?.ToString() ?? string.Empty;
-
-            try
-            {
-                await Task.Delay(150, _phoneInputDebounceCts.Token);
-                await RegistrationCallPhoneViewService.UpdatePhoneAsync(_phoneInputValue, RegistrationCallPhoneViewState.SelectedCountryIso2);
-            }
-            catch (TaskCanceledException)
-            {
-                // ввод продолжается — игнорируем
-            }
-        }
-
-        private async Task OnPhoneFormattedAsync(ChangeEventArgs args)
-        {
-            _phoneInputValue = args.Value?.ToString() ?? string.Empty;
-            await RegistrationCallPhoneViewService.UpdatePhoneAsync(_phoneInputValue, RegistrationCallPhoneViewState.SelectedCountryIso2);
-
-            if (!string.IsNullOrEmpty(RegistrationCallPhoneViewState.FormattedPhoneInput))
-                _phoneInputValue = RegistrationCallPhoneViewState.FormattedPhoneInput;
-        }
-
         private async Task SubmitAsync() => await RegistrationCallPhoneViewService.SubmitAsync();
 
         private async Task NavigateBack() => await RegistrationCallPhoneViewService.NavigateBackAsync();
@@ -74,8 +39,6 @@ namespace Gizmo.Go.UI.Pages.Registration
         public void Dispose()
         {
             this.UnsubscribeChange(RegistrationCallPhoneViewState);
-            _phoneInputDebounceCts?.Cancel();
-            _phoneInputDebounceCts?.Dispose();
         }
 
         #endregion

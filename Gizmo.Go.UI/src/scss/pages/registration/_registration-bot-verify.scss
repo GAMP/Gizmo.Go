@@ -3,7 +3,7 @@
 // Matches Figma: "Auth / Registration Bot Verify"
 //
 // Page shell reuses .page-create-account (hero backdrop + gradient).
-// Header reuses .auth-header + .create-password-header + .create-password-back-btn.
+// Header uses <AuthBackHeader> component (auth-header + auth-back-btn + auth-header--with-back).
 // Only the content block is page-specific.
 // ============================================
 @use '../../themes/default/theme' as *;
@@ -179,36 +179,5 @@
     flex-shrink: 0;
 }
 
-// ---- Info block ----
+// ---- Info block: moved to <InfoBlock> component (components/info-block) ----
 
-.registration-bot-verify-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 16px;
-    background: rgba($color-welcome-btn-primary, 0.08);
-    border: 1px solid rgba($color-welcome-accent-mid, 0.20);
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
-.registration-bot-verify-info__icon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    margin-top: 1px;
-
-    svg {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-.registration-bot-verify-info__text {
-    font-size: 13px;
-    font-family: 'Noto Sans', $font-family-base;
-    font-weight: $font-weight-regular;
-    color: rgba(#ffffff, 0.55);
-    line-height: 1.55;
-    margin: 0;
-}

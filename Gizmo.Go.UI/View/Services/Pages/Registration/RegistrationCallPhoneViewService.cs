@@ -82,6 +82,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }
 
             //TODO: вызов API для call-based верификации когда будет реализован
+            _registrationSession.SetPhone(ViewState.PhoneE164);
             _registrationSession.SetFlow(RegistrationFlow.Call);
             _navigationService.NavigateTo(NavigationHelper.RegistrationCallVerify);
 

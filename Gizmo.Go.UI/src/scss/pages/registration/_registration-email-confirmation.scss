@@ -3,7 +3,7 @@
 // Matches Figma: "Auth / Registration Email Confirmation"
 //
 // Page shell reuses .page-create-account (identical hero backdrop).
-// Header reuses .auth-header + .create-password-header + .create-password-back-btn.
+// Header uses <AuthBackHeader> component (auth-header + auth-back-btn + auth-header--with-back).
 // OTP inputs reuse .confirmation-otp-row + .confirmation-otp-input.
 // Submit reuses .auth-submit.
 // Resend/change reuse .confirmation-resend-row + .confirmation-resend-btn + .confirmation-change-number-btn.

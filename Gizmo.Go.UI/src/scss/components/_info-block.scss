@@ -1,0 +1,22 @@
+@use '../themes/default/theme' as *;
+
+.giz-info-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba($color-welcome-btn-primary, 0.08);
+    border: 1px solid rgba($color-welcome-accent-mid, 0.20);
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: 'Noto Sans', $font-family-base;
+    color: rgba(#ffffff, 0.45);
+    line-height: 1.55;
+
+    &__icon {
+        flex-shrink: 0;
+        color: rgba($color-welcome-accent, 0.70);
+        margin-top: 1px;
+    }
+}

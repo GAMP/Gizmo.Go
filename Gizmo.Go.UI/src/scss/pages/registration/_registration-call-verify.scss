@@ -13,40 +13,6 @@
 
 .page-registration-call-verify { @include auth-shell.auth-page-shell; }
 
-// ---- Header: back btn left + LangButton right ----
-
-.call-verify-header {
-  justify-content: space-between;
-  align-items: center;
-}
-
-.call-verify-back-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  appearance: none;
-  color: rgba(#ffffff, 0.60);
-  font-family: 'Noto Sans', $font-family-base;
-  font-size: 14px;
-  font-weight: $font-weight-regular;
-  -webkit-tap-highlight-color: transparent;
-  transition: color $transition-fast;
-
-  &:hover {
-    color: rgba(#ffffff, 0.85);
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-  }
-}
-
 // ---- Body ----
 
 .call-verify-body {
@@ -310,40 +276,8 @@
   text-align: center;
 }
 
-// ---- Info box ----
+// ---- Info box: moved to <InfoBlock> component (components/info-block) ----
 
-.call-verify-info {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 12px 14px;
-  background: rgba($color-welcome-btn-primary, 0.08);
-  border: 1px solid rgba($color-welcome-accent-mid, 0.20);
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-.call-verify-info__icon {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  color: rgba($color-welcome-accent, 0.60);
-  margin-top: 1px;
-
-  svg {
-    width: 15px;
-    height: 15px;
-  }
-}
-
-.call-verify-info__text {
-  margin: 0;
-  font-family: 'Noto Sans', $font-family-base;
-  font-size: 12px;
-  font-weight: $font-weight-regular;
-  color: rgba(#ffffff, 0.40);
-  line-height: 1.55;
-}
 
 // ---- Timer bar ----
 

@@ -1,0 +1,32 @@
+@using Gizmo.Go.UI.View.Models
+
+<div class="auth-field__input-wrap auth-field__input-wrap--select @(IsInvalid ? "auth-field__input-wrap--invalid" : "")">
+    <select class="auth-field__input"
+            value="@CountryIso2"
+            disabled="@Disabled"
+            @onchange="OnCountrySelected">
+        <option value="" disabled>@CountryPlaceholder</option>
+        @foreach (var country in PhoneCountryList.All)
+        {
+            <option @key="country.Iso2" value="@country.Iso2">@country.Flag @country.Name (@country.DialCode)</option>
+        }
+    </select>
+</div>
+
+<div class="auth-field__input-wrap @(IsInvalid ? "auth-field__input-wrap--invalid" : "")">
+    <span class="auth-field__prefix"
+          style="@(string.IsNullOrEmpty(CountryIso2) ? "visibility:hidden" : "")">
+        @DialCode
+    </span>
+    <input id="@Id"
+           type="tel"
+           class="auth-field__input"
+           autocomplete="tel"
+           inputmode="tel"
+           disabled="@(string.IsNullOrEmpty(CountryIso2))"
+           value="@_phoneInputValue"
+           placeholder="@Placeholder"
+           maxlength="@MaxLength"
+           @oninput="OnPhoneInputAsync"
+           @onchange="OnPhoneFormattedAsync" />
+</div>

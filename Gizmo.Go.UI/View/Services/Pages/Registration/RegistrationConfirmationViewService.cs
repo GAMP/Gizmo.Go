@@ -17,7 +17,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     {
         #region FIELDS
 
-        private CancellationTokenSource? _timerCts;
+        private readonly CountdownTimer _timer = new();
 
         #endregion
 
@@ -182,41 +182,15 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         #region PRIVATE METHODS
 
-        private async Task StartTimerAsync()
-        {
-            CancelTimer();
-            _timerCts = new CancellationTokenSource();
-            var token = _timerCts.Token;
-
-            ViewState.SecondsLeft = 60;
-            ViewState.RaiseChanged();
-
-            try
+        private Task StartTimerAsync()
+            => _timer.StartAsync(60, secs =>
             {
-                while (ViewState.SecondsLeft > 0 && !token.IsCancellationRequested)
-                {
-                    await Task.Delay(1000, token);
+                ViewState.SecondsLeft = secs;
+                ViewState.RaiseChanged();
+                return Task.CompletedTask;
+            }, Logger);
 
-                    if (token.IsCancellationRequested)
-                        break;
-
-                    ViewState.SecondsLeft--;
-                    ViewState.RaiseChanged();
-                }
-            }
-            catch (OperationCanceledException) { }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Confirmation timer faulted.");
-            }
-        }
-
-        private void CancelTimer()
-        {
-            _timerCts?.Cancel();
-            _timerCts?.Dispose();
-            _timerCts = null;
-        }
+        private void CancelTimer() => _timer.Cancel();
 
         #endregion
     }

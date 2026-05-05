@@ -3,7 +3,7 @@
 // Matches Figma: "Auth / Registration Email"
 //
 // Page shell reuses .page-create-account (identical hero backdrop).
-// Header reuses .auth-header + .create-password-header + .create-password-back-btn.
+// Header uses <AuthBackHeader> component (auth-header + auth-back-btn + auth-header--with-back).
 // Fields reuse .auth-field, .auth-field__label, .auth-field__input-wrap, .auth-field__input.
 // Submit reuses .auth-submit.
 // Footer reuses .auth-footer, .auth-footer__text, .auth-footer__link.

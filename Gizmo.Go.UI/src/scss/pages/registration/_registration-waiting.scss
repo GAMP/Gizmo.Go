@@ -3,7 +3,7 @@
 // Matches Figma: "Auth / Registration Waiting"
 //
 // Page shell reuses .page-create-account (hero backdrop + gradient overlay).
-// Header reuses .auth-header + .create-password-header + .create-password-back-btn.
+// Header uses <AuthBackHeader> component (auth-header + auth-back-btn + auth-header--with-back).
 // Only the centered loading block is page-specific.
 // ============================================
 @use '../../themes/default/theme' as *;

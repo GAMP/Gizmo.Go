@@ -96,6 +96,58 @@
   height: 84.5px;
   box-sizing: border-box;
   flex-shrink: 0;
+
+  &--with-back {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// ---- Back button (shared across auth pages) ----
+
+.auth-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  color: rgba(#ffffff, 0.60);
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+    border: 1px solid rgba(#ffffff, 0.12);
+    background: rgba(#ffffff, 0.07);
+    color: rgba(#ffffff, 0.70);
+    gap: 0;
+    transition: background $transition-fast, border-color $transition-fast;
+
+    &:hover {
+      background: rgba(#ffffff, 0.11);
+      border-color: rgba(#ffffff, 0.2);
+      opacity: 1;
+    }
+  }
 }
 
 // ---- Body ----

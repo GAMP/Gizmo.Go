@@ -1,0 +1,17 @@
+<div class="confirmation-otp-row" role="group" aria-label="@AriaGroupLabel">
+    @for (var i = 0; i < Digits.Length; i++)
+    {
+        var idx = i;
+        <input @key="idx"
+               type="tel"
+               inputmode="numeric"
+               class="confirmation-otp-input @(Digits[idx].Length == 1 ? "confirmation-otp-input--filled" : "")"
+               maxlength="1"
+               value="@Digits[idx]"
+               @ref="_inputRefs[idx]"
+               @oninput="@(e => OnInput(idx, e))"
+               @onkeydown="@(e => OnKeyDown(idx, e))"
+               autocomplete="one-time-code"
+               aria-label="@(AriaLabelForIndex?.Invoke(idx + 1))" />
+    }
+</div>

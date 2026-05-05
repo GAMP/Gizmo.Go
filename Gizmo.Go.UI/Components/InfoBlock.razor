@@ -1,0 +1,14 @@
+@if (!string.IsNullOrEmpty(Message))
+{
+    <div class="giz-info-block @(ShowIcon ? "giz-info-block--with-icon" : "")" role="note">
+        @if (ShowIcon)
+        {
+            <svg class="giz-info-block__icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="1.3" />
+                <line x1="7.5" y1="6.5" x2="7.5" y2="9.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+                <circle cx="7.5" cy="4.5" r="0.7" fill="currentColor" />
+            </svg>
+        }
+        <span>@Message</span>
+    </div>
+}
