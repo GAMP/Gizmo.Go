@@ -682,6 +682,12 @@
   <data name="GO_REGISTRATION_CALL_SUCCESS_CALL_RECEIVED" xml:space="preserve">
     <value>Звонок принят</value>
   </data>
+  <data name="GO_VE_USERNAME_TOO_SHORT" xml:space="preserve">
+    <value>Никнейм должен быть от 3 до 32 символов</value>
+  </data>
+  <data name="GO_VE_USERNAME_INVALID_CHARS" xml:space="preserve">
+    <value>Никнейм может содержать только латиницу, цифры и символы _ -</value>
+  </data>
   <data name="GO_GLOBAL_ERROR" xml:space="preserve">
     <value>Произошла непредвиденная ошибка. Попробуйте обновить страницу.</value>
   </data>
