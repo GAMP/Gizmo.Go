@@ -682,4 +682,7 @@
   <data name="GO_REGISTRATION_CALL_SUCCESS_CALL_RECEIVED" xml:space="preserve">
     <value>Звонок принят</value>
   </data>
+  <data name="GO_GLOBAL_ERROR" xml:space="preserve">
+    <value>Произошла непредвиденная ошибка. Попробуйте обновить страницу.</value>
+  </data>
 </root>

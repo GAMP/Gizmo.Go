@@ -1,3 +1,4 @@
+using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
@@ -7,6 +8,7 @@ namespace Gizmo.Go.UI.Layout
     {
         [Inject]
         private NavigationManager Navigation { get; set; } = null!;
+        [Inject] private ILocalizationService LocalizationService { get; set; } = null!;
 
         private string _pageTitle = "Gizmo Go";
 

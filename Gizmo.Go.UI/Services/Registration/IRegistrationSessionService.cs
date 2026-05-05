@@ -2,6 +2,14 @@ namespace Gizmo.Go.UI.Services.Registration
 {
     public interface IRegistrationSessionService
     {
+        // Raised whenever any session field changes.
+        event EventHandler? Changed;
+
+        // Atomic snapshot of the current session; intended for Changed subscribers.
+        // Flat properties below are kept for backward compatibility with existing ViewService callers
+        // and may be removed once all callers migrate to reading State directly.
+        RegistrationSnapshot State { get; }
+
         string Token { get; }
         string Password { get; }
         string Phone { get; }

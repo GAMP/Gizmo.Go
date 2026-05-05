@@ -2,25 +2,25 @@ namespace Gizmo.Go.UI.Services.Registration
 {
     public sealed class RegistrationSessionService : IRegistrationSessionService
     {
-        private string _token = string.Empty;
-        private string _password = string.Empty;
-        private string _phone = string.Empty;
-        private string _email = string.Empty;
-        private int _codeLength;
-        private RegistrationFlow _flow = RegistrationFlow.None;
+        private RegistrationSnapshot _state = new();
 
-        public string Token => _token;
-        public string Password => _password;
-        public string Phone => _phone;
-        public string Email => _email;
-        public int CodeLength => _codeLength;
-        public bool HasToken => _token.Length > 0;
-        public bool HasSession => HasToken && _password.Length > 0;
-        public RegistrationFlow Flow => _flow;
+        public event EventHandler? Changed;
+
+        public RegistrationSnapshot State => _state;
+
+        public string Token => _state.Token;
+        public string Password => _state.Password;
+        public string Phone => _state.Phone;
+        public string Email => _state.Email;
+        public int CodeLength => _state.CodeLength;
+        public bool HasToken => _state.Token.Length > 0;
+        public bool HasSession => HasToken && _state.Password.Length > 0;
+        public RegistrationFlow Flow => _state.Flow;
 
         public void SetFlow(RegistrationFlow flow)
         {
-            _flow = flow;
+            _state = _state with { Flow = flow };
+            Changed?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetToken(string token)
@@ -28,37 +28,38 @@ namespace Gizmo.Go.UI.Services.Registration
             if (string.IsNullOrEmpty(token))
                 throw new ArgumentException("Token must not be null or empty.", nameof(token));
 
-            _token = token;
+            _state = _state with { Token = token };
+            Changed?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetPassword(string password)
         {
-            _password = password ?? string.Empty;
+            _state = _state with { Password = password ?? string.Empty };
+            Changed?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetPhone(string phone)
         {
-            _phone = phone ?? string.Empty;
+            _state = _state with { Phone = phone ?? string.Empty };
+            Changed?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetEmail(string email)
         {
-            _email = email ?? string.Empty;
+            _state = _state with { Email = email ?? string.Empty };
+            Changed?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetCodeLength(int codeLength)
         {
-            _codeLength = codeLength;
+            _state = _state with { CodeLength = codeLength };
+            Changed?.Invoke(this, EventArgs.Empty);
         }
 
         public void Clear()
         {
-            _token = string.Empty;
-            _password = string.Empty;
-            _phone = string.Empty;
-            _email = string.Empty;
-            _codeLength = 0;
-            _flow = RegistrationFlow.None;
+            _state = new();
+            Changed?.Invoke(this, EventArgs.Empty);
         }
     }
 }
