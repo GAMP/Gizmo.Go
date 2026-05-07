@@ -3,8 +3,8 @@
     {
         var idx = i;
         <input @key="idx"
-               type="tel"
-               inputmode="numeric"
+               type="text"
+               inputmode="text"
                class="confirmation-otp-input @(Digits[idx].Length == 1 ? "confirmation-otp-input--filled" : "")"
                maxlength="1"
                value="@Digits[idx]"

@@ -45,7 +45,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             if (index < 0 || index >= ViewState.Digits.Length)
                 return ValueTask.CompletedTask;
 
-            ViewState.Digits[index] = new string(raw.Where(char.IsDigit).Take(1).ToArray());
+            ViewState.Digits[index] = new string(raw.Where(char.IsLetterOrDigit).Take(1).ToArray());
             ViewState.RaiseChanged();
             return ValueTask.CompletedTask;
         }
