@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep:*)",
+      "Bash(grep -r \"System.Web\" /d/Test/Gizmo.Go/Gizmo.Go.UI/*.csproj)",
+      "Bash(git submodule *)",
+      "Bash(git config *)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(ssh-keygen -t ed25519 -C \"olegsavelos@gmail.com\" -f ~/.ssh/id_ed25519 -N \"\")",
+      "Bash(rm -rf libs/Gizmo.Shared libs/Gizmo.Web.Api.Client libs/Gizmo.Web.Api.Models)",
+      "Bash(mkdir -p libs)",
+      "Bash(git clone *)",
+      "Bash(git -C \"d:/Test/Gizmo.Go\" submodule status)",
+      "Bash(git -C \"d:/Test/Gizmo.Go\" status)",
+      "Bash(dotnet build *)",
+      "Bash(git ls-tree *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Oleg\\.ssh"
+    ]
+  }
+}
