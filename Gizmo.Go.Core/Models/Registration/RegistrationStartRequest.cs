@@ -2,9 +2,8 @@ namespace Gizmo.Go.Core.Models.Registration
 {
     public sealed class RegistrationStartRequest
     {
-        public Guid IntegrationPublicId { get; init; }
-        public RegistrationDeliveryMethod DeliveryMethod { get; init; }
-        public string? PhoneNumber { get; init; }
-        public string? Email { get; init; }
+        public int MethodId { get; init; }
+        public RegistrationStartKind Kind { get; init; }
+        public string? Value { get; init; }
     }
 }

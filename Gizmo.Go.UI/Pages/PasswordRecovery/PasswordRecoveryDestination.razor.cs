@@ -1,0 +1,70 @@
+using System.Linq.Expressions;
+using Gizmo.Go.UI.View.Services.Pages.PasswordRecovery;
+using Gizmo.Go.UI.View.States.Pages.PasswordRecovery;
+using Gizmo.UI.Services;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
+
+namespace Gizmo.Go.UI.Pages.PasswordRecovery
+{
+    public partial class PasswordRecoveryDestination : ComponentBase, IDisposable
+    {
+        [Inject]
+        private PasswordRecoveryDestinationViewState PasswordRecoveryDestinationViewState { get; set; } = null!;
+
+        [Inject]
+        private PasswordRecoveryDestinationViewService PasswordRecoveryDestinationViewService { get; set; } = null!;
+
+        [Inject]
+        private ILocalizationService LocalizationService { get; set; } = null!;
+
+        protected override void OnInitialized()
+        {
+            this.SubscribeChange(PasswordRecoveryDestinationViewState);
+            base.OnInitialized();
+        }
+
+        public void Dispose()
+        {
+            this.UnsubscribeChange(PasswordRecoveryDestinationViewState);
+        }
+
+        private bool HasErrors<T>(Expression<Func<T>> accessor)
+        {
+            var fieldIdentifier = FieldIdentifier.Create(accessor);
+            return PasswordRecoveryDestinationViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
+        }
+
+        private void OnMatchValueInput(ChangeEventArgs e) =>
+            PasswordRecoveryDestinationViewService.SetMatchValue(e.Value?.ToString());
+
+        private Task OnRegionCodeChanged(string regionCode)
+        {
+            var country = PasswordRecoveryDestinationViewState.Countries.FirstOrDefault(c => string.Equals(c.RegionCode, regionCode, StringComparison.OrdinalIgnoreCase));
+
+            if (country is null)
+            {
+                PasswordRecoveryDestinationViewService.SetCountry(null);
+                PasswordRecoveryDestinationViewService.SetRegionCode(null);
+                PasswordRecoveryDestinationViewService.SetMobilePhone(null);
+            }
+            else
+            {
+                PasswordRecoveryDestinationViewService.SetCountry(country.CountryName);
+                PasswordRecoveryDestinationViewService.SetRegionCode(country.RegionCode);
+            }
+
+            return Task.CompletedTask;
+        }
+
+        private Task OnPhoneValueChanged(string value)
+        {
+            PasswordRecoveryDestinationViewService.SetMobilePhone(value);
+            return Task.CompletedTask;
+        }
+
+        private async Task SubmitAsync() => await PasswordRecoveryDestinationViewService.SubmitAsync();
+
+        private async Task NavigateBack() => await PasswordRecoveryDestinationViewService.NavigateBackAsync();
+    }
+}

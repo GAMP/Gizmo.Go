@@ -1,30 +1,60 @@
+using Gizmo.Go.Core.Models.Registration;
+
 namespace Gizmo.Go.UI.Services.Registration
 {
     public interface IRegistrationSessionService
     {
-        // Raised whenever any session field changes.
         event EventHandler? Changed;
-
-        // Atomic snapshot of the current session; intended for Changed subscribers.
-        // Flat properties below are kept for backward compatibility with existing ViewService callers
-        // and may be removed once all callers migrate to reading State directly.
-        RegistrationSnapshot State { get; }
+        event EventHandler? Cleared;
 
         string Token { get; }
-        string Password { get; }
-        string Phone { get; }
-        string Email { get; }
+        string Destination { get; }
         int CodeLength { get; }
-        bool HasToken { get; }
-        bool HasSession { get; }
-
-        void SetToken(string token);
-        void SetPassword(string password);
-        void SetPhone(string phone);
-        void SetEmail(string email);
-        void SetCodeLength(int codeLength);
+        int ExpiresInSeconds { get; }
         RegistrationFlow Flow { get; }
-        void SetFlow(RegistrationFlow flow);
+
+        string? ActualContact { get; }
+        string? Country { get; }
+
+        /// <summary>
+        /// Gets a value indicating that the mobile phone was already confirmed by the registration provider
+        /// and must not be asked for again.
+        /// </summary>
+        bool HasConfirmedMobilePhone { get; }
+
+        string Username { get; }
+        string? Password { get; }
+        string? FirstName { get; }
+        string? LastName { get; }
+        DateTime? BirthDate { get; }
+        UserSex Sex { get; }
+        string? Email { get; }
+        string? MobilePhone { get; }
+        string? Phone { get; }
+        string? PhoneE164 { get; }
+
+        bool ShowAllProviders { get; }
+        bool AgreementsAccepted { get; }
+        IReadOnlyList<RegistrationAgreementChoice> AgreementChoices { get; }
+
+        RegistrationProvider? SelectedProvider { get; }
+        RegistrationRequiredInfo? RequiredUserInfo { get; }
+        Guid? FailedProviderChannelGuid { get; }
+
+        void SetStartResult(string token, string destination, int codeLength, int expiresInSeconds, RegistrationFlow flow);
+        void SetContactDetails(string? actualContact, string? country = null);
+        void SetProfileBasics(string username, string? password,
+            string? firstName, string? lastName,
+            DateTime? birthDate, UserSex sex, string? email);
+        void SetMobilePhone(string? mobilePhone);
+        void SetPhone(string? phone);
+        void SetPhoneE164(string? e164);
+        void SetShowAllProviders(bool value);
+        void SetAgreementsAccepted(bool value);
+        void SetAgreementChoices(IEnumerable<RegistrationAgreementChoice> choices);
+        void SetSelectedProvider(RegistrationProvider? provider);
+        void SetRequiredUserInfo(RegistrationRequiredInfo? info);
+        void SetFailedProviderChannelGuid(Guid? channelGuid);
         void Clear();
     }
 }

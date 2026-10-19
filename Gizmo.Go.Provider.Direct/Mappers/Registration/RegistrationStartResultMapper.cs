@@ -1,34 +1,50 @@
 using Gizmo.Go.Core.Models.Registration;
+using Gizmo.Go.Provider.Direct.Helpers;
 using Gizmo.Web.Api.Models;
 
 namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
     internal static class RegistrationStartResultMapper
     {
-        public static RegistrationStartResult Map(VerificationStartResultModel model)
+        public static RegistrationStartResult Map(VerificationStartResultModelBase model,
+                                                  RegistrationStartRequest request)
         {
             ArgumentNullException.ThrowIfNull(model);
+            ArgumentNullException.ThrowIfNull(request);
 
-            return new RegistrationStartResult
+            return model switch
             {
-                Result = MapResultCode(model.Result),
-                Token = model.Token,
-                RedirectUrl = model.RedirectUrl,
-                CodeLength = model.CodeLength,
-                ExpiresInSeconds = model.ExpiresInSeconds
+                CodeInputRequiredResult codeInputRequired => new RegistrationStartResult.CodeInputRequired(
+                    Token:            codeInputRequired.Token,
+                    Destination:      codeInputRequired.MaskedRecipientAddress ?? ComputeDestination(request),
+                    CodeLength:       codeInputRequired.CodeLength,
+                    ExpiresInSeconds: codeInputRequired.ExpiresInSeconds,
+                    CapabilityGuid:   codeInputRequired.CapabilityGuid),
+
+                RedirectRequiredResult redirectRequired => new RegistrationStartResult.RedirectRequired(
+                    Token:            redirectRequired.Token,
+                    RedirectUrl:      redirectRequired.RedirectUrl,
+                    ExpiresInSeconds: redirectRequired.ExpiresInSeconds,
+                    CapabilityGuid:   redirectRequired.CapabilityGuid),
+
+                VerificationStartFailedResult failed => new RegistrationStartResult.Failed(RegistrationStartCodeMapper.Map(failed.Result)),
+
+                CallRequiredResult callRequired => new RegistrationStartResult.CallRequired(
+                    Token:            callRequired.Token,
+                    PhoneNumber:      callRequired.PhoneNumber,
+                    ExpiresInSeconds: callRequired.ExpiresInSeconds,
+                    CapabilityGuid:   callRequired.CapabilityGuid),
+
+                _ => new RegistrationStartResult.Failed(RegistrationStartCode.Unknown),
             };
         }
 
-        private static RegistrationStartResultCode MapResultCode(VerificationStartResultCode code) =>
-            code switch
+        private static string? ComputeDestination(RegistrationStartRequest request) =>
+            request.Kind switch
             {
-                VerificationStartResultCode.Success            => RegistrationStartResultCode.Success,
-                VerificationStartResultCode.DeliveryFailed     => RegistrationStartResultCode.DeliveryFailed,
-                VerificationStartResultCode.NoRouteForDelivery => RegistrationStartResultCode.NoRouteForDelivery,
-                VerificationStartResultCode.InvalidInput       => RegistrationStartResultCode.InvalidInput,
-                VerificationStartResultCode.NonUniqueInput     => RegistrationStartResultCode.NonUniqueInput,
-                VerificationStartResultCode.InvalidUserId      => RegistrationStartResultCode.InvalidUserId,
-                _                                              => RegistrationStartResultCode.Failed
+                RegistrationStartKind.Email when request.Value != null       => ContactMasking.MaskEmail(request.Value),
+                RegistrationStartKind.MobilePhone when request.Value != null => ContactMasking.MaskPhone(request.Value),
+                _                                                           => null
             };
     }
 }

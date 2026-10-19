@@ -1,0 +1,6 @@
+@if (DialogHostViewState.HasDialog)
+{
+    <div class="giz-dialog giz-dialog--open" tabindex="-1" @onclick="OnClickDialogHandler">
+        <DynamicComponent Type="DialogHostViewState.Current!.ComponentType" Parameters="DialogHostViewState.Current!.Parameters" />
+    </div>
+}

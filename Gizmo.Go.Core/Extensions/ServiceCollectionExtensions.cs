@@ -1,3 +1,4 @@
+using Gizmo.Client.Options;
 using Gizmo.Go.Core.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,8 @@ namespace Gizmo.Go.Core.Extensions
         public static IServiceCollection AddGizmoGoCore(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<GizmoGoSettings>(configuration.GetSection("GizmoGo"));
+            services.Configure<RegistrationStubSettings>(configuration.GetSection("GizmoGo:RegistrationStub"));
+            services.Configure<PasswordValidationOptions>(configuration.GetSection("GizmoGo:RegistrationStub:PasswordValidation"));
 
             return services;
         }

@@ -23,8 +23,6 @@
 @use 'pages/login';
 @use 'pages/registration/registration-phone';
 @use 'pages/registration/registration-email';
-@use 'pages/registration/registration-email-confirmation';
-@use 'pages/registration/registration-email-add-phone';
 @use 'pages/registration/registration-confirmation';
 @use 'pages/registration/registration-password';
 @use 'pages/registration/registration-providers';
@@ -37,6 +35,7 @@
 @use 'pages/registration/registration-call-success';
 
 // -- Components --
+@use 'components/dialog';
 @use 'components/error-block';
 @use 'components/info-block';
 @use 'components/stepper';

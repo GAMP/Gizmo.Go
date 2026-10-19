@@ -1,25 +1,20 @@
 using Gizmo.Go.Core.Models.Registration;
+using Gizmo.Go.Provider.Direct.Helpers;
 using Gizmo.Web.Api.Models;
 
-namespace Gizmo.Go.Provider.Direct.Mappers.Registration;
-
-internal static class RegistrationProviderMapper
+namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
-    public static RegistrationProvider Map(VerificationProviderModel model)
+    internal static class RegistrationProviderMapper
     {
-        ArgumentNullException.ThrowIfNull(model);
-
-        return new RegistrationProvider
-        {
-            PublicId = model.PublicId,
-            Name = model.Name,
-            ChannelGuid = model.ChannelGuid,
-            CanDispatchCode = model.CanDispatchCode,
-            CanProvideEmail = model.CanProvideEmail,
-            CanProvidePhone = model.CanProvidePhone,
-            CanRedirect = model.CanRedirect,
-            HasChannel = model.HasChannel,
-            Priority = model.ChannelGuid == RegistrationChannel.Telegram
-        };
-    }    
+        internal static RegistrationProvider Map(AvailableVerificationMethodModel source) =>
+            new()
+            {
+                MethodId       = source.MethodId,
+                Name           = source.Name,
+                ChannelGuid    = source.ChannelGuid,
+                CapabilityGuid = source.CapabilityGuid,
+                HasChannel     = source.HasChannel,
+                IsPrimary      = source.IsPrimary,
+            };
+    }
 }

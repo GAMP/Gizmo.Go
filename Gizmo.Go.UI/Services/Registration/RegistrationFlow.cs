@@ -5,7 +5,6 @@ namespace Gizmo.Go.UI.Services.Registration
         None = 0,
         Sms,
         Email,
-        Telegram,
-        Call
+        Redirect
     }
 }

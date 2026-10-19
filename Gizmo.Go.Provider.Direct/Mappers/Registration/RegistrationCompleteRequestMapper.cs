@@ -1,51 +1,43 @@
 using Gizmo.Go.Core.Models.Registration;
-using Gizmo.Shared;
+using Gizmo.Go.Provider.Direct.Helpers;
 using Gizmo.Web.Api.Models;
 
 namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
     internal static class RegistrationCompleteRequestMapper
     {
-        public static RegistrationCompleteModel Map(RegistrationCompleteRequest request)
+        public static Gizmo.Web.Api.Models.RegistrationCompleteModel MapComplete(RegistrationCompleteRequest request)
         {
             ArgumentNullException.ThrowIfNull(request);
-
-            return new RegistrationCompleteModel
+            return new Gizmo.Web.Api.Models.RegistrationCompleteModel
             {
-                Token = request.Token,
-                Password = request.Password,
-                Profile = MapProfile(request.Profile)
+                Token          = request.Token ?? string.Empty,
+                Password       = request.Password,
+                Profile        = RegistrationProfileMapper.Map(request.Profile),
+                AgreementStates = MapAgreementStates(request.AgreementStates)
             };
         }
 
-        private static UserProfileModelCreate MapProfile(RegistrationProfile profile)
+        public static Gizmo.Web.Api.Models.RegistrationDirectModel MapDirect(RegistrationCompleteRequest request)
         {
-            ArgumentNullException.ThrowIfNull(profile);
-
-            return new UserProfileModelCreate
+            ArgumentNullException.ThrowIfNull(request);
+            return new Gizmo.Web.Api.Models.RegistrationDirectModel
             {
-                Username = profile.Username,
-                Email = profile.Email,
-                FirstName = profile.FirstName,
-                LastName = profile.LastName,
-                BirthDate = profile.BirthDate,
-                Address = profile.Address,
-                City = profile.City,
-                Country = profile.Country,
-                PostCode = profile.PostCode,
-                Phone = profile.Phone,
-                MobilePhone = profile.MobilePhone,
-                Sex = MapSex(profile.Sex)
+                Password       = request.Password,
+                Profile        = RegistrationProfileMapper.Map(request.Profile),
+                AgreementStates = MapAgreementStates(request.AgreementStates)
             };
         }
 
-        private static Sex MapSex(UserSex sex) =>
-            sex switch
-            {
-                UserSex.Unspecified => Sex.Unspecified,
-                UserSex.Male        => Sex.Male,
-                UserSex.Female      => Sex.Female,
-                _ => throw new ArgumentOutOfRangeException(nameof(sex), sex, null)
-            };
+        private static List<UserAgreementModelState> MapAgreementStates(
+            IReadOnlyList<RegistrationAgreementChoice> choices)
+            => choices is null
+                ? new()
+                : choices.Select(c => new UserAgreementModelState
+                {
+                    UserId = 0,
+                    UserAgreementId = c.AgreementId,
+                    AcceptState = (Gizmo.Web.Api.Models.UserAgreementAcceptState)c.AcceptState
+                }).ToList();
     }
 }

@@ -1,29 +1,24 @@
 using Gizmo.Go.Core.Models.Registration;
-using Gizmo.Web.Api.Models;
+using Gizmo.Go.Provider.Direct.Helpers;
 
 namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
     internal static class RegistrationStartRequestMapper
     {
-        public static RegistrationStartModel Map(RegistrationStartRequest request)
+        public static Gizmo.Web.Api.Models.UserRegistrationMethodStartModel Map(RegistrationStartRequest request)
         {
             ArgumentNullException.ThrowIfNull(request);
 
-            return new RegistrationStartModel
+            return new Gizmo.Web.Api.Models.UserRegistrationMethodStartModel
             {
-                IntegrationPublicId = request.IntegrationPublicId,
-                DeliveryMethod = MapDeliveryMethod(request.DeliveryMethod),
-                PhoneNumber = request.PhoneNumber,
-                Email = request.Email
+                MethodId = request.MethodId,
+                Value = request.Kind switch
+                {
+                    RegistrationStartKind.MobilePhone or RegistrationStartKind.Email => request.Value,
+                    RegistrationStartKind.Redirect                                   => null,
+                    _ => throw new ArgumentOutOfRangeException(nameof(request.Kind), request.Kind, "Unsupported registration start kind.")
+                }
             };
         }
-
-        private static VerificationDeliveryMethod MapDeliveryMethod(RegistrationDeliveryMethod method) =>
-            method switch
-            {
-                RegistrationDeliveryMethod.Redirect     => VerificationDeliveryMethod.Redirect,
-                RegistrationDeliveryMethod.CodeDispatch => VerificationDeliveryMethod.CodeDispatch,
-                _ => throw new ArgumentOutOfRangeException(nameof(method), method, null)
-            };
     }
 }

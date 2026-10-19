@@ -1,6 +1,5 @@
 using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.Provider.Direct.Services.Demo;
 using Gizmo.Go.Provider.Direct.Services;
 using Gizmo.Web.Api.Clients.Builder;
 using Microsoft.AspNetCore.Components;
@@ -45,11 +44,10 @@ namespace Gizmo.Go.Provider.Direct.Extensions
             
             services.AddSingleton<IAuthService, DirectAuthService>();
             services.AddSingleton<IBranchProvider, DirectBranchProvider>();
-            // services.AddSingleton<IRegistrationService, DemoRegistrationService>();
-            // services.AddSingleton<IConfirmationService, DemoConfirmationService>();
-            services.AddSingleton<IRegistrationService, DirectRegistrationService>();
-            services.AddSingleton<IConfirmationService, DirectConfirmationService>();
-            services.AddSingleton<IUserService, DirectUserService>();
+            services.AddSingleton<IUserRegistrationService, DirectUserRegistrationService>();
+            services.AddSingleton<IPasswordRecoveryService, DirectPasswordRecoveryService>();
+            services.AddSingleton<IPhoneValidationService, DirectPhoneValidationService>();
+            services.AddSingleton<IRegistrationOptionsService, DirectRegistrationOptionsService>();
 
             return services;
         }

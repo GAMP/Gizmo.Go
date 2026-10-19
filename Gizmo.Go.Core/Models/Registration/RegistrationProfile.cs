@@ -1,28 +1,18 @@
-namespace Gizmo.Go.Core.Models.Registration;
-
-public sealed class RegistrationProfile
+namespace Gizmo.Go.Core.Models.Registration
 {
-    public required string Username { get; set; }
-
-    public string? Email { get; set; }
-
-    public string? FirstName { get; set; }
-
-    public string? LastName { get; set; }
-
-    public DateTime? BirthDate { get; set; }
-
-    public string? Address { get; set; }
-
-    public string? City { get; set; }
-
-    public string? Country { get; set; }
-
-    public string? PostCode { get; set; }
-
-    public string? Phone { get; set; }
-
-    public string? MobilePhone { get; set; }
-
-    public UserSex Sex { get; set; }
+    public sealed class RegistrationProfile
+    {
+        public string? Username { get; init; }
+        public string? FirstName { get; init; }
+        public string? LastName { get; init; }
+        public DateTime? BirthDate { get; init; }
+        public UserSex Sex { get; init; }
+        public string? Email { get; init; }
+        public string? MobilePhone { get; init; }
+        public string? Phone { get; init; }
+        public string? Country { get; init; }
+        public string? Address { get; init; }
+        public string? City { get; init; }
+        public string? PostCode { get; init; }
+    }
 }

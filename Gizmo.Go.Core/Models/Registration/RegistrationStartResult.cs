@@ -1,11 +1,12 @@
 namespace Gizmo.Go.Core.Models.Registration
 {
-    public sealed class RegistrationStartResult
+    public abstract record RegistrationStartResult
     {
-        public RegistrationStartResultCode Result { get; init; }
-        public string? Token { get; init; }
-        public string? RedirectUrl { get; init; }
-        public int CodeLength { get; init; }
-        public int ExpiresInSeconds { get; init; }
+        private RegistrationStartResult() { }
+
+        public sealed record CodeInputRequired(string Token, string? Destination, int CodeLength, int ExpiresInSeconds, Guid CapabilityGuid) : RegistrationStartResult;
+        public sealed record RedirectRequired(string Token, string RedirectUrl, int ExpiresInSeconds, Guid CapabilityGuid) : RegistrationStartResult;
+        public sealed record CallRequired(string Token, string PhoneNumber, int ExpiresInSeconds, Guid CapabilityGuid) : RegistrationStartResult;
+        public sealed record Failed(RegistrationStartCode Code) : RegistrationStartResult;
     }
 }

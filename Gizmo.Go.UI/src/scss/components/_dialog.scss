@@ -1,0 +1,71 @@
+@use '../themes/default/theme' as *;
+
+.giz-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: $z-index-modal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-md;
+    box-sizing: border-box;
+    background: rgba(#000000, 0.6);
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+        width: 100%;
+        max-width: 480px;
+        max-height: 100%;
+        padding: $spacing-lg;
+        box-sizing: border-box;
+        background: rgba(#0a0e11, 0.98);
+        border: 1px solid rgba(#f6fbfd, 0.10);
+        border-radius: 20px;
+        color: #ffffff;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs;
+    }
+
+    &__title {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+    }
+
+    &__subtitle {
+        font-size: $font-size-sm;
+        color: rgba(#ffffff, 0.6);
+    }
+
+    &__body {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        font-size: $font-size-sm;
+        line-height: $line-height-base;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+    }
+
+    &__checkbox {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        font-size: $font-size-sm;
+        cursor: pointer;
+
+        &--required span::after {
+            content: ' *';
+            color: $color-error;
+        }
+    }
+}

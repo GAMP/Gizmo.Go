@@ -87,7 +87,14 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public ValueTask NavigateToCreateAccountAsync()
         {
-            _navigationService.NavigateTo(NavigationHelper.RegistrationPhone);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationIndexRoute);
+            return ValueTask.CompletedTask;
+        }
+
+        public ValueTask NavigateToPasswordRecoveryAsync()
+        {
+            // the Kind step clears the recovery session left from a previous attempt (as the client Login link)
+            _navigationService.NavigateTo(NavigationHelper.PasswordRecoveryKindRoute);
             return ValueTask.CompletedTask;
         }
 

@@ -10,3 +10,7 @@
 	path = libs/Gizmo.Web.Api.Models
 	url = https://github.com/GAMP/Gizmo.Web.Api.Models
 	branch = mrdpod
+[submodule "libs/Gizmo.UI"]
+	path = libs/Gizmo.UI
+	url = https://github.com/GAMP/Gizmo.UI
+	branch = dev

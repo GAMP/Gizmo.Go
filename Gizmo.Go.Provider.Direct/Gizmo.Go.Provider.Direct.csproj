@@ -24,8 +24,4 @@
     <PackageReference Include="Gizmo.Web.Api.Client" Version="1.0.12" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappers\Confirmation\" />
-  </ItemGroup>
-
 </Project>

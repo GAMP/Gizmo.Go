@@ -32,7 +32,7 @@ namespace Gizmo.Go.UI.View.Services
 
         public ValueTask NavigateToRegisterAsync()
         {
-            _navigationService.NavigateTo(NavigationHelper.RegistrationProviders);
+            _navigationService.NavigateTo(NavigationHelper.RegistrationIndexRoute);
             return ValueTask.CompletedTask;
         }
 

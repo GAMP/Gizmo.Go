@@ -427,3 +427,18 @@ MigrationBackup/
 FodyWeavers.xsd
 
 Gizmo.Go.UI/wwwroot/
+node_modules/
+
+# IDE
+.vscode/
+
+# Environment / secrets
+.env
+*.env
+
+# Mobile signing (MAUI Android/iOS)
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+
