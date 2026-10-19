@@ -27,7 +27,7 @@ namespace Gizmo.Go.UI.Pages.PasswordRecovery
             this.UnsubscribeChange(PasswordRecoveryConfirmationViewState);
         }
 
-        private async Task ConfirmAsync() => await PasswordRecoveryConfirmationViewService.Confirm();
+        private async Task ConfirmAsync() => await PasswordRecoveryConfirmationViewService.ConfirmAsync();
 
         private async Task ResendCode() => await PasswordRecoveryConfirmationViewService.RestartTimerAsync();
 

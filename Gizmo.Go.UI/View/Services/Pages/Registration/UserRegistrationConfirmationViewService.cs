@@ -75,7 +75,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             DebounceViewStateChanged();
         }
 
-        public async Task Confirm()
+        public async Task ConfirmAsync(CancellationToken cancellationToken = default)
         {
             ViewState.IsLoading = true;
             ViewState.HasError = false;
@@ -95,7 +95,8 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             {
                 var result = await _registrationService.ConfirmTokenAsync(
                     _registrationSession.Token,
-                    ViewState.ConfirmationCode);
+                    ViewState.ConfirmationCode,
+                    cancellationToken);
 
                 switch (result)
                 {
@@ -150,7 +151,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return digits;
         }
 
-        public async ValueTask RestartTimerAsync()
+        public async ValueTask RestartTimerAsync(CancellationToken cancellationToken = default)
         {
             ViewState.HasError = false;
             ViewState.ErrorMessage = string.Empty;
@@ -167,7 +168,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                     Value = _registrationSession.ActualContact,
                 };
 
-                var result = await _registrationService.StartAsync(request);
+                var result = await _registrationService.StartAsync(request, cancellationToken);
 
                 if (result is RegistrationStartResult.CodeInputRequired r)
                 {

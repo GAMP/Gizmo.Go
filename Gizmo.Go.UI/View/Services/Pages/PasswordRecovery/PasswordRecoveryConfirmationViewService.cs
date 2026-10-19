@@ -100,7 +100,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             }
         }
 
-        public async Task Confirm()
+        public async Task ConfirmAsync(CancellationToken cancellationToken = default)
         {
             if (ViewState.IsLoading)
                 return;
@@ -121,7 +121,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
 
             try
             {
-                var result = await _passwordRecoveryService.ConfirmCodeAsync(_session.Token, ViewState.ConfirmationCode);
+                var result = await _passwordRecoveryService.ConfirmCodeAsync(_session.Token, ViewState.ConfirmationCode, cancellationToken);
 
                 switch (result)
                 {
@@ -157,7 +157,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             }
         }
 
-        public async ValueTask RestartTimerAsync()
+        public async ValueTask RestartTimerAsync(CancellationToken cancellationToken = default)
         {
             if (ViewState.IsLoading)
                 return;
@@ -186,7 +186,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
                     MethodId = provider.MethodId,
                     IdentifierKind = identifierKind.Value,
                     Value = _session.MatchValue
-                });
+                }, cancellationToken);
 
                 if (result is PasswordRecoveryStartResult.CodeInputRequired r)
                 {

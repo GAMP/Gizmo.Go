@@ -38,6 +38,16 @@ namespace Gizmo.Go.UI.Components.Dialog
         [Parameter]
         public EventCallback<UserAgreementResult> ResultCallback { get; set; }
 
+        // ErrorCallback, SuspendTimeoutCallback and Identifier are always supplied by the dialog controller (IComponentController.Parameters)
+        [Parameter]
+        public EventCallback<Exception> ErrorCallback { get; set; }
+
+        [Parameter]
+        public EventCallback<bool> SuspendTimeoutCallback { get; set; }
+
+        [Parameter]
+        public int Identifier { get; set; }
+
         private void OnAcceptedChanged(ChangeEventArgs e)
         {
             _accepted = e.Value is true;

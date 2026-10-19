@@ -27,7 +27,7 @@ namespace Gizmo.Go.UI.Pages.Registration
             this.UnsubscribeChange(UserRegistrationConfirmationViewState);
         }
 
-        private async Task ConfirmAsync() => await UserRegistrationConfirmationViewService.Confirm();
+        private async Task ConfirmAsync() => await UserRegistrationConfirmationViewService.ConfirmAsync();
 
         private async Task NavigateBack() => await UserRegistrationConfirmationViewService.NavigateBackAsync();
 
