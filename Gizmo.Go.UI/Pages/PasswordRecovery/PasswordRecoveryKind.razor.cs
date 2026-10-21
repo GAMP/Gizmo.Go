@@ -8,6 +8,8 @@ namespace Gizmo.Go.UI.Pages.PasswordRecovery
 {
     public partial class PasswordRecoveryKind : ComponentBase, IDisposable
     {
+        private static readonly Guid EmailChannelGuid = new(CommunicationChannels.Email);
+
         [Inject]
         private PasswordRecoveryKindViewState PasswordRecoveryKindViewState { get; set; } = null!;
 

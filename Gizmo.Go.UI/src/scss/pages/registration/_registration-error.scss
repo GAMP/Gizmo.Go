@@ -1,0 +1,72 @@
+// ============================================
+// Registration Error page styles.
+// Matches Figma: "Registration via Telegram failed" (159:14266).
+//
+// Page shell reuses .page-create-account background.
+// Buttons reuse .auth-submit and .auth-text-btn from layout/_auth-shell.scss.
+// ============================================
+@use '../../themes/default/theme' as *;
+
+.registration-error-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-lg;
+    padding: $spacing-lg $spacing-lg $spacing-xl;
+    box-sizing: border-box;
+    text-align: center;
+
+    .giz-error-block {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+// ---- Icon circle ----
+
+.registration-error-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: $radius-full;
+    border: 2px solid rgba($color-error, 0.40);
+    background: rgba($color-error, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: $color-error;
+}
+
+// ---- Text block ----
+
+.registration-error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+}
+
+.registration-error-title {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-on-primary;
+    line-height: 1.2;
+}
+
+.registration-error-subtitle {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: rgba($color-text-on-primary, 0.55);
+    line-height: 1.55;
+}
+
+// ---- Actions ----
+
+.registration-error-actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    width: 100%;
+}

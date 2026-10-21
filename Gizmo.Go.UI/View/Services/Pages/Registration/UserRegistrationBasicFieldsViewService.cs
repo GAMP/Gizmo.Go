@@ -161,8 +161,19 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
         /// </summary>
         public Task ContinueToProfileAsync()
         {
+            // the username is validated while typing: only an empty one needs the required message here,
+            // restarting its async validation would disable the submit button before the click is handled
+            if (string.IsNullOrEmpty(ViewState.Username))
+                ValidateProperty(() => ViewState.Username);
+
             ValidateProperty(() => ViewState.Password);
             ValidateProperty(() => ViewState.RepeatPassword);
+
+            if (EditContext.GetValidationMessages(FieldIdentifier.Create(() => ViewState.Username)).Any()
+                || !IsAsyncValidated(() => ViewState.Username))
+            {
+                return Task.CompletedTask;
+            }
 
             if (EditContext.GetValidationMessages(FieldIdentifier.Create(() => ViewState.Password)).Any()
                 || EditContext.GetValidationMessages(FieldIdentifier.Create(() => ViewState.RepeatPassword)).Any())
@@ -204,13 +215,20 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             ViewState.ShowEmail = ShowEmail;
             ViewState.ShowMobilePhone = ShowMobilePhone;
             ViewState.ShowPhone = ShowPhone;
+            ViewState.HasAdditionalFields = HasAdditionalFields;
 
             ViewState.IsEmailVerified = _registrationSession.Flow == RegistrationFlow.Email;
+
+            ViewState.RaiseChanged();
+        }
+
+        private async Task UpdateVerifiedContactAsync(CancellationToken cancellationToken)
+        {
             ViewState.VerifiedContact = string.IsNullOrEmpty(_registrationSession.ActualContact)
                 ? string.Empty
                 : ViewState.IsEmailVerified
                     ? ContactMasking.MaskEmail(_registrationSession.ActualContact)
-                    : ContactMasking.MaskPhone(_registrationSession.ActualContact);
+                    : ContactMasking.MaskPhone(_registrationSession.ActualContact, await _phoneValidationService.GetCountriesAsync(cancellationToken));
 
             ViewState.RaiseChanged();
         }
@@ -312,6 +330,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                         return;
                     }
 
+                    _registrationSession.SetCompletedContact(profile.MobilePhone ?? profile.Email, isEmail: string.IsNullOrEmpty(profile.MobilePhone));
                     _registrationSession.Clear();
                     NavigationService.NavigateTo(NavigationHelper.RegistrationSuccessRoute);
                 }
@@ -487,6 +506,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }
 
             UpdateFieldVisibility();
+            await UpdateVerifiedContactAsync(cancellationToken);
         }
 
         protected override void OnDisposing(bool isDisposing)
@@ -702,6 +722,15 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             }
 
             return await base.OnValidateAsync(fieldIdentifier, validationTrigger, cancellationToken);
+        }
+
+        protected override void OnValidationStateChanged()
+        {
+            ViewState.IsUsernameAvailable = !string.IsNullOrEmpty(ViewState.Username)
+                && IsAsyncValidated(() => ViewState.Username)
+                && !EditContext.GetValidationMessages(FieldIdentifier.Create(() => ViewState.Username)).Any();
+
+            base.OnValidationStateChanged();
         }
 
         protected override AsyncValidatedDetermineResult OnDetermineIsAsyncPropertiesValidated()

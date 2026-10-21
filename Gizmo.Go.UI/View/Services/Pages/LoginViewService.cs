@@ -2,9 +2,11 @@ using System.Web;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.View.States.Pages;
+using Gizmo.UI;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -15,8 +17,10 @@ namespace Gizmo.Go.UI.View.Services.Pages
     public sealed class LoginViewService : ValidatingViewStateServiceBase<LoginViewState>
     {
         private readonly IAuthService _authService;
+        private readonly IPhoneValidationService _phoneValidationService;
         private readonly NavigationService _navigationService;
         private readonly IAssemblyResourcesLocalizationService _assemblyResourcesLocalizationService;
+        private readonly ILocalizationService _localizationService;
         private string? _returnUrl;
 
         public LoginViewService(
@@ -24,13 +28,21 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ILogger<LoginViewService> logger,
             IServiceProvider serviceProvider,
             IAuthService authService,
+            IPhoneValidationService phoneValidationService,
             NavigationService navigationService,
-            IAssemblyResourcesLocalizationService assemblyResourcesLocalizationService) : base(viewState, logger, serviceProvider)
+            IAssemblyResourcesLocalizationService assemblyResourcesLocalizationService,
+            ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
         {
             _authService = authService;
+            _phoneValidationService = phoneValidationService;
             _navigationService = navigationService;
             _assemblyResourcesLocalizationService = assemblyResourcesLocalizationService;
+            _localizationService = localizationService;
         }
+
+        // phone tab with a number: SetPhoneAsync keeps the digits in both Phone and Username
+        private bool IsPhoneIdentifier =>
+            !string.IsNullOrEmpty(ViewState.Phone) && string.Equals(ViewState.Username, ViewState.Phone, StringComparison.Ordinal);
 
         public ValueTask SetUsernameAsync(string value)
         {
@@ -38,6 +50,54 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.ErrorMessage = null;
             ValidateProperty(() => ViewState.Username);
             return ValueTask.CompletedTask;
+        }
+
+        public void SetPhoneRegionCode(string? regionCode)
+        {
+            ViewState.PhoneRegionCode = regionCode;
+        }
+
+        /// <summary>
+        /// Stores the phone field value (calling code digits followed by national digits).
+        /// The login identifier is set only when there are national digits.
+        /// </summary>
+        public ValueTask SetPhoneAsync(string digits)
+        {
+            var callingCode = ViewState.PhoneCountries
+                .FirstOrDefault(c => string.Equals(c.RegionCode, ViewState.PhoneRegionCode, StringComparison.OrdinalIgnoreCase))
+                ?.CallingCode;
+            var codeDigits = new string((callingCode ?? string.Empty).Where(char.IsDigit).ToArray());
+
+            ViewState.Phone = digits;
+            ViewState.Username = digits.Length > codeDigits.Length && digits.StartsWith(codeDigits, StringComparison.Ordinal)
+                ? digits
+                : string.Empty;
+            ViewState.ErrorMessage = null;
+
+            // a calling code alone (country just selected) is not an input yet: no "required" message
+            if (string.IsNullOrEmpty(ViewState.Username))
+            {
+                ClearError(() => ViewState.Username);
+                ViewState.RaiseChanged();
+            }
+            else
+            {
+                ValidateProperty(() => ViewState.Username);
+            }
+
+            return ValueTask.CompletedTask;
+        }
+
+        /// <summary>
+        /// Resets the login identifier when the login tab changes, so a phone is never sent as a nickname and vice versa.
+        /// </summary>
+        public void ClearIdentifier()
+        {
+            ViewState.Username = string.Empty;
+            ViewState.Phone = string.Empty;
+            ViewState.ErrorMessage = null;
+            ClearError(() => ViewState.Username);
+            ViewState.RaiseChanged();
         }
 
         public ValueTask SetPasswordAsync(string value)
@@ -98,10 +158,12 @@ namespace Gizmo.Go.UI.View.Services.Pages
             return ValueTask.CompletedTask;
         }
 
-        protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
+        protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             ViewState.Username = string.Empty;
             ViewState.Password = string.Empty;
+            ViewState.Phone = string.Empty;
+            ViewState.PhoneRegionCode = null;
             ViewState.IsLoading = false;
             ViewState.ErrorMessage = null;
 
@@ -112,7 +174,44 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 _returnUrl = HttpUtility.ParseQueryString(uri.Query).Get("returnUrl");
             }
 
-            return base.OnNavigatedIn(navigationParameters, cancellationToken);
+            try
+            {
+                ViewState.PhoneCountries = await _phoneValidationService.GetCountriesAsync(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                // the phone field stays disabled, the nickname tab still works
+                Logger.LogError(ex, "Cannot load phone countries for login.");
+                ViewState.PhoneCountries = Array.Empty<Gizmo.Go.Core.Models.PhoneValidation.PhoneCountry>();
+            }
+
+            ViewState.RaiseChanged();
+
+            await base.OnNavigatedIn(navigationParameters, cancellationToken);
+        }
+
+        // the phone number format is checked as on the registration phone step; a nickname has no async check
+        protected override async Task<IEnumerable<string>> OnValidateAsync(FieldIdentifier fieldIdentifier, ValidationTrigger validationTrigger, CancellationToken cancellationToken = default)
+        {
+            if (fieldIdentifier.FieldEquals(() => ViewState.Username) && IsPhoneIdentifier)
+            {
+                if (string.IsNullOrEmpty(ViewState.PhoneRegionCode))
+                    return new[] { _localizationService.GetString(nameof(Autogenerated.Resources.GO_REGISTRATION_VE_SELECT_COUNTRY)) };
+
+                try
+                {
+                    var result = await _phoneValidationService.ValidateAsync(ViewState.Username, ViewState.PhoneRegionCode, cancellationToken);
+                    if (!result.IsValid)
+                        return new[] { _localizationService.GetString(result.ErrorKey ?? nameof(Autogenerated.Resources.GO_GEN_VE_INVALID_FIELD)) };
+                }
+                catch (Exception ex)
+                {
+                    // the server still checks the identifier on login
+                    Logger.LogError(ex, "Cannot validate login phone.");
+                }
+            }
+
+            return await base.OnValidateAsync(fieldIdentifier, validationTrigger, cancellationToken);
         }
     }
 }

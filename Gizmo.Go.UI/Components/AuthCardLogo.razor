@@ -1,0 +1,10 @@
+@if (string.IsNullOrEmpty(RegistrationConfigurationViewState.Logo))
+{
+    <div class="auth-card__logo" aria-hidden="true"></div>
+}
+else
+{
+    <div class="auth-card__logo auth-card__logo--image">
+        <img src="@RegistrationConfigurationViewState.Logo" alt="" />
+    </div>
+}

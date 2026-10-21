@@ -25,6 +25,8 @@ public static class NavigationHelper
     public const string PasswordRecoveryRoute = "/password-recovery";
     public const string PasswordRecoveryKindRoute = "/password-recovery-kind";
     public const string PasswordRecoveryDestinationRoute = "/password-recovery-destination";
+    public const string PasswordRecoveryAccountRoute = "/password-recovery-account";
     public const string PasswordRecoveryConfirmationRoute = "/password-recovery-confirmation";
     public const string PasswordRecoverySetNewPasswordRoute = "/password-recovery-set-new-password";
+    public const string PasswordRecoverySuccessRoute = "/password-recovery-success";
 }

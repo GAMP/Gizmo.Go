@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+    <data name="GO_APP_TITLE" xml:space="preserve">
+    <value>Gizmo</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_TITLE" xml:space="preserve">
+    <value>Giriş - Gizmo Go</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_LABEL" xml:space="preserve">
+    <value>Kullanıcı adı</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>Kullanıcı adınızı girin</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_LABEL" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>Parolanızı girin</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT" xml:space="preserve">
+    <value>Giriş yap</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT_LOADING" xml:space="preserve">
+    <value>Giriş yapılıyor...</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_HEADING" xml:space="preserve">
+    <value>Gizmo&apos;ya giriş yapın</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_SUBTITLE" xml:space="preserve">
+    <value>Giriş yöntemini seçin</value>
+  </data>
+  <data name="GO_LOGIN_TAB_PHONE" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="GO_LOGIN_TAB_NICKNAME" xml:space="preserve">
+    <value>Takma ad</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_LABEL" xml:space="preserve">
+    <value>Telefon numarası</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 000-000-0000</value>
+  </data>
+  <data name="GO_LOGIN_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Parolanızı mı unuttunuz?</value>
+  </data>
+  <data name="GO_LOGIN_NO_ACCOUNT" xml:space="preserve">
+    <value>Hesabınız yok mu?</value>
+  </data>
+  <data name="GO_VE_REQUIRED" xml:space="preserve">
+    <value>Bu alan zorunludur.</value>
+  </data>
+  <data name="GO_WELCOME_PAGE_TITLE" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_WELCOME_SECTION_LABEL" xml:space="preserve">
+    <value>E-spor kulüpleri</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE1" xml:space="preserve">
+    <value>Oyun kulübün —</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE2" xml:space="preserve">
+    <value>tam cebinde</value>
+  </data>
+  <data name="GO_WELCOME_DESCRIPTION" xml:space="preserve">
+    <value>Haritadan bir kulüp seç, bilgisayarı önceden ayırt, QR kodla giriş yap ve bakiyeni yükle — kuyruk yok.</value>
+  </data>
+  <data name="GO_WELCOME_SIGN_IN" xml:space="preserve">
+    <value>Giriş yap</value>
+  </data>
+  <data name="GO_WELCOME_CREATE_ACCOUNT" xml:space="preserve">
+    <value>Hesap oluştur</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>Hesap oluştur - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HEADING" xml:space="preserve">
+    <value>Hesap oluştur</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBTITLE" xml:space="preserve">
+    <value>Kayıt için telefon numaranı gir</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
+    <value>Telefon numarası</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>000 000-0000</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBMIT" xml:space="preserve">
+    <value>Kodu gönder</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HAS_ACCOUNT" xml:space="preserve">
+    <value>Zaten hesabınız var mı?</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SIGN_IN" xml:space="preserve">
+    <value>Giriş yap</value>
+  </data>
+  <data name="GO_CONFIRMATION_PAGE_TITLE" xml:space="preserve">
+    <value>Doğrulama - Gizmo Go</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_EMAIL" xml:space="preserve">
+    <value>E-posta doğrulama</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_PHONE" xml:space="preserve">
+    <value>Numara doğrulama</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LIFETIME" xml:space="preserve">
+    <value>Kod {0} dakika geçerlidir.</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>{0} haneli bir kodu şu numaraya gönderdik: </value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. Aşağıya girin.</value>
+  </data>
+  <data name="GO_CONFIRMATION_TIMER_PREFIX" xml:space="preserve">
+    <value>Tekrar gönder: </value>
+  </data>
+  <data name="GO_CONFIRMATION_RESEND" xml:space="preserve">
+    <value>Kodu yeniden gönder</value>
+  </data>
+  <data name="GO_CONFIRMATION_CHANGE_NUMBER" xml:space="preserve">
+    <value>Numarayı değiştir</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBMIT" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="GO_CONFIRMATION_HINT" xml:space="preserve">
+    <value>Gelmediyse numarayı kontrol edin veya tekrar isteyin.</value>
+  </data>
+  <data name="GO_CONFIRMATION_BACK" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Profil - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_HEADING" xml:space="preserve">
+    <value>Profilini ayarla</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBTITLE" xml:space="preserve">
+    <value>Kaydı tamamlamak için bilgilerini doldur.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_LABEL" xml:space="preserve">
+    <value>Takma ad *</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>Takma adı girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_LABEL" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>E-posta girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_LABEL" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Adınızı girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_LABEL" xml:space="preserve">
+    <value>Soyad</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Soyadınızı girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_LABEL" xml:space="preserve">
+    <value>Doğum tarihi</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_LABEL" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_PLACEHOLDER" xml:space="preserve">
+    <value>Adresi girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_LABEL" xml:space="preserve">
+    <value>Şehir</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_PLACEHOLDER" xml:space="preserve">
+    <value>Şehri girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_LABEL" xml:space="preserve">
+    <value>Ülke</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_PLACEHOLDER" xml:space="preserve">
+    <value>Ülkeyi girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_LABEL" xml:space="preserve">
+    <value>Posta kodu</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_PLACEHOLDER" xml:space="preserve">
+    <value>Posta kodunu girin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PHONE_LABEL" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_MOBILE_PHONE_LABEL" xml:space="preserve">
+    <value>Cep telefonu</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_LABEL" xml:space="preserve">
+    <value>Cinsiyet</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>Belirtilmedi</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_MALE" xml:space="preserve">
+    <value>Erkek</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_FEMALE" xml:space="preserve">
+    <value>Kadın</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBMIT" xml:space="preserve">
+    <value>Hesap oluştur</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BACK" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_PLACEHOLDER" xml:space="preserve">
+    <value>GG.AA.YYYY</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SKIP" xml:space="preserve">
+    <value>Atla</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_NOTE" xml:space="preserve">
+    <value>Profil verileri yalnızca size ve kulüp yöneticilerine görünür.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PAGE_TITLE" xml:space="preserve">
+    <value>Parola oluştur - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_HEADING" xml:space="preserve">
+    <value>Giriş bilgilerini oluştur</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBTITLE" xml:space="preserve">
+    <value>Gizmo'ya giriş için benzersiz bir takma ad ve parola belirle.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_BACK" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_LABEL" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>Parolayı girin</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_LABEL" xml:space="preserve">
+    <value>Parolayı tekrarlayın</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_PLACEHOLDER" xml:space="preserve">
+    <value>Parolayı onaylayın</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_TITLE" xml:space="preserve">
+    <value>Parola gereksinimleri:</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBMIT" xml:space="preserve">
+    <value>Devam</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_PAGE_TITLE" xml:space="preserve">
+    <value>Sağlayıcılar - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_BACK" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_LOADING" xml:space="preserve">
+    <value>Yükleniyor...</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_EMPTY" xml:space="preserve">
+    <value>Kullanılabilir kayıt yöntemi yok.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DIVIDER" xml:space="preserve">
+    <value>Diğer yöntemler</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DESCRIPTION" xml:space="preserve">
+    <value>Alternatif yöntemlerden birini deneyin:</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_SUBTITLE" xml:space="preserve">
+    <value>Kayıt yöntemini seçin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_CONTINUE_WITH" xml:space="preserve">
+    <value>Devam et: </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_PREFIX" xml:space="preserve">
+    <value>Kayıt olarak şunları kabul etmiş olursunuz: </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_AND" xml:space="preserve">
+    <value> ve </value>
+  </data>
+  <data name="GO_EYE_TOGGLE_SHOW" xml:space="preserve">
+    <value>Parolayı göster</value>
+  </data>
+  <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
+    <value>Ana sayfaya dön</value>
+  </data>
+  <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="GO_DATE_INPUT_MONTH_LETTER" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="GO_DATE_INPUT_YEAR_LETTER" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="GO_DATE_INPUT_INCOMPLETE" xml:space="preserve">
+    <value>Tarihi eksiksiz girin</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_DAY_MONTH" xml:space="preserve">
+    <value>Günü ve ayı kontrol edin</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_YEAR" xml:space="preserve">
+    <value>Yılı kontrol edin</value>
+  </data>
+  <data name="GO_EYE_TOGGLE_HIDE" xml:space="preserve">
+    <value>Parolayı gizle</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_PAGE_TITLE" xml:space="preserve">
+    <value>Bağlanılıyor — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_HEADING" xml:space="preserve">
+    <value>Telegram&apos;a bağlanılıyor</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_SUBTITLE" xml:space="preserve">
+    <value>Telegram ile giriş yapılıyor. Lütfen biraz bekleyin.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>Numara doğrulama</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_HEADING" xml:space="preserve">
+    <value>Numara doğrulama</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBTITLE" xml:space="preserve">
+    <value>Telefon numaranı Telegram üzerinden aldık</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONFIRMED" xml:space="preserve">
+    <value>Doğrulandı</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONNECTED" xml:space="preserve">
+    <value>Hesap başarıyla bağlandı</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_LABEL" xml:space="preserve">
+    <value>Telefon numarası</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_VERIFIED" xml:space="preserve">
+    <value>Doğrulandı</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_INFO_TEXT" xml:space="preserve">
+    <value>Bu numara Gizmo hesabınıza bağlanacak. SMS doğrulaması gerekmez — numara zaten Telegram üzerinden doğrulandı.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBMIT" xml:space="preserve">
+    <value>Onayla ve devam et</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Hesap oluşturuldu — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_HEADING" xml:space="preserve">
+    <value>Hesap oluşturuldu!</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>Gizmo hesabın oluşturuldu.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_PHONE" xml:space="preserve">
+    <value>Gizmo hesabın oluşturuldu ve {0} numarasına bağlandı.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_EMAIL" xml:space="preserve">
+    <value>Gizmo hesabın oluşturuldu ve {0} e-postasına bağlandı.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PHONE_LABEL" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_EMAIL_LABEL" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>Ana sayfaya git</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_GROUP_ARIA" xml:space="preserve">
+    <value>{0} haneli kodu girin</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_DIGIT_ARIA" xml:space="preserve">
+    <value>{0}. hane</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PHONE_VERIFIED_LABEL" xml:space="preserve">
+    <value>Telefon doğrulandı</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_ARIA" xml:space="preserve">
+    <value>Parola gereksinimleri</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PAGE_TITLE" xml:space="preserve">
+    <value>E-posta ile kayıt - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_SUBTITLE" xml:space="preserve">
+    <value>Kayıt olmak için e-posta adresinizi girin</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_LABEL" xml:space="preserve">
+    <value>E-posta adresi</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_REGISTRATION_PHONE_HINT" xml:space="preserve">
+    <value>Doğrulama kodunu SMS ile göndereceğiz</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_HINT" xml:space="preserve">
+    <value>E-postana bir doğrulama kodu göndereceğiz.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_OR" xml:space="preserve">
+    <value>veya</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ALT" xml:space="preserve">
+    <value>Başka bir yöntem seç</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>{0} haneli bir kodu şuraya gönderdik: </value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. Aşağıya girin.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_CHANGE_EMAIL" xml:space="preserve">
+    <value>E-postayı değiştir</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_HINT" xml:space="preserve">
+    <value>Gelmediyse spam klasörünü kontrol edin veya tekrar isteyin.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ADD_PHONE_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 (___) ___-____</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_PAGE_TITLE" xml:space="preserve">
+    <value>Numara girişi - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HEADING" xml:space="preserve">
+    <value>Hesap oluştur</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBTITLE" xml:space="preserve">
+    <value>Telefon numaranı gir. Sana aramanız gereken bir numara vereceğiz ve seni hemen oturum açtıracağız.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_LABEL" xml:space="preserve">
+    <value>Telefon numarası</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBMIT" xml:space="preserve">
+    <value>Devam</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HINT" xml:space="preserve">
+    <value>Arama ücretsizdir. Seni gelen arama numarasından tanır ve otomatik olarak giriş yaptırırız.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_BACK" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>Arama bekleniyor</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_BACK" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_HEADING" xml:space="preserve">
+    <value>Bizi arayın</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INSTRUCTION" xml:space="preserve">
+    <value>Telefonunuzdan aşağıdaki numarayı arayın</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CHANGE" xml:space="preserve">
+    <value>Değiştir</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_COPY_HINT" xml:space="preserve">
+    <value>Kopyalamak için dokunun</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INFO" xml:space="preserve">
+    <value>Arama ücretsizdir. Seni gelen arama numarasından tanırız — parola gerekmez.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_TIMER_PREFIX" xml:space="preserve">
+    <value>Arama bekleniyor: </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CANCEL" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Giriş yapıldı</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_HEADING" xml:space="preserve">
+    <value>Giriş yapıldı!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Şu numaradan gelen arama: </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value> alındı. Gizmo&apos;ya hoş geldin!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_VERIFIED" xml:space="preserve">
+    <value>Yetkilendirme başarılı</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_CALL_RECEIVED" xml:space="preserve">
+    <value>Arama alındı</value>
+  </data>
+  <data name="GO_GLOBAL_ERROR" xml:space="preserve">
+    <value>Beklenmeyen bir hata oluştu. Sayfayı yenilemeyi deneyin.</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LENGTH_ERROR" xml:space="preserve">
+    <value>Doğrulama kodu {0} haneli olmalıdır!</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_EMAIL_VERIFIED_LABEL" xml:space="preserve">
+    <value>E-posta doğrulandı</value>
+  </data>
+  <data name="GO_GEN_ADDITIONAL_PHONE" xml:space="preserve">
+    <value>Ek telefon</value>
+  </data>
+  <data name="GO_GEN_AN_ERROR_HAS_OCCURRED" xml:space="preserve">
+    <value>Bir hata oluştu.</value>
+  </data>
+  <data name="GO_GEN_CONTINUE" xml:space="preserve">
+    <value>Devam</value>
+  </data>
+  <data name="GO_GEN_EMAIL_ADDRESS" xml:space="preserve">
+    <value>E-posta adresi</value>
+  </data>
+  <data name="GO_GEN_ENTER_NEW_PASSWORD" xml:space="preserve">
+    <value>Yeni parolayı girin</value>
+  </data>
+  <data name="GO_GEN_MOBILE_PHONE" xml:space="preserve">
+    <value>Cep telefonu</value>
+  </data>
+  <data name="GO_GEN_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>Parolalar eşleşmiyor!</value>
+  </data>
+  <data name="GO_GEN_PHONE_NUMBER" xml:space="preserve">
+    <value>Telefon numarası</value>
+  </data>
+  <data name="GO_GEN_SEX_FEMALE" xml:space="preserve">
+    <value>Kadın</value>
+  </data>
+  <data name="GO_GEN_SEX_MALE" xml:space="preserve">
+    <value>Erkek</value>
+  </data>
+  <data name="GO_GEN_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>Seçilmedi</value>
+  </data>
+  <data name="GO_GEN_USERNAME" xml:space="preserve">
+    <value>Kullanıcı adı</value>
+  </data>
+  <data name="GO_GEN_VE_INVALID_FIELD" xml:space="preserve">
+    <value>Alan geçersiz.</value>
+  </data>
+  <data name="GO_GEN_VE_MAX_LENGTH" xml:space="preserve">
+    <value>Alan {1} karakterden uzun olmamalıdır.</value>
+  </data>
+  <data name="GO_GEN_VE_REQUIRED_FIELD" xml:space="preserve">
+    <value>Alan zorunludur.</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_SECURE" xml:space="preserve">
+    <value>Güvenli parola</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_EASY" xml:space="preserve">
+    <value>Parola çok kolay</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_LONG" xml:space="preserve">
+    <value>Parola çok uzun</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_SHORT" xml:space="preserve">
+    <value>Parola çok kısa</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_HINT" xml:space="preserve">
+    <value>{0} numarasını arayın ve onay işlenirken bu ekranı açık tutun.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_SUBTITLE" xml:space="preserve">
+    <value>Parola kurtarmaya devam etmek için aramayı tamamlayın.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_TITLE" xml:space="preserve">
+    <value>Aramayla onayla</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_EMAIL" xml:space="preserve">
+    <value>Hesabınıza bağlı e-posta adresini girin</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_PHONE_NUMBER" xml:space="preserve">
+    <value>Hesabınıza bağlı telefon numarasını girin</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_USERNAME" xml:space="preserve">
+    <value>Hesabınıza bağlı kullanıcı adını girin</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Parolamı unuttum</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_SUBTITLE" xml:space="preserve">
+    <value>Hesabını bulmak için bir yöntem seç</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_TITLE" xml:space="preserve">
+    <value>Parolamı unuttum</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NEW_PASSWORD" xml:space="preserve">
+    <value>Yeni bir şifre oluşturun</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NON_UNIQUE_INPUT" xml:space="preserve">
+    <value>Bu değer birden fazla hesapla eşleşiyor. Bunun yerine kullanıcı adını kullanın.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NO_METHODS_AVAILABLE" xml:space="preserve">
+    <value>Bu değer için parola kurtarma kullanılamıyor</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PASSWORD_RESET_FAILED_MESSAGE" xml:space="preserve">
+    <value>Parola sıfırlama başarısız oldu.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PLEASE_ENTER_RECOVERY_CODE" xml:space="preserve">
+    <value>{0} numarasına bir kod gönderdik. Şifrenizi sıfırlamak için kodu girin.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_REENTER_CONFIRM" xml:space="preserve">
+    <value>Onaylamak için tekrar girin</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_METHOD" xml:space="preserve">
+    <value>Kurtarma yöntemini seçin</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_OTHER_METHOD" xml:space="preserve">
+    <value>Başka bir kurtarma yöntemi seçin</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SET_PASSWORD_MESSAGE" xml:space="preserve">
+    <value>Gizmo hesabınıza giriş yapmak için yeni bir şifre belirleyin.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_USER_NOT_FOUND" xml:space="preserve">
+    <value>Girdiğiniz değerle eşleşen bir hesap yok.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_WAITING_CONFIRMATION" xml:space="preserve">
+    <value>Onay bekleniyor...</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_LOWER_CASE" xml:space="preserve">
+    <value>En az 1 küçük harf</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MAX_LENGTH" xml:space="preserve">
+    <value>En fazla {0} karakter</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MIN_LENGTH" xml:space="preserve">
+    <value>En az {0} karakter</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_NUMBER" xml:space="preserve">
+    <value>En az 1 rakam</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_RANGE_LENGTH" xml:space="preserve">
+    <value>{0}-{1} karakter</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_UPPER_CASE" xml:space="preserve">
+    <value>En az 1 büyük harf</value>
+  </data>
+  <data name="GO_REGISTRATION_ADDITIONAL_FIELDS_HEADING" xml:space="preserve">
+    <value>Ek bilgiler</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_ALERT" xml:space="preserve">
+    <value>Geri dönün — orada ek kayıt yöntemleri görünecek.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_BACK" xml:space="preserve">
+    <value>Geri dön ve başka bir yöntem seç</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_RETRY" xml:space="preserve">
+    <value>Tekrar dene</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_SUBTITLE" xml:space="preserve">
+    <value>Kayıt tamamlanamadı. Bunun nedeni iptal veya teknik sorunlar olabilir.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_TITLE" xml:space="preserve">
+    <value>Yetkilendirme başarısız</value>
+  </data>
+  <data name="GO_REGISTRATION_FAILED_MESSAGE" xml:space="preserve">
+    <value>Bir şeyler ters gitti. Bilgi için resepsiyonla iletişime geçin.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDER_REDIRECT_NOT_IMPLEMENTED" xml:space="preserve">
+    <value>Bu yöntemle kayıt henüz kullanılamıyor. Lütfen aşağıdan başka bir yöntem deneyin.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_BACK_TO_MAIN" xml:space="preserve">
+    <value>Ana ekrana dön</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_OPEN" xml:space="preserve">
+    <value>Bağlantıyı aç</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_SESSION_EXPIRED" xml:space="preserve">
+    <value>Oturum süresi doldu. Lütfen tekrar deneyin veya başka bir giriş yöntemi seçin.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_WAITING_SCAN" xml:space="preserve">
+    <value>Tarama bekleniyor…</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_EMAIL" xml:space="preserve">
+    <value>E-posta doğrulanamadı.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_PHONE" xml:space="preserve">
+    <value>Telefon doğrulanamadı.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_USERNAME" xml:space="preserve">
+    <value>Kullanıcı adı doğrulanamadı.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_ADDRESS_USED" xml:space="preserve">
+    <value>Belirtilen e-posta adresi zaten kullanılıyor.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_INVALID" xml:space="preserve">
+    <value>E-posta geçersiz</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_INVALID" xml:space="preserve">
+    <value>Cep telefonu geçersiz</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_USED" xml:space="preserve">
+    <value>Belirtilen cep telefonu numarası zaten kullanılıyor.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_SELECT_COUNTRY" xml:space="preserve">
+    <value>Lütfen bir ülke seçin</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_USERNAME_IN_USE" xml:space="preserve">
+    <value>Belirtilen kullanıcı adı zaten kullanılıyor.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_WHITE_SPACE_NOT_ALLOWED" xml:space="preserve">
+    <value>Kullanıcı adı boşluk içeremez.</value>
+  </data>
+  <data name="GO_USER_ADDRESS" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_AGREE_CHECKBOX" xml:space="preserve">
+    <value>Gizlilik Politikası&apos;nı ve Kullanım Koşulları&apos;nı okudum ve kabul ediyorum.</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_TITLE" xml:space="preserve">
+    <value>Gizlilik Politikası ve Kullanım Koşulları</value>
+  </data>
+  <data name="GO_USER_CITY" xml:space="preserve">
+    <value>Şehir</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_CONFIRMATION_CODE_IS_INVALID" xml:space="preserve">
+    <value>Doğrulama kodu geçersiz.</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_EMAIL_MESSAGE" xml:space="preserve">
+    <value>{0} adresine bir e-posta gönderildi. E-postanızdaki doğrulama kodunu bulup aşağıya girin</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_SMS_MESSAGE" xml:space="preserve">
+    <value>{0} numarasına bir SMS gönderildi. Telefonunuzdaki SMS&apos;te doğrulama kodunu bulup aşağıya girin</value>
+  </data>
+  <data name="GO_USER_COUNTRY_REGION" xml:space="preserve">
+    <value>Ülke/Bölge</value>
+  </data>
+  <data name="GO_USER_GENDER" xml:space="preserve">
+    <value>Cinsiyet</value>
+  </data>
+  <data name="GO_USER_POST_CODE" xml:space="preserve">
+    <value>Posta kodu</value>
+  </data>
+  <data name="GO_REGISTRATION_USERNAME_AVAILABLE" xml:space="preserve">
+    <value>Takma ad kullanılabilir!</value>
+  </data>
+  <data name="GO_GEN_GOT_IT" xml:space="preserve">
+    <value>Anladım</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Parola değiştirildi - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_HEADING" xml:space="preserve">
+    <value>Parola değiştirildi</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>Parolanız başarıyla güncellendi. Artık yeni parolanızla hesabınıza giriş yapabilirsiniz.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>Hesaba giriş yap</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_TITLE" xml:space="preserve">
+    <value>Hesap bulundu!</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>Kullanıcı bulundu. Artık yeni bir parola oluşturabilirsiniz.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBMIT" xml:space="preserve">
+    <value>Yeni parola oluştur</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_TITLE" xml:space="preserve">
+    <value>Hesap bulunamadı</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>Kullanıcı bulunamadı. Başka bir yöntem deneyin.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBMIT" xml:space="preserve">
+    <value>Geri dön ve başka bir yöntem seç</value>
+  </data>
+  <data name="GO_APP_NAME" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_NAV_HOME" xml:space="preserve">
+    <value>Ana sayfa</value>
+  </data>
+  <data name="GO_NAV_BRANCHES" xml:space="preserve">
+    <value>Şubeler</value>
+  </data>
+  <data name="GO_NAV_FAVORITES" xml:space="preserve">
+    <value>Favoriler</value>
+  </data>
+  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
+    <value>Hesap</value>
+  </data>
+  <data name="GO_NAV_LOGIN" xml:space="preserve">
+    <value>Giriş</value>
+  </data>
+  <data name="GO_HOME_WELCOME" xml:space="preserve">
+    <value>Hoş geldiniz</value>
+  </data>
+  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
+    <value>Şubeler - Gizmo Go</value>
+  </data>
+  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
+    <value>Favoriler - Gizmo Go</value>
+  </data>
+  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>Hesap - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
+    <value>Şununla kurtar: </value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_BACK_TO_LOGIN" xml:space="preserve">
+    <value>Girişe dön</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_HINT" xml:space="preserve">
+    <value>Bu e-posta adresine bir şifre sıfırlama kodu gönderilecek.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_CODE_MESSAGE" xml:space="preserve">
+    <value>{0} adresine bir kod gönderdik. Şifrenizi sıfırlamak için kodu girin.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SAVE_PASSWORD" xml:space="preserve">
+    <value>Yeni şifreyi kaydet</value>
+  </data>
+  <data name="GO_GEN_CLOSE" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+</root>

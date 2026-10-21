@@ -56,6 +56,55 @@
         gap: $spacing-md;
     }
 
+    // Agreement (Figma 159:12480, 159:14680): title row with a close button,
+    // header and footer separated from the scrollable text
+    &__card--agreement {
+        gap: 0;
+        padding: 0;
+    }
+
+    &__card--agreement &__header,
+    &__card--agreement &__body,
+    &__card--agreement &__footer {
+        padding: $spacing-md $spacing-lg;
+    }
+
+    &__card--agreement &__header {
+        border-bottom: 1px solid rgba($color-text-on-primary, 0.10);
+    }
+
+    &__card--agreement &__footer {
+        border-top: 1px solid rgba($color-text-on-primary, 0.10);
+    }
+
+    &__header--row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-md;
+    }
+
+    &__close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 1px solid rgba($color-text-on-primary, 0.12);
+        border-radius: $radius-md;
+        background: rgba($color-text-on-primary, 0.06);
+        color: $color-text-on-primary;
+        cursor: pointer;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+
+        &:hover {
+            background: rgba($color-text-on-primary, 0.12);
+        }
+    }
+
     &__checkbox {
         display: flex;
         align-items: center;

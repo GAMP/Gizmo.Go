@@ -58,6 +58,24 @@ namespace Gizmo.Go.UI.Services.PasswordRecovery
 
         void SetShowAllProviders(bool value);
 
+        /// <summary>
+        /// Result of the account search on the identifier entry step; null until the search ran.
+        /// The server answers an unknown account and an account without usable methods alike (empty method list).
+        /// </summary>
+        bool? IsAccountFound { get; }
+
+        void SetAccountFound(bool value);
+
+        /// <summary>
+        /// Drops the account search and the started recovery; keeps the chosen identifier kind.
+        /// </summary>
+        void ResetSearch();
+
+        /// <summary>
+        /// Drops the started recovery (token, confirmation, active provider) and keeps the entered identifier and available methods.
+        /// </summary>
+        void ResetStart();
+
         void Clear();
     }
 }

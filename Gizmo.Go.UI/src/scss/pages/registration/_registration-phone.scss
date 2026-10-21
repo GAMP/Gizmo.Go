@@ -10,63 +10,6 @@
 
 .page-create-account { @include auth-shell.auth-page-shell; }
 
-// ---- Fields container ----
-
-.create-account-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-// ---- Terms checkbox row ----
-
-.create-account-terms {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-
-  &:focus-visible {
-    outline: none;
-
-    .create-account-terms__checkbox {
-      outline: 2px solid rgba($color-welcome-accent, 0.55);
-      outline-offset: 1px;
-    }
-  }
-}
-
-.create-account-terms__checkbox {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  margin-top: 1px;
-  border: 1px solid rgba(#f6fbfd, 0.28);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  transition: background $transition-fast, border-color $transition-fast;
-  cursor: pointer;
-
-  &--checked {
-    background: $color-welcome-btn-primary;
-    border-color: $color-welcome-btn-primary;
-    color: #ffffff;
-  }
-}
-
-.create-account-terms__text {
-  font-size: 12px;
-  font-family: 'Noto Sans', $font-family-base;
-  color: rgba(#ffffff, 0.55);
-  line-height: 1.55;
-  flex: 1;
-}
-
 .create-account-terms__link {
   font-size: 12px;
   font-family: 'Noto Sans', $font-family-base;
@@ -81,19 +24,5 @@
 
   &:hover {
     opacity: 0.8;
-  }
-}
-
-// ---- Submit button override (active state) ----
-
-.create-account-submit {
-  margin-top: 0;
-
-  &:not(:disabled) {
-    background: $color-welcome-btn-primary;
-    color: #ffffff;
-    box-shadow:
-      0 0 24px rgba($color-welcome-btn-primary, 0.45),
-      0 4px 12px rgba($color-welcome-btn-primary, 0.30);
   }
 }

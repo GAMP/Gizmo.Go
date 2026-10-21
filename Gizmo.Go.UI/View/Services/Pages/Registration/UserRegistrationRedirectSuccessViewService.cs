@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.Services.Common;
 using Gizmo.Go.UI.Services.Registration;
@@ -14,14 +15,17 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
     public sealed class UserRegistrationRedirectSuccessViewService : ViewStateServiceBase<UserRegistrationRedirectSuccessViewState>
     {
         private readonly IRegistrationSessionService _registrationSession;
+        private readonly IPhoneValidationService _phoneValidationService;
 
         public UserRegistrationRedirectSuccessViewService(
             UserRegistrationRedirectSuccessViewState viewState,
             ILogger<UserRegistrationRedirectSuccessViewService> logger,
             IServiceProvider serviceProvider,
-            IRegistrationSessionService registrationSession) : base(viewState, logger, serviceProvider)
+            IRegistrationSessionService registrationSession,
+            IPhoneValidationService phoneValidationService) : base(viewState, logger, serviceProvider)
         {
             _registrationSession = registrationSession;
+            _phoneValidationService = phoneValidationService;
         }
 
         public Task ConfirmAsync()
@@ -38,20 +42,20 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return Task.CompletedTask;
         }
 
-        protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
+        protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(_registrationSession.Token))
             {
                 NavigationService.NavigateTo(NavigationHelper.RegistrationProvidersRoute);
-                return Task.CompletedTask;
+                return;
             }
 
             ViewState.DisplayPhone = string.IsNullOrEmpty(_registrationSession.ActualContact)
                 ? string.Empty
-                : ContactMasking.MaskPhone(_registrationSession.ActualContact);
+                : ContactMasking.MaskPhone(_registrationSession.ActualContact, await _phoneValidationService.GetCountriesAsync(cancellationToken));
             ViewState.RaiseChanged();
 
-            return base.OnNavigatedIn(navigationParameters, cancellationToken);
+            await base.OnNavigatedIn(navigationParameters, cancellationToken);
         }
     }
 }

@@ -43,9 +43,31 @@ namespace Gizmo.Go.UI.Pages
         private bool IsPhoneTab => _isPhoneTab;
         private bool ShowPassword => _showPassword;
 
-        private void SetPhoneTab() => _isPhoneTab = true;
+        private void SetPhoneTab()
+        {
+            if (_isPhoneTab)
+                return;
 
-        private void SetNicknameTab() => _isPhoneTab = false;
+            _isPhoneTab = true;
+            LoginViewService.ClearIdentifier();
+        }
+
+        private void SetNicknameTab()
+        {
+            if (!_isPhoneTab)
+                return;
+
+            _isPhoneTab = false;
+            LoginViewService.ClearIdentifier();
+        }
+
+        private Task OnPhoneRegionCodeChanged(string regionCode)
+        {
+            LoginViewService.SetPhoneRegionCode(regionCode);
+            return Task.CompletedTask;
+        }
+
+        private async Task OnPhoneValueChanged(string value) => await LoginViewService.SetPhoneAsync(value);
 
         private void TogglePasswordVisibility() => _showPassword = !_showPassword;
 

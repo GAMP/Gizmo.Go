@@ -14,5 +14,10 @@ namespace Gizmo.Go.UI.View.States
         public bool IsDirectEnabled { get; internal set; }
 
         public bool IsPasswordRecoveryEnabled { get; internal set; }
+
+        /// <summary>
+        /// Logo image URL for the auth screens; empty shows the placeholder.
+        /// </summary>
+        public string? Logo { get; internal set; }
     }
 }

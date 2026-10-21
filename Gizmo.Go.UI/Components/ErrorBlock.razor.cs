@@ -7,7 +7,13 @@ namespace Gizmo.Go.UI.Components
         [Parameter]
         public string? Message { get; set; }
 
+        /// <summary>
+        /// Shows a "Go to home" link that leaves the registration / recovery flow (sessions are cleared).
+        /// Used on screens with a back button, so the user does not have to go back step by step.
+        /// </summary>
         [Parameter]
-        public bool ShowIcon { get; set; }
+        public bool ShowHomeLink { get; set; }
+
+        private async Task GoHomeAsync() => await WelcomeViewService.LeaveAuthFlowAsync();
     }
 }

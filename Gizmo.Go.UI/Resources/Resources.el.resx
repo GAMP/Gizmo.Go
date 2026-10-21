@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+    <data name="GO_APP_TITLE" xml:space="preserve">
+    <value>Gizmo</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_TITLE" xml:space="preserve">
+    <value>Σύνδεση - Gizmo Go</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_LABEL" xml:space="preserve">
+    <value>Όνομα χρήστη</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε το όνομα χρήστη</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_LABEL" xml:space="preserve">
+    <value>Κωδικός πρόσβασης</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε τον κωδικό πρόσβασης</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT" xml:space="preserve">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT_LOADING" xml:space="preserve">
+    <value>Σύνδεση...</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_HEADING" xml:space="preserve">
+    <value>Σύνδεση στο Gizmo</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_SUBTITLE" xml:space="preserve">
+    <value>Επιλέξτε τρόπο σύνδεσης</value>
+  </data>
+  <data name="GO_LOGIN_TAB_PHONE" xml:space="preserve">
+    <value>Τηλέφωνο</value>
+  </data>
+  <data name="GO_LOGIN_TAB_NICKNAME" xml:space="preserve">
+    <value>Ψευδώνυμο</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_LABEL" xml:space="preserve">
+    <value>Αριθμός τηλεφώνου</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 000-000-0000</value>
+  </data>
+  <data name="GO_LOGIN_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Ξεχάσατε τον κωδικό;</value>
+  </data>
+  <data name="GO_LOGIN_NO_ACCOUNT" xml:space="preserve">
+    <value>Δεν έχετε λογαριασμό;</value>
+  </data>
+  <data name="GO_VE_REQUIRED" xml:space="preserve">
+    <value>Αυτό το πεδίο είναι υποχρεωτικό.</value>
+  </data>
+  <data name="GO_WELCOME_PAGE_TITLE" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_WELCOME_SECTION_LABEL" xml:space="preserve">
+    <value>Κλαμπ ηλεκτρονικών αθλημάτων</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE1" xml:space="preserve">
+    <value>Το gaming club σας —</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE2" xml:space="preserve">
+    <value>ακριβώς στην τσέπη σας</value>
+  </data>
+  <data name="GO_WELCOME_DESCRIPTION" xml:space="preserve">
+    <value>Επιλέξτε κλαμπ στον χάρτη, κλείστε PC εκ των προτέρων, συνδεθείτε με κωδικό QR και φορτίστε το υπόλοιπό σας — χωρίς ουρές.</value>
+  </data>
+  <data name="GO_WELCOME_SIGN_IN" xml:space="preserve">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="GO_WELCOME_CREATE_ACCOUNT" xml:space="preserve">
+    <value>Δημιουργία λογαριασμού</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>Δημιουργία λογαριασμού - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HEADING" xml:space="preserve">
+    <value>Δημιουργία λογαριασμού</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBTITLE" xml:space="preserve">
+    <value>Εισαγάγετε αριθμό τηλεφώνου για εγγραφή</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
+    <value>Αριθμός τηλεφώνου</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>000 000-0000</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBMIT" xml:space="preserve">
+    <value>Αποστολή κωδικού</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HAS_ACCOUNT" xml:space="preserve">
+    <value>Έχετε ήδη λογαριασμό;</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SIGN_IN" xml:space="preserve">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="GO_CONFIRMATION_PAGE_TITLE" xml:space="preserve">
+    <value>Επιβεβαίωση - Gizmo Go</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_EMAIL" xml:space="preserve">
+    <value>Επιβεβαίωση email</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_PHONE" xml:space="preserve">
+    <value>Επιβεβαίωση αριθμού</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LIFETIME" xml:space="preserve">
+    <value>Ο κωδικός ισχύει για {0} λεπτά.</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Στείλαμε κωδικό {0} ψηφίων στον αριθμό </value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. Εισαγάγετέ τον παρακάτω.</value>
+  </data>
+  <data name="GO_CONFIRMATION_TIMER_PREFIX" xml:space="preserve">
+    <value>Επαναποστολή σε </value>
+  </data>
+  <data name="GO_CONFIRMATION_RESEND" xml:space="preserve">
+    <value>Επαναποστολή κωδικού</value>
+  </data>
+  <data name="GO_CONFIRMATION_CHANGE_NUMBER" xml:space="preserve">
+    <value>Αλλαγή αριθμού</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBMIT" xml:space="preserve">
+    <value>Επιβεβαίωση</value>
+  </data>
+  <data name="GO_CONFIRMATION_HINT" xml:space="preserve">
+    <value>Αν δεν έφτασε, ελέγξτε τον αριθμό ή ζητήστε τον ξανά.</value>
+  </data>
+  <data name="GO_CONFIRMATION_BACK" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Προφίλ - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_HEADING" xml:space="preserve">
+    <value>Ρύθμιση προφίλ</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBTITLE" xml:space="preserve">
+    <value>Συμπληρώστε τα στοιχεία σας για να ολοκληρώσετε την εγγραφή.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_LABEL" xml:space="preserve">
+    <value>Ψευδώνυμο *</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε ψευδώνυμο</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_LABEL" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε email</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_LABEL" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε όνομα</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_LABEL" xml:space="preserve">
+    <value>Επώνυμο</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε επώνυμο</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_LABEL" xml:space="preserve">
+    <value>Ημερομηνία γέννησης</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_LABEL" xml:space="preserve">
+    <value>Διεύθυνση</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε διεύθυνση</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_LABEL" xml:space="preserve">
+    <value>Πόλη</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε πόλη</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_LABEL" xml:space="preserve">
+    <value>Χώρα</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε χώρα</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_LABEL" xml:space="preserve">
+    <value>Ταχυδρομικός κώδικας</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε ταχυδρομικό κώδικα</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PHONE_LABEL" xml:space="preserve">
+    <value>Τηλέφωνο</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_MOBILE_PHONE_LABEL" xml:space="preserve">
+    <value>Κινητό τηλέφωνο</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_LABEL" xml:space="preserve">
+    <value>Φύλο</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>Δεν έχει οριστεί</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_MALE" xml:space="preserve">
+    <value>Άνδρας</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_FEMALE" xml:space="preserve">
+    <value>Γυναίκα</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBMIT" xml:space="preserve">
+    <value>Δημιουργία λογαριασμού</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BACK" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_PLACEHOLDER" xml:space="preserve">
+    <value>ΗΗ/ΜΜ/ΕΕΕΕ</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SKIP" xml:space="preserve">
+    <value>Παράλειψη</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_NOTE" xml:space="preserve">
+    <value>Τα δεδομένα του προφίλ είναι ορατά μόνο σε εσάς και στους διαχειριστές του κλαμπ.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PAGE_TITLE" xml:space="preserve">
+    <value>Δημιουργία κωδικού - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_HEADING" xml:space="preserve">
+    <value>Δημιουργήστε τα στοιχεία σύνδεσης</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBTITLE" xml:space="preserve">
+    <value>Επιλέξτε ένα μοναδικό ψευδώνυμο και κωδικό για σύνδεση στο Gizmo.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_BACK" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_LABEL" xml:space="preserve">
+    <value>Κωδικός πρόσβασης</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>Εισαγάγετε κωδικό πρόσβασης</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_LABEL" xml:space="preserve">
+    <value>Επανάληψη κωδικού</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_PLACEHOLDER" xml:space="preserve">
+    <value>Επιβεβαιώστε τον κωδικό πρόσβασης</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_TITLE" xml:space="preserve">
+    <value>Απαιτήσεις κωδικού πρόσβασης:</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBMIT" xml:space="preserve">
+    <value>Συνέχεια</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_PAGE_TITLE" xml:space="preserve">
+    <value>Πάροχοι - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_BACK" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_LOADING" xml:space="preserve">
+    <value>Φόρτωση...</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_EMPTY" xml:space="preserve">
+    <value>Δεν υπάρχουν διαθέσιμοι τρόποι εγγραφής.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DIVIDER" xml:space="preserve">
+    <value>Άλλοι τρόποι</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DESCRIPTION" xml:space="preserve">
+    <value>Δοκιμάστε έναν από τους εναλλακτικούς τρόπους:</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_SUBTITLE" xml:space="preserve">
+    <value>Επιλέξτε τρόπο εγγραφής</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_CONTINUE_WITH" xml:space="preserve">
+    <value>Συνέχεια με </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_PREFIX" xml:space="preserve">
+    <value>Με την εγγραφή σας αποδέχεστε </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_AND" xml:space="preserve">
+    <value> και </value>
+  </data>
+  <data name="GO_EYE_TOGGLE_SHOW" xml:space="preserve">
+    <value>Εμφάνιση κωδικού</value>
+  </data>
+  <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
+    <value>Στην αρχική</value>
+  </data>
+  <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
+    <value>Η</value>
+  </data>
+  <data name="GO_DATE_INPUT_MONTH_LETTER" xml:space="preserve">
+    <value>Μ</value>
+  </data>
+  <data name="GO_DATE_INPUT_YEAR_LETTER" xml:space="preserve">
+    <value>Ε</value>
+  </data>
+  <data name="GO_DATE_INPUT_INCOMPLETE" xml:space="preserve">
+    <value>Εισαγάγετε ολόκληρη την ημερομηνία</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_DAY_MONTH" xml:space="preserve">
+    <value>Ελέγξτε την ημέρα και τον μήνα</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_YEAR" xml:space="preserve">
+    <value>Ελέγξτε το έτος</value>
+  </data>
+  <data name="GO_EYE_TOGGLE_HIDE" xml:space="preserve">
+    <value>Απόκρυψη κωδικού</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_PAGE_TITLE" xml:space="preserve">
+    <value>Σύνδεση — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_HEADING" xml:space="preserve">
+    <value>Σύνδεση με το Telegram</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_SUBTITLE" xml:space="preserve">
+    <value>Γίνεται σύνδεση μέσω Telegram. Περιμένετε λίγο.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>Επιβεβαίωση αριθμού</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_HEADING" xml:space="preserve">
+    <value>Επιβεβαίωση αριθμού</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBTITLE" xml:space="preserve">
+    <value>Λάβαμε τον αριθμό τηλεφώνου σας μέσω Telegram</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONFIRMED" xml:space="preserve">
+    <value>Επιβεβαιώθηκε</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONNECTED" xml:space="preserve">
+    <value>Ο λογαριασμός συνδέθηκε με επιτυχία</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_LABEL" xml:space="preserve">
+    <value>Αριθμός τηλεφώνου</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_VERIFIED" xml:space="preserve">
+    <value>Επαληθεύτηκε</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_INFO_TEXT" xml:space="preserve">
+    <value>Αυτός ο αριθμός θα συνδεθεί με τον λογαριασμό σας στο Gizmo. Δεν απαιτείται επιβεβαίωση με SMS — ο αριθμός έχει ήδη επαληθευτεί μέσω Telegram.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBMIT" xml:space="preserve">
+    <value>Επιβεβαίωση και συνέχεια</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Ο λογαριασμός δημιουργήθηκε — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_HEADING" xml:space="preserve">
+    <value>Ο λογαριασμός δημιουργήθηκε!</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>Ο λογαριασμός σας στο Gizmo δημιουργήθηκε.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_PHONE" xml:space="preserve">
+    <value>Ο λογαριασμός σας στο Gizmo δημιουργήθηκε και συνδέθηκε με τον αριθμό {0}.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_EMAIL" xml:space="preserve">
+    <value>Ο λογαριασμός σας στο Gizmo δημιουργήθηκε και συνδέθηκε με το email {0}.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PHONE_LABEL" xml:space="preserve">
+    <value>Τηλέφωνο</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_EMAIL_LABEL" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>Μετάβαση στην αρχική</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_GROUP_ARIA" xml:space="preserve">
+    <value>Εισαγάγετε τον κωδικό {0} ψηφίων</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_DIGIT_ARIA" xml:space="preserve">
+    <value>Ψηφίο {0}</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PHONE_VERIFIED_LABEL" xml:space="preserve">
+    <value>Το τηλέφωνο επαληθεύτηκε</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_ARIA" xml:space="preserve">
+    <value>Απαιτήσεις κωδικού πρόσβασης</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PAGE_TITLE" xml:space="preserve">
+    <value>Εγγραφή με email - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_SUBTITLE" xml:space="preserve">
+    <value>Εισαγάγετε το email σας για εγγραφή</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_LABEL" xml:space="preserve">
+    <value>Διεύθυνση email</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_REGISTRATION_PHONE_HINT" xml:space="preserve">
+    <value>Θα στείλουμε κωδικό επιβεβαίωσης με SMS</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_HINT" xml:space="preserve">
+    <value>Θα στείλουμε κωδικό επιβεβαίωσης στο email σας.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_OR" xml:space="preserve">
+    <value>ή</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ALT" xml:space="preserve">
+    <value>Επιλέξτε άλλο τρόπο</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Στείλαμε κωδικό {0} ψηφίων στο </value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. Εισαγάγετέ τον παρακάτω.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_CHANGE_EMAIL" xml:space="preserve">
+    <value>Αλλαγή email</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_HINT" xml:space="preserve">
+    <value>Αν δεν έφτασε, ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας ή ζητήστε τον ξανά.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ADD_PHONE_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 (___) ___-____</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_PAGE_TITLE" xml:space="preserve">
+    <value>Εισαγωγή αριθμού - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HEADING" xml:space="preserve">
+    <value>Δημιουργία λογαριασμού</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBTITLE" xml:space="preserve">
+    <value>Εισαγάγετε τον αριθμό τηλεφώνου σας. Θα σας δώσουμε έναν αριθμό για να καλέσετε — και θα συνδεθείτε αμέσως.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_LABEL" xml:space="preserve">
+    <value>Αριθμός τηλεφώνου</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBMIT" xml:space="preserve">
+    <value>Συνέχεια</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HINT" xml:space="preserve">
+    <value>Η κλήση είναι δωρεάν. Σας αναγνωρίζουμε από τον αριθμό της εισερχόμενης κλήσης και συνδεόμαστε αυτόματα.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_BACK" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>Αναμονή κλήσης</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_BACK" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_HEADING" xml:space="preserve">
+    <value>Καλέστε μας</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INSTRUCTION" xml:space="preserve">
+    <value>Καλέστε τον παρακάτω αριθμό από το τηλέφωνό σας</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CHANGE" xml:space="preserve">
+    <value>Αλλαγή</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_COPY_HINT" xml:space="preserve">
+    <value>Πατήστε για αντιγραφή</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INFO" xml:space="preserve">
+    <value>Η κλήση είναι δωρεάν. Σας αναγνωρίζουμε από τον αριθμό της εισερχόμενης κλήσης — δεν χρειάζεται κωδικός.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_TIMER_PREFIX" xml:space="preserve">
+    <value>Αναμονή κλήσης: </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CANCEL" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Επιτυχής σύνδεση</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_HEADING" xml:space="preserve">
+    <value>Επιτυχής σύνδεση!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Η κλήση από τον αριθμό </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value> ελήφθη. Καλώς ήρθατε στο Gizmo!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_VERIFIED" xml:space="preserve">
+    <value>Η εξουσιοδότηση ολοκληρώθηκε με επιτυχία</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_CALL_RECEIVED" xml:space="preserve">
+    <value>Η κλήση ελήφθη</value>
+  </data>
+  <data name="GO_GLOBAL_ERROR" xml:space="preserve">
+    <value>Παρουσιάστηκε μη αναμενόμενο σφάλμα. Δοκιμάστε να ανανεώσετε τη σελίδα.</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LENGTH_ERROR" xml:space="preserve">
+    <value>Ο κωδικός επιβεβαίωσης πρέπει να έχει {0} ψηφία!</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_EMAIL_VERIFIED_LABEL" xml:space="preserve">
+    <value>Το email επαληθεύτηκε</value>
+  </data>
+  <data name="GO_GEN_ADDITIONAL_PHONE" xml:space="preserve">
+    <value>Πρόσθετο τηλέφωνο</value>
+  </data>
+  <data name="GO_GEN_AN_ERROR_HAS_OCCURRED" xml:space="preserve">
+    <value>Παρουσιάστηκε σφάλμα.</value>
+  </data>
+  <data name="GO_GEN_CONTINUE" xml:space="preserve">
+    <value>Συνέχεια</value>
+  </data>
+  <data name="GO_GEN_EMAIL_ADDRESS" xml:space="preserve">
+    <value>Διεύθυνση email</value>
+  </data>
+  <data name="GO_GEN_ENTER_NEW_PASSWORD" xml:space="preserve">
+    <value>Εισαγάγετε νέο κωδικό πρόσβασης</value>
+  </data>
+  <data name="GO_GEN_MOBILE_PHONE" xml:space="preserve">
+    <value>Κινητό τηλέφωνο</value>
+  </data>
+  <data name="GO_GEN_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>Οι κωδικοί πρόσβασης δεν ταιριάζουν!</value>
+  </data>
+  <data name="GO_GEN_PHONE_NUMBER" xml:space="preserve">
+    <value>Αριθμός τηλεφώνου</value>
+  </data>
+  <data name="GO_GEN_SEX_FEMALE" xml:space="preserve">
+    <value>Γυναίκα</value>
+  </data>
+  <data name="GO_GEN_SEX_MALE" xml:space="preserve">
+    <value>Άνδρας</value>
+  </data>
+  <data name="GO_GEN_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>Δεν έχει επιλεγεί</value>
+  </data>
+  <data name="GO_GEN_USERNAME" xml:space="preserve">
+    <value>Όνομα χρήστη</value>
+  </data>
+  <data name="GO_GEN_VE_INVALID_FIELD" xml:space="preserve">
+    <value>Το πεδίο δεν είναι έγκυρο.</value>
+  </data>
+  <data name="GO_GEN_VE_MAX_LENGTH" xml:space="preserve">
+    <value>Το πεδίο δεν πρέπει να είναι μεγαλύτερο από {1} χαρακτήρες.</value>
+  </data>
+  <data name="GO_GEN_VE_REQUIRED_FIELD" xml:space="preserve">
+    <value>Το πεδίο είναι υποχρεωτικό.</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_SECURE" xml:space="preserve">
+    <value>Ασφαλής κωδικός πρόσβασης</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_EASY" xml:space="preserve">
+    <value>Ο κωδικός πρόσβασης είναι πολύ εύκολος</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_LONG" xml:space="preserve">
+    <value>Ο κωδικός πρόσβασης είναι πολύ μεγάλος</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_SHORT" xml:space="preserve">
+    <value>Ο κωδικός πρόσβασης είναι πολύ μικρός</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_HINT" xml:space="preserve">
+    <value>Καλέστε το {0} και κρατήστε αυτήν την οθόνη ανοιχτή όσο γίνεται η επιβεβαίωση.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_SUBTITLE" xml:space="preserve">
+    <value>Ολοκληρώστε την κλήση για να συνεχίσετε την ανάκτηση κωδικού.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_TITLE" xml:space="preserve">
+    <value>Επιβεβαίωση με κλήση</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_EMAIL" xml:space="preserve">
+    <value>Εισαγάγετε το email που συνδέεται με τον λογαριασμό σας</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_PHONE_NUMBER" xml:space="preserve">
+    <value>Εισαγάγετε τον αριθμό τηλεφώνου που συνδέεται με τον λογαριασμό σας</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_USERNAME" xml:space="preserve">
+    <value>Εισαγάγετε το όνομα χρήστη που συνδέεται με τον λογαριασμό σας</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Ξεχάσατε τον κωδικό</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_SUBTITLE" xml:space="preserve">
+    <value>Επιλέξτε τρόπο για να βρείτε τον λογαριασμό σας</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_TITLE" xml:space="preserve">
+    <value>Ξεχάσατε τον κωδικό</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NEW_PASSWORD" xml:space="preserve">
+    <value>Δημιουργήστε νέο κωδικό πρόσβασης</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NON_UNIQUE_INPUT" xml:space="preserve">
+    <value>Αυτή η τιμή αντιστοιχεί σε περισσότερους από έναν λογαριασμούς. Χρησιμοποιήστε το όνομα χρήστη.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NO_METHODS_AVAILABLE" xml:space="preserve">
+    <value>Η ανάκτηση κωδικού δεν είναι διαθέσιμη για αυτήν την τιμή</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PASSWORD_RESET_FAILED_MESSAGE" xml:space="preserve">
+    <value>Η επαναφορά κωδικού πρόσβασης απέτυχε.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PLEASE_ENTER_RECOVERY_CODE" xml:space="preserve">
+    <value>Στείλαμε κωδικό στον αριθμό {0}. Εισαγάγετέ τον για να επαναφέρετε τον κωδικό πρόσβασης.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_REENTER_CONFIRM" xml:space="preserve">
+    <value>Εισαγάγετε ξανά για επιβεβαίωση</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_METHOD" xml:space="preserve">
+    <value>Επιλέξτε τρόπο ανάκτησης</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_OTHER_METHOD" xml:space="preserve">
+    <value>Επιλέξτε άλλον τρόπο ανάκτησης</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SET_PASSWORD_MESSAGE" xml:space="preserve">
+    <value>Επιλέξτε νέο κωδικό πρόσβασης για να συνδέεστε στον λογαριασμό σας Gizmo.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_USER_NOT_FOUND" xml:space="preserve">
+    <value>Κανένας λογαριασμός δεν ταιριάζει με την τιμή που εισαγάγατε.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_WAITING_CONFIRMATION" xml:space="preserve">
+    <value>Αναμονή επιβεβαίωσης...</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_LOWER_CASE" xml:space="preserve">
+    <value>Τουλάχιστον 1 πεζό γράμμα</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MAX_LENGTH" xml:space="preserve">
+    <value>Το πολύ {0} χαρακτήρες</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MIN_LENGTH" xml:space="preserve">
+    <value>Τουλάχιστον {0} χαρακτήρες</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_NUMBER" xml:space="preserve">
+    <value>Τουλάχιστον 1 αριθμός</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_RANGE_LENGTH" xml:space="preserve">
+    <value>{0}-{1} χαρακτήρες</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_UPPER_CASE" xml:space="preserve">
+    <value>Τουλάχιστον 1 κεφαλαίο γράμμα</value>
+  </data>
+  <data name="GO_REGISTRATION_ADDITIONAL_FIELDS_HEADING" xml:space="preserve">
+    <value>Πρόσθετες πληροφορίες</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_ALERT" xml:space="preserve">
+    <value>Επιστρέψτε — εκεί θα εμφανιστούν επιπλέον τρόποι εγγραφής.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_BACK" xml:space="preserve">
+    <value>Επιστροφή και επιλογή άλλου τρόπου</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_RETRY" xml:space="preserve">
+    <value>Δοκιμάστε ξανά</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_SUBTITLE" xml:space="preserve">
+    <value>Η εγγραφή δεν ολοκληρώθηκε. Αυτό μπορεί να οφείλεται σε ακύρωση ή τεχνικά προβλήματα.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_TITLE" xml:space="preserve">
+    <value>Η εξουσιοδότηση απέτυχε</value>
+  </data>
+  <data name="GO_REGISTRATION_FAILED_MESSAGE" xml:space="preserve">
+    <value>Κάτι πήγε στραβά. Επικοινωνήστε με τη ρεσεψιόν.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDER_REDIRECT_NOT_IMPLEMENTED" xml:space="preserve">
+    <value>Η εγγραφή με αυτόν τον τρόπο δεν είναι ακόμη διαθέσιμη. Δοκιμάστε άλλον τρόπο παρακάτω.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_BACK_TO_MAIN" xml:space="preserve">
+    <value>Επιστροφή στην κύρια οθόνη</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_OPEN" xml:space="preserve">
+    <value>Άνοιγμα συνδέσμου</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_SESSION_EXPIRED" xml:space="preserve">
+    <value>Η συνεδρία έληξε. Δοκιμάστε ξανά ή επιλέξτε άλλον τρόπο σύνδεσης.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_WAITING_SCAN" xml:space="preserve">
+    <value>Αναμονή σάρωσης…</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_EMAIL" xml:space="preserve">
+    <value>Δεν είναι δυνατή η επικύρωση του email.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_PHONE" xml:space="preserve">
+    <value>Δεν είναι δυνατή η επικύρωση του τηλεφώνου.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_USERNAME" xml:space="preserve">
+    <value>Δεν είναι δυνατή η επικύρωση του ονόματος χρήστη.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_ADDRESS_USED" xml:space="preserve">
+    <value>Η συγκεκριμένη διεύθυνση email χρησιμοποιείται ήδη.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_INVALID" xml:space="preserve">
+    <value>Το email δεν είναι έγκυρο</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_INVALID" xml:space="preserve">
+    <value>Το κινητό τηλέφωνο δεν είναι έγκυρο</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_USED" xml:space="preserve">
+    <value>Ο συγκεκριμένος αριθμός κινητού τηλεφώνου χρησιμοποιείται ήδη.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_SELECT_COUNTRY" xml:space="preserve">
+    <value>Επιλέξτε χώρα</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_USERNAME_IN_USE" xml:space="preserve">
+    <value>Το συγκεκριμένο όνομα χρήστη χρησιμοποιείται ήδη.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_WHITE_SPACE_NOT_ALLOWED" xml:space="preserve">
+    <value>Το όνομα χρήστη δεν μπορεί να περιέχει κενά.</value>
+  </data>
+  <data name="GO_USER_ADDRESS" xml:space="preserve">
+    <value>Διεύθυνση</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_AGREE_CHECKBOX" xml:space="preserve">
+    <value>Έχω διαβάσει και συμφωνώ με την Πολιτική Απορρήτου και τους Όρους Χρήσης.</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_TITLE" xml:space="preserve">
+    <value>Πολιτική Απορρήτου και Όροι Χρήσης</value>
+  </data>
+  <data name="GO_USER_CITY" xml:space="preserve">
+    <value>Πόλη</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_CONFIRMATION_CODE_IS_INVALID" xml:space="preserve">
+    <value>Ο κωδικός επιβεβαίωσης δεν είναι έγκυρος.</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_EMAIL_MESSAGE" xml:space="preserve">
+    <value>Στάλθηκε email στο {0}. Βρείτε τον κωδικό επαλήθευσης στο email σας και εισαγάγετέ τον παρακάτω</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_SMS_MESSAGE" xml:space="preserve">
+    <value>Στάλθηκε SMS στο {0}. Βρείτε τον κωδικό επαλήθευσης στα μηνύματα του τηλεφώνου σας και εισαγάγετέ τον παρακάτω</value>
+  </data>
+  <data name="GO_USER_COUNTRY_REGION" xml:space="preserve">
+    <value>Χώρα/Περιοχή</value>
+  </data>
+  <data name="GO_USER_GENDER" xml:space="preserve">
+    <value>Φύλο</value>
+  </data>
+  <data name="GO_USER_POST_CODE" xml:space="preserve">
+    <value>Ταχυδρομικός κώδικας</value>
+  </data>
+  <data name="GO_REGISTRATION_USERNAME_AVAILABLE" xml:space="preserve">
+    <value>Το ψευδώνυμο είναι διαθέσιμο!</value>
+  </data>
+  <data name="GO_GEN_GOT_IT" xml:space="preserve">
+    <value>Κατάλαβα</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Ο κωδικός πρόσβασης άλλαξε - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_HEADING" xml:space="preserve">
+    <value>Ο κωδικός πρόσβασης άλλαξε</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>Ο κωδικός σας ενημερώθηκε επιτυχώς. Τώρα μπορείτε να συνδεθείτε στον λογαριασμό σας με τον νέο κωδικό.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>Σύνδεση στον λογαριασμό</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_TITLE" xml:space="preserve">
+    <value>Ο λογαριασμός βρέθηκε!</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>Ο χρήστης βρέθηκε. Τώρα μπορείτε να δημιουργήσετε νέο κωδικό.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBMIT" xml:space="preserve">
+    <value>Δημιουργία νέου κωδικού</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_TITLE" xml:space="preserve">
+    <value>Ο λογαριασμός δεν βρέθηκε</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η εύρεση του χρήστη. Δοκιμάστε άλλη μέθοδο.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBMIT" xml:space="preserve">
+    <value>Επιστροφή και επιλογή άλλης μεθόδου</value>
+  </data>
+  <data name="GO_APP_NAME" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_NAV_HOME" xml:space="preserve">
+    <value>Αρχική</value>
+  </data>
+  <data name="GO_NAV_BRANCHES" xml:space="preserve">
+    <value>Υποκαταστήματα</value>
+  </data>
+  <data name="GO_NAV_FAVORITES" xml:space="preserve">
+    <value>Αγαπημένα</value>
+  </data>
+  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
+    <value>Λογαριασμός</value>
+  </data>
+  <data name="GO_NAV_LOGIN" xml:space="preserve">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="GO_HOME_WELCOME" xml:space="preserve">
+    <value>Καλώς ήρθατε</value>
+  </data>
+  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
+    <value>Υποκαταστήματα - Gizmo Go</value>
+  </data>
+  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
+    <value>Αγαπημένα - Gizmo Go</value>
+  </data>
+  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>Λογαριασμός - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
+    <value>Ανάκτηση μέσω </value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_BACK_TO_LOGIN" xml:space="preserve">
+    <value>Επιστροφή στη σύνδεση</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_HINT" xml:space="preserve">
+    <value>Θα σταλεί κωδικός επαναφοράς κωδικού πρόσβασης σε αυτό το email.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_CODE_MESSAGE" xml:space="preserve">
+    <value>Στείλαμε κωδικό στο {0}. Εισαγάγετέ τον για να επαναφέρετε τον κωδικό πρόσβασης.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SAVE_PASSWORD" xml:space="preserve">
+    <value>Αποθήκευση νέου κωδικού πρόσβασης</value>
+  </data>
+  <data name="GO_GEN_CLOSE" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+</root>

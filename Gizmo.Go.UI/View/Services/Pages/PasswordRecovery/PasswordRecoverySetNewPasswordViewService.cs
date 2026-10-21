@@ -88,7 +88,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
                 }
 
                 _session.Clear();
-                NavigationService.NavigateTo(NavigationHelper.LoginPage);
+                NavigationService.NavigateTo(NavigationHelper.PasswordRecoverySuccessRoute);
             }
             catch (Exception ex)
             {
@@ -101,6 +101,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
                 ViewState.IsLoading = false;
                 ViewState.RaiseChanged();
             }
+        }
+
+        // Figma 159:13088: back drops the started recovery and returns to the provider choice
+        public Task NavigateBackAsync()
+        {
+            _session.ResetStart();
+            NavigationService.NavigateTo(NavigationHelper.PasswordRecoveryRoute);
+            return Task.CompletedTask;
         }
 
         public void Clear()

@@ -19,6 +19,17 @@
     padding: 0 16px 72px;
     gap: 24px;
     box-sizing: border-box;
+
+    // the provider error stays at the top under the back button, full width; the rest is centered below it.
+    // Only the first child: the expired-session block next to its button keeps the centered layout.
+    > .giz-error-block:first-child {
+        align-self: stretch;
+        margin-bottom: auto;
+
+        ~ :last-child {
+            margin-bottom: auto;
+        }
+    }
 }
 
 // ---- Provider icon container ----

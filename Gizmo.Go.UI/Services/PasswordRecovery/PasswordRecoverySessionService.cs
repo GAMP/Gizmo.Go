@@ -115,12 +115,44 @@ namespace Gizmo.Go.UI.Services.PasswordRecovery
             ShowAllProviders = value;
         }
 
+        public bool? IsAccountFound { get; private set; }
+
+        public void SetAccountFound(bool value)
+        {
+            IsAccountFound = value;
+        }
+
+        public void ResetSearch()
+        {
+            MatchValue = string.Empty;
+            AvailableMethods = Array.Empty<PasswordRecoveryProvider>();
+            IsAccountFound = null;
+            ResetStart();
+        }
+
+        public void ResetStart()
+        {
+            ActiveProvider = null;
+            Token = string.Empty;
+            Destination = string.Empty;
+            RedirectUrl = string.Empty;
+            CallPhoneNumber = string.Empty;
+            CodeLength = 0;
+            ExpiresInSeconds = 0;
+            Action = PasswordRecoveryAction.None;
+            IsTokenConfirmed = false;
+            FailedProviderChannelGuid = null;
+            ShowAllProviders = false;
+            Changed?.Invoke(this, EventArgs.Empty);
+        }
+
         public void Clear()
         {
             ActiveProvider = null;
             MatchValue = string.Empty;
             IdentifierKind = null;
             AvailableMethods = Array.Empty<PasswordRecoveryProvider>();
+            IsAccountFound = null;
             Token = string.Empty;
             Destination = string.Empty;
             RedirectUrl = string.Empty;

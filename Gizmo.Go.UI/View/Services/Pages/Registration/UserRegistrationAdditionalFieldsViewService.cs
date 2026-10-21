@@ -159,7 +159,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                     return;
                 }
 
-                //TODO: AAA SUCCESS MESSAGE?
+                _registrationSession.SetCompletedContact(profile.MobilePhone ?? profile.Email, isEmail: string.IsNullOrEmpty(profile.MobilePhone));
                 _registrationSession.Clear();
                 NavigationService.NavigateTo(NavigationHelper.RegistrationSuccessRoute);
             }

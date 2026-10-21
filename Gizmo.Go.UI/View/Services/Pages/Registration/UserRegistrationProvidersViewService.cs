@@ -1,6 +1,9 @@
 using Gizmo.Extensibility;
 using Gizmo.Go.Core.Services;
+using Gizmo.Client.UI;
+using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Dialog;
 using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
@@ -22,16 +25,19 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             IServiceProvider serviceProvider,
             IUserRegistrationService registrationService,
             IRegistrationSessionService registrationSession,
-            ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
+            ILocalizationService localizationService,
+            IGizmoGoDialogService dialogService) : base(viewState, logger, serviceProvider)
         {
             _registrationService = registrationService;
             _registrationSession = registrationSession;
             _localizationService = localizationService;
+            _dialogService = dialogService;
         }
 
         private readonly IUserRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
         private readonly ILocalizationService _localizationService;
+        private readonly IGizmoGoDialogService _dialogService;
 
         public Task SelectProviderAsync(int methodId)
         {
@@ -61,11 +67,24 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return Task.CompletedTask;
         }
 
-        // mobile deviation: the Index step re-runs agreements and forwards to providers again, so back leaves the flow
-        public Task NavigateBackAsync()
+        /// <summary>
+        /// Shows the agreement text in a read-only dialog. The page state is not touched.
+        /// </summary>
+        public async Task ShowAgreementAsync(RegistrationAgreement agreement)
         {
-            NavigationService.NavigateTo(NavigationHelper.WelcomePage);
-            return Task.CompletedTask;
+            try
+            {
+                await _dialogService.ShowReadOnlyUserAgreementDialogAsync(new UserAgreementDialogParameters()
+                {
+                    Name = agreement.Name ?? string.Empty,
+                    Agreement = agreement.Agreement ?? string.Empty,
+                    IsRejectable = agreement.IsRejectable
+                });
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Failed to show agreement {AgreementId}.", agreement.Id);
+            }
         }
 
         public Task NavigateToLoginAsync()
@@ -106,6 +125,17 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             {
                 Logger.LogError(ex, "Failed to load registration providers.");
                 ViewState.HasError = true;
+            }
+
+            try
+            {
+                ViewState.Agreements = await _registrationService.GetAgreementsAsync(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                // the terms sentence is hidden when no agreement is available
+                Logger.LogError(ex, "Failed to load registration agreements.");
+                ViewState.Agreements = [];
             }
             finally
             {

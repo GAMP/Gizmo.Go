@@ -31,6 +31,5 @@ namespace Gizmo.Go.UI.Pages
 
         private async Task NavigateToRegister() => await WelcomeViewService.NavigateToRegisterAsync();
 
-        private async Task ContinueAsGuest() => await WelcomeViewService.ContinueAsGuestAsync();
     }
 }

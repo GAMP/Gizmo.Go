@@ -19,12 +19,8 @@ namespace Gizmo.Go.UI.Pages.Registration
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
-        private string _usernameInputValue = string.Empty;
-        private CancellationTokenSource? _usernameDebounceCts;
-
         protected override void OnInitialized()
         {
-            _usernameInputValue = UserRegistrationBasicFieldsViewState.Username;
             this.SubscribeChange(UserRegistrationBasicFieldsViewState);
             base.OnInitialized();
         }
@@ -32,8 +28,26 @@ namespace Gizmo.Go.UI.Pages.Registration
         public void Dispose()
         {
             this.UnsubscribeChange(UserRegistrationBasicFieldsViewState);
-            _usernameDebounceCts?.Cancel();
-            _usernameDebounceCts?.Dispose();
+        }
+
+        // shown fields are required by the server (default user group required info) and are validated
+        // while typing; the form IsValid is already true after the account step, so it cannot gate the button
+        private bool IsSubmitDisabled
+        {
+            get
+            {
+                var state = UserRegistrationBasicFieldsViewState;
+
+                return state.IsLoading
+                    || state.IsValid == false
+                    || (state.ShowFirstName && (string.IsNullOrWhiteSpace(state.FirstName) || HasErrors(() => state.FirstName)))
+                    || (state.ShowLastName && (string.IsNullOrWhiteSpace(state.LastName) || HasErrors(() => state.LastName)))
+                    || (state.ShowBirthDate && (!state.BirthDate.HasValue || HasErrors(() => state.BirthDate)))
+                    || (state.ShowSex && (state.Sex == UserSex.Unspecified || HasErrors(() => state.Sex)))
+                    || (state.ShowMobilePhone && (string.IsNullOrEmpty(state.MobilePhone) || HasErrors(() => state.MobilePhone)))
+                    || (state.ShowEmail && (string.IsNullOrWhiteSpace(state.Email) || HasErrors(() => state.Email)))
+                    || (state.ShowPhone && (string.IsNullOrWhiteSpace(state.Phone) || HasErrors(() => state.Phone)));
+            }
         }
 
         private bool HasErrors<T>(Expression<Func<T>> accessor)
@@ -42,31 +56,19 @@ namespace Gizmo.Go.UI.Pages.Registration
             return UserRegistrationBasicFieldsViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
         }
 
-        private async Task OnUsernameInput(ChangeEventArgs e)
-        {
-            _usernameDebounceCts?.Cancel();
-            _usernameDebounceCts = new CancellationTokenSource();
-
-            _usernameInputValue = e.Value?.ToString() ?? string.Empty;
-
-            try
-            {
-                await Task.Delay(300, _usernameDebounceCts.Token);
-                UserRegistrationBasicFieldsViewService.SetUsername(_usernameInputValue);
-            }
-            catch (OperationCanceledException) { }
-        }
-
         private void OnFirstNameInput(ChangeEventArgs e) =>
             UserRegistrationBasicFieldsViewService.SetFirstName(e.Value?.ToString());
 
         private void OnLastNameInput(ChangeEventArgs e) =>
             UserRegistrationBasicFieldsViewService.SetLastName(e.Value?.ToString());
 
-        private void OnBirthDateInput(ChangeEventArgs e)
+        private string? GetFirstError<T>(Expression<Func<T>> accessor) =>
+            UserRegistrationBasicFieldsViewService.EditContext.GetValidationMessages(FieldIdentifier.Create(accessor)).FirstOrDefault();
+
+        private Task OnBirthDateChanged(DateTime? value)
         {
-            DateTime? parsed = DateTime.TryParse(e.Value?.ToString(), out var dt) ? dt : null;
-            UserRegistrationBasicFieldsViewService.SetBirthDate(parsed);
+            UserRegistrationBasicFieldsViewService.SetBirthDate(value);
+            return Task.CompletedTask;
         }
 
         private void OnSexChanged(ChangeEventArgs e)

@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+    <data name="GO_APP_TITLE" xml:space="preserve">
+    <value>Gizmo</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_TITLE" xml:space="preserve">
+    <value>Kirjaudu - Gizmo Go</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_LABEL" xml:space="preserve">
+    <value>Käyttäjätunnus</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä käyttäjätunnuksesi</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_LABEL" xml:space="preserve">
+    <value>Salasana</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä salasanasi</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT" xml:space="preserve">
+    <value>Kirjaudu</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT_LOADING" xml:space="preserve">
+    <value>Kirjaudutaan...</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_HEADING" xml:space="preserve">
+    <value>Kirjaudu Gizmoon</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_SUBTITLE" xml:space="preserve">
+    <value>Valitse kirjautumistapa</value>
+  </data>
+  <data name="GO_LOGIN_TAB_PHONE" xml:space="preserve">
+    <value>Puhelin</value>
+  </data>
+  <data name="GO_LOGIN_TAB_NICKNAME" xml:space="preserve">
+    <value>Nimimerkki</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_LABEL" xml:space="preserve">
+    <value>Puhelinnumero</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 000-000-0000</value>
+  </data>
+  <data name="GO_LOGIN_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Unohditko salasanan?</value>
+  </data>
+  <data name="GO_LOGIN_NO_ACCOUNT" xml:space="preserve">
+    <value>Eikö sinulla ole tiliä?</value>
+  </data>
+  <data name="GO_VE_REQUIRED" xml:space="preserve">
+    <value>Tämä kenttä on pakollinen.</value>
+  </data>
+  <data name="GO_WELCOME_PAGE_TITLE" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_WELCOME_SECTION_LABEL" xml:space="preserve">
+    <value>E-urheiluklubit</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE1" xml:space="preserve">
+    <value>Pelikerhosi —</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE2" xml:space="preserve">
+    <value>suoraan taskussasi</value>
+  </data>
+  <data name="GO_WELCOME_DESCRIPTION" xml:space="preserve">
+    <value>Valitse kerho kartalta, varaa tietokone etukäteen, kirjaudu QR-koodilla ja lataa saldoasi — ilman jonoja.</value>
+  </data>
+  <data name="GO_WELCOME_SIGN_IN" xml:space="preserve">
+    <value>Kirjaudu</value>
+  </data>
+  <data name="GO_WELCOME_CREATE_ACCOUNT" xml:space="preserve">
+    <value>Luo tili</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>Luo tili - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HEADING" xml:space="preserve">
+    <value>Luo tili</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBTITLE" xml:space="preserve">
+    <value>Syötä puhelinnumero rekisteröityäksesi</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
+    <value>Puhelinnumero</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>000 000-0000</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBMIT" xml:space="preserve">
+    <value>Lähetä koodi</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HAS_ACCOUNT" xml:space="preserve">
+    <value>Onko sinulla jo tili?</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SIGN_IN" xml:space="preserve">
+    <value>Kirjaudu</value>
+  </data>
+  <data name="GO_CONFIRMATION_PAGE_TITLE" xml:space="preserve">
+    <value>Vahvistus - Gizmo Go</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_EMAIL" xml:space="preserve">
+    <value>Sähköpostin vahvistus</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_PHONE" xml:space="preserve">
+    <value>Puhelinnumeron vahvistus</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LIFETIME" xml:space="preserve">
+    <value>Koodi on voimassa {0} min.</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Lähetimme {0}-numeroisen koodin numeroon </value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. Syötä se alle.</value>
+  </data>
+  <data name="GO_CONFIRMATION_TIMER_PREFIX" xml:space="preserve">
+    <value>Lähetä uudelleen </value>
+  </data>
+  <data name="GO_CONFIRMATION_RESEND" xml:space="preserve">
+    <value>Lähetä koodi uudelleen</value>
+  </data>
+  <data name="GO_CONFIRMATION_CHANGE_NUMBER" xml:space="preserve">
+    <value>Vaihda numero</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBMIT" xml:space="preserve">
+    <value>Vahvista</value>
+  </data>
+  <data name="GO_CONFIRMATION_HINT" xml:space="preserve">
+    <value>Jos se ei saapunut, tarkista numero tai pyydä uusi koodi.</value>
+  </data>
+  <data name="GO_CONFIRMATION_BACK" xml:space="preserve">
+    <value>Takaisin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Profiili - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_HEADING" xml:space="preserve">
+    <value>Määritä profiilisi</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBTITLE" xml:space="preserve">
+    <value>Täytä tietosi viimeistelläksesi rekisteröitymisen.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_LABEL" xml:space="preserve">
+    <value>Nimimerkki *</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä nimimerkki</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_LABEL" xml:space="preserve">
+    <value>Sähköposti</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä sähköposti</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_LABEL" xml:space="preserve">
+    <value>Etunimi</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä etunimi</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_LABEL" xml:space="preserve">
+    <value>Sukunimi</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä sukunimi</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_LABEL" xml:space="preserve">
+    <value>Syntymäpäivä</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_LABEL" xml:space="preserve">
+    <value>Osoite</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä osoite</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_LABEL" xml:space="preserve">
+    <value>Kaupunki</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä kaupunki</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_LABEL" xml:space="preserve">
+    <value>Maa</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä maa</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_LABEL" xml:space="preserve">
+    <value>Postinumero</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä postinumero</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PHONE_LABEL" xml:space="preserve">
+    <value>Puhelin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_MOBILE_PHONE_LABEL" xml:space="preserve">
+    <value>Matkapuhelin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_LABEL" xml:space="preserve">
+    <value>Sukupuoli</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>Ei määritelty</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_MALE" xml:space="preserve">
+    <value>Mies</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_FEMALE" xml:space="preserve">
+    <value>Nainen</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBMIT" xml:space="preserve">
+    <value>Luo tili</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BACK" xml:space="preserve">
+    <value>Takaisin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_PLACEHOLDER" xml:space="preserve">
+    <value>PP.KK.VVVV</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SKIP" xml:space="preserve">
+    <value>Ohita</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_NOTE" xml:space="preserve">
+    <value>Profiilitiedot näkyvät vain sinulle ja kerhon ylläpitäjille.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PAGE_TITLE" xml:space="preserve">
+    <value>Luo salasana - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_HEADING" xml:space="preserve">
+    <value>Luo kirjautumistiedot</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBTITLE" xml:space="preserve">
+    <value>Keksi yksilöllinen nimimerkki ja salasana Gizmoon kirjautumista varten.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_BACK" xml:space="preserve">
+    <value>Takaisin</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_LABEL" xml:space="preserve">
+    <value>Salasana</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>Syötä salasana</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_LABEL" xml:space="preserve">
+    <value>Toista salasana</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_PLACEHOLDER" xml:space="preserve">
+    <value>Vahvista salasana</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_TITLE" xml:space="preserve">
+    <value>Salasanan vaatimukset:</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBMIT" xml:space="preserve">
+    <value>Jatka</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_PAGE_TITLE" xml:space="preserve">
+    <value>Palveluntarjoajat - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_BACK" xml:space="preserve">
+    <value>Takaisin</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_LOADING" xml:space="preserve">
+    <value>Ladataan...</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_EMPTY" xml:space="preserve">
+    <value>Rekisteröitymistapoja ei ole saatavilla.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DIVIDER" xml:space="preserve">
+    <value>Muut tavat</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DESCRIPTION" xml:space="preserve">
+    <value>Kokeile jotakin vaihtoehtoista tapaa:</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_SUBTITLE" xml:space="preserve">
+    <value>Valitse rekisteröitymistapa</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_CONTINUE_WITH" xml:space="preserve">
+    <value>Jatka palvelulla </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_PREFIX" xml:space="preserve">
+    <value>Rekisteröitymällä hyväksyt </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_AND" xml:space="preserve">
+    <value> ja </value>
+  </data>
+  <data name="GO_EYE_TOGGLE_SHOW" xml:space="preserve">
+    <value>Näytä salasana</value>
+  </data>
+  <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
+    <value>Etusivulle</value>
+  </data>
+  <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="GO_DATE_INPUT_MONTH_LETTER" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="GO_DATE_INPUT_YEAR_LETTER" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="GO_DATE_INPUT_INCOMPLETE" xml:space="preserve">
+    <value>Syötä koko päivämäärä</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_DAY_MONTH" xml:space="preserve">
+    <value>Tarkista päivä ja kuukausi</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_YEAR" xml:space="preserve">
+    <value>Tarkista vuosi</value>
+  </data>
+  <data name="GO_EYE_TOGGLE_HIDE" xml:space="preserve">
+    <value>Piilota salasana</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_PAGE_TITLE" xml:space="preserve">
+    <value>Yhdistetään — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_HEADING" xml:space="preserve">
+    <value>Yhdistetään Telegramiin</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_SUBTITLE" xml:space="preserve">
+    <value>Kirjaudutaan Telegramin kautta. Odota hetki.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>Numeron vahvistus</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_HEADING" xml:space="preserve">
+    <value>Numeron vahvistus</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBTITLE" xml:space="preserve">
+    <value>Saimme puhelinnumerosi Telegramin kautta</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONFIRMED" xml:space="preserve">
+    <value>Vahvistettu</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONNECTED" xml:space="preserve">
+    <value>Tili yhdistetty onnistuneesti</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_LABEL" xml:space="preserve">
+    <value>Puhelinnumero</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_VERIFIED" xml:space="preserve">
+    <value>Vahvistettu</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_INFO_TEXT" xml:space="preserve">
+    <value>Tämä numero liitetään Gizmo-tiliisi. SMS-vahvistusta ei tarvita — numero on jo vahvistettu Telegramin kautta.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBMIT" xml:space="preserve">
+    <value>Vahvista ja jatka</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Tili luotu — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_HEADING" xml:space="preserve">
+    <value>Tili luotu!</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>Gizmo-tilisi on luotu.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_PHONE" xml:space="preserve">
+    <value>Gizmo-tilisi on luotu ja liitetty numeroon {0}.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_EMAIL" xml:space="preserve">
+    <value>Gizmo-tilisi on luotu ja liitetty sähköpostiin {0}.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PHONE_LABEL" xml:space="preserve">
+    <value>Puhelin</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_EMAIL_LABEL" xml:space="preserve">
+    <value>Sähköposti</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>Siirry etusivulle</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_GROUP_ARIA" xml:space="preserve">
+    <value>Syötä {0}-numeroinen koodi</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_DIGIT_ARIA" xml:space="preserve">
+    <value>Numero {0}</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PHONE_VERIFIED_LABEL" xml:space="preserve">
+    <value>Puhelin vahvistettu</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_ARIA" xml:space="preserve">
+    <value>Salasanan vaatimukset</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PAGE_TITLE" xml:space="preserve">
+    <value>Rekisteröidy sähköpostilla - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_SUBTITLE" xml:space="preserve">
+    <value>Syötä sähköpostiosoitteesi rekisteröityäksesi</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_LABEL" xml:space="preserve">
+    <value>Sähköpostiosoite</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_REGISTRATION_PHONE_HINT" xml:space="preserve">
+    <value>Lähetämme vahvistuskoodin tekstiviestillä</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_HINT" xml:space="preserve">
+    <value>Lähetämme vahvistuskoodin sähköpostiisi.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_OR" xml:space="preserve">
+    <value>tai</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ALT" xml:space="preserve">
+    <value>Valitse toinen tapa</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Lähetimme {0}-numeroisen koodin osoitteeseen </value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. Syötä se alle.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_CHANGE_EMAIL" xml:space="preserve">
+    <value>Vaihda sähköposti</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_HINT" xml:space="preserve">
+    <value>Jos se ei saapunut, tarkista roskapostikansio tai pyydä uusi koodi.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ADD_PHONE_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 (___) ___-____</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_PAGE_TITLE" xml:space="preserve">
+    <value>Syötä numero - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HEADING" xml:space="preserve">
+    <value>Luo tili</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBTITLE" xml:space="preserve">
+    <value>Syötä puhelinnumerosi. Annamme sinulle numeron, johon soitat — ja kirjaamme sinut heti sisään.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_LABEL" xml:space="preserve">
+    <value>Puhelinnumero</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBMIT" xml:space="preserve">
+    <value>Jatka</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HINT" xml:space="preserve">
+    <value>Puhelu on maksuton. Tunnistamme sinut saapuvan puhelun numerosta ja kirjaamme sinut automaattisesti sisään.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_BACK" xml:space="preserve">
+    <value>Takaisin</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>Odotetaan puhelua</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_BACK" xml:space="preserve">
+    <value>Takaisin</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_HEADING" xml:space="preserve">
+    <value>Soita meille</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INSTRUCTION" xml:space="preserve">
+    <value>Soita alla olevaan numeroon puhelimellasi</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CHANGE" xml:space="preserve">
+    <value>Vaihda</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_COPY_HINT" xml:space="preserve">
+    <value>Kopioi napauttamalla</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INFO" xml:space="preserve">
+    <value>Puhelu on maksuton. Tunnistamme sinut saapuvan puhelun numerosta — salasanaa ei tarvita.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_TIMER_PREFIX" xml:space="preserve">
+    <value>Odotetaan puhelua: </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CANCEL" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Kirjautunut sisään</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_HEADING" xml:space="preserve">
+    <value>Kirjautunut sisään!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>Puhelu numerosta </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value> vastaanotettu. Tervetuloa Gizmoon!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_VERIFIED" xml:space="preserve">
+    <value>Valtuutus onnistui</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_CALL_RECEIVED" xml:space="preserve">
+    <value>Puhelu vastaanotettu</value>
+  </data>
+  <data name="GO_GLOBAL_ERROR" xml:space="preserve">
+    <value>Tapahtui odottamaton virhe. Yritä päivittää sivu.</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LENGTH_ERROR" xml:space="preserve">
+    <value>Vahvistuskoodissa tulee olla {0} numeroa!</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_EMAIL_VERIFIED_LABEL" xml:space="preserve">
+    <value>Sähköposti vahvistettu</value>
+  </data>
+  <data name="GO_GEN_ADDITIONAL_PHONE" xml:space="preserve">
+    <value>Lisäpuhelin</value>
+  </data>
+  <data name="GO_GEN_AN_ERROR_HAS_OCCURRED" xml:space="preserve">
+    <value>Tapahtui virhe.</value>
+  </data>
+  <data name="GO_GEN_CONTINUE" xml:space="preserve">
+    <value>Jatka</value>
+  </data>
+  <data name="GO_GEN_EMAIL_ADDRESS" xml:space="preserve">
+    <value>Sähköpostiosoite</value>
+  </data>
+  <data name="GO_GEN_ENTER_NEW_PASSWORD" xml:space="preserve">
+    <value>Syötä uusi salasana</value>
+  </data>
+  <data name="GO_GEN_MOBILE_PHONE" xml:space="preserve">
+    <value>Matkapuhelin</value>
+  </data>
+  <data name="GO_GEN_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>Salasanat eivät täsmää!</value>
+  </data>
+  <data name="GO_GEN_PHONE_NUMBER" xml:space="preserve">
+    <value>Puhelinnumero</value>
+  </data>
+  <data name="GO_GEN_SEX_FEMALE" xml:space="preserve">
+    <value>Nainen</value>
+  </data>
+  <data name="GO_GEN_SEX_MALE" xml:space="preserve">
+    <value>Mies</value>
+  </data>
+  <data name="GO_GEN_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>Ei valittu</value>
+  </data>
+  <data name="GO_GEN_USERNAME" xml:space="preserve">
+    <value>Käyttäjätunnus</value>
+  </data>
+  <data name="GO_GEN_VE_INVALID_FIELD" xml:space="preserve">
+    <value>Kenttä on virheellinen.</value>
+  </data>
+  <data name="GO_GEN_VE_MAX_LENGTH" xml:space="preserve">
+    <value>Kenttä saa olla enintään {1} merkkiä pitkä.</value>
+  </data>
+  <data name="GO_GEN_VE_REQUIRED_FIELD" xml:space="preserve">
+    <value>Kenttä on pakollinen.</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_SECURE" xml:space="preserve">
+    <value>Turvallinen salasana</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_EASY" xml:space="preserve">
+    <value>Salasana on liian helppo</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_LONG" xml:space="preserve">
+    <value>Salasana on liian pitkä</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_SHORT" xml:space="preserve">
+    <value>Salasana on liian lyhyt</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_HINT" xml:space="preserve">
+    <value>Soita numeroon {0} ja pidä tämä näyttö auki, kun vahvistusta käsitellään.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_SUBTITLE" xml:space="preserve">
+    <value>Suorita puhelu loppuun jatkaaksesi salasanan palautusta.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_TITLE" xml:space="preserve">
+    <value>Vahvista puhelulla</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_EMAIL" xml:space="preserve">
+    <value>Syötä tiliisi liitetty sähköpostiosoite</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_PHONE_NUMBER" xml:space="preserve">
+    <value>Syötä tiliisi liitetty puhelinnumero</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_USERNAME" xml:space="preserve">
+    <value>Syötä tiliisi liitetty käyttäjätunnus</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Unohtunut salasana</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
+    <value>Sähköposti</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_SUBTITLE" xml:space="preserve">
+    <value>Valitse tapa löytää tilisi</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_TITLE" xml:space="preserve">
+    <value>Unohtunut salasana</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NEW_PASSWORD" xml:space="preserve">
+    <value>Luo uusi salasana</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NON_UNIQUE_INPUT" xml:space="preserve">
+    <value>Tämä arvo vastaa useampaa kuin yhtä tiliä. Käytä käyttäjätunnusta.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NO_METHODS_AVAILABLE" xml:space="preserve">
+    <value>Salasanan palautus ei ole käytettävissä tälle arvolle</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PASSWORD_RESET_FAILED_MESSAGE" xml:space="preserve">
+    <value>Salasanan nollaus epäonnistui.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PLEASE_ENTER_RECOVERY_CODE" xml:space="preserve">
+    <value>Lähetimme koodin numeroon {0}. Syötä se palauttaaksesi salasanasi.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_REENTER_CONFIRM" xml:space="preserve">
+    <value>Kirjoita uudelleen vahvistaaksesi</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_METHOD" xml:space="preserve">
+    <value>Valitse palautustapa</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_OTHER_METHOD" xml:space="preserve">
+    <value>Valitse toinen palautustapa</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SET_PASSWORD_MESSAGE" xml:space="preserve">
+    <value>Keksi uusi salasana Gizmo-tilillesi kirjautumista varten.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_USER_NOT_FOUND" xml:space="preserve">
+    <value>Mikään tili ei vastaa antamaasi arvoa.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_WAITING_CONFIRMATION" xml:space="preserve">
+    <value>Odotetaan vahvistusta...</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_LOWER_CASE" xml:space="preserve">
+    <value>Vähintään 1 pieni kirjain</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MAX_LENGTH" xml:space="preserve">
+    <value>Enintään {0} merkkiä</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MIN_LENGTH" xml:space="preserve">
+    <value>Vähintään {0} merkkiä</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_NUMBER" xml:space="preserve">
+    <value>Vähintään 1 numero</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_RANGE_LENGTH" xml:space="preserve">
+    <value>{0}-{1} merkkiä</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_UPPER_CASE" xml:space="preserve">
+    <value>Vähintään 1 iso kirjain</value>
+  </data>
+  <data name="GO_REGISTRATION_ADDITIONAL_FIELDS_HEADING" xml:space="preserve">
+    <value>Lisätiedot</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_ALERT" xml:space="preserve">
+    <value>Palaa takaisin — siellä on tarjolla lisää rekisteröitymistapoja.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_BACK" xml:space="preserve">
+    <value>Palaa ja valitse toinen tapa</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_RETRY" xml:space="preserve">
+    <value>Yritä uudelleen</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_SUBTITLE" xml:space="preserve">
+    <value>Rekisteröitymistä ei voitu suorittaa loppuun. Syynä voi olla peruutus tai tekniset ongelmat.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_TITLE" xml:space="preserve">
+    <value>Valtuutus epäonnistui</value>
+  </data>
+  <data name="GO_REGISTRATION_FAILED_MESSAGE" xml:space="preserve">
+    <value>Jokin meni pieleen. Ota yhteyttä vastaanottoon.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDER_REDIRECT_NOT_IMPLEMENTED" xml:space="preserve">
+    <value>Rekisteröityminen tällä tavalla ei ole vielä käytettävissä. Kokeile alla olevaa toista tapaa.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_BACK_TO_MAIN" xml:space="preserve">
+    <value>Palaa päänäyttöön</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_OPEN" xml:space="preserve">
+    <value>Avaa linkki</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_SESSION_EXPIRED" xml:space="preserve">
+    <value>Istunto on vanhentunut. Yritä uudelleen tai valitse toinen kirjautumistapa.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_WAITING_SCAN" xml:space="preserve">
+    <value>Odotetaan skannausta…</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_EMAIL" xml:space="preserve">
+    <value>Sähköpostia ei voi vahvistaa.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_PHONE" xml:space="preserve">
+    <value>Puhelinta ei voi vahvistaa.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_USERNAME" xml:space="preserve">
+    <value>Käyttäjätunnusta ei voi vahvistaa.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_ADDRESS_USED" xml:space="preserve">
+    <value>Annettu sähköpostiosoite on jo käytössä.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_INVALID" xml:space="preserve">
+    <value>Sähköposti on virheellinen</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_INVALID" xml:space="preserve">
+    <value>Matkapuhelinnumero on virheellinen</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_USED" xml:space="preserve">
+    <value>Annettu matkapuhelinnumero on jo käytössä.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_SELECT_COUNTRY" xml:space="preserve">
+    <value>Valitse maa</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_USERNAME_IN_USE" xml:space="preserve">
+    <value>Annettu käyttäjätunnus on jo käytössä.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_WHITE_SPACE_NOT_ALLOWED" xml:space="preserve">
+    <value>Käyttäjätunnus ei voi sisältää välilyöntejä.</value>
+  </data>
+  <data name="GO_USER_ADDRESS" xml:space="preserve">
+    <value>Osoite</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_AGREE_CHECKBOX" xml:space="preserve">
+    <value>Olen lukenut tietosuojakäytännön ja käyttöehdot ja hyväksyn ne.</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_TITLE" xml:space="preserve">
+    <value>Tietosuojakäytäntö ja käyttöehdot</value>
+  </data>
+  <data name="GO_USER_CITY" xml:space="preserve">
+    <value>Kaupunki</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_CONFIRMATION_CODE_IS_INVALID" xml:space="preserve">
+    <value>Vahvistuskoodi on virheellinen.</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_EMAIL_MESSAGE" xml:space="preserve">
+    <value>Sähköposti on lähetetty osoitteeseen {0}. Etsi vahvistuskoodi sähköpostistasi ja syötä se alle</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_SMS_MESSAGE" xml:space="preserve">
+    <value>Tekstiviesti on lähetetty numeroon {0}. Etsi vahvistuskoodi puhelimesi viesteistä ja syötä se alle</value>
+  </data>
+  <data name="GO_USER_COUNTRY_REGION" xml:space="preserve">
+    <value>Maa/alue</value>
+  </data>
+  <data name="GO_USER_GENDER" xml:space="preserve">
+    <value>Sukupuoli</value>
+  </data>
+  <data name="GO_USER_POST_CODE" xml:space="preserve">
+    <value>Postinumero</value>
+  </data>
+  <data name="GO_REGISTRATION_USERNAME_AVAILABLE" xml:space="preserve">
+    <value>Nimimerkki on vapaana!</value>
+  </data>
+  <data name="GO_GEN_GOT_IT" xml:space="preserve">
+    <value>Selvä</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>Salasana vaihdettu - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_HEADING" xml:space="preserve">
+    <value>Salasana vaihdettu</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>Salasanasi on päivitetty. Voit nyt kirjautua tilillesi uudella salasanalla.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>Kirjaudu tilille</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_TITLE" xml:space="preserve">
+    <value>Tili löytyi!</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>Käyttäjä löytyi. Voit nyt luoda uuden salasanan.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBMIT" xml:space="preserve">
+    <value>Luo uusi salasana</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_TITLE" xml:space="preserve">
+    <value>Tiliä ei löytynyt</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>Käyttäjää ei löytynyt. Kokeile toista tapaa.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBMIT" xml:space="preserve">
+    <value>Palaa ja valitse toinen tapa</value>
+  </data>
+  <data name="GO_APP_NAME" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_NAV_HOME" xml:space="preserve">
+    <value>Koti</value>
+  </data>
+  <data name="GO_NAV_BRANCHES" xml:space="preserve">
+    <value>Toimipisteet</value>
+  </data>
+  <data name="GO_NAV_FAVORITES" xml:space="preserve">
+    <value>Suosikit</value>
+  </data>
+  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
+    <value>Tili</value>
+  </data>
+  <data name="GO_NAV_LOGIN" xml:space="preserve">
+    <value>Kirjaudu</value>
+  </data>
+  <data name="GO_HOME_WELCOME" xml:space="preserve">
+    <value>Tervetuloa</value>
+  </data>
+  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
+    <value>Toimipisteet - Gizmo Go</value>
+  </data>
+  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
+    <value>Suosikit - Gizmo Go</value>
+  </data>
+  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>Tili - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
+    <value>Palauta: </value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_BACK_TO_LOGIN" xml:space="preserve">
+    <value>Takaisin kirjautumiseen</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_HINT" xml:space="preserve">
+    <value>Salasanan palautuskoodi lähetetään tähän sähköpostiosoitteeseen.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_CODE_MESSAGE" xml:space="preserve">
+    <value>Lähetimme koodin osoitteeseen {0}. Syötä se palauttaaksesi salasanasi.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SAVE_PASSWORD" xml:space="preserve">
+    <value>Tallenna uusi salasana</value>
+  </data>
+  <data name="GO_GEN_CLOSE" xml:space="preserve">
+    <value>Sulje</value>
+  </data>
+</root>

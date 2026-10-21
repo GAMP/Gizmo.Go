@@ -1,0 +1,14 @@
+@* Figma SocialButton / AltPlainButton: 52px, radius 12, icon and text on the left *@
+<button type="button"
+        class="@(IsPrimary ? "registration-providers-btn registration-providers-btn--primary" : "auth-btn-secondary auth-btn-secondary--start")"
+        @onclick="OnClick">
+    @if (Icon is not null)
+    {
+        @Icon
+    }
+    else if (ChannelGuid.HasValue)
+    {
+        <ChannelIcon ChannelGuid="@ChannelGuid.Value" />
+    }
+    <span>@Text</span>
+</button>

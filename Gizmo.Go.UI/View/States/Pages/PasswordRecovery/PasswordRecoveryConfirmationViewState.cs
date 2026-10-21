@@ -16,6 +16,11 @@ namespace Gizmo.Go.UI.View.States.Pages.PasswordRecovery
 
         public string ConfirmationCodeMessage { get; internal set; } = string.Empty;
 
+        /// <summary>
+        /// Gets if the code was sent by email (selects the "change email" text and the spam hint).
+        /// </summary>
+        public bool IsEmailChannel { get; internal set; }
+
         public string[] Digits { get; internal set; } = [];
 
         public bool CanSubmit => Digits.Length > 0 && Digits.All(d => d.Length == 1);
@@ -31,6 +36,11 @@ namespace Gizmo.Go.UI.View.States.Pages.PasswordRecovery
         public int SecondsLeft { get; internal set; }
 
         public bool TimerExpired => SecondsLeft <= 0;
+
+        /// <summary>
+        /// Code lifetime in minutes (server ExpiresInSeconds, rounded up); 0 when unknown.
+        /// </summary>
+        public int CodeLifetimeMinutes { get; internal set; }
 
         public bool IsLoading { get; internal set; }
 

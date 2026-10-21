@@ -29,6 +29,23 @@ namespace Gizmo.Go.UI.Pages.Registration
         private bool ShowCity => RegistrationSession.RequiredUserInfo?.City == true;
         private bool ShowPostCode => RegistrationSession.RequiredUserInfo?.PostCode == true;
 
+        // shown fields are required by the server and validated while typing; the form IsValid stays null
+        // until the first validation, so it cannot gate the button on its own
+        private bool IsSubmitDisabled
+        {
+            get
+            {
+                var state = UserRegistrationAdditionalFieldsViewState;
+
+                return state.IsLoading
+                    || state.IsValid == false
+                    || (ShowCountry && (string.IsNullOrWhiteSpace(state.Country) || HasErrors(() => state.Country)))
+                    || (ShowAddress && (string.IsNullOrWhiteSpace(state.Address) || HasErrors(() => state.Address)))
+                    || (ShowCity && (string.IsNullOrWhiteSpace(state.City) || HasErrors(() => state.City)))
+                    || (ShowPostCode && (string.IsNullOrWhiteSpace(state.PostCode) || HasErrors(() => state.PostCode)));
+            }
+        }
+
         protected override void OnInitialized()
         {
             this.SubscribeChange(UserRegistrationAdditionalFieldsViewState);

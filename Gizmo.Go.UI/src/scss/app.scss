@@ -11,6 +11,7 @@
 // ============================================
 
 // -- Base --
+@use 'base/fonts';
 @use 'base/reset';
 @use 'base/typography';
 
@@ -30,15 +31,20 @@
 @use 'pages/registration/registration-bot-verify';
 @use 'pages/registration/registration-profile';
 @use 'pages/registration/registration-success';
+@use 'pages/registration/registration-error';
 @use 'pages/registration/registration-call-phone';
 @use 'pages/registration/registration-call-verify';
 @use 'pages/registration/registration-call-success';
+@use 'pages/password-recovery/password-recovery-account';
 
 // -- Components --
+@use 'components/channel-icon';
+@use 'components/contact-entry';
+@use 'components/date-input';
 @use 'components/dialog';
 @use 'components/error-block';
 @use 'components/info-block';
-@use 'components/stepper';
+@use 'components/phone-input';
 @use 'components/toast-notification';
 
 // -- Utilities (last, for overrides) --

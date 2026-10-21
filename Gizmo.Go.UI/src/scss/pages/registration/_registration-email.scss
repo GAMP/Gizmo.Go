@@ -7,76 +7,7 @@
 // Fields reuse .auth-field, .auth-field__label, .auth-field__input-wrap, .auth-field__input.
 // Submit reuses .auth-submit.
 // Footer reuses .auth-footer, .auth-footer__text, .auth-footer__link.
-// Only body, hero, hint, divider, and secondary button are page-specific.
+// The page layout now lives in the shared ContactEntryForm (components/_contact-entry.scss).
 // ============================================
 @use '../../themes/default/theme' as *;
 @use 'sass:color';
-
-// ---- Body: flat layout, no card wrapper ----
-
-.registration-email-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  padding: 40px 16px 32px;
-  box-sizing: border-box;
-}
-
-// ---- Fields container ----
-
-.registration-email-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-// ---- Info hint below the input ----
-
-.registration-email-hint {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 12px;
-  font-family: 'Noto Sans', $font-family-base;
-  color: rgba(#ffffff, 0.45);
-  line-height: 1.55;
-}
-
-.registration-email-hint__icon {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  margin-top: 1px;
-  color: rgba($color-welcome-accent, 0.65);
-}
-
-// ---- "или" divider ----
-
-.registration-email-or {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  &__line {
-    flex: 1;
-    height: 1px;
-    background: rgba(#ffffff, 0.08);
-  }
-
-  &__text {
-    flex-shrink: 0;
-    font-size: 11px;
-    font-family: 'Noto Sans', $font-family-base;
-    color: rgba(#ffffff, 0.30);
-  }
-}
-
-
-
-// ---- Footer inside body (reset shared margin-top, gap handles spacing) ----
-
-.registration-email-body > .auth-footer {
-  margin-top: 0;
-}
-

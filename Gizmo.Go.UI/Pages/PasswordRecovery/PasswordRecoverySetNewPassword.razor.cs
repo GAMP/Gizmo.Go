@@ -24,6 +24,14 @@ namespace Gizmo.Go.UI.Pages.PasswordRecovery
 
         private PasswordTooltipViewState Tooltip => PasswordRecoverySetNewPasswordViewState.PasswordTooltip;
 
+        // both fields are validated while typing, so their messages are current here
+        private bool IsSubmitDisabled =>
+            PasswordRecoverySetNewPasswordViewState.IsLoading
+            || string.IsNullOrEmpty(PasswordRecoverySetNewPasswordViewState.NewPassword)
+            || string.IsNullOrEmpty(PasswordRecoverySetNewPasswordViewState.RepeatPassword)
+            || HasErrors(() => PasswordRecoverySetNewPasswordViewState.NewPassword)
+            || HasErrors(() => PasswordRecoverySetNewPasswordViewState.RepeatPassword);
+
         protected override void OnInitialized()
         {
             this.SubscribeChange(PasswordRecoverySetNewPasswordViewState);
@@ -54,5 +62,7 @@ namespace Gizmo.Go.UI.Pages.PasswordRecovery
             PasswordRecoverySetNewPasswordViewService.SetRepeatPassword(e.Value?.ToString() ?? string.Empty);
 
         private async Task SubmitAsync() => await PasswordRecoverySetNewPasswordViewService.SubmitAsync();
+
+        private async Task NavigateBack() => await PasswordRecoverySetNewPasswordViewService.NavigateBackAsync();
     }
 }

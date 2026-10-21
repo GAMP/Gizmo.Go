@@ -15,73 +15,11 @@
   min-height: 100%;
   background-color: $color-welcome-bg;
   color: #ffffff;
-  font-family: 'Noto Sans', $font-family-base;
+  font-family: 'Twemoji Country Flags', 'Noto Sans', $font-family-base;
   overflow-x: hidden;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   box-sizing: border-box;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('../img/arena-hero-bg.png');
-    background-size: auto 100%;
-    background-position: 69.3% top;
-    background-repeat: no-repeat;
-    opacity: 0.55;
-    z-index: 0;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba($color-welcome-bg, 0.30) 0%,
-        rgba($color-welcome-bg, 0.75) 45%,
-        rgba($color-welcome-bg, 0.97) 70%,
-        $color-welcome-bg 100%);
-    z-index: 0;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-// ---- Language button ----
-// Shared across all auth pages and the welcome landing page.
-
-.auth-lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 10px;
-  height: 28.5px;
-  border-radius: $radius-full;
-  border: 1px solid rgba(#ffffff, 0.12);
-  background: rgba(#ffffff, 0.07);
-  cursor: pointer;
-  appearance: none;
-  color: rgba(#ffffff, 0.55);
-  font-family: 'Noto Sans', $font-family-base;
-  font-size: 11px;
-  font-weight: $font-weight-regular;
-  transition: background $transition-fast, border-color $transition-fast;
-
-  &:hover {
-    background: rgba(#ffffff, 0.11);
-    border-color: rgba(#ffffff, 0.2);
-  }
-
-  svg {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 0;
-  }
 }
 
 // ---- Header ----
@@ -224,6 +162,18 @@
   flex-shrink: 0;
 }
 
+// configured logo image (GizmoGo:RegistrationStub:Logo, later the server Logo option)
+.auth-card__logo--image {
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .auth-card__titles {
   display: flex;
   flex-direction: column;
@@ -245,6 +195,43 @@
   font-weight: $font-weight-regular;
   color: rgba(#ffffff, 0.40);
   line-height: 1.5;
+}
+
+// ---- Plain card ----
+// Frameless variant (Figma auth screens 159:13460, 159:14223): no frame or background,
+// 64px logo with a gradient, 24px title.
+
+.auth-card--plain {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  gap: 24px;
+
+  .auth-card__header {
+    gap: 16px;
+  }
+
+  .auth-card__logo {
+    border-radius: 16px;
+    border: 1px solid #2b2d33;
+    background: linear-gradient(135deg, #1a2332 0%, #111820 100%);
+    margin-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  .auth-card__title {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 29px;
+    letter-spacing: 0.38px;
+  }
+
+  .auth-card__subtitle {
+    line-height: 16px;
+    letter-spacing: -0.08px;
+    color: #808185;
+  }
 }
 
 // ---- Form fields ----
@@ -270,18 +257,21 @@
 .auth-field__label {
   font-size: 12px;
   font-weight: $font-weight-regular;
-  color: #ffffff;
+  line-height: 18px;
+  color: #808185;
   font-family: 'Noto Sans', $font-family-base;
 }
 
+// Figma auth fields (159:13460, 159:12747): 48px, radius 12, translucent fill
 .auth-field__input-wrap {
   position: relative;
   display: flex;
   align-items: center;
-  height: 44px;
-  border: 1px solid rgba(#f6fbfd, 0.28);
-  border-radius: 6px;
-  padding: 0 12px;
+  height: 48px;
+  border: 1px solid rgba(#f6fbfd, 0.18);
+  border-radius: 12px;
+  background: rgba(#ffffff, 0.05);
+  padding: 0 13px;
   box-sizing: border-box;
   transition: border-color $transition-fast, box-shadow $transition-fast;
 
@@ -324,7 +314,7 @@
   caret-color: $color-welcome-accent;
 
   &::placeholder {
-    color: rgba(#ffffff, 0.35);
+    color: #55575c;
   }
 
   &:disabled {
@@ -382,8 +372,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   background: transparent;
   border: none;
   padding: 0;
@@ -399,6 +389,15 @@
   }
 }
 
+.auth-field__hint {
+  font-size: 11px;
+  margin-top: 2px;
+
+  &--success {
+    color: $color-success-light;
+  }
+}
+
 // ValidationMessage override
 
 .validation-message {
@@ -408,20 +407,24 @@
 }
 
 // ---- Submit button ----
+// One primary button for all auth screens (Figma PrimaryButton): 52px, radius 12, 15px Medium;
+// disabled = 6% white fill with 30% text.
 
 .auth-submit {
   width: 100%;
-  height: 44px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Noto Sans', $font-family-base;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: $font-weight-medium;
+  line-height: 22px;
+  letter-spacing: 0.02px;
   color: #ffffff;
   background: $color-welcome-btn-primary;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   appearance: none;
   transition: background $transition-fast, opacity $transition-fast, box-shadow $transition-fast;
@@ -439,37 +442,47 @@
   }
 
   &:disabled {
-    background: rgba(#fafafa, 0.16);
+    background: rgba(#ffffff, 0.06);
     box-shadow: none;
-    color: rgba(#ffffff, 0.24);
+    color: rgba(#ffffff, 0.30);
     cursor: not-allowed;
   }
 }
 
 // ---- Secondary (glass) button ----
+// Figma SecondaryButton / AltPlainButton: 52px, radius 12, 5% fill, 6% border, 75% text.
 
 .auth-btn-secondary {
   width: 100%;
-  height: 48px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 15px;
+  padding: 0 16px;
   font-family: 'Noto Sans', $font-family-base;
-  font-size: 14px;
-  font-weight: $font-weight-regular;
+  font-size: 15px;
+  font-weight: $font-weight-medium;
+  line-height: 22px;
+  letter-spacing: 0.02px;
   color: rgba(#ffffff, 0.75);
-  background: rgba(#ffffff, 0.04);
-  border: 1px solid rgba(#f6fbfd, 0.20);
-  border-radius: 10px;
+  background: rgba(#ffffff, 0.05);
+  border: 1px solid rgba(#f6fbfd, 0.06);
+  border-radius: 12px;
   cursor: pointer;
   appearance: none;
   box-sizing: border-box;
   transition: background $transition-fast, opacity $transition-fast;
   -webkit-tap-highlight-color: transparent;
 
-  &:hover { background: rgba(#ffffff, 0.07); }
+  &:hover { background: rgba(#ffffff, 0.08); }
   &:active { opacity: 0.85; }
+
+  // icon + text on the left (recovery method list): 12px gap, muted text and icon
+  &--start {
+    justify-content: flex-start;
+    gap: 12px;
+    color: #808185;
+  }
 }
 
 // ---- Footer ----
@@ -503,6 +516,29 @@
 
   &:hover {
     opacity: 0.8;
+  }
+}
+
+// ---- Text button ----
+// Full-width secondary action without a frame, e.g. "Back to sign in", "Try again".
+
+.auth-text-btn {
+  width: 100%;
+  min-height: 44px;
+  font-size: $font-size-sm;
+  font-family: 'Noto Sans', $font-family-base;
+  font-weight: $font-weight-regular;
+  color: rgba($color-text-on-primary, 0.75);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text-on-primary;
   }
 }
 

@@ -1,0 +1,24 @@
+<div class="page-registration-success @CssClass">
+
+    <div class="registration-success-body">
+
+        <div class="registration-success-icon" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 22L18 30L34 14" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+        <div class="registration-success-content">
+            <h1 class="registration-success-title">@Title</h1>
+            <p class="registration-success-subtitle">@Subtitle</p>
+        </div>
+
+        @ChildContent
+
+        <button type="button" class="auth-submit" @onclick="OnButtonClick">
+            @ButtonText
+        </button>
+
+    </div>
+
+</div>

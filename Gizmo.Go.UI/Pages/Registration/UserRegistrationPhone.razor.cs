@@ -60,6 +60,8 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         private async Task NavigateBack() => await UserRegistrationPhoneViewService.NavigateBackAsync();
 
+        private async Task NavigateToAlternative() => await UserRegistrationPhoneViewService.NavigateToAlternativeAsync();
+
         private async Task NavigateToLogin() => await UserRegistrationPhoneViewService.NavigateToLoginAsync();
 
         public void Dispose()

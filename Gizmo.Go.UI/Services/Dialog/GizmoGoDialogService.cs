@@ -16,15 +16,26 @@ namespace Gizmo.Go.UI.Services.Dialog
         {
         }
 
-        public Task<AddDialogResult<UserAgreementResult>> ShowUserAgreementDialogAsync(UserAgreementDialogParameters userAgreementDialogParameters, bool allowContinueWithoutAccept = false, CancellationToken cancellationToken = default)
+        public Task<AddDialogResult<UserAgreementResult>> ShowUserAgreementDialogAsync(UserAgreementDialogParameters userAgreementDialogParameters, CancellationToken cancellationToken = default)
         {
             var parameters = userAgreementDialogParameters.ToDictionary();
-            parameters["AllowContinueWithoutAccept"] = allowContinueWithoutAccept;
 
             return ShowDialogAsync<UserAgreementDialog, UserAgreementResult>(parameters, new DialogDisplayOptions()
             {
                 Closable = false,
                 CloseOnClick = false
+            }, default, cancellationToken);
+        }
+
+        public Task<AddDialogResult<UserAgreementResult>> ShowReadOnlyUserAgreementDialogAsync(UserAgreementDialogParameters userAgreementDialogParameters, CancellationToken cancellationToken = default)
+        {
+            var parameters = userAgreementDialogParameters.ToDictionary();
+            parameters["IsReadOnly"] = true;
+
+            return ShowDialogAsync<UserAgreementDialog, UserAgreementResult>(parameters, new DialogDisplayOptions()
+            {
+                Closable = true,
+                CloseOnClick = true
             }, default, cancellationToken);
         }
     }

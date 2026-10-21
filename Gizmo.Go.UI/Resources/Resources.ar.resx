@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+    <data name="GO_APP_TITLE" xml:space="preserve">
+    <value>Gizmo</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_TITLE" xml:space="preserve">
+    <value>تسجيل الدخول - Gizmo Go</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_LABEL" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="GO_LOGIN_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل اسم المستخدم</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_LABEL" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="GO_LOGIN_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل كلمة المرور</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="GO_LOGIN_SUBMIT_LOADING" xml:space="preserve">
+    <value>جارٍ تسجيل الدخول...</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_HEADING" xml:space="preserve">
+    <value>تسجيل الدخول إلى Gizmo</value>
+  </data>
+  <data name="GO_LOGIN_PAGE_SUBTITLE" xml:space="preserve">
+    <value>اختر طريقة تسجيل الدخول</value>
+  </data>
+  <data name="GO_LOGIN_TAB_PHONE" xml:space="preserve">
+    <value>الهاتف</value>
+  </data>
+  <data name="GO_LOGIN_TAB_NICKNAME" xml:space="preserve">
+    <value>اللقب</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_LABEL" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="GO_LOGIN_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 000-000-0000</value>
+  </data>
+  <data name="GO_LOGIN_FORGOT_PASSWORD" xml:space="preserve">
+    <value>نسيت كلمة المرور؟</value>
+  </data>
+  <data name="GO_LOGIN_NO_ACCOUNT" xml:space="preserve">
+    <value>ليس لديك حساب؟</value>
+  </data>
+  <data name="GO_VE_REQUIRED" xml:space="preserve">
+    <value>هذا الحقل مطلوب.</value>
+  </data>
+  <data name="GO_WELCOME_PAGE_TITLE" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_WELCOME_SECTION_LABEL" xml:space="preserve">
+    <value>نوادي الرياضات الإلكترونية</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE1" xml:space="preserve">
+    <value>نادي الألعاب —</value>
+  </data>
+  <data name="GO_WELCOME_TITLE_LINE2" xml:space="preserve">
+    <value>في جيبك مباشرة</value>
+  </data>
+  <data name="GO_WELCOME_DESCRIPTION" xml:space="preserve">
+    <value>اختر نادياً على الخريطة، واحجز جهازاً مسبقاً، وسجّل الدخول برمز QR وأعد شحن رصيدك — بلا طوابير.</value>
+  </data>
+  <data name="GO_WELCOME_SIGN_IN" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="GO_WELCOME_CREATE_ACCOUNT" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>إنشاء حساب - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HEADING" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBTITLE" xml:space="preserve">
+    <value>أدخل رقم الهاتف للتسجيل</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_LABEL" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>000 000-0000</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SUBMIT" xml:space="preserve">
+    <value>إرسال الرمز</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_HAS_ACCOUNT" xml:space="preserve">
+    <value>لديك حساب بالفعل؟</value>
+  </data>
+  <data name="GO_CREATE_ACCOUNT_SIGN_IN" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="GO_CONFIRMATION_PAGE_TITLE" xml:space="preserve">
+    <value>التأكيد - Gizmo Go</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_EMAIL" xml:space="preserve">
+    <value>تأكيد البريد الإلكتروني</value>
+  </data>
+  <data name="GO_CONFIRMATION_HEADING_PHONE" xml:space="preserve">
+    <value>تأكيد رقم الهاتف</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LIFETIME" xml:space="preserve">
+    <value>الرمز صالح لمدة {0} دقيقة.</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>أرسلنا رمزاً مكوناً من {0} أرقام إلى الرقم </value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. أدخله أدناه.</value>
+  </data>
+  <data name="GO_CONFIRMATION_TIMER_PREFIX" xml:space="preserve">
+    <value>إعادة الإرسال خلال </value>
+  </data>
+  <data name="GO_CONFIRMATION_RESEND" xml:space="preserve">
+    <value>إعادة إرسال الرمز</value>
+  </data>
+  <data name="GO_CONFIRMATION_CHANGE_NUMBER" xml:space="preserve">
+    <value>تغيير الرقم</value>
+  </data>
+  <data name="GO_CONFIRMATION_SUBMIT" xml:space="preserve">
+    <value>تأكيد</value>
+  </data>
+  <data name="GO_CONFIRMATION_HINT" xml:space="preserve">
+    <value>إذا لم يصلك، تحقق من الرقم أو اطلبه مرة أخرى.</value>
+  </data>
+  <data name="GO_CONFIRMATION_BACK" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>الملف الشخصي - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_HEADING" xml:space="preserve">
+    <value>إعداد ملفك الشخصي</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBTITLE" xml:space="preserve">
+    <value>املأ بياناتك لإكمال التسجيل.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_LABEL" xml:space="preserve">
+    <value>اللقب *</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_USERNAME_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل اللقب</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_LABEL" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل البريد الإلكتروني</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_LABEL" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_FIRST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل الاسم الأول</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_LABEL" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_LAST_NAME_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل اسم العائلة</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_LABEL" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_LABEL" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_ADDRESS_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل العنوان</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_LABEL" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_CITY_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل المدينة</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_LABEL" xml:space="preserve">
+    <value>البلد</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_COUNTRY_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل البلد</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_LABEL" xml:space="preserve">
+    <value>الرمز البريدي</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_POST_CODE_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل الرمز البريدي</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_PHONE_LABEL" xml:space="preserve">
+    <value>الهاتف</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_MOBILE_PHONE_LABEL" xml:space="preserve">
+    <value>الهاتف المحمول</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_LABEL" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>غير محدد</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_MALE" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SEX_FEMALE" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SUBMIT" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BACK" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_BIRTH_DATE_PLACEHOLDER" xml:space="preserve">
+    <value>يوم/شهر/سنة</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_SKIP" xml:space="preserve">
+    <value>تخطي</value>
+  </data>
+  <data name="GO_REGISTRATION_PROFILE_NOTE" xml:space="preserve">
+    <value>بيانات الملف الشخصي مرئية لك ولمسؤولي النادي فقط.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PAGE_TITLE" xml:space="preserve">
+    <value>إنشاء كلمة مرور - Gizmo Go</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_HEADING" xml:space="preserve">
+    <value>أنشئ بيانات تسجيل الدخول</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBTITLE" xml:space="preserve">
+    <value>اختر اسم مستخدم فريدًا وكلمة مرور لتسجيل الدخول إلى Gizmo.</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_BACK" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_LABEL" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PASSWORD_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل كلمة المرور</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_LABEL" xml:space="preserve">
+    <value>أعد إدخال كلمة المرور</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_CONFIRM_PLACEHOLDER" xml:space="preserve">
+    <value>أكّد كلمة المرور</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_TITLE" xml:space="preserve">
+    <value>متطلبات كلمة المرور:</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_SUBMIT" xml:space="preserve">
+    <value>متابعة</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_PAGE_TITLE" xml:space="preserve">
+    <value>المزوّدون - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_BACK" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_LOADING" xml:space="preserve">
+    <value>جارٍ التحميل...</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_EMPTY" xml:space="preserve">
+    <value>لا توجد طرق تسجيل متاحة.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DIVIDER" xml:space="preserve">
+    <value>طرق أخرى</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_ALT_DESCRIPTION" xml:space="preserve">
+    <value>جرّب إحدى الطرق البديلة:</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_SUBTITLE" xml:space="preserve">
+    <value>اختر طريقة التسجيل</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_CONTINUE_WITH" xml:space="preserve">
+    <value>المتابعة عبر </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_PREFIX" xml:space="preserve">
+    <value>بالتسجيل، فإنك توافق على </value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDERS_TERMS_AND" xml:space="preserve">
+    <value> و </value>
+  </data>
+  <data name="GO_EYE_TOGGLE_SHOW" xml:space="preserve">
+    <value>إظهار كلمة المرور</value>
+  </data>
+  <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
+    <value>إلى الرئيسية</value>
+  </data>
+  <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
+    <value>ي</value>
+  </data>
+  <data name="GO_DATE_INPUT_MONTH_LETTER" xml:space="preserve">
+    <value>ش</value>
+  </data>
+  <data name="GO_DATE_INPUT_YEAR_LETTER" xml:space="preserve">
+    <value>س</value>
+  </data>
+  <data name="GO_DATE_INPUT_INCOMPLETE" xml:space="preserve">
+    <value>أدخل التاريخ كاملاً</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_DAY_MONTH" xml:space="preserve">
+    <value>تحقق من اليوم والشهر</value>
+  </data>
+  <data name="GO_DATE_INPUT_CHECK_YEAR" xml:space="preserve">
+    <value>تحقق من السنة</value>
+  </data>
+  <data name="GO_EYE_TOGGLE_HIDE" xml:space="preserve">
+    <value>إخفاء كلمة المرور</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_PAGE_TITLE" xml:space="preserve">
+    <value>جارٍ الاتصال — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_HEADING" xml:space="preserve">
+    <value>جارٍ الاتصال بـ Telegram</value>
+  </data>
+  <data name="GO_REGISTRATION_WAITING_SUBTITLE" xml:space="preserve">
+    <value>جارٍ تسجيل الدخول عبر Telegram. يرجى الانتظار قليلاً.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>تأكيد الرقم</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_HEADING" xml:space="preserve">
+    <value>تأكيد الرقم</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBTITLE" xml:space="preserve">
+    <value>استلمنا رقم هاتفك عبر Telegram</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONFIRMED" xml:space="preserve">
+    <value>تم التأكيد</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_TELEGRAM_CONNECTED" xml:space="preserve">
+    <value>تم ربط الحساب بنجاح</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_LABEL" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_PHONE_VERIFIED" xml:space="preserve">
+    <value>تم التحقق</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_INFO_TEXT" xml:space="preserve">
+    <value>سيُربط هذا الرقم بحسابك في Gizmo. لا حاجة لتأكيد عبر الرسائل القصيرة — الرقم موثّق بالفعل عبر Telegram.</value>
+  </data>
+  <data name="GO_REGISTRATION_BOT_VERIFY_SUBMIT" xml:space="preserve">
+    <value>تأكيد ومتابعة</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>تم إنشاء الحساب — Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_HEADING" xml:space="preserve">
+    <value>تم إنشاء الحساب!</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>تم إنشاء حسابك في Gizmo بنجاح.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_PHONE" xml:space="preserve">
+    <value>تم إنشاء حسابك في Gizmo بنجاح وربطه بالرقم {0}.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBTITLE_EMAIL" xml:space="preserve">
+    <value>تم إنشاء حسابك في Gizmo بنجاح وربطه بالبريد الإلكتروني {0}.</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_PHONE_LABEL" xml:space="preserve">
+    <value>الهاتف</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_EMAIL_LABEL" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="GO_REGISTRATION_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>الانتقال إلى الصفحة الرئيسية</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_GROUP_ARIA" xml:space="preserve">
+    <value>أدخل الرمز المكوّن من {0} أرقام</value>
+  </data>
+  <data name="GO_CONFIRMATION_OTP_DIGIT_ARIA" xml:space="preserve">
+    <value>الرقم {0}</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_PHONE_VERIFIED_LABEL" xml:space="preserve">
+    <value>تم التحقق من الهاتف</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_REQUIREMENTS_ARIA" xml:space="preserve">
+    <value>متطلبات كلمة المرور</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PAGE_TITLE" xml:space="preserve">
+    <value>التسجيل بالبريد الإلكتروني - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_SUBTITLE" xml:space="preserve">
+    <value>أدخل بريدك الإلكتروني للتسجيل</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_LABEL" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_REGISTRATION_PHONE_HINT" xml:space="preserve">
+    <value>سنرسل رمز التأكيد عبر رسالة SMS</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_HINT" xml:space="preserve">
+    <value>سنرسل رمز تأكيد إلى بريدك الإلكتروني.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_OR" xml:space="preserve">
+    <value>أو</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ALT" xml:space="preserve">
+    <value>اختر طريقة أخرى</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>أرسلنا رمزاً مكوناً من {0} أرقام إلى </value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value>. أدخله أدناه.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_CHANGE_EMAIL" xml:space="preserve">
+    <value>تغيير البريد الإلكتروني</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_CONFIRMATION_HINT" xml:space="preserve">
+    <value>إذا لم يصلك، تحقق من مجلد الرسائل غير المرغوب فيها أو اطلبه مرة أخرى.</value>
+  </data>
+  <data name="GO_REGISTRATION_EMAIL_ADD_PHONE_PHONE_PLACEHOLDER" xml:space="preserve">
+    <value>+1 (___) ___-____</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_PAGE_TITLE" xml:space="preserve">
+    <value>إدخال الرقم - Gizmo Go</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HEADING" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBTITLE" xml:space="preserve">
+    <value>أدخل رقم هاتفك. سنعطيك رقماً للاتصال به — ونسجّل دخولك فوراً.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_LABEL" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_SUBMIT" xml:space="preserve">
+    <value>متابعة</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_HINT" xml:space="preserve">
+    <value>المكالمة مجانية. نتعرّف عليك من رقم المكالمة الواردة ونسجّل دخولك تلقائياً.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_PHONE_BACK" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_PAGE_TITLE" xml:space="preserve">
+    <value>بانتظار المكالمة</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_BACK" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_HEADING" xml:space="preserve">
+    <value>اتصل بنا</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INSTRUCTION" xml:space="preserve">
+    <value>اتصل بالرقم أدناه من هاتفك</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CHANGE" xml:space="preserve">
+    <value>تغيير</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_COPY_HINT" xml:space="preserve">
+    <value>اضغط للنسخ</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_INFO" xml:space="preserve">
+    <value>المكالمة مجانية. نتعرّف عليك من رقم المكالمة الواردة — لا حاجة لكلمة مرور.</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_TIMER_PREFIX" xml:space="preserve">
+    <value>بانتظار المكالمة: </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_VERIFY_CANCEL" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>تم تسجيل الدخول</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_HEADING" xml:space="preserve">
+    <value>تم تسجيل الدخول!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_PREFIX" xml:space="preserve">
+    <value>تم استلام المكالمة من الرقم </value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_SUBTITLE_SUFFIX" xml:space="preserve">
+    <value> بنجاح. مرحباً بك في Gizmo!</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_VERIFIED" xml:space="preserve">
+    <value>تمت المصادقة بنجاح</value>
+  </data>
+  <data name="GO_REGISTRATION_CALL_SUCCESS_CALL_RECEIVED" xml:space="preserve">
+    <value>تم استلام المكالمة</value>
+  </data>
+  <data name="GO_GLOBAL_ERROR" xml:space="preserve">
+    <value>حدث خطأ غير متوقع. حاول تحديث الصفحة.</value>
+  </data>
+  <data name="GO_CONFIRMATION_CODE_LENGTH_ERROR" xml:space="preserve">
+    <value>يجب أن يتكون رمز التأكيد من {0} أرقام!</value>
+  </data>
+  <data name="GO_CREATE_PASSWORD_EMAIL_VERIFIED_LABEL" xml:space="preserve">
+    <value>تم التحقق من البريد الإلكتروني</value>
+  </data>
+  <data name="GO_GEN_ADDITIONAL_PHONE" xml:space="preserve">
+    <value>هاتف إضافي</value>
+  </data>
+  <data name="GO_GEN_AN_ERROR_HAS_OCCURRED" xml:space="preserve">
+    <value>حدث خطأ.</value>
+  </data>
+  <data name="GO_GEN_CONTINUE" xml:space="preserve">
+    <value>متابعة</value>
+  </data>
+  <data name="GO_GEN_EMAIL_ADDRESS" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="GO_GEN_ENTER_NEW_PASSWORD" xml:space="preserve">
+    <value>أدخل كلمة المرور الجديدة</value>
+  </data>
+  <data name="GO_GEN_MOBILE_PHONE" xml:space="preserve">
+    <value>الهاتف المحمول</value>
+  </data>
+  <data name="GO_GEN_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>كلمتا المرور غير متطابقتين!</value>
+  </data>
+  <data name="GO_GEN_PHONE_NUMBER" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="GO_GEN_SEX_FEMALE" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="GO_GEN_SEX_MALE" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="GO_GEN_SEX_UNSPECIFIED" xml:space="preserve">
+    <value>غير محدد</value>
+  </data>
+  <data name="GO_GEN_USERNAME" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="GO_GEN_VE_INVALID_FIELD" xml:space="preserve">
+    <value>الحقل غير صالح.</value>
+  </data>
+  <data name="GO_GEN_VE_MAX_LENGTH" xml:space="preserve">
+    <value>يجب ألا يزيد طول الحقل عن {1} حرفاً.</value>
+  </data>
+  <data name="GO_GEN_VE_REQUIRED_FIELD" xml:space="preserve">
+    <value>هذا الحقل مطلوب.</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_SECURE" xml:space="preserve">
+    <value>كلمة مرور آمنة</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_EASY" xml:space="preserve">
+    <value>كلمة المرور سهلة جداً</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_LONG" xml:space="preserve">
+    <value>كلمة المرور طويلة جداً</value>
+  </data>
+  <data name="GO_PASSWORD_MESSAGE_TOO_SHORT" xml:space="preserve">
+    <value>كلمة المرور قصيرة جداً</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_HINT" xml:space="preserve">
+    <value>اتصل بالرقم {0} وأبقِ هذه الشاشة مفتوحة أثناء معالجة التأكيد.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_SUBTITLE" xml:space="preserve">
+    <value>أكمل المكالمة لمتابعة استعادة كلمة المرور.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_CALL_TITLE" xml:space="preserve">
+    <value>التأكيد عبر مكالمة</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_EMAIL" xml:space="preserve">
+    <value>أدخل البريد الإلكتروني المرتبط بحسابك</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_PHONE_NUMBER" xml:space="preserve">
+    <value>أدخل رقم الهاتف المرتبط بحسابك</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ENTER_USERNAME" xml:space="preserve">
+    <value>أدخل اسم المستخدم المرتبط بحسابك</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
+    <value>نسيت كلمة المرور</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_SUBTITLE" xml:space="preserve">
+    <value>اختر طريقة للعثور على حسابك</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_KIND_TITLE" xml:space="preserve">
+    <value>نسيت كلمة المرور</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NEW_PASSWORD" xml:space="preserve">
+    <value>أنشئ كلمة مرور جديدة</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NON_UNIQUE_INPUT" xml:space="preserve">
+    <value>تتطابق هذه القيمة مع أكثر من حساب. استخدم اسم المستخدم بدلاً من ذلك.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_NO_METHODS_AVAILABLE" xml:space="preserve">
+    <value>استعادة كلمة المرور غير متاحة لهذه القيمة</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PASSWORD_RESET_FAILED_MESSAGE" xml:space="preserve">
+    <value>فشلت إعادة تعيين كلمة المرور.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_PLEASE_ENTER_RECOVERY_CODE" xml:space="preserve">
+    <value>أرسلنا رمزًا إلى الرقم {0}. أدخله لإعادة تعيين كلمة المرور.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_REENTER_CONFIRM" xml:space="preserve">
+    <value>أعد الإدخال للتأكيد</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_METHOD" xml:space="preserve">
+    <value>اختر طريقة الاستعادة</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SELECT_OTHER_METHOD" xml:space="preserve">
+    <value>اختر طريقة استعادة أخرى</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SET_PASSWORD_MESSAGE" xml:space="preserve">
+    <value>أنشئ كلمة مرور جديدة لتسجيل الدخول إلى حساب Gizmo.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_USER_NOT_FOUND" xml:space="preserve">
+    <value>لا يوجد حساب يطابق القيمة التي أدخلتها.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_WAITING_CONFIRMATION" xml:space="preserve">
+    <value>بانتظار التأكيد...</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_LOWER_CASE" xml:space="preserve">
+    <value>حرف صغير واحد على الأقل</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MAX_LENGTH" xml:space="preserve">
+    <value>{0} حرفاً كحد أقصى</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_MIN_LENGTH" xml:space="preserve">
+    <value>{0} أحرف على الأقل</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_NUMBER" xml:space="preserve">
+    <value>رقم واحد على الأقل</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_RANGE_LENGTH" xml:space="preserve">
+    <value>من {0} إلى {1} حرفاً</value>
+  </data>
+  <data name="GO_PASSWORD_RULE_UPPER_CASE" xml:space="preserve">
+    <value>حرف كبير واحد على الأقل</value>
+  </data>
+  <data name="GO_REGISTRATION_ADDITIONAL_FIELDS_HEADING" xml:space="preserve">
+    <value>معلومات إضافية</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_ALERT" xml:space="preserve">
+    <value>ارجع — ستتوفر هناك طرق تسجيل إضافية.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_BACK" xml:space="preserve">
+    <value>ارجع واختر طريقة أخرى</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_RETRY" xml:space="preserve">
+    <value>حاول مرة أخرى</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_SUBTITLE" xml:space="preserve">
+    <value>تعذّر إكمال التسجيل. قد يكون ذلك بسبب الإلغاء أو مشكلات تقنية.</value>
+  </data>
+  <data name="GO_REGISTRATION_ERROR_TITLE" xml:space="preserve">
+    <value>فشلت المصادقة</value>
+  </data>
+  <data name="GO_REGISTRATION_FAILED_MESSAGE" xml:space="preserve">
+    <value>حدث خطأ ما. تواصل مع مكتب الاستقبال للحصول على المعلومات.</value>
+  </data>
+  <data name="GO_REGISTRATION_PROVIDER_REDIRECT_NOT_IMPLEMENTED" xml:space="preserve">
+    <value>التسجيل بهذه الطريقة غير متاح بعد. جرّب طريقة أخرى أدناه.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_BACK_TO_MAIN" xml:space="preserve">
+    <value>العودة إلى الشاشة الرئيسية</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_OPEN" xml:space="preserve">
+    <value>فتح الرابط</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_SESSION_EXPIRED" xml:space="preserve">
+    <value>انتهت مهلة الجلسة. حاول مرة أخرى أو اختر طريقة تسجيل دخول أخرى.</value>
+  </data>
+  <data name="GO_REGISTRATION_REDIRECT_WAITING_SCAN" xml:space="preserve">
+    <value>بانتظار المسح…</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_EMAIL" xml:space="preserve">
+    <value>تعذّر التحقق من البريد الإلكتروني.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_PHONE" xml:space="preserve">
+    <value>تعذّر التحقق من الهاتف.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_CANNOT_VALIDATE_USERNAME" xml:space="preserve">
+    <value>تعذّر التحقق من اسم المستخدم.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_ADDRESS_USED" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني المحدد مستخدم بالفعل.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_EMAIL_INVALID" xml:space="preserve">
+    <value>البريد الإلكتروني غير صالح</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_INVALID" xml:space="preserve">
+    <value>رقم الهاتف المحمول غير صالح</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_MOBILE_PHONE_USED" xml:space="preserve">
+    <value>رقم الهاتف المحمول المحدد مستخدم بالفعل.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_SELECT_COUNTRY" xml:space="preserve">
+    <value>يرجى اختيار بلد</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_USERNAME_IN_USE" xml:space="preserve">
+    <value>اسم المستخدم المحدد مستخدم بالفعل.</value>
+  </data>
+  <data name="GO_REGISTRATION_VE_WHITE_SPACE_NOT_ALLOWED" xml:space="preserve">
+    <value>لا يمكن أن يحتوي اسم المستخدم على مسافات.</value>
+  </data>
+  <data name="GO_USER_ADDRESS" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_AGREE_CHECKBOX" xml:space="preserve">
+    <value>لقد قرأت سياسة الخصوصية وشروط الاستخدام وأوافق عليهما.</value>
+  </data>
+  <data name="GO_USER_AGREEMENT_DIALOG_TITLE" xml:space="preserve">
+    <value>سياسة الخصوصية وشروط الاستخدام</value>
+  </data>
+  <data name="GO_USER_CITY" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_CONFIRMATION_CODE_IS_INVALID" xml:space="preserve">
+    <value>رمز التأكيد غير صالح.</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_EMAIL_MESSAGE" xml:space="preserve">
+    <value>تم إرسال رسالة بريد إلكتروني إلى {0}. ابحث عن رمز التحقق في بريدك وأدخله أدناه</value>
+  </data>
+  <data name="GO_USER_CONFIRMATION_SMS_MESSAGE" xml:space="preserve">
+    <value>تم إرسال رسالة نصية إلى {0}. ابحث عن رمز التحقق في رسائل هاتفك وأدخله أدناه</value>
+  </data>
+  <data name="GO_USER_COUNTRY_REGION" xml:space="preserve">
+    <value>البلد/المنطقة</value>
+  </data>
+  <data name="GO_USER_GENDER" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="GO_USER_POST_CODE" xml:space="preserve">
+    <value>الرمز البريدي</value>
+  </data>
+  <data name="GO_REGISTRATION_USERNAME_AVAILABLE" xml:space="preserve">
+    <value>اللقب متاح!</value>
+  </data>
+  <data name="GO_GEN_GOT_IT" xml:space="preserve">
+    <value>حسناً</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_PAGE_TITLE" xml:space="preserve">
+    <value>تم تغيير كلمة المرور - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_HEADING" xml:space="preserve">
+    <value>تم تغيير كلمة المرور</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBTITLE" xml:space="preserve">
+    <value>تم تحديث كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول إلى حسابك بكلمة المرور الجديدة.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SUCCESS_SUBMIT" xml:space="preserve">
+    <value>تسجيل الدخول إلى الحساب</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_TITLE" xml:space="preserve">
+    <value>تم العثور على الحساب!</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>تم العثور على المستخدم. يمكنك الآن إنشاء كلمة مرور جديدة.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_FOUND_SUBMIT" xml:space="preserve">
+    <value>إنشاء كلمة مرور جديدة</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_TITLE" xml:space="preserve">
+    <value>لم يتم العثور على الحساب</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBTITLE" xml:space="preserve">
+    <value>تعذر العثور على المستخدم. جرّب طريقة أخرى.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_ACCOUNT_NOT_FOUND_SUBMIT" xml:space="preserve">
+    <value>العودة واختيار طريقة أخرى</value>
+  </data>
+  <data name="GO_APP_NAME" xml:space="preserve">
+    <value>Gizmo Go</value>
+  </data>
+  <data name="GO_NAV_HOME" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="GO_NAV_BRANCHES" xml:space="preserve">
+    <value>الفروع</value>
+  </data>
+  <data name="GO_NAV_FAVORITES" xml:space="preserve">
+    <value>المفضلة</value>
+  </data>
+  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
+    <value>الحساب</value>
+  </data>
+  <data name="GO_NAV_LOGIN" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="GO_HOME_WELCOME" xml:space="preserve">
+    <value>مرحباً</value>
+  </data>
+  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
+    <value>الفروع - Gizmo Go</value>
+  </data>
+  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
+    <value>المفضلة - Gizmo Go</value>
+  </data>
+  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
+    <value>الحساب - Gizmo Go</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
+    <value>الاستعادة عبر </value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_BACK_TO_LOGIN" xml:space="preserve">
+    <value>العودة إلى تسجيل الدخول</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_HINT" xml:space="preserve">
+    <value>سيتم إرسال رمز إعادة تعيين كلمة المرور إلى هذا البريد الإلكتروني.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_PLACEHOLDER" xml:space="preserve">
+    <value>example@mail.com</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_EMAIL_CODE_MESSAGE" xml:space="preserve">
+    <value>أرسلنا رمزًا إلى {0}. أدخله لإعادة تعيين كلمة المرور.</value>
+  </data>
+  <data name="GO_PASSWORD_RECOVERY_SAVE_PASSWORD" xml:space="preserve">
+    <value>حفظ كلمة المرور الجديدة</value>
+  </data>
+  <data name="GO_GEN_CLOSE" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+</root>

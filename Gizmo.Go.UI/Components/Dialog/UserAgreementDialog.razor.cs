@@ -23,11 +23,10 @@ namespace Gizmo.Go.UI.Components.Dialog
         public bool IsRejectable { get; set; }
 
         /// <summary>
-        /// Allows the user to continue without checking the accept checkbox, even for non-rejectable agreements.
-        /// Used by the registration flow, where declining a mandatory agreement routes the user back to login.
+        /// Shows the agreement for reading only: no accept checkbox, a single close button.
         /// </summary>
         [Parameter]
-        public bool AllowContinueWithoutAccept { get; set; }
+        public bool IsReadOnly { get; set; }
 
         [Parameter]
         public DialogDisplayOptions? DisplayOptions { get; set; }
@@ -56,6 +55,15 @@ namespace Gizmo.Go.UI.Components.Dialog
         private async Task ContinueAsync()
         {
             await ResultCallback.InvokeAsync(new UserAgreementResult() { Accepted = _accepted });
+        }
+
+        private async Task CloseAsync()
+        {
+            // in the registration flow closing dismisses the agreement; the caller routes a mandatory one back to login
+            if (IsReadOnly)
+                await ContinueAsync();
+            else
+                await DismissCallback.InvokeAsync();
         }
 
         protected override void OnParametersSet()

@@ -1,0 +1,44 @@
+// ============================================
+// Date input: digits-only field with a culture mask.
+// Matches Figma: "Дата рождения" states (159:12345, 159:12318, 159:12290, 159:12252).
+// Field shell (.auth-field__input-wrap) lives in layout/_auth-shell.scss.
+// ============================================
+@use '../themes/default/theme' as *;
+
+.date-input {
+  // the rest of the mask ("_.____") is drawn under the transparent input, aligned after the typed text
+  &__mask {
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-family: 'Noto Sans', $font-family-base;
+    line-height: 21px;
+    color: #808185;
+    white-space: pre;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &__mask-done {
+    visibility: hidden;
+  }
+
+  &__input {
+    position: relative;
+    z-index: 1;
+    line-height: 21px;
+  }
+
+  &__message {
+    font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
+
+    &--hint {
+      color: #808185;
+    }
+  }
+}

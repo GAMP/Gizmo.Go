@@ -1,10 +1,16 @@
+using System.Globalization;
+using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Models.PhoneValidation;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.Options;
 
 namespace Gizmo.Go.UI.Components
 {
     public partial class PhoneInputField : ComponentBase, IDisposable
     {
+        [Inject] private IOptions<RegistrationStubSettings> StubSettings { get; set; } = null!;
+
         [Parameter] public IReadOnlyList<PhoneCountry> Countries { get; set; } = Array.Empty<PhoneCountry>();
 
         /// <summary>
@@ -14,18 +20,27 @@ namespace Gizmo.Go.UI.Components
         [Parameter] public EventCallback<string> ValueChanged { get; set; }
         [Parameter] public string? RegionCode { get; set; }
         [Parameter] public EventCallback<string> RegionCodeChanged { get; set; }
-        [Parameter] public string CountryPlaceholder { get; set; } = "";
         [Parameter] public bool IsInvalid { get; set; }
         [Parameter] public bool Disabled { get; set; }
         [Parameter] public string Id { get; set; } = "phone";
 
         private string _phoneInputValue = "";
+        private string _lastEmittedValue = "";
+        private string _regionCode = "";
+        private string? _lastRegionCodeParameter;
+        private bool _debouncePending;
+        private bool _isOpen;
+        private bool _defaultApplied;
+        private IReadOnlyList<PhoneCountry>? _countriesSource;
+        private IReadOnlyList<PhoneCountry> SortedCountries { get; set; } = Array.Empty<PhoneCountry>();
         private CancellationTokenSource? _debounceCts;
 
+        private bool IsCountryDisabled => Disabled || SortedCountries.Count == 0;
+
         private PhoneCountry? SelectedCountry =>
-            string.IsNullOrEmpty(RegionCode)
+            string.IsNullOrEmpty(_regionCode)
                 ? null
-                : Countries.FirstOrDefault(c => string.Equals(c.RegionCode, RegionCode, StringComparison.OrdinalIgnoreCase));
+                : SortedCountries.FirstOrDefault(c => string.Equals(c.RegionCode, _regionCode, StringComparison.OrdinalIgnoreCase));
 
         private int MaxLength =>
             SelectedCountry is { } country
@@ -36,41 +51,136 @@ namespace Gizmo.Go.UI.Components
 
         protected override void OnParametersSet()
         {
-            if (_debounceCts is null)
+            if (!ReferenceEquals(_countriesSource, Countries))
+            {
+                _countriesSource = Countries;
+                SortedCountries = Countries
+                    .OrderBy(c => c.CountryName, StringComparer.Create(CultureInfo.CurrentUICulture, true))
+                    .ToList();
+                _defaultApplied = false;
+            }
+
+            if (_lastRegionCodeParameter != RegionCode)
+            {
+                _lastRegionCodeParameter = RegionCode;
+                _regionCode = RegionCode ?? "";
+            }
+
+            if (!_debouncePending)
             {
                 var national = ToNationalInput(Value);
                 if (_phoneInputValue != national)
                     _phoneInputValue = national;
+
+                _lastEmittedValue = Value ?? "";
             }
         }
 
-        private async Task OnCountrySelected(ChangeEventArgs e)
+        protected override async Task OnParametersSetAsync()
         {
-            var regionCode = e.Value?.ToString() ?? "";
-            var country = Countries.FirstOrDefault(c => string.Equals(c.RegionCode, regionCode, StringComparison.OrdinalIgnoreCase));
+            if (_defaultApplied || SortedCountries.Count == 0)
+                return;
 
+            _defaultApplied = true;
+
+            if (string.IsNullOrEmpty(_regionCode))
+            {
+                // Preselect the configured country (stub of the server Regional:CountryCode), otherwise
+                // the first one. Value is left untouched so that no validation error is shown before
+                // the user types a number.
+                var defaultCountry = SortedCountries.FirstOrDefault(c =>
+                    string.Equals(c.RegionCode, StubSettings.Value.CountryCode, StringComparison.OrdinalIgnoreCase));
+                _regionCode = (defaultCountry ?? SortedCountries[0]).RegionCode;
+                await RegionCodeChanged.InvokeAsync(_regionCode);
+            }
+        }
+
+        private void Toggle()
+        {
+            if (IsCountryDisabled)
+                return;
+
+            _isOpen = !_isOpen;
+        }
+
+        private void Close() => _isOpen = false;
+
+        private void OnKeyDown(KeyboardEventArgs e)
+        {
+            if (_isOpen && e.Key == "Escape")
+                Close();
+        }
+
+        private async Task OnOptionKeyDown(KeyboardEventArgs e, PhoneCountry country)
+        {
+            if (e.Key is "Enter" or " ")
+                await SelectCountryAsync(country);
+        }
+
+        private async Task SelectCountryAsync(PhoneCountry country)
+        {
+            _isOpen = false;
+
+            if (string.Equals(country.RegionCode, _regionCode, StringComparison.OrdinalIgnoreCase))
+                return;
+
+            _debounceCts?.Cancel();
+            _debouncePending = false;
+            _regionCode = country.RegionCode;
             _phoneInputValue = "";
-            await RegionCodeChanged.InvokeAsync(regionCode);
-            await ValueChanged.InvokeAsync(ToDigits(country?.CallingCode));
+
+            await RegionCodeChanged.InvokeAsync(country.RegionCode);
+            await EmitValueAsync(ToDigits(country.CallingCode));
         }
 
         private async Task OnPhoneInputAsync(ChangeEventArgs e)
         {
             _debounceCts?.Cancel();
-            _debounceCts = new CancellationTokenSource();
-            _phoneInputValue = e.Value?.ToString() ?? "";
+            var cts = new CancellationTokenSource();
+            _debounceCts = cts;
+            _debouncePending = true;
+
+            // only digits and number formatting characters: letters are removed from the field right away
+            var raw = e.Value?.ToString() ?? "";
+            var clean = SanitizeInput(raw);
+            if (clean != raw)
+            {
+                // render the raw text first so the renderer sees a change and writes the cleaned value back
+                _phoneInputValue = raw;
+                StateHasChanged();
+                await Task.Yield();
+            }
+
+            _phoneInputValue = clean;
             try
             {
-                await Task.Delay(150, _debounceCts.Token);
-                await ValueChanged.InvokeAsync(CallingCodeDigits + ToDigits(_phoneInputValue));
+                await Task.Delay(150, cts.Token);
+                _debouncePending = false;
+                await EmitValueAsync(CallingCodeDigits + ToDigits(_phoneInputValue));
             }
             catch (TaskCanceledException) { }
         }
 
         private async Task OnPhoneFormattedAsync(ChangeEventArgs e)
         {
-            _phoneInputValue = e.Value?.ToString() ?? "";
-            await ValueChanged.InvokeAsync(CallingCodeDigits + ToDigits(_phoneInputValue));
+            _debounceCts?.Cancel();
+            _debouncePending = false;
+            _phoneInputValue = SanitizeInput(e.Value?.ToString() ?? "");
+            await EmitValueAsync(CallingCodeDigits + ToDigits(_phoneInputValue));
+        }
+
+        private static string SanitizeInput(string value) =>
+            new(value.Where(c => char.IsDigit(c) || c is ' ' or '-' or '(' or ')').ToArray());
+
+        // The same value is never emitted twice in a row: a repeated emit restarts the async
+        // validation in the view service and temporarily disables the submit button.
+        private async Task EmitValueAsync(string value)
+        {
+            if (value == _lastEmittedValue)
+                return;
+
+            _lastEmittedValue = value;
+            await ValueChanged.InvokeAsync(value);
         }
 
         private string ToNationalInput(string value)

@@ -1,0 +1,113 @@
+// ============================================
+// Phone input: country selector embedded in the number field.
+// Matches Figma: "Auth / phone country list" (159:14029).
+// Field shell (.auth-field__input-wrap) lives in layout/_auth-shell.scss.
+// ============================================
+@use '../themes/default/theme' as *;
+
+.phone-input {
+  padding-left: 0;
+
+  &__country {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    width: 76px;
+    height: 100%;
+    padding: 0 10px;
+    margin-right: 12px;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(#f6fbfd, 0.08);
+    border-radius: 12px 0 0 12px;
+    box-sizing: border-box;
+    color: $color-text-on-primary;
+    font-family: 'Twemoji Country Flags', 'Noto Sans', $font-family-base;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__flag {
+    font-size: $font-size-md;
+    line-height: 1;
+  }
+
+  &__code {
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    color: rgba($color-text-on-primary, 0.70);
+    white-space: nowrap;
+  }
+
+  &__chevron {
+    flex-shrink: 0;
+    color: rgba($color-text-on-primary, 0.40);
+    transition: transform $transition-fast;
+  }
+
+  &--open &__chevron {
+    transform: rotate(180deg);
+  }
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: $z-index-dropdown;
+  }
+
+  &__list {
+    position: absolute;
+    top: calc(100% + #{$spacing-xs});
+    left: 0;
+    right: 0;
+    z-index: $z-index-dropdown + 1;
+    margin: 0;
+    padding: $spacing-xs;
+    list-style: none;
+    max-height: 264px;
+    overflow-y: auto;
+    background: $color-welcome-surface;
+    border: 1px solid rgba($color-text-on-primary, 0.20);
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 0 10px;
+    border-radius: 6px;
+    color: $color-text-on-primary;
+    font-family: 'Twemoji Country Flags', 'Noto Sans', $font-family-base;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    outline: none;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba($color-text-on-primary, 0.07);
+    }
+
+    &--selected {
+      background: rgba($color-welcome-btn-primary, 0.20);
+    }
+  }
+
+  &__name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

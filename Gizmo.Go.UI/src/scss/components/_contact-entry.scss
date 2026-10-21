@@ -1,0 +1,136 @@
+// ============================================
+// Contact entry step (ContactEntryForm): registration by email / phone, recovery destination.
+// Matches Figma: 159:13640, 159:13692, 159:13260, 159:13339, 159:13301.
+// Content starts 118px from the frame top (back header 84.5px + 33.5px); blocks 24px apart.
+// ============================================
+@use '../themes/default/theme' as *;
+
+.contact-entry-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 33.5px 16px 32px;
+  box-sizing: border-box;
+
+  .auth-hero {
+    gap: 8px;
+  }
+
+  .auth-hero__title {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 29px;
+  }
+
+  .auth-hero__subtitle {
+    font-size: 13px;
+    line-height: 18px;
+    color: #808185;
+  }
+}
+
+.contact-entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-entry-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .auth-field {
+    gap: 5px;
+  }
+}
+
+// ---- One-line hint with an info icon ----
+
+.contact-entry-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  font-family: 'Noto Sans', $font-family-base;
+  color: #808185;
+  line-height: 16px;
+
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    color: #808185;
+  }
+}
+
+// ---- "or" divider ----
+
+.contact-entry-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background: rgba(#ffffff, 0.10);
+  }
+
+  &__text {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-family: 'Noto Sans', $font-family-base;
+    line-height: 18px;
+    color: #55575c;
+  }
+}
+
+// ---- Bottom actions ----
+
+// "Already have an account? Sign in": 12px below the alternative button
+.contact-entry-footer {
+  height: 52px;
+  margin-top: -12px;
+  gap: 4px;
+
+  .auth-footer__text,
+  .auth-footer__link {
+    font-size: 15px;
+    font-weight: $font-weight-medium;
+    line-height: 22px;
+    letter-spacing: 0.02px;
+  }
+
+  .auth-footer__text {
+    color: #808185;
+  }
+}
+
+// "Back to sign in" (recovery)
+.contact-entry-back {
+  min-height: 22px;
+  font-size: 15px;
+  font-weight: $font-weight-medium;
+  line-height: 22px;
+  letter-spacing: 0.02px;
+  color: rgba(#ffffff, 0.75);
+}
+
+// ---- Recovery method choice (Figma 159:14334): 20px from the subtitle, buttons 12px apart ----
+
+.recovery-kind-body {
+  gap: 20px;
+}
+
+.recovery-kind-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

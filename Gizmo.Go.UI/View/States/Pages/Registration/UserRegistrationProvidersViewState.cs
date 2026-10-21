@@ -24,5 +24,7 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
         public Guid? FailedChannelGuid { get; internal set; }
 
         public bool ShowAllProviders { get; internal set; }
+
+        public IReadOnlyList<RegistrationAgreement> Agreements { get; internal set; } = [];
     }
 }

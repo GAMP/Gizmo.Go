@@ -21,6 +21,11 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
         public string Username { get; internal set; } = string.Empty;
 
         /// <summary>
+        /// Gets if the entered username passed all validations including the async availability check.
+        /// </summary>
+        public bool IsUsernameAvailable { get; internal set; }
+
+        /// <summary>
         /// Gets or sets new password.
         /// </summary>
         [ValidatingProperty()]
@@ -87,6 +92,11 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
         public bool ShowMobilePhone { get; internal set; }
 
         public bool ShowPhone { get; internal set; }
+
+        /// <summary>
+        /// The address step follows the profile step (country, address, city or post code is required).
+        /// </summary>
+        public bool HasAdditionalFields { get; internal set; }
 
         public IReadOnlyList<PhoneCountry> PhoneCountries { get; internal set; } = Array.Empty<PhoneCountry>();
 

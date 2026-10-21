@@ -39,6 +39,9 @@ namespace Gizmo.Go.UI.Services.Registration
         public RegistrationRequiredInfo? RequiredUserInfo { get; private set; }
         public Guid? FailedProviderChannelGuid { get; private set; }
 
+        public string? CompletedContact { get; private set; }
+        public bool IsCompletedContactEmail { get; private set; }
+
         public void SetStartResult(string token, string destination, int codeLength, int expiresInSeconds, RegistrationFlow flow)
         {
             Token = token;
@@ -111,6 +114,12 @@ namespace Gizmo.Go.UI.Services.Registration
         public void SetFailedProviderChannelGuid(Guid? channelGuid)
         {
             FailedProviderChannelGuid = channelGuid;
+        }
+
+        public void SetCompletedContact(string? contact, bool isEmail)
+        {
+            CompletedContact = string.IsNullOrWhiteSpace(contact) ? null : contact;
+            IsCompletedContactEmail = CompletedContact != null && isEmail;
         }
 
         public void Clear()

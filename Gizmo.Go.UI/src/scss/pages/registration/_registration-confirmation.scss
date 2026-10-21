@@ -10,7 +10,8 @@
 
 .page-confirmation { @include auth-shell.auth-page-shell; }
 
-// ---- Content body: directly on background, no card ----
+// ---- Content body (shared ConfirmationCodeForm, Figma 159:13381) ----
+// Content starts 118px from the frame top (back header 84.5px + 33.5px); blocks 24px apart.
 
 .confirmation-body {
   position: relative;
@@ -18,19 +19,35 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  padding: 83px 22px 32px;
+  gap: 24px;
+  padding: 33.5px 16px 32px;
   box-sizing: border-box;
+
+  .auth-hero {
+    gap: 8px;
+  }
+
+  .auth-hero__title {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 29px;
+  }
+
+  .auth-hero__subtitle {
+    font-size: 13px;
+    line-height: 18px;
+    color: #808185;
+  }
 }
 
-// ---- Phone number highlight in subtitle ----
+// ---- Destination highlight in subtitle ----
 
 .confirmation-phone {
-  color: rgba(#ffffff, 0.80);
+  color: #ffffff;
   font-weight: $font-weight-medium;
 }
 
-// ---- OTP input row ----
+// ---- Code cells ----
 
 .confirmation-otp-row {
   display: flex;
@@ -42,55 +59,57 @@
   flex: 1;
   min-width: 0;
   height: 52px;
-  border: 1px solid rgba(#f6fbfd, 0.28);
-  border-radius: 8px;
-  background: transparent;
+  border: 1px solid rgba(#f6fbfd, 0.18);
+  border-radius: 10px;
+  background: rgba(#ffffff, 0.05);
   color: #ffffff;
   font-family: 'Noto Sans', $font-family-base;
   font-size: 20px;
   font-weight: $font-weight-medium;
   text-align: center;
+  text-transform: uppercase;
   outline: none;
   caret-color: $color-welcome-accent;
   box-sizing: border-box;
-  transition: border-color $transition-fast, box-shadow $transition-fast, background $transition-fast;
+  transition: border-color $transition-fast;
   -webkit-tap-highlight-color: transparent;
   appearance: none;
 
   &:focus {
-    border-color: rgba($color-welcome-accent, 0.60);
-    box-shadow: 0 0 0 3px rgba($color-welcome-accent, 0.10);
-  }
-
-  &--filled {
-    border-color: rgba($color-welcome-accent, 0.45);
-    background: rgba($color-welcome-accent, 0.06);
+    border-color: rgba($color-welcome-accent, 0.50);
   }
 }
 
-// ---- Resend / timer row ----
+// ---- Resend / change links and hint ----
+
+.confirmation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 .confirmation-resend-row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 
 .confirmation-timer {
   margin: 0;
   font-size: 13px;
   font-family: 'Noto Sans', $font-family-base;
-  color: rgba(#ffffff, 0.35);
+  color: #808185;
   text-align: center;
-  line-height: 1.5;
+  line-height: 19.5px;
 }
 
-.confirmation-resend-btn {
+.confirmation-resend-btn,
+.confirmation-change-number-btn {
   font-size: 13px;
   font-family: 'Noto Sans', $font-family-base;
-  font-weight: $font-weight-regular;
-  color: $color-welcome-accent;
+  font-weight: $font-weight-medium;
+  line-height: 19.5px;
   background: transparent;
   border: none;
   padding: 0;
@@ -104,31 +123,19 @@
   }
 }
 
-.confirmation-change-number-btn {
-  font-size: 13px;
-  font-family: 'Noto Sans', $font-family-base;
-  font-weight: $font-weight-regular;
-  color: rgba(#ffffff, 0.35);
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: opacity $transition-fast;
-
-  &:hover {
-    opacity: 0.7;
-  }
+.confirmation-resend-btn {
+  color: $color-welcome-accent-mid;
 }
 
-// ---- Hint text ----
+.confirmation-change-number-btn {
+  color: #808185;
+}
 
 .confirmation-hint {
   margin: 0;
   font-size: 11px;
   font-family: 'Noto Sans', $font-family-base;
-  color: rgba(#ffffff, 0.25);
-  text-align: center;
-  line-height: 1.55;
+  color: #55575c;
+  text-align: left;
+  line-height: 16px;
 }

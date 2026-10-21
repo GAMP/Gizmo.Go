@@ -41,6 +41,17 @@ namespace Gizmo.Go.UI.Services.Registration
         RegistrationRequiredInfo? RequiredUserInfo { get; }
         Guid? FailedProviderChannelGuid { get; }
 
+        /// <summary>
+        /// Gets the contact the completed registration is bound to (phone, otherwise email).
+        /// Kept by <see cref="Clear"/> for the success screen, which resets it.
+        /// </summary>
+        string? CompletedContact { get; }
+
+        /// <summary>
+        /// Gets a value indicating that <see cref="CompletedContact"/> is an email address.
+        /// </summary>
+        bool IsCompletedContactEmail { get; }
+
         void SetStartResult(string token, string destination, int codeLength, int expiresInSeconds, RegistrationFlow flow);
         void SetContactDetails(string? actualContact, string? country = null);
         void SetProfileBasics(string username, string? password,
@@ -55,6 +66,7 @@ namespace Gizmo.Go.UI.Services.Registration
         void SetSelectedProvider(RegistrationProvider? provider);
         void SetRequiredUserInfo(RegistrationRequiredInfo? info);
         void SetFailedProviderChannelGuid(Guid? channelGuid);
+        void SetCompletedContact(string? contact, bool isEmail);
         void Clear();
     }
 }

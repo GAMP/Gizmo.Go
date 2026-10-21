@@ -4,7 +4,6 @@ using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Extensions;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.Maui.Services;
-using Gizmo.Go.Maui.Services;
 using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
 using Gizmo.Go.UI.Providers;
@@ -102,6 +101,23 @@ namespace Gizmo.Go.Maui
                 var culture = new CultureInfo(storedCulture);
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
+            }
+            else
+            {
+                // start culture stub, replaced by the server ClientInterface:PreferredLanguage
+                var preferredLanguage = app.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<RegistrationStubSettings>>().Value.PreferredLanguage;
+                if (!string.IsNullOrWhiteSpace(preferredLanguage))
+                {
+                    try
+                    {
+                        var culture = new CultureInfo(preferredLanguage);
+                        CultureInfo.DefaultThreadCurrentCulture = culture;
+                        CultureInfo.DefaultThreadCurrentUICulture = culture;
+                    }
+                    catch (CultureNotFoundException)
+                    {
+                    }
+                }
             }
 
             // NOTE: Auth session restore and view service initialization happen in

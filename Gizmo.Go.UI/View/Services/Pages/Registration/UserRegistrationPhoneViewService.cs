@@ -150,6 +150,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             return Task.CompletedTask;
         }
 
+        // same as the email step: the providers page lists all registration methods
+        public Task NavigateToAlternativeAsync()
+        {
+            _registrationSession.SetShowAllProviders(true);
+            NavigationService.NavigateTo(NavigationHelper.RegistrationProvidersRoute);
+            return Task.CompletedTask;
+        }
+
         public Task NavigateToLoginAsync()
         {
             NavigationService.NavigateTo(NavigationHelper.LoginPage);

@@ -9,6 +9,39 @@
 @use '../../themes/default/theme' as *;
 @use 'sass:color';
 
+// ---- Page layout ----
+// Figma 159:14223: frameless card, content block centered vertically, no back button.
+
+.page-registration-providers {
+  .auth-body {
+    justify-content: center;
+    padding: 24px 16px;
+  }
+
+  .registration-providers-terms {
+    margin: -8px 0 0;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .auth-footer {
+    height: 52px;
+    margin-top: 12px;
+    gap: 4px;
+  }
+
+  .auth-footer__text,
+  .auth-footer__link {
+    font-weight: $font-weight-medium;
+    line-height: 22px;
+    letter-spacing: 0.02px;
+  }
+
+  .auth-footer__text {
+    color: #808185;
+  }
+}
+
 // ---- Provider buttons list ----
 
 .registration-providers-list {
@@ -17,27 +50,31 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
-// ---- Single provider button ----
-// Base: glass style (alternative providers).
-// --primary modifier: blue gradient for priority providers.
+// ---- Single provider button (ProviderButton component) ----
+// Figma SocialButton: 52px, radius 12, icon and text on the left, 16px inset, 12px between icon and text.
+// Base: glass style; --primary modifier: our primary button color (deliberate deviation from the Figma fill).
 
 .registration-providers-btn {
   width: 100%;
-  height: 48px;
+  height: 52px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 15px;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0 16px;
   font-family: 'Noto Sans', $font-family-base;
   font-size: 15px;
   font-weight: $font-weight-medium;
+  line-height: 22px;
+  letter-spacing: 0.02px;
+  text-align: left;
   color: #ffffff;
   background: rgba(#ffffff, 0.07);
   border: 1px solid rgba(#f6fbfd, 0.22);
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   appearance: none;
   box-sizing: border-box;
@@ -52,16 +89,16 @@
     opacity: 0.85;
   }
 
-  // Priority providers — blue gradient (#37AEE2 → #1E96C8), same pattern as welcome-btn--primary
+  // Priority providers — primary button color, same as the Welcome "Sign in" button
   &--primary {
-    background: linear-gradient(135deg, $color-provider-primary-start 0%, $color-provider-primary-end 100%);
+    background: $color-welcome-btn-primary;
     border: none;
     box-shadow:
-      0 0 12px rgba($color-provider-primary-start, 0.20),
-      0 4px 14px rgba($color-provider-primary-end, 0.30);
+      0 0 24px rgba($color-welcome-btn-primary, 0.45),
+      0 4px 12px rgba($color-welcome-btn-primary, 0.30);
 
     &:hover {
-      background: linear-gradient(135deg, color.adjust($color-provider-primary-start, $lightness: 5%) 0%, color.adjust($color-provider-primary-end, $lightness: 5%) 100%);
+      background: color.adjust($color-welcome-btn-primary, $lightness: 5%);
     }
   }
 }

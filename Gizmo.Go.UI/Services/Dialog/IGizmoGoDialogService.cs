@@ -7,7 +7,13 @@ namespace Gizmo.Go.UI.Services.Dialog
     {
         Task<AddDialogResult<UserAgreementResult>> ShowUserAgreementDialogAsync(
             UserAgreementDialogParameters userAgreementDialogParameters,
-            bool allowContinueWithoutAccept = false,
+            CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Shows an agreement for reading only: no accept checkbox, a single close button.
+        /// </summary>
+        Task<AddDialogResult<UserAgreementResult>> ShowReadOnlyUserAgreementDialogAsync(
+            UserAgreementDialogParameters userAgreementDialogParameters,
             CancellationToken cancellationToken = default);
     }
 }

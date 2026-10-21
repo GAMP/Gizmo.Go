@@ -1,26 +1,22 @@
 @using Gizmo.Go.Core.Models.PhoneValidation
 
-<div class="auth-field__input-wrap auth-field__input-wrap--select @(IsInvalid ? "auth-field__input-wrap--invalid" : "")">
-    <select class="auth-field__input"
-            value="@RegionCode"
-            disabled="@(Disabled || Countries.Count == 0)"
-            @onchange="OnCountrySelected">
-        <option value="" disabled>@CountryPlaceholder</option>
-        @foreach (var country in Countries)
-        {
-            <option @key="country.RegionCode" value="@country.RegionCode">@country.Flag @country.CountryName (@country.CallingCode)</option>
-        }
-    </select>
-</div>
-
-<div class="auth-field__input-wrap @(IsInvalid ? "auth-field__input-wrap--invalid" : "")">
-    <span class="auth-field__prefix"
-          style="@(SelectedCountry is null ? "visibility:hidden" : "")">
-        @SelectedCountry?.CallingCode
-    </span>
+<div class="auth-field__input-wrap phone-input @(IsInvalid ? "auth-field__input-wrap--invalid" : "") @(_isOpen ? "phone-input--open" : "")"
+     @onkeydown="OnKeyDown">
+    <button type="button"
+            class="phone-input__country"
+            disabled="@IsCountryDisabled"
+            aria-haspopup="listbox"
+            aria-expanded="@_isOpen"
+            @onclick="Toggle">
+        <span class="phone-input__flag">@SelectedCountry?.Flag</span>
+        <span class="phone-input__code">@SelectedCountry?.CallingCode</span>
+        <svg class="phone-input__chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
     <input id="@Id"
            type="tel"
-           class="auth-field__input"
+           class="auth-field__input phone-input__input"
            autocomplete="tel"
            inputmode="tel"
            disabled="@(Disabled || SelectedCountry is null)"
@@ -29,4 +25,26 @@
            maxlength="@MaxLength"
            @oninput="OnPhoneInputAsync"
            @onchange="OnPhoneFormattedAsync" />
+
+    @if (_isOpen)
+    {
+        <div class="phone-input__backdrop" @onclick="Close"></div>
+        <ul class="phone-input__list" role="listbox">
+            @foreach (var country in SortedCountries)
+            {
+                var isSelected = string.Equals(country.RegionCode, _regionCode, StringComparison.OrdinalIgnoreCase);
+                <li @key="country.RegionCode"
+                    class="phone-input__option @(isSelected ? "phone-input__option--selected" : "")"
+                    role="option"
+                    tabindex="0"
+                    aria-selected="@isSelected"
+                    @onclick="() => SelectCountryAsync(country)"
+                    @onkeydown="e => OnOptionKeyDown(e, country)">
+                    <span class="phone-input__flag">@country.Flag</span>
+                    <span class="phone-input__name">@country.CountryName</span>
+                    <span class="phone-input__code">@country.CallingCode</span>
+                </li>
+            }
+        </ul>
+    }
 </div>

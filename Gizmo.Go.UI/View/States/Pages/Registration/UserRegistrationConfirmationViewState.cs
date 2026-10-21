@@ -32,6 +32,11 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
 
         public bool TimerExpired => SecondsLeft <= 0;
 
+        /// <summary>
+        /// Code lifetime in minutes (server ExpiresInSeconds, rounded up); 0 when unknown.
+        /// </summary>
+        public int CodeLifetimeMinutes { get; internal set; }
+
         public string TimerDisplay => $"{SecondsLeft / 60:D2}:{SecondsLeft % 60:D2}";
     }
 }

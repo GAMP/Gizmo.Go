@@ -15,7 +15,5 @@ namespace Gizmo.Go.UI.Pages.Registration
         private async Task GoBack() => await UserRegistrationErrorViewService.GoBackAsync();
 
         private async Task TryAgain() => await UserRegistrationErrorViewService.TryAgainAsync();
-
-        private async Task NavigateToLogin() => await UserRegistrationErrorViewService.NavigateToLoginAsync();
     }
 }

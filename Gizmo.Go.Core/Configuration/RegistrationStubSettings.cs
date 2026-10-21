@@ -10,6 +10,22 @@ namespace Gizmo.Go.Core.Configuration
         public bool IsDirectRegistrationEnabled { get; set; }
         public bool IsPasswordRecoveryEnabled { get; set; } = true;
         public RegistrationRequiredInfoStub RequiredInfo { get; set; } = new();
+
+        /// <summary>
+        /// Start UI culture when none is stored. Replaced by the server ClientInterface:PreferredLanguage.
+        /// </summary>
+        public string? PreferredLanguage { get; set; } = "ru";
+
+        /// <summary>
+        /// Default phone country (ISO 3166-1 alpha-2). Replaced by the server Regional:CountryCode.
+        /// </summary>
+        public string? CountryCode { get; set; } = "RU";
+
+        /// <summary>
+        /// Logo image URL (absolute or relative to the app base) shown on the login and registration provider screens;
+        /// empty keeps the placeholder. Replaced by the server Logo client option (LogoOptions).
+        /// </summary>
+        public string? Logo { get; set; }
     }
 
     public sealed class RegistrationRequiredInfoStub

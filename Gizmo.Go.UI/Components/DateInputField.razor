@@ -1,0 +1,26 @@
+<div class="auth-field__input-wrap date-input @(DisplayedError is not null ? "auth-field__input-wrap--invalid" : "")">
+    @if (ShowMask)
+    {
+        <span class="date-input__mask" aria-hidden="true"><span class="date-input__mask-done">@_text</span>@MaskLeft</span>
+    }
+    <input id="@Id"
+           type="text"
+           class="auth-field__input date-input__input"
+           inputmode="numeric"
+           autocomplete="bday"
+           maxlength="@_format.Length"
+           disabled="@Disabled"
+           value="@_text"
+           placeholder="@(ShowMask ? string.Empty : _patternHint)"
+           @onfocus="OnFocus"
+           @onblur="OnBlur"
+           @oninput="OnInputAsync" />
+</div>
+@if (DisplayedError is not null)
+{
+    <span class="validation-message date-input__message">@DisplayedError</span>
+}
+else if (ShowHint)
+{
+    <span class="date-input__message date-input__message--hint">@_patternHint</span>
+}

@@ -23,7 +23,8 @@ namespace Gizmo.Go.Provider.Direct.Services
             {
                 IsRegistrationEnabled = settings.IsRegistrationEnabled,
                 IsDirectRegistrationEnabled = settings.IsDirectRegistrationEnabled,
-                IsPasswordRecoveryEnabled = settings.IsPasswordRecoveryEnabled
+                IsPasswordRecoveryEnabled = settings.IsPasswordRecoveryEnabled,
+                Logo = settings.Logo
             });
         }
     }

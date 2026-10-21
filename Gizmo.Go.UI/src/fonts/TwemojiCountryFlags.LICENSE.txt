@@ -1,0 +1,10 @@
+TwemojiCountryFlags.woff2
+
+Font file from the country-flag-emoji-polyfill package
+(https://github.com/talkjs/country-flag-emoji-polyfill), MIT License.
+
+Flag glyphs: Twemoji, Copyright 2020 Twitter, Inc and other contributors
+(https://github.com/twitter/twemoji), licensed under CC-BY 4.0
+(https://creativecommons.org/licenses/by/4.0/).
+
+Used by src/scss/base/_fonts.scss for regional indicator symbols only.

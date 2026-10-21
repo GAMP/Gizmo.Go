@@ -34,5 +34,7 @@ namespace Gizmo.Go.UI.Pages.PasswordRecovery
         private async Task OpenAsync() => await PasswordRecoveryConfirmationViewService.OpenAsync();
 
         private async Task NavigateBack() => await PasswordRecoveryConfirmationViewService.NavigateBackAsync();
+
+        private async Task NavigateToDestination() => await PasswordRecoveryConfirmationViewService.NavigateToDestinationAsync();
     }
 }

@@ -3,7 +3,8 @@
 // Matches Figma: "Auth / 02 · Вход"
 //
 // Shared auth shell styles (card, fields, submit, footer)
-// live in layout/_auth-shell.scss.
+// live in layout/_auth-shell.scss (frameless .auth-card--plain, 48px
+// fields); the overrides below are scoped to .page-login (52px buttons).
 // ============================================
 @use '../themes/default/theme' as *;
 @use 'sass:color';
@@ -19,77 +20,41 @@
   color: #ffffff;
   font-family: 'Noto Sans', $font-family-base;
   overflow-x: hidden;
-  padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   box-sizing: border-box;
 
-  // Background hero image
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('../img/arena-hero-bg.png');
-    background-size: auto 100%;
-    background-position: 69.3% top;
-    background-repeat: no-repeat;
-    opacity: 0.55;
-    z-index: 0;
+  // Figma: content starts 118px from the frame top (54px status bar + 48px header row + 16px).
+  // On devices the status bar is the safe-area inset.
+  .auth-body {
+    padding: max(118px, calc(env(safe-area-inset-top, 0px) + 64px)) 16px 32px;
   }
 
-  // Dark gradient overlay
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba($color-welcome-bg, 0.30) 0%,
-        rgba($color-welcome-bg, 0.75) 45%,
-        rgba($color-welcome-bg, 0.97) 70%,
-        $color-welcome-bg 100%
-      );
-    z-index: 0;
-  }
-}
-
-.page-login > * {
-  position: relative;
-  z-index: 1;
-}
-
-// ---- Hero backdrop ----
-
-.login-hero-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 55%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 15%, rgba($color-welcome-btn-primary, 0.18) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 45% at 80% 8%, rgba($color-welcome-accent, 0.06) 0%, transparent 55%),
-      linear-gradient(180deg, rgba(#1b2535, 0.25) 0%, transparent 100%);
+  .auth-card > form {
+    gap: 24px;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 3px,
-      rgba($color-welcome-accent, 0.015) 3px,
-      rgba($color-welcome-accent, 0.015) 4px
-    );
+  .auth-fields {
+    gap: 16px;
+  }
+
+  // ---- Actions ----
+
+  .auth-footer {
+    height: 52px;
+    margin-top: 12px;
+    gap: 4px;
+  }
+
+  .auth-footer__text,
+  .auth-footer__link {
+    font-size: 15px;
+    font-weight: $font-weight-medium;
+    line-height: 22px;
+    letter-spacing: 0.02px;
+  }
+
+  .auth-footer__text {
+    color: #808185;
   }
 }
 
@@ -97,25 +62,26 @@
 
 .login-tabs {
   display: flex;
-  border: 1px solid rgba(#f6fbfd, 0.28);
-  border-radius: 8px;
+  border: 1px solid rgba(#f6fbfd, 0.18);
+  border-radius: 12px;
   padding: 2px;
   gap: 0;
 }
 
 .login-tab {
   flex: 1;
-  height: 36px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Noto Sans', $font-family-base;
-  font-size: 14px;
-  font-weight: $font-weight-regular;
+  font-size: 15px;
+  font-weight: $font-weight-medium;
+  line-height: 21px;
   color: rgba(#ffffff, 0.80);
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   appearance: none;
   transition: background $transition-fast;
@@ -141,7 +107,8 @@
 
 .login-forgot {
   font-size: 12px;
-  font-weight: $font-weight-regular;
+  font-weight: $font-weight-medium;
+  line-height: 18px;
   color: $color-welcome-accent;
   background: transparent;
   border: none;
@@ -157,3 +124,11 @@
   }
 }
 
+
+// ---- Mobile compact adjustments ----
+
+@media (max-height: 680px) {
+  .page-login .auth-body {
+    padding-top: max(64px, calc(env(safe-area-inset-top, 0px) + 32px));
+  }
+}

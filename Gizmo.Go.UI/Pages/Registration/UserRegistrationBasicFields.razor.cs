@@ -21,11 +21,14 @@ namespace Gizmo.Go.UI.Pages.Registration
 
         private bool _showPassword;
         private bool _showConfirm;
+        private string _usernameInputValue = string.Empty;
+        private CancellationTokenSource? _usernameDebounceCts;
 
         private PasswordTooltipViewState Tooltip => UserRegistrationBasicFieldsViewState.PasswordTooltip;
 
         protected override void OnInitialized()
         {
+            _usernameInputValue = UserRegistrationBasicFieldsViewState.Username;
             this.SubscribeChange(UserRegistrationBasicFieldsViewState);
             this.SubscribeChange(UserRegistrationBasicFieldsViewState.PasswordTooltip);
             base.OnInitialized();
@@ -34,6 +37,8 @@ namespace Gizmo.Go.UI.Pages.Registration
         public void Dispose()
         {
             this.UnsubscribeChange(UserRegistrationBasicFieldsViewState);
+            _usernameDebounceCts?.Cancel();
+            _usernameDebounceCts?.Dispose();
             this.UnsubscribeChange(UserRegistrationBasicFieldsViewState.PasswordTooltip);
         }
 
@@ -47,11 +52,39 @@ namespace Gizmo.Go.UI.Pages.Registration
             return UserRegistrationBasicFieldsViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
         }
 
+        private async Task OnUsernameInput(ChangeEventArgs e)
+        {
+            _usernameDebounceCts?.Cancel();
+            _usernameDebounceCts = new CancellationTokenSource();
+
+            _usernameInputValue = e.Value?.ToString() ?? string.Empty;
+
+            try
+            {
+                await Task.Delay(300, _usernameDebounceCts.Token);
+                UserRegistrationBasicFieldsViewService.SetUsername(_usernameInputValue);
+            }
+            catch (OperationCanceledException) { }
+        }
+
         private void OnPasswordInput(ChangeEventArgs e) =>
             UserRegistrationBasicFieldsViewService.SetPassword(e.Value?.ToString() ?? string.Empty);
 
         private void OnRepeatPasswordInput(ChangeEventArgs e) =>
             UserRegistrationBasicFieldsViewService.SetRepeatPassword(e.Value?.ToString() ?? string.Empty);
+
+        // a username edit that is not applied yet (debounce) keeps the submit button disabled,
+        // so a click is never accepted for a stale availability check
+        private bool IsUsernamePending => _usernameInputValue != UserRegistrationBasicFieldsViewState.Username;
+
+        // password and confirmation are validated while typing, so their messages are current here
+        private bool IsContinueDisabled =>
+            IsUsernamePending
+            || !UserRegistrationBasicFieldsViewState.IsUsernameAvailable
+            || string.IsNullOrEmpty(UserRegistrationBasicFieldsViewState.Password)
+            || string.IsNullOrEmpty(UserRegistrationBasicFieldsViewState.RepeatPassword)
+            || HasErrors(() => UserRegistrationBasicFieldsViewState.Password)
+            || HasErrors(() => UserRegistrationBasicFieldsViewState.RepeatPassword);
 
         private async Task ContinueAsync() => await UserRegistrationBasicFieldsViewService.ContinueToProfileAsync();
 

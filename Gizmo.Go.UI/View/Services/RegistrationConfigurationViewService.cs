@@ -35,6 +35,7 @@ namespace Gizmo.Go.UI.View.Services
 
                 ViewState.IsDirectEnabled = options.IsDirectRegistrationEnabled;
                 ViewState.IsPasswordRecoveryEnabled = options.IsPasswordRecoveryEnabled;
+                ViewState.Logo = options.Logo;
 
                 //If there is no default user group this will fail.
                 await _registrationService.GetRequiredUserInfoAsync(ct).ConfigureAwait(false);

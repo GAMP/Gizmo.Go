@@ -1,6 +1,6 @@
 // ============================================
-// Registration Success page styles.
-// Matches Figma: "Auth / 07 · Готово"
+// Success step styles (SuccessScreen component).
+// Base: registration, Figma 159:13238. Modifier --recovery: password recovery, Figma 159:12653.
 //
 // Page shell reuses .page-create-account background.
 // Button reuses .auth-submit from layout/_auth-shell.scss.
@@ -23,6 +23,7 @@
 }
 
 // ---- Body: vertically centered content ----
+// Figma 159:13238: icon, text and contact card 36px apart, centered on the screen.
 
 .registration-success-body {
     flex: 1;
@@ -30,106 +31,115 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 24px 40px;
-    gap: 32px;
+    padding: 40px 16px;
+    gap: 36px;
     box-sizing: border-box;
     text-align: center;
 }
 
-// ---- Icon circle ----
+// ---- Icon circle with a soft green glow ----
 
 .registration-success-icon {
-    width: 100px;
-    height: 100px;
+    position: relative;
+    width: 96px;
+    height: 96px;
     border-radius: $radius-full;
-    border: 2px solid rgba($color-welcome-accent-mid, 0.40);
-    background: radial-gradient(circle at center, rgba($color-welcome-accent-mid, 0.16) 0%, rgba($color-welcome-accent-mid, 0.07) 60%, transparent 100%);
+    border: 2px solid rgba($color-success-light, 0.40);
+    background: linear-gradient(135deg, rgba($color-success-light, 0.20) 0%, rgba($color-success, 0.15) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-sizing: border-box;
+    color: $color-success-light;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -24px;
+        border-radius: $radius-full;
+        background: radial-gradient(circle, rgba($color-success-light, 0.15) 0%, rgba($color-success-light, 0) 70%);
+        pointer-events: none;
+    }
 }
 
-// ---- Text block: emoji + title + subtitle ----
+// ---- Text block: title + subtitle ----
 
 .registration-success-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
-}
-
-.registration-success-emoji {
-    font-size: 40px;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    user-select: none;
+    gap: 8px;
+    max-width: 260px;
 }
 
 .registration-success-title {
-    margin: 0 0 10px;
+    margin: 0;
     font-family: 'Rubik', $font-family-heading;
-    font-size: 28px;
-    font-weight: $font-weight-bold;
-    color: #fafafa;
-    line-height: 1.2;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 29px;
 }
 
 .registration-success-subtitle {
     margin: 0;
-    font-size: 14px;
-    font-weight: $font-weight-regular;
-    color: rgba(#ffffff, 0.55);
-    line-height: 1.55;
-}
-
-// ---- Feature chips ----
-
-.registration-success-chips {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-}
-
-.registration-success-chips__row {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.registration-success-chip {
-    display: inline-flex;
-    align-items: center;
-    padding: 7px 14px;
-    border-radius: $radius-full;
-    border: 1px solid rgba($color-welcome-accent-mid, 0.25);
-    background: rgba($color-welcome-btn-primary, 0.15);
     font-size: 13px;
-    font-family: 'Noto Sans', $font-family-base;
     font-weight: $font-weight-regular;
-    color: #ffffff;
-    white-space: nowrap;
-    user-select: none;
+    color: #808185;
+    line-height: 18px;
 }
 
-// ---- Actions block: button + note ----
+// ---- Contact card ----
 
-.registration-success-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+.registration-success-card {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(#ffffff, 0.04);
+    border: 1px solid rgba(#f6fbfd, 0.08);
+    border-radius: 12px;
+    box-sizing: border-box;
+    text-align: left;
+
+    &__label {
+        font-size: 12px;
+        line-height: 18px;
+        color: #808185;
+    }
+
+    &__value {
+        font-size: 13px;
+        line-height: 19.5px;
+        color: #ffffff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
-.registration-success-note {
-    margin: 0;
-    font-size: 11px;
-    font-family: 'Noto Sans', $font-family-base;
-    font-weight: $font-weight-regular;
-    color: rgba(#ffffff, 0.30);
-    line-height: 1.5;
-    max-width: 280px;
+// ---- Password recovery (Figma 159:12653) ----
+// Icon, text and button 20px apart; wider text block with taller lines.
+
+.registration-success--recovery {
+    .registration-success-body {
+        gap: 20px;
+        padding: 40px 16px;
+    }
+
+    .registration-success-content {
+        gap: 10px;
+        max-width: 327px;
+    }
+
+    .registration-success-title {
+        line-height: 39px;
+    }
+
+    .registration-success-subtitle {
+        line-height: 21.7px;
+    }
 }

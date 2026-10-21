@@ -81,11 +81,27 @@ if (!string.IsNullOrWhiteSpace(storedCulture))
     CultureInfo.DefaultThreadCurrentCulture = culture;
     CultureInfo.DefaultThreadCurrentUICulture = culture;
 }
+else
+{
+    // start culture stub, replaced by the server ClientInterface:PreferredLanguage
+    var preferredLanguage = host.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<RegistrationStubSettings>>().Value.PreferredLanguage;
+    if (!string.IsNullOrWhiteSpace(preferredLanguage))
+    {
+        try
+        {
+            var culture = new CultureInfo(preferredLanguage);
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+        }
+        catch (CultureNotFoundException)
+        {
+        }
+    }
+}
 
 // restore persisted auth session (before first render to avoid login flash)
 await host.Services.GetRequiredService<IAuthService>().TryRestoreSessionAsync();
 
-// initialize all view services (sets up EditContext subscriptions, navigation lifecycle, etc.)
-await host.Services.InitializeViewsServices();
-
+// view services are initialized in App.razor.cs: satellite resource assemblies are loaded only by
+// host.RunAsync(), so resource lookups before it would cache the neutral (English) strings
 await host.RunAsync();

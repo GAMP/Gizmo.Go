@@ -77,26 +77,21 @@
     color: #ffffff;
 }
 
+// Figma 159:12688: green pill without an icon
 .registration-bot-verify-card__verified-pill {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 0 6px;
-    height: 20px;
-    background: rgba($color-welcome-accent, 0.12);
-    border: 1px solid rgba($color-welcome-accent, 0.25);
-    border-radius: $radius-full;
+    padding: 8px;
+    background: rgba($color-success-light, 0.08);
+    border: 1px solid rgba($color-success-light, 0.15);
+    border-radius: 10px;
     font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
     font-family: 'Noto Sans', $font-family-base;
-    color: $color-welcome-accent;
+    color: $color-success-light;
     white-space: nowrap;
     flex-shrink: 0;
-
-    svg {
-        width: 10px;
-        height: 10px;
-        flex-shrink: 0;
-    }
 }
 
 .registration-bot-verify-card__provider-sub {
@@ -136,21 +131,6 @@
     line-height: 28px;
     letter-spacing: 0;
     color: #ffffff;
-}
-
-.registration-bot-verify-card__phone-status {
-    display: inline-flex;
-    align-items: center;
-    padding: 0 8px;
-    height: 28px;
-    background: rgba($color-welcome-btn-primary, 0.08);
-    border: 1px solid rgba($color-welcome-accent-mid, 0.20);
-    border-radius: 6px;
-    font-size: 11px;
-    font-family: 'Noto Sans', $font-family-base;
-    color: $color-welcome-accent;
-    white-space: nowrap;
-    flex-shrink: 0;
 }
 
 // ---- Info block: moved to <InfoBlock> component (components/info-block) ----
