@@ -1,5 +1,4 @@
 using System.Text.RegularExpressions;
-using Gizmo.Client.Options;
 using Gizmo.Go.Core.Models.PasswordRecovery;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
@@ -14,7 +13,6 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
 {
@@ -25,7 +23,8 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
         private readonly IPasswordRecoveryService _passwordRecoveryService;
         private readonly IPasswordRecoverySessionService _session;
         private readonly ILocalizationService _localizationService;
-        private readonly IOptions<PasswordValidationOptions> _passwordValidationOptions;
+        private readonly IMobileOptionsService _mobileOptionsService;
+        private bool _passwordRulesLoaded;
 
         public PasswordRecoverySetNewPasswordViewService(
             PasswordRecoverySetNewPasswordViewState viewState,
@@ -34,12 +33,12 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             IPasswordRecoveryService passwordRecoveryService,
             IPasswordRecoverySessionService session,
             ILocalizationService localizationService,
-            IOptions<PasswordValidationOptions> passwordValidationOptions) : base(viewState, logger, serviceProvider)
+            IMobileOptionsService mobileOptionsService) : base(viewState, logger, serviceProvider)
         {
             _passwordRecoveryService = passwordRecoveryService;
             _session = session;
             _localizationService = localizationService;
-            _passwordValidationOptions = passwordValidationOptions;
+            _mobileOptionsService = mobileOptionsService;
         }
 
         public void SetNewPassword(string value)
@@ -129,13 +128,20 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             ViewState.ErrorMessage = string.Empty;
         }
 
-        protected override Task OnInitializing(CancellationToken ct)
+        // mobile deviation: the password rules come from the server mobile options, loaded on the page entry
+        // (not in OnInitializing: the view services are initialized one by one on start, an unreachable server would block it)
+        private async Task EnsurePasswordRulesAsync(CancellationToken ct)
         {
-            ViewState.PasswordTooltip.MinimumLengthRule = _passwordValidationOptions.Value.MinimumLength;
-            ViewState.PasswordTooltip.MaximumLengthRule = _passwordValidationOptions.Value.MaximumLength;
-            ViewState.PasswordTooltip.HasLowerCaseCharactersRule = _passwordValidationOptions.Value.LowerCaseCharactersRequired;
-            ViewState.PasswordTooltip.HasUpperCaseCharactersRule = _passwordValidationOptions.Value.UpperCaseCharactersRequired;
-            ViewState.PasswordTooltip.HasNumbersRule = _passwordValidationOptions.Value.NumbersRequired;
+            if (_passwordRulesLoaded)
+                return;
+
+            var passwordValidation = (await _mobileOptionsService.GetAsync(ct)).PasswordValidation;
+
+            ViewState.PasswordTooltip.MinimumLengthRule = passwordValidation.MinimumLength;
+            ViewState.PasswordTooltip.MaximumLengthRule = passwordValidation.MaximumLength;
+            ViewState.PasswordTooltip.HasLowerCaseCharactersRule = passwordValidation.LowerCaseCharactersRequired;
+            ViewState.PasswordTooltip.HasUpperCaseCharactersRule = passwordValidation.UpperCaseCharactersRequired;
+            ViewState.PasswordTooltip.HasNumbersRule = passwordValidation.NumbersRequired;
 
             ViewState.PasswordTooltip.TotalRules = 0;
 
@@ -155,19 +161,32 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
 
             ViewState.PasswordTooltip.RaiseChanged();
 
-            return base.OnInitializing(ct);
+            _passwordRulesLoaded = true;
         }
 
-        protected override Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
+        private async Task TryEnsurePasswordRulesAsync(CancellationToken ct)
+        {
+            try
+            {
+                await EnsurePasswordRulesAsync(ct);
+            }
+            catch (Exception ex) when (ex is not OperationCanceledException)
+            {
+                Logger.LogError(ex, "Could not load the password rules.");
+            }
+        }
+
+        protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(_session.Token) || !_session.IsTokenConfirmed)
             {
                 NavigationService.NavigateTo(NavigationHelper.PasswordRecoveryRoute);
-                return Task.CompletedTask;
+                return;
             }
 
+            await TryEnsurePasswordRulesAsync(cancellationToken);
+
             Clear();
-            return Task.CompletedTask;
         }
 
         protected override void OnValidate(FieldIdentifier fieldIdentifier, ValidationTrigger validationTrigger)

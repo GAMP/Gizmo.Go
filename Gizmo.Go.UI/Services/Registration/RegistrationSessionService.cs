@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Registration;
 
 namespace Gizmo.Go.UI.Services.Registration
@@ -36,7 +37,7 @@ namespace Gizmo.Go.UI.Services.Registration
         public IReadOnlyList<RegistrationAgreementChoice> AgreementChoices { get; private set; } = Array.Empty<RegistrationAgreementChoice>();
 
         public RegistrationProvider? SelectedProvider { get; private set; }
-        public RegistrationRequiredInfo? RequiredUserInfo { get; private set; }
+        public RequiredUserInfo? RequiredUserInfo { get; private set; }
         public Guid? FailedProviderChannelGuid { get; private set; }
 
         public string? CompletedContact { get; private set; }
@@ -106,7 +107,7 @@ namespace Gizmo.Go.UI.Services.Registration
             SelectedProvider = provider;
         }
 
-        public void SetRequiredUserInfo(RegistrationRequiredInfo? info)
+        public void SetRequiredUserInfo(RequiredUserInfo? info)
         {
             RequiredUserInfo = info;
         }

@@ -104,8 +104,6 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                 return;
             }
 
-            bool confirmationRequired = !string.IsNullOrEmpty(_registrationSession.Token);
-
             try
             {
                 string? mobilePhone = _registrationSession.HasConfirmedMobilePhone
@@ -130,26 +128,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                     Phone = _registrationSession.Phone
                 };
 
-                RegistrationCompleteCode result;
-                if (confirmationRequired)
+                // mobile deviation: direct registration is not supported, the verification token is always present
+                var result = await _registrationService.CompleteAsync(new RegistrationCompleteRequest
                 {
-                    result = await _registrationService.CompleteAsync(new RegistrationCompleteRequest
-                    {
-                        Token = _registrationSession.Token,
-                        Profile = profile,
-                        Password = _registrationSession.Password,
-                        AgreementStates = _registrationSession.AgreementChoices
-                    });
-                }
-                else
-                {
-                    result = await _registrationService.DirectAsync(new RegistrationCompleteRequest
-                    {
-                        Profile = profile,
-                        Password = _registrationSession.Password,
-                        AgreementStates = _registrationSession.AgreementChoices
-                    });
-                }
+                    Token = _registrationSession.Token,
+                    Profile = profile,
+                    Password = _registrationSession.Password,
+                    AgreementStates = _registrationSession.AgreementChoices
+                });
 
                 if (result != RegistrationCompleteCode.Success)
                 {

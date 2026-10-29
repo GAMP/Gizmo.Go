@@ -1,9 +1,13 @@
+using Gizmo.Go.UI.Services.Common;
 using Microsoft.AspNetCore.Components;
 
 namespace Gizmo.Go.UI.Components
 {
     public partial class ErrorBlock : ComponentBase
     {
+        [Inject]
+        private IAuthFlowService AuthFlowService { get; set; } = null!;
+
         [Parameter]
         public string? Message { get; set; }
 
@@ -14,6 +18,12 @@ namespace Gizmo.Go.UI.Components
         [Parameter]
         public bool ShowHomeLink { get; set; }
 
-        private async Task GoHomeAsync() => await WelcomeViewService.LeaveAuthFlowAsync();
+        /// <summary>
+        /// Shows a "Try again" link that runs the callback (e.g. reloads the server options of the screen).
+        /// </summary>
+        [Parameter]
+        public EventCallback OnRetry { get; set; }
+
+        private void GoHome() => AuthFlowService.Leave();
     }
 }

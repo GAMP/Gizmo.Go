@@ -349,6 +349,9 @@
   <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
     <value>إلى الرئيسية</value>
   </data>
+  <data name="GO_ERROR_BLOCK_RETRY" xml:space="preserve">
+    <value>حاول مرة أخرى</value>
+  </data>
   <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
     <value>ي</value>
   </data>
@@ -876,5 +879,26 @@
   </data>
   <data name="GO_GEN_CLOSE" xml:space="preserve">
     <value>إغلاق</value>
+  </data>
+  <data name="GO_OPTIONS_LOAD_ERROR" xml:space="preserve">
+    <value>تعذّر الاتصال بالخادم. تحقق من الاتصال وحاول مرة أخرى.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_PAGE_TITLE" xml:space="preserve">
+    <value>أكمل ملفك الشخصي</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_HEADING" xml:space="preserve">
+    <value>أكمل ملفك الشخصي</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBTITLE" xml:space="preserve">
+    <value>أدخل البيانات المطلوبة للمتابعة.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBMIT" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_NON_UNIQUE" xml:space="preserve">
+    <value>هذا البريد الإلكتروني أو رقم الهاتف مستخدم بالفعل في حساب آخر.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
+    <value>لم يتم قبول بعض القيم المدخلة. تحقق من الحقول وحاول مرة أخرى.</value>
   </data>
 </root>

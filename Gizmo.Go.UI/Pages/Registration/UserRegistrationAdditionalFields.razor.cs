@@ -63,17 +63,29 @@ namespace Gizmo.Go.UI.Pages.Registration
             return UserRegistrationAdditionalFieldsViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
         }
 
-        private void OnCountryInput(ChangeEventArgs e) =>
-            UserRegistrationAdditionalFieldsViewService.SetCountry(e.Value?.ToString());
+        private Task OnCountryChanged(string? value)
+        {
+            UserRegistrationAdditionalFieldsViewService.SetCountry(value);
+            return Task.CompletedTask;
+        }
 
-        private void OnAddressInput(ChangeEventArgs e) =>
-            UserRegistrationAdditionalFieldsViewService.SetAddress(e.Value?.ToString());
+        private Task OnAddressChanged(string? value)
+        {
+            UserRegistrationAdditionalFieldsViewService.SetAddress(value);
+            return Task.CompletedTask;
+        }
 
-        private void OnCityInput(ChangeEventArgs e) =>
-            UserRegistrationAdditionalFieldsViewService.SetCity(e.Value?.ToString());
+        private Task OnCityChanged(string? value)
+        {
+            UserRegistrationAdditionalFieldsViewService.SetCity(value);
+            return Task.CompletedTask;
+        }
 
-        private void OnPostCodeInput(ChangeEventArgs e) =>
-            UserRegistrationAdditionalFieldsViewService.SetPostCode(e.Value?.ToString());
+        private Task OnPostCodeChanged(string? value)
+        {
+            UserRegistrationAdditionalFieldsViewService.SetPostCode(value);
+            return Task.CompletedTask;
+        }
 
         private async Task SubmitAsync() => await UserRegistrationAdditionalFieldsViewService.SubmitAsync();
 

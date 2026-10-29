@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Registration;
 
 namespace Gizmo.Go.Core.Services
@@ -5,7 +6,7 @@ namespace Gizmo.Go.Core.Services
     public interface IUserRegistrationService
     {
         Task<IReadOnlyList<RegistrationProvider>> GetMethodsAsync(CancellationToken ct = default);
-        Task<RegistrationRequiredInfo?> GetRequiredUserInfoAsync(CancellationToken ct = default);
+        Task<RequiredUserInfo?> GetRequiredUserInfoAsync(CancellationToken ct = default);
         Task<IReadOnlyList<RegistrationAgreement>> GetAgreementsAsync(CancellationToken ct = default);
         Task<bool> UserNameExistAsync(string userName, CancellationToken ct = default);
         Task<bool> EmailExistAsync(string email, CancellationToken ct = default);
@@ -14,6 +15,5 @@ namespace Gizmo.Go.Core.Services
         Task<RegistrationConfirmCode> ConfirmTokenAsync(string token, string confirmationCode, CancellationToken ct = default);
         Task<TokenConfirmedResult> IsTokenConfirmedAsync(string token, CancellationToken ct = default);
         Task<RegistrationCompleteCode> CompleteAsync(RegistrationCompleteRequest request, CancellationToken ct = default);
-        Task<RegistrationCompleteCode> DirectAsync(RegistrationCompleteRequest request, CancellationToken ct = default);
     }
 }

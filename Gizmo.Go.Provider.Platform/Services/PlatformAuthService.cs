@@ -12,12 +12,17 @@ namespace Gizmo.Go.Provider.Platform.Services
 
         public UserProfile? CurrentUser => throw new NotImplementedException();
 
+        public bool IsPersonalInfoRequested => throw new NotImplementedException();
+
         public event EventHandler<AuthState>? StateChanged;
 
         public Task<string?> GetTokenAsync(CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
 
         public Task<AuthResult> LoginAsync(string username, string password, CancellationToken cancellationToken = default) =>
+            throw new NotImplementedException();
+
+        public Task ClearPersonalInfoRequestedAsync(CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
 
         public Task LogoutAsync(CancellationToken cancellationToken = default) =>

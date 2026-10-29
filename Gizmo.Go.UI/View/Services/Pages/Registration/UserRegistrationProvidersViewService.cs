@@ -3,6 +3,7 @@ using Gizmo.Go.Core.Services;
 using Gizmo.Client.UI;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Common;
 using Gizmo.Go.UI.Services.Dialog;
 using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
@@ -26,13 +27,17 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             IUserRegistrationService registrationService,
             IRegistrationSessionService registrationSession,
             ILocalizationService localizationService,
-            IGizmoGoDialogService dialogService) : base(viewState, logger, serviceProvider)
+            IGizmoGoDialogService dialogService,
+            IAuthOptionsService authOptionsService) : base(viewState, logger, serviceProvider)
         {
             _registrationService = registrationService;
             _registrationSession = registrationSession;
             _localizationService = localizationService;
             _dialogService = dialogService;
+            _authOptionsService = authOptionsService;
         }
+
+        private readonly IAuthOptionsService _authOptionsService;
 
         private readonly IUserRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
@@ -95,6 +100,8 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
+            ViewState.LogoUrl = (await _authOptionsService.GetAsync(cancellationToken))?.LogoUrl;
+
             var failedChannelGuid = _registrationSession.FailedProviderChannelGuid;
             _registrationSession.SetFailedProviderChannelGuid(null);
 

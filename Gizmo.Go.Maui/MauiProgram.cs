@@ -75,8 +75,6 @@ namespace Gizmo.Go.Maui
             builder.Services.AddCascadingAuthenticationState();
             builder.Services.AddSingleton<GoAuthenticationStateProvider>();
             builder.Services.AddSingleton<AuthenticationStateProvider>(sp => sp.GetRequiredService<GoAuthenticationStateProvider>());
-            builder.Services.AddTransient<BearerTokenHandler>();
-            builder.Services.AddTransient<CultureDelegatingHandler>();
 
             // provider
             var settings = builder.Configuration.GetSection("GizmoGo").Get<GizmoGoSettings>();
@@ -102,23 +100,8 @@ namespace Gizmo.Go.Maui
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
             }
-            else
-            {
-                // start culture stub, replaced by the server ClientInterface:PreferredLanguage
-                var preferredLanguage = app.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<RegistrationStubSettings>>().Value.PreferredLanguage;
-                if (!string.IsNullOrWhiteSpace(preferredLanguage))
-                {
-                    try
-                    {
-                        var culture = new CultureInfo(preferredLanguage);
-                        CultureInfo.DefaultThreadCurrentCulture = culture;
-                        CultureInfo.DefaultThreadCurrentUICulture = culture;
-                    }
-                    catch (CultureNotFoundException)
-                    {
-                    }
-                }
-            }
+            // without a stored culture the start culture comes from the server mobile options in App.razor.cs
+            // (a synchronous call here risks the Android startup deadlock)
 
             // NOTE: Auth session restore and view service initialization happen in
             // App.razor.cs OnInitializedAsync to avoid blocking the main thread

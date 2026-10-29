@@ -11,25 +11,33 @@ namespace Gizmo.Go.UI.Pages
         private WelcomeViewService WelcomeViewService { get; set; } = null!;
 
         [Inject]
-        private RegistrationConfigurationViewState RegistrationConfigurationViewState { get; set; } = null!;
+        private WelcomeViewState WelcomeViewState { get; set; } = null!;
 
         [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
         protected override void OnInitialized()
         {
-            this.SubscribeChange(RegistrationConfigurationViewState);
+            this.SubscribeChange(WelcomeViewState);
             base.OnInitialized();
+        }
+
+        protected override async Task OnInitializedAsync()
+        {
+            await WelcomeViewService.LoadOptionsAsync();
+            await base.OnInitializedAsync();
         }
 
         public void Dispose()
         {
-            this.UnsubscribeChange(RegistrationConfigurationViewState);
+            this.UnsubscribeChange(WelcomeViewState);
         }
 
         private async Task NavigateToLogin() => await WelcomeViewService.NavigateToLoginAsync();
 
         private async Task NavigateToRegister() => await WelcomeViewService.NavigateToRegisterAsync();
+
+        private Task RetryOptionsAsync() => WelcomeViewService.LoadOptionsAsync();
 
     }
 }

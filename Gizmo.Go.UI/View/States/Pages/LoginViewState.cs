@@ -23,6 +23,22 @@ namespace Gizmo.Go.UI.View.States.Pages
 
         public IReadOnlyList<PhoneCountry> PhoneCountries { get; internal set; } = Array.Empty<PhoneCountry>();
 
+        /// <summary>
+        /// Default phone country of the server (ISO 3166-1 alpha-2), preselected by the phone field.
+        /// </summary>
+        public string? DefaultPhoneRegionCode { get; internal set; }
+
+        public bool IsRegistrationEnabled { get; internal set; }
+
+        public bool IsPasswordRecoveryEnabled { get; internal set; }
+
+        public string? LogoUrl { get; internal set; }
+
+        /// <summary>
+        /// Gets if the server options could not be loaded (server unreachable or an old server).
+        /// </summary>
+        public bool HasOptionsError { get; internal set; }
+
         public string? PhoneRegionCode { get; internal set; }
 
         public string Phone { get; internal set; } = string.Empty;

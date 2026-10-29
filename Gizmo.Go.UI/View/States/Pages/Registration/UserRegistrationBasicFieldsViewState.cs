@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.PhoneValidation;
-using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.UI.View.States;
 using Gizmo.UI.View.States;
 using Gizmo.UI;
@@ -99,6 +99,11 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
         public bool HasAdditionalFields { get; internal set; }
 
         public IReadOnlyList<PhoneCountry> PhoneCountries { get; internal set; } = Array.Empty<PhoneCountry>();
+
+        /// <summary>
+        /// Default phone country of the server (ISO 3166-1 alpha-2), preselected by the phone field.
+        /// </summary>
+        public string? DefaultPhoneRegionCode { get; internal set; }
 
         public bool HasError { get; internal set; }
 

@@ -18,6 +18,7 @@
 // -- Layout --
 @use 'layout/layout';
 @use 'layout/auth-shell';
+@use 'layout/auth-form';
 
 // -- Pages --
 @use 'pages/welcome';
@@ -29,7 +30,6 @@
 @use 'pages/registration/registration-providers';
 @use 'pages/registration/registration-waiting';
 @use 'pages/registration/registration-bot-verify';
-@use 'pages/registration/registration-profile';
 @use 'pages/registration/registration-success';
 @use 'pages/registration/registration-error';
 @use 'pages/registration/registration-call-phone';
@@ -38,6 +38,7 @@
 @use 'pages/password-recovery/password-recovery-account';
 
 // -- Components --
+@use 'components/app-loading';
 @use 'components/channel-icon';
 @use 'components/contact-entry';
 @use 'components/date-input';

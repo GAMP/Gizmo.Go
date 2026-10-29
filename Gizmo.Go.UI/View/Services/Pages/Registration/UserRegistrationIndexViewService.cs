@@ -23,20 +23,17 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             IUserRegistrationService registrationService,
             IGizmoGoDialogService dialogService,
             IRegistrationSessionService registrationSession,
-            IRegistrationOptionsService registrationOptionsService,
             ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
         {
             _registrationService = registrationService;
             _dialogService = dialogService;
             _registrationSession = registrationSession;
-            _registrationOptionsService = registrationOptionsService;
             _localizationService = localizationService;
         }
 
         private readonly IUserRegistrationService _registrationService;
         private readonly IGizmoGoDialogService _dialogService;
         private readonly IRegistrationSessionService _registrationSession;
-        private readonly IRegistrationOptionsService _registrationOptionsService;
         private readonly ILocalizationService _localizationService;
 
         // mobile deviation: the page shows the load error with a way back instead of an endless loading state
@@ -138,17 +135,12 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
             try
             {
-                var registrationOptions = await _registrationOptionsService.GetAsync(cancellationToken);
-                var useProviderFlow = !registrationOptions.IsDirectRegistrationEnabled;
-
-                if (useProviderFlow)
+                // mobile deviation: direct registration is not supported, the provider flow is the only one
+                var providers = await _registrationService.GetMethodsAsync(cancellationToken);
+                if (providers.Count == 0)
                 {
-                    var providers = await _registrationService.GetMethodsAsync(cancellationToken);
-                    if (providers.Count == 0)
-                    {
-                        NavigationService.NavigateTo(NavigationHelper.RegistrationErrorRoute);
-                        return;
-                    }
+                    NavigationService.NavigateTo(NavigationHelper.RegistrationErrorRoute);
+                    return;
                 }
 
                 var agreements = await _registrationService.GetAgreementsAsync(cancellationToken);
@@ -161,14 +153,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
                     _registrationSession.SetRequiredUserInfo(userGroupDefaultRequiredInfo);
 
-                    if (useProviderFlow)
-                    {
-                        NavigationService.NavigateTo(NavigationHelper.RegistrationProvidersRoute);
-                    }
-                    else
-                    {
-                        NavigationService.NavigateTo(NavigationHelper.RegistrationBasicFieldsRoute);
-                    }
+                    NavigationService.NavigateTo(NavigationHelper.RegistrationProvidersRoute);
                 }
                 else
                 {

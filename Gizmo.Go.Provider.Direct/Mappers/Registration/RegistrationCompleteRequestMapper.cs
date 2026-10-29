@@ -18,17 +18,6 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Registration
             };
         }
 
-        public static Gizmo.Web.Api.Models.RegistrationDirectModel MapDirect(RegistrationCompleteRequest request)
-        {
-            ArgumentNullException.ThrowIfNull(request);
-            return new Gizmo.Web.Api.Models.RegistrationDirectModel
-            {
-                Password       = request.Password,
-                Profile        = RegistrationProfileMapper.Map(request.Profile),
-                AgreementStates = MapAgreementStates(request.AgreementStates)
-            };
-        }
-
         private static List<UserAgreementModelState> MapAgreementStates(
             IReadOnlyList<RegistrationAgreementChoice> choices)
             => choices is null

@@ -1,6 +1,7 @@
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Common;
 using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
@@ -24,13 +25,17 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             IUserRegistrationService registrationService,
             IRegistrationSessionService registrationSession,
             ILocalizationService localizationService,
-            IPhoneValidationService phoneValidationService) : base(viewState, logger, serviceProvider)
+            IPhoneValidationService phoneValidationService,
+            IAuthOptionsService authOptionsService) : base(viewState, logger, serviceProvider)
         {
             _registrationService = registrationService;
             _registrationSession = registrationSession;
             _localizationService = localizationService;
             _phoneValidationService = phoneValidationService;
+            _authOptionsService = authOptionsService;
         }
+
+        private readonly IAuthOptionsService _authOptionsService;
 
         private readonly IUserRegistrationService _registrationService;
         private readonly IRegistrationSessionService _registrationSession;
@@ -174,6 +179,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             ViewState.ErrorMessage = string.Empty;
             ResetValidationState();
 
+            ViewState.DefaultPhoneRegionCode = (await _authOptionsService.GetAsync(cancellationToken))?.CountryCode;
             ViewState.Countries = await _phoneValidationService.GetCountriesAsync(cancellationToken);
 
             if (ViewState.Countries.Count == 0)

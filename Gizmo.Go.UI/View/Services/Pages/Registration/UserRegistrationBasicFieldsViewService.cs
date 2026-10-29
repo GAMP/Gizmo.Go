@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using Gizmo.Client.Options;
+using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace Gizmo.Go.UI.View.Services.Pages.Registration
 {
@@ -28,22 +27,26 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             IServiceProvider serviceProvider,
             ILocalizationService localizationService,
             IUserRegistrationService registrationService,
-            IOptions<PasswordValidationOptions> passwordValidationOptions,
+            IMobileOptionsService mobileOptionsService,
             IRegistrationSessionService registrationSession,
-            IPhoneValidationService phoneValidationService) : base(viewState, logger, serviceProvider)
+            IPhoneValidationService phoneValidationService,
+            IAuthOptionsService authOptionsService) : base(viewState, logger, serviceProvider)
         {
             _localizationService = localizationService;
             _registrationService = registrationService;
-            _passwordValidationOptions = passwordValidationOptions;
+            _mobileOptionsService = mobileOptionsService;
             _registrationSession = registrationSession;
             _phoneValidationService = phoneValidationService;
+            _authOptionsService = authOptionsService;
         }
 
         private readonly ILocalizationService _localizationService;
         private readonly IUserRegistrationService _registrationService;
-        private readonly IOptions<PasswordValidationOptions> _passwordValidationOptions;
+        private readonly IMobileOptionsService _mobileOptionsService;
         private readonly IRegistrationSessionService _registrationSession;
         private readonly IPhoneValidationService _phoneValidationService;
+        private readonly IAuthOptionsService _authOptionsService;
+        private bool _passwordRulesLoaded;
 
         private bool HasAdditionalFields =>
             _registrationSession.RequiredUserInfo?.Country == true ||
@@ -300,28 +303,14 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                         Phone = _registrationSession.Phone
                     };
 
-                    bool confirmationRequired = !string.IsNullOrEmpty(_registrationSession.Token);
-
-                    RegistrationCompleteCode result;
-                    if (confirmationRequired)
+                    // mobile deviation: direct registration is not supported, the verification token is always present
+                    var result = await _registrationService.CompleteAsync(new RegistrationCompleteRequest
                     {
-                        result = await _registrationService.CompleteAsync(new RegistrationCompleteRequest
-                        {
-                            Token = _registrationSession.Token,
-                            Profile = profile,
-                            Password = _registrationSession.Password,
-                            AgreementStates = _registrationSession.AgreementChoices
-                        });
-                    }
-                    else
-                    {
-                        result = await _registrationService.DirectAsync(new RegistrationCompleteRequest
-                        {
-                            Profile = profile,
-                            Password = _registrationSession.Password,
-                            AgreementStates = _registrationSession.AgreementChoices
-                        });
-                    }
+                        Token = _registrationSession.Token,
+                        Profile = profile,
+                        Password = _registrationSession.Password,
+                        AgreementStates = _registrationSession.AgreementChoices
+                    });
 
                     if (result != RegistrationCompleteCode.Success)
                     {
@@ -462,6 +451,8 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
         protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
+            await TryEnsurePasswordRulesAsync(cancellationToken);
+
             // the service is associated with two routes: OnNavigatedIn fires on the password -> profile transition too
             var isProfileRoute = GetCurrentLocation().EndsWith(NavigationHelper.RegistrationBasicFieldsProfileRoute, StringComparison.OrdinalIgnoreCase);
 
@@ -477,6 +468,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
 
                 if (ShowMobilePhone)
                 {
+                    ViewState.DefaultPhoneRegionCode = (await _authOptionsService.GetAsync(cancellationToken))?.CountryCode;
                     ViewState.PhoneCountries = await _phoneValidationService.GetCountriesAsync(cancellationToken);
 
                     if (ViewState.PhoneCountries.Count == 0)
@@ -516,15 +508,20 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             base.OnDisposing(isDisposing);
         }
 
-        protected override Task OnInitializing(CancellationToken ct)
+        // mobile deviation: the password rules come from the server mobile options, loaded on the page entry
+        // (not in OnInitializing: the view services are initialized one by one on start, an unreachable server would block it)
+        private async Task EnsurePasswordRulesAsync(CancellationToken ct)
         {
-            _registrationSession.Cleared += OnRegistrationSessionCleared;
+            if (_passwordRulesLoaded)
+                return;
 
-            ViewState.PasswordTooltip.MinimumLengthRule = _passwordValidationOptions.Value.MinimumLength;
-            ViewState.PasswordTooltip.MaximumLengthRule = _passwordValidationOptions.Value.MaximumLength;
-            ViewState.PasswordTooltip.HasLowerCaseCharactersRule = _passwordValidationOptions.Value.LowerCaseCharactersRequired;
-            ViewState.PasswordTooltip.HasUpperCaseCharactersRule = _passwordValidationOptions.Value.UpperCaseCharactersRequired;
-            ViewState.PasswordTooltip.HasNumbersRule = _passwordValidationOptions.Value.NumbersRequired;
+            var passwordValidation = (await _mobileOptionsService.GetAsync(ct)).PasswordValidation;
+
+            ViewState.PasswordTooltip.MinimumLengthRule = passwordValidation.MinimumLength;
+            ViewState.PasswordTooltip.MaximumLengthRule = passwordValidation.MaximumLength;
+            ViewState.PasswordTooltip.HasLowerCaseCharactersRule = passwordValidation.LowerCaseCharactersRequired;
+            ViewState.PasswordTooltip.HasUpperCaseCharactersRule = passwordValidation.UpperCaseCharactersRequired;
+            ViewState.PasswordTooltip.HasNumbersRule = passwordValidation.NumbersRequired;
 
             ViewState.PasswordTooltip.TotalRules = 0;
 
@@ -543,6 +540,25 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
             CheckPasswordRules(ViewState.Password);
 
             ViewState.PasswordTooltip.RaiseChanged();
+
+            _passwordRulesLoaded = true;
+        }
+
+        private async Task TryEnsurePasswordRulesAsync(CancellationToken ct)
+        {
+            try
+            {
+                await EnsurePasswordRulesAsync(ct);
+            }
+            catch (Exception ex) when (ex is not OperationCanceledException)
+            {
+                Logger.LogError(ex, "Could not load the password rules.");
+            }
+        }
+
+        protected override Task OnInitializing(CancellationToken ct)
+        {
+            _registrationSession.Cleared += OnRegistrationSessionCleared;
 
             return base.OnInitializing(ct);
         }

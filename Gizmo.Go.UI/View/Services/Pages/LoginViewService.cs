@@ -1,6 +1,7 @@
 using System.Web;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Common;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI;
 using Gizmo.UI.Services;
@@ -21,6 +22,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly NavigationService _navigationService;
         private readonly IAssemblyResourcesLocalizationService _assemblyResourcesLocalizationService;
         private readonly ILocalizationService _localizationService;
+        private readonly IUserLoginStatusService _userLoginStatusService;
+        private readonly IAuthOptionsService _authOptionsService;
         private string? _returnUrl;
 
         public LoginViewService(
@@ -31,13 +34,33 @@ namespace Gizmo.Go.UI.View.Services.Pages
             IPhoneValidationService phoneValidationService,
             NavigationService navigationService,
             IAssemblyResourcesLocalizationService assemblyResourcesLocalizationService,
-            ILocalizationService localizationService) : base(viewState, logger, serviceProvider)
+            ILocalizationService localizationService,
+            IUserLoginStatusService userLoginStatusService,
+            IAuthOptionsService authOptionsService) : base(viewState, logger, serviceProvider)
         {
             _authService = authService;
             _phoneValidationService = phoneValidationService;
             _navigationService = navigationService;
             _assemblyResourcesLocalizationService = assemblyResourcesLocalizationService;
             _localizationService = localizationService;
+            _userLoginStatusService = userLoginStatusService;
+            _authOptionsService = authOptionsService;
+        }
+
+        /// <summary>
+        /// Loads the server options of the screen. Called by the page on every show (also on the app start, when the
+        /// first navigation does not reach the view services); a failed load is retried on the next show.
+        /// </summary>
+        public async Task LoadOptionsAsync(CancellationToken cancellationToken = default)
+        {
+            var options = await _authOptionsService.GetAsync(cancellationToken);
+
+            ViewState.HasOptionsError = options is null;
+            ViewState.IsRegistrationEnabled = options?.IsRegistrationEnabled ?? false;
+            ViewState.IsPasswordRecoveryEnabled = options?.IsPasswordRecoveryEnabled ?? false;
+            ViewState.LogoUrl = options?.LogoUrl;
+            ViewState.DefaultPhoneRegionCode = options?.CountryCode;
+            ViewState.RaiseChanged();
         }
 
         // phone tab with a number: SetPhoneAsync keeps the digits in both Phone and Username
@@ -110,6 +133,10 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public async ValueTask SubmitAsync(CancellationToken cancellationToken = default)
         {
+            // the login and the post-login steps are in progress
+            if (ViewState.IsLoading)
+                return;
+
             Validate();
 
             if (ViewState.IsValid != true)
@@ -119,14 +146,15 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.ErrorMessage = null;
             ViewState.RaiseChanged();
 
+            var isLoggedIn = false;
+
             try
             {
                 var result = await _authService.LoginAsync(ViewState.Username, ViewState.Password, cancellationToken);
 
                 if (result.Success)
                 {
-                    var target = !string.IsNullOrWhiteSpace(_returnUrl) ? Uri.UnescapeDataString(_returnUrl) : "";
-                    _navigationService.NavigateTo(target);
+                    isLoggedIn = true;
                 }
                 else if (result.ErrorCode.HasValue)
                 {
@@ -137,6 +165,24 @@ namespace Gizmo.Go.UI.View.Services.Pages
             {
                 Logger.LogError(ex, "Login failed.");
                 ViewState.ErrorMessage = _assemblyResourcesLocalizationService.GetLocalizedStringValueOrName(AuthErrorCode.Unexpected);
+            }
+            finally
+            {
+                // after a successful login the form stays disabled until the post-login steps are done
+                if (!isLoggedIn)
+                {
+                    ViewState.IsLoading = false;
+                    ViewState.RaiseChanged();
+                }
+            }
+
+            if (!isLoggedIn)
+                return;
+
+            try
+            {
+                // pending agreements, profile completion, then the return url or home
+                await _userLoginStatusService.RunAsync(_returnUrl, cancellationToken);
             }
             finally
             {
@@ -173,6 +219,9 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 var uri = new Uri(currentUri);
                 _returnUrl = HttpUtility.ParseQueryString(uri.Query).Get("returnUrl");
             }
+
+            // the default phone country has to be known before the countries reach the phone field
+            await LoadOptionsAsync(cancellationToken);
 
             try
             {

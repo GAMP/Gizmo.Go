@@ -349,6 +349,9 @@
   <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
     <value>Στην αρχική</value>
   </data>
+  <data name="GO_ERROR_BLOCK_RETRY" xml:space="preserve">
+    <value>Δοκιμάστε ξανά</value>
+  </data>
   <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
     <value>Η</value>
   </data>
@@ -876,5 +879,26 @@
   </data>
   <data name="GO_GEN_CLOSE" xml:space="preserve">
     <value>Κλείσιμο</value>
+  </data>
+  <data name="GO_OPTIONS_LOAD_ERROR" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η σύνδεση με τον διακομιστή. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_PAGE_TITLE" xml:space="preserve">
+    <value>Συμπληρώστε το προφίλ σας</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_HEADING" xml:space="preserve">
+    <value>Συμπληρώστε το προφίλ σας</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBTITLE" xml:space="preserve">
+    <value>Συμπληρώστε τα στοιχεία που απαιτούνται για να συνεχίσετε.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBMIT" xml:space="preserve">
+    <value>Αποθήκευση</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_NON_UNIQUE" xml:space="preserve">
+    <value>Αυτό το email ή ο αριθμός τηλεφώνου χρησιμοποιείται ήδη από άλλο λογαριασμό.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
+    <value>Ορισμένες από τις τιμές που καταχωρίσατε δεν έγιναν δεκτές. Ελέγξτε τα πεδία και δοκιμάστε ξανά.</value>
   </data>
 </root>
