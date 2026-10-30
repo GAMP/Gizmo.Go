@@ -24,17 +24,9 @@ namespace Gizmo.Go.Maui.Services
         public override event EventHandler<EventArgs>? LocalizationOptionsChanged;
         public override event EventHandler<EventArgs>? LanguageChanged;
 
+        // the culture is not persisted: the app always starts with the server culture
         public override Task SetCurrentCultureAsync(CultureInfo culture)
         {
-            try
-            {
-                Preferences.Default.Set("app.culture", culture.Name);
-            }
-            catch (Exception ex)
-            {
-                Logger.LogCritical(ex, "Error setting MAUI preferences based culture.");
-            }
-
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             CultureInfo.CurrentUICulture = culture;

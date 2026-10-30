@@ -87,8 +87,8 @@ namespace Gizmo.Go.UI
             return base.OnAfterRenderAsync(firstRender);
         }
 
-        // no stored culture (MAUI only: Web always sets the culture in Program.cs before RunAsync): the start culture is
-        // the server one, not persisted; must run before the view services are initialized (localized texts)
+        // MAUI only (Web always sets the culture in Program.cs before RunAsync): the start culture is the server one,
+        // not persisted; must run before the view services are initialized (localized texts)
         private async Task SetServerCultureAsync()
         {
             if (CultureInfo.DefaultThreadCurrentUICulture is not null)

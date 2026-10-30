@@ -37,13 +37,21 @@ namespace Gizmo.Go.UI.Services.Profile
                 BirthDate = IsShown(isPersonalInfoRequested, required.BirthDate, profile.BirthDate == null),
                 Sex = IsShown(isPersonalInfoRequested, required.Sex, profile.Sex == UserSex.Unspecified),
                 Email = IsShown(isPersonalInfoRequested, required.Email, string.IsNullOrEmpty(profile.Email)),
-                MobilePhone = IsShown(isPersonalInfoRequested, required.Mobile, string.IsNullOrEmpty(profile.MobilePhone)),
-                Phone = IsShown(isPersonalInfoRequested, required.Phone, string.IsNullOrEmpty(profile.Phone)),
+                MobilePhone = IsShown(isPersonalInfoRequested, required.Mobile, IsPhoneMissing(profile.MobilePhone)),
+                Phone = IsShown(isPersonalInfoRequested, required.Phone, IsPhoneMissing(profile.Phone)),
                 Address = IsShown(isPersonalInfoRequested, required.Address, string.IsNullOrEmpty(profile.Address)),
                 City = IsShown(isPersonalInfoRequested, required.City, string.IsNullOrEmpty(profile.City)),
                 PostCode = IsShown(isPersonalInfoRequested, required.PostCode, string.IsNullOrEmpty(profile.PostCode)),
                 Country = IsShown(isPersonalInfoRequested, required.Country, string.IsNullOrEmpty(profile.Country)),
             };
+        }
+
+        /// <summary>
+        /// A phone without digits is missing: a cleared phone can be stored as a bare "+" (or a mask without digits).
+        /// </summary>
+        public static bool IsPhoneMissing(string? phone)
+        {
+            return string.IsNullOrEmpty(phone) || !phone.Any(char.IsDigit);
         }
 
         private static bool IsShown(bool isPersonalInfoRequested, bool isRequired, bool isMissing)

@@ -17,7 +17,6 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
-using Microsoft.JSInterop;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -72,30 +71,18 @@ builder.Services.AddSingleton<IAppLifecycleService>(sp =>
 
 var host = builder.Build();
 
-// restore persisted culture from localStorage
-var js = host.Services.GetRequiredService<IJSRuntime>();
-var storedCulture = await js.InvokeAsync<string?>("localStorage.getItem", "app.culture");
-if (!string.IsNullOrWhiteSpace(storedCulture))
-{
-    var culture = new CultureInfo(storedCulture);
-    CultureInfo.DefaultThreadCurrentCulture = culture;
-    CultureInfo.DefaultThreadCurrentUICulture = culture;
-}
-else
-{
-    // no stored culture: the start culture is the server one (mobile options, not persisted);
-    // an unreachable server keeps the neutral English culture (HTTP only, no resource lookups before RunAsync)
-    await CultureHelper.TrySetServerCultureAsync(
-        host.Services.GetRequiredService<IMobileOptionsService>(),
-        host.Services.GetRequiredService<ILogger<Program>>());
+// the app has no language selection: the start culture is always the server one (mobile options, not persisted);
+// an unreachable server keeps the current culture (HTTP only, no resource lookups before RunAsync)
+await CultureHelper.TrySetServerCultureAsync(
+    host.Services.GetRequiredService<IMobileOptionsService>(),
+    host.Services.GetRequiredService<ILogger<Program>>());
 
-    // no server culture: keep the current one fixed, so App.razor.cs does not set a culture after RunAsync
-    // (satellite resource assemblies are loaded only for the culture of RunAsync)
-    if (CultureInfo.DefaultThreadCurrentUICulture is null)
-    {
-        CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CurrentCulture;
-        CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.CurrentUICulture;
-    }
+// no server culture: keep the current one fixed, so App.razor.cs does not set a culture after RunAsync
+// (satellite resource assemblies are loaded only for the culture of RunAsync)
+if (CultureInfo.DefaultThreadCurrentUICulture is null)
+{
+    CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CurrentCulture;
+    CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.CurrentUICulture;
 }
 
 // the auth session restore and the view services initialization run in App.razor.cs: satellite resource assemblies are loaded only by

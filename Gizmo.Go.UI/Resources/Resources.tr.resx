@@ -637,6 +637,9 @@
   <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
     <value>Parolamı unuttum</value>
   </data>
+  <data name="GO_PASSWORD_RECOVERY_FIND_ACCOUNT" xml:space="preserve">
+    <value>Hesabı bul</value>
+  </data>
   <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
     <value>E-posta</value>
   </data>

@@ -264,8 +264,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.BirthDate = fields.BirthDate ? profile.BirthDate : null;
             ViewState.Sex = fields.Sex ? profile.Sex : UserSex.Unspecified;
             ViewState.Email = fields.Email ? profile.Email : null;
-            ViewState.MobilePhone = fields.MobilePhone ? profile.MobilePhone?.TrimStart('+') : null;
-            ViewState.Phone = fields.Phone ? profile.Phone : null;
+            ViewState.MobilePhone = fields.MobilePhone && !ProfileCompletionFields.IsPhoneMissing(profile.MobilePhone) ? profile.MobilePhone!.TrimStart('+') : null;
+            ViewState.Phone = fields.Phone && !ProfileCompletionFields.IsPhoneMissing(profile.Phone) ? profile.Phone : null;
             ViewState.Address = fields.Address ? profile.Address : null;
             ViewState.City = fields.City ? profile.City : null;
             ViewState.PostCode = fields.PostCode ? profile.PostCode : null;

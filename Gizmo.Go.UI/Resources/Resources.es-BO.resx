@@ -637,6 +637,9 @@
   <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
     <value>Contraseña olvidada</value>
   </data>
+  <data name="GO_PASSWORD_RECOVERY_FIND_ACCOUNT" xml:space="preserve">
+    <value>Buscar cuenta</value>
+  </data>
   <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
     <value>Correo electrónico</value>
   </data>

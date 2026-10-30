@@ -1,4 +1,3 @@
-using System.Globalization;
 using Gizmo;
 using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Extensions;
@@ -92,16 +91,8 @@ namespace Gizmo.Go.Maui
 
             var app = builder.Build();
 
-            // restore persisted culture
-            var storedCulture = Preferences.Default.Get<string?>("app.culture", null);
-            if (!string.IsNullOrWhiteSpace(storedCulture))
-            {
-                var culture = new CultureInfo(storedCulture);
-                CultureInfo.DefaultThreadCurrentCulture = culture;
-                CultureInfo.DefaultThreadCurrentUICulture = culture;
-            }
-            // without a stored culture the start culture comes from the server mobile options in App.razor.cs
-            // (a synchronous call here risks the Android startup deadlock)
+            // the app has no language selection: the start culture always comes from the server mobile options
+            // in App.razor.cs (a synchronous call here risks the Android startup deadlock)
 
             // NOTE: Auth session restore and view service initialization happen in
             // App.razor.cs OnInitializedAsync to avoid blocking the main thread

@@ -637,6 +637,9 @@
   <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
     <value>Восстановление пароля</value>
   </data>
+  <data name="GO_PASSWORD_RECOVERY_FIND_ACCOUNT" xml:space="preserve">
+    <value>Найти аккаунт</value>
+  </data>
   <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
     <value>E-mail</value>
   </data>
