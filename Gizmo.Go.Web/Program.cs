@@ -7,6 +7,7 @@ using Gizmo.Go.Provider.Direct.Extensions;
 using Gizmo.Go.Provider.Platform.Extensions;
 using Gizmo.Go.UI;
 using Gizmo.Go.UI.Extensions;
+using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.Providers;
 using Gizmo.Go.Web.Services;
 using Gizmo.UI;
@@ -15,7 +16,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Localization;
-using Microsoft.JSInterop;
+using Microsoft.Extensions.Logging;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -48,8 +49,6 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddSingleton<GoAuthenticationStateProvider>();
 builder.Services.AddSingleton<AuthenticationStateProvider>(sp => sp.GetRequiredService<GoAuthenticationStateProvider>());
-builder.Services.AddTransient<BearerTokenHandler>();
-builder.Services.AddTransient<CultureDelegatingHandler>();
 
 // provider
 var settings = builder.Configuration.GetSection("GizmoGo").Get<GizmoGoSettings>();
@@ -72,36 +71,20 @@ builder.Services.AddSingleton<IAppLifecycleService>(sp =>
 
 var host = builder.Build();
 
-// restore persisted culture from localStorage
-var js = host.Services.GetRequiredService<IJSRuntime>();
-var storedCulture = await js.InvokeAsync<string?>("localStorage.getItem", "app.culture");
-if (!string.IsNullOrWhiteSpace(storedCulture))
+// the app has no language selection: the start culture is always the server one (mobile options, not persisted);
+// an unreachable server keeps the current culture (HTTP only, no resource lookups before RunAsync)
+await CultureHelper.TrySetServerCultureAsync(
+    host.Services.GetRequiredService<IMobileOptionsService>(),
+    host.Services.GetRequiredService<ILogger<Program>>());
+
+// no server culture: keep the current one fixed, so App.razor.cs does not set a culture after RunAsync
+// (satellite resource assemblies are loaded only for the culture of RunAsync)
+if (CultureInfo.DefaultThreadCurrentUICulture is null)
 {
-    var culture = new CultureInfo(storedCulture);
-    CultureInfo.DefaultThreadCurrentCulture = culture;
-    CultureInfo.DefaultThreadCurrentUICulture = culture;
-}
-else
-{
-    // start culture stub, replaced by the server ClientInterface:PreferredLanguage
-    var preferredLanguage = host.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<RegistrationStubSettings>>().Value.PreferredLanguage;
-    if (!string.IsNullOrWhiteSpace(preferredLanguage))
-    {
-        try
-        {
-            var culture = new CultureInfo(preferredLanguage);
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-            CultureInfo.DefaultThreadCurrentUICulture = culture;
-        }
-        catch (CultureNotFoundException)
-        {
-        }
-    }
+    CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CurrentCulture;
+    CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.CurrentUICulture;
 }
 
-// restore persisted auth session (before first render to avoid login flash)
-await host.Services.GetRequiredService<IAuthService>().TryRestoreSessionAsync();
-
-// view services are initialized in App.razor.cs: satellite resource assemblies are loaded only by
+// the auth session restore and the view services initialization run in App.razor.cs: satellite resource assemblies are loaded only by
 // host.RunAsync(), so resource lookups before it would cache the neutral (English) strings
 await host.RunAsync();

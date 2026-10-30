@@ -1,10 +1,9 @@
-using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Services;
+using Gizmo.Go.Provider.Direct.Handlers;
+using Gizmo.Go.Provider.Direct.Helpers;
 using Gizmo.Go.Provider.Direct.Services;
 using Gizmo.Web.Api.Clients.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
 namespace Gizmo.Go.Provider.Direct.Extensions
 {
@@ -20,34 +19,33 @@ namespace Gizmo.Go.Provider.Direct.Extensions
         {
             static void httpClientConfig(IServiceProvider sp, HttpClient client)
             {
-                var settings = sp.GetRequiredService<IOptions<GizmoGoSettings>>().Value;
-                var baseUrl = settings.BackendUrl;
-
-                if (string.IsNullOrWhiteSpace(baseUrl))
-                {
-                    var navManager = sp.GetRequiredService<NavigationManager>();
-                    baseUrl = navManager.BaseUri;
-                }
-
-                client.BaseAddress = new Uri(baseUrl);
+                client.BaseAddress = new Uri(BackendUrl.Resolve(sp));
             }
+
+            services.AddTransient<MobileAppHeaderHandler>();
+            services.AddTransient<BearerTokenHandler>();
 
             // unsecure api clients (auth endpoints - no authorization header needed)
             services.AddUnsecureWebApiClients("GizmoGoDirectUnsecure", httpClientConfig)
                 .WithMessagePackSerialization()
-                .WithCurrentUICultureMessageHandler();
+                .WithCurrentUICultureMessageHandler()
+                .WithMessageHandler<MobileAppHeaderHandler>();
 
-            // secure api clients (registration, options, etc.)
+            // secure api clients (current user profile, agreements): the user token is attached to every request
             services.AddSecureWebApiClients("GizmoGoDirectSecure", httpClientConfig)
                 .WithMessagePackSerialization()
-                .WithCurrentUICultureMessageHandler();
+                .WithCurrentUICultureMessageHandler()
+                .WithMessageHandler<MobileAppHeaderHandler>()
+                .WithMessageHandler<BearerTokenHandler>();
             
             services.AddSingleton<IAuthService, DirectAuthService>();
             services.AddSingleton<IBranchProvider, DirectBranchProvider>();
             services.AddSingleton<IUserRegistrationService, DirectUserRegistrationService>();
             services.AddSingleton<IPasswordRecoveryService, DirectPasswordRecoveryService>();
             services.AddSingleton<IPhoneValidationService, DirectPhoneValidationService>();
-            services.AddSingleton<IRegistrationOptionsService, DirectRegistrationOptionsService>();
+            services.AddSingleton<IMobileOptionsService, DirectMobileOptionsService>();
+            services.AddSingleton<IUserProfileService, DirectUserProfileService>();
+            services.AddSingleton<IPendingUserAgreementsService, DirectPendingUserAgreementsService>();
 
             return services;
         }

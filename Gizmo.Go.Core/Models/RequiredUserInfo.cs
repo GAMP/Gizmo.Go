@@ -1,6 +1,6 @@
-namespace Gizmo.Go.Core.Models.Registration
+namespace Gizmo.Go.Core.Models
 {
-    public sealed class RegistrationRequiredInfo
+    public sealed class RequiredUserInfo
     {
         public bool FirstName { get; init; }
         public bool LastName { get; init; }

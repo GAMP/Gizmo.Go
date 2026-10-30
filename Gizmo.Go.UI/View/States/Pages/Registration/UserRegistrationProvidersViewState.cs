@@ -19,6 +19,8 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
 
         public bool HasError { get; internal set; }
 
+        public string? LogoUrl { get; internal set; }
+
         public string ErrorMessage { get; internal set; } = string.Empty;
 
         public Guid? FailedChannelGuid { get; internal set; }

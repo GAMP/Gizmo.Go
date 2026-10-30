@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 
@@ -8,7 +9,7 @@ namespace Gizmo.Go.Provider.Platform.Services
         public Task<IReadOnlyList<RegistrationProvider>> GetMethodsAsync(CancellationToken ct = default) =>
             throw new NotImplementedException();
 
-        public Task<RegistrationRequiredInfo?> GetRequiredUserInfoAsync(CancellationToken ct = default) =>
+        public Task<RequiredUserInfo?> GetRequiredUserInfoAsync(CancellationToken ct = default) =>
             throw new NotImplementedException();
 
         public Task<IReadOnlyList<RegistrationAgreement>> GetAgreementsAsync(CancellationToken ct = default) =>
@@ -33,9 +34,6 @@ namespace Gizmo.Go.Provider.Platform.Services
             throw new NotImplementedException();
 
         public Task<RegistrationCompleteCode> CompleteAsync(RegistrationCompleteRequest request, CancellationToken ct = default) =>
-            throw new NotImplementedException();
-
-        public Task<RegistrationCompleteCode> DirectAsync(RegistrationCompleteRequest request, CancellationToken ct = default) =>
             throw new NotImplementedException();
     }
 }

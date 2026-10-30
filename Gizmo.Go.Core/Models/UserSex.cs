@@ -1,4 +1,4 @@
-namespace Gizmo.Go.Core.Models.Registration
+namespace Gizmo.Go.Core.Models
 {
     public enum UserSex
     {

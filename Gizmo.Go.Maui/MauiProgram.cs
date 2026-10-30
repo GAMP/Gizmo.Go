@@ -1,4 +1,3 @@
-using System.Globalization;
 using Gizmo;
 using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Extensions;
@@ -75,8 +74,6 @@ namespace Gizmo.Go.Maui
             builder.Services.AddCascadingAuthenticationState();
             builder.Services.AddSingleton<GoAuthenticationStateProvider>();
             builder.Services.AddSingleton<AuthenticationStateProvider>(sp => sp.GetRequiredService<GoAuthenticationStateProvider>());
-            builder.Services.AddTransient<BearerTokenHandler>();
-            builder.Services.AddTransient<CultureDelegatingHandler>();
 
             // provider
             var settings = builder.Configuration.GetSection("GizmoGo").Get<GizmoGoSettings>();
@@ -94,31 +91,8 @@ namespace Gizmo.Go.Maui
 
             var app = builder.Build();
 
-            // restore persisted culture
-            var storedCulture = Preferences.Default.Get<string?>("app.culture", null);
-            if (!string.IsNullOrWhiteSpace(storedCulture))
-            {
-                var culture = new CultureInfo(storedCulture);
-                CultureInfo.DefaultThreadCurrentCulture = culture;
-                CultureInfo.DefaultThreadCurrentUICulture = culture;
-            }
-            else
-            {
-                // start culture stub, replaced by the server ClientInterface:PreferredLanguage
-                var preferredLanguage = app.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<RegistrationStubSettings>>().Value.PreferredLanguage;
-                if (!string.IsNullOrWhiteSpace(preferredLanguage))
-                {
-                    try
-                    {
-                        var culture = new CultureInfo(preferredLanguage);
-                        CultureInfo.DefaultThreadCurrentCulture = culture;
-                        CultureInfo.DefaultThreadCurrentUICulture = culture;
-                    }
-                    catch (CultureNotFoundException)
-                    {
-                    }
-                }
-            }
+            // the app has no language selection: the start culture always comes from the server mobile options
+            // in App.razor.cs (a synchronous call here risks the Android startup deadlock)
 
             // NOTE: Auth session restore and view service initialization happen in
             // App.razor.cs OnInitializedAsync to avoid blocking the main thread

@@ -349,6 +349,9 @@
   <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
     <value>На главную</value>
   </data>
+  <data name="GO_ERROR_BLOCK_RETRY" xml:space="preserve">
+    <value>Попробовать снова</value>
+  </data>
   <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
     <value>Д</value>
   </data>
@@ -634,6 +637,9 @@
   <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
     <value>Восстановление пароля</value>
   </data>
+  <data name="GO_PASSWORD_RECOVERY_FIND_ACCOUNT" xml:space="preserve">
+    <value>Найти аккаунт</value>
+  </data>
   <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
     <value>E-mail</value>
   </data>
@@ -876,5 +882,26 @@
   </data>
   <data name="GO_GEN_CLOSE" xml:space="preserve">
     <value>Закрыть</value>
+  </data>
+  <data name="GO_OPTIONS_LOAD_ERROR" xml:space="preserve">
+    <value>Не удалось подключиться к серверу. Проверьте соединение и повторите попытку.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_PAGE_TITLE" xml:space="preserve">
+    <value>Заполните профиль</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_HEADING" xml:space="preserve">
+    <value>Заполните профиль</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBTITLE" xml:space="preserve">
+    <value>Укажите данные, необходимые для продолжения.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBMIT" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_NON_UNIQUE" xml:space="preserve">
+    <value>Этот email или номер телефона уже используется другой учётной записью.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
+    <value>Часть введённых значений не принята. Проверьте поля и повторите попытку.</value>
   </data>
 </root>

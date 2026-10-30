@@ -18,9 +18,20 @@ namespace Gizmo.Go.Core.Services
         UserProfile? CurrentUser { get; }
 
         /// <summary>
+        /// Gets whether the server requested the profile step for the current session.
+        /// Stored with the tokens until <see cref="ClearPersonalInfoRequestedAsync"/>.
+        /// </summary>
+        bool IsPersonalInfoRequested { get; }
+
+        /// <summary>
         /// Authenticates with username and password.
         /// </summary>
         Task<AuthResult> LoginAsync(string username, string password, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Clears the stored "personal info requested" flag after the profile step is completed.
+        /// </summary>
+        Task ClearPersonalInfoRequestedAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Logs out the current user.

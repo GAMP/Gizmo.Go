@@ -1,8 +1,10 @@
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.Core.Services.Notification;
+using Gizmo.Go.UI.Services.Common;
 using Gizmo.Go.UI.Services.Dialog;
 using Gizmo.Go.UI.Services.Notification;
 using Gizmo.Go.UI.Services.PasswordRecovery;
+using Gizmo.Go.UI.Services.Profile;
 using Gizmo.Go.UI.Services.Registration;
 using Gizmo.UI.Services;
 using Gizmo.UI.View.Services;
@@ -17,6 +19,10 @@ namespace Gizmo.Go.UI.Extensions
         {
             services.AddSingleton<IRegistrationSessionService, RegistrationSessionService>();
             services.AddSingleton<IPasswordRecoverySessionService, PasswordRecoverySessionService>();
+            services.AddSingleton<IProfileCompletionSessionService, ProfileCompletionSessionService>();
+            services.AddSingleton<IUserLoginStatusService, UserLoginStatusService>();
+            services.AddSingleton<IAuthOptionsService, AuthOptionsService>();
+            services.AddSingleton<IAuthFlowService, AuthFlowService>();
 
             services.AddSingleton<GizmoGoNotificationsService>();
             services.AddSingleton<IGizmoGoNotificationsService>(sp => sp.GetRequiredService<GizmoGoNotificationsService>());

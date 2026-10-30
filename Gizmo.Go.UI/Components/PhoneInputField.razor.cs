@@ -1,16 +1,12 @@
 using System.Globalization;
-using Gizmo.Go.Core.Configuration;
 using Gizmo.Go.Core.Models.PhoneValidation;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.Extensions.Options;
 
 namespace Gizmo.Go.UI.Components
 {
     public partial class PhoneInputField : ComponentBase, IDisposable
     {
-        [Inject] private IOptions<RegistrationStubSettings> StubSettings { get; set; } = null!;
-
         [Parameter] public IReadOnlyList<PhoneCountry> Countries { get; set; } = Array.Empty<PhoneCountry>();
 
         /// <summary>
@@ -23,6 +19,12 @@ namespace Gizmo.Go.UI.Components
         [Parameter] public bool IsInvalid { get; set; }
         [Parameter] public bool Disabled { get; set; }
         [Parameter] public string Id { get; set; } = "phone";
+
+        /// <summary>
+        /// Country preselected when no region is chosen (ISO 3166-1 alpha-2); otherwise the first country.
+        /// It has to be set before the countries arrive: the preselection is applied once.
+        /// </summary>
+        [Parameter] public string? DefaultRegionCode { get; set; }
 
         private string _phoneInputValue = "";
         private string _lastEmittedValue = "";
@@ -85,11 +87,11 @@ namespace Gizmo.Go.UI.Components
 
             if (string.IsNullOrEmpty(_regionCode))
             {
-                // Preselect the configured country (stub of the server Regional:CountryCode), otherwise
+                // Preselect the server default country (mobile options), otherwise
                 // the first one. Value is left untouched so that no validation error is shown before
                 // the user types a number.
                 var defaultCountry = SortedCountries.FirstOrDefault(c =>
-                    string.Equals(c.RegionCode, StubSettings.Value.CountryCode, StringComparison.OrdinalIgnoreCase));
+                    string.Equals(c.RegionCode, DefaultRegionCode, StringComparison.OrdinalIgnoreCase));
                 _regionCode = (defaultCountry ?? SortedCountries[0]).RegionCode;
                 await RegionCodeChanged.InvokeAsync(_regionCode);
             }

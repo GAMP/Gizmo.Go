@@ -5,6 +5,8 @@ public static class NavigationHelper
     public const string WelcomePage = "/";
     public const string AccountPage = "/account";
     public const string LoginPage = "/login";
+    public const string HomePage = "/home";
+    public const string ProfileCompletionRoute = "/profile-completion";
 
     public const string RegistrationIndexRoute = "/registration-index";
     public const string RegistrationProvidersRoute = "/registration-providers";

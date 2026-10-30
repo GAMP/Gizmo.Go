@@ -1,7 +1,7 @@
 using System.Net.Http.Headers;
 using Gizmo.Go.Core.Services;
 
-namespace Gizmo.Go.UI.Providers
+namespace Gizmo.Go.Provider.Direct.Handlers
 {
     /// <summary>
     /// HTTP message handler that attaches the Bearer token to outgoing API requests.

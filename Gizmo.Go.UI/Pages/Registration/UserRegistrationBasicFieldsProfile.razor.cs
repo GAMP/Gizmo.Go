@@ -1,5 +1,5 @@
 using System.Linq.Expressions;
-using Gizmo.Go.Core.Models.Registration;
+using Gizmo.Go.Core.Models;
 using Gizmo.Go.UI.View.Services.Pages.Registration;
 using Gizmo.Go.UI.View.States.Pages.Registration;
 using Gizmo.UI.Services;
@@ -56,11 +56,17 @@ namespace Gizmo.Go.UI.Pages.Registration
             return UserRegistrationBasicFieldsViewService.EditContext.GetValidationMessages(fieldIdentifier).Any();
         }
 
-        private void OnFirstNameInput(ChangeEventArgs e) =>
-            UserRegistrationBasicFieldsViewService.SetFirstName(e.Value?.ToString());
+        private Task OnFirstNameChanged(string? value)
+        {
+            UserRegistrationBasicFieldsViewService.SetFirstName(value);
+            return Task.CompletedTask;
+        }
 
-        private void OnLastNameInput(ChangeEventArgs e) =>
-            UserRegistrationBasicFieldsViewService.SetLastName(e.Value?.ToString());
+        private Task OnLastNameChanged(string? value)
+        {
+            UserRegistrationBasicFieldsViewService.SetLastName(value);
+            return Task.CompletedTask;
+        }
 
         private string? GetFirstError<T>(Expression<Func<T>> accessor) =>
             UserRegistrationBasicFieldsViewService.EditContext.GetValidationMessages(FieldIdentifier.Create(accessor)).FirstOrDefault();
@@ -71,17 +77,23 @@ namespace Gizmo.Go.UI.Pages.Registration
             return Task.CompletedTask;
         }
 
-        private void OnSexChanged(ChangeEventArgs e)
+        private Task OnSexChanged(UserSex value)
         {
-            var sex = Enum.TryParse<UserSex>(e.Value?.ToString(), out var parsed) ? parsed : UserSex.Unspecified;
-            UserRegistrationBasicFieldsViewService.SetSex(sex);
+            UserRegistrationBasicFieldsViewService.SetSex(value);
+            return Task.CompletedTask;
         }
 
-        private void OnEmailInput(ChangeEventArgs e) =>
-            UserRegistrationBasicFieldsViewService.SetEmail(e.Value?.ToString());
+        private Task OnEmailChanged(string? value)
+        {
+            UserRegistrationBasicFieldsViewService.SetEmail(value);
+            return Task.CompletedTask;
+        }
 
-        private void OnPhoneInput(ChangeEventArgs e) =>
-            UserRegistrationBasicFieldsViewService.SetPhone(e.Value?.ToString());
+        private Task OnPhoneChanged(string? value)
+        {
+            UserRegistrationBasicFieldsViewService.SetPhone(value);
+            return Task.CompletedTask;
+        }
 
         private Task OnPhoneRegionCodeChanged(string regionCode)
         {

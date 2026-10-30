@@ -349,6 +349,9 @@
   <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
     <value>Til forsiden</value>
   </data>
+  <data name="GO_ERROR_BLOCK_RETRY" xml:space="preserve">
+    <value>Prøv igen</value>
+  </data>
   <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
     <value>D</value>
   </data>
@@ -634,6 +637,9 @@
   <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
     <value>Glemt adgangskode</value>
   </data>
+  <data name="GO_PASSWORD_RECOVERY_FIND_ACCOUNT" xml:space="preserve">
+    <value>Find konto</value>
+  </data>
   <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
     <value>E-mail</value>
   </data>
@@ -876,5 +882,26 @@
   </data>
   <data name="GO_GEN_CLOSE" xml:space="preserve">
     <value>Luk</value>
+  </data>
+  <data name="GO_OPTIONS_LOAD_ERROR" xml:space="preserve">
+    <value>Kunne ikke oprette forbindelse til serveren. Kontroller forbindelsen, og prøv igen.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_PAGE_TITLE" xml:space="preserve">
+    <value>Udfyld din profil</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_HEADING" xml:space="preserve">
+    <value>Udfyld din profil</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBTITLE" xml:space="preserve">
+    <value>Udfyld de oplysninger, der kræves for at fortsætte.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBMIT" xml:space="preserve">
+    <value>Gem</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_NON_UNIQUE" xml:space="preserve">
+    <value>Denne e-mailadresse eller dette telefonnummer bruges allerede af en anden konto.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
+    <value>Nogle af de indtastede værdier blev ikke accepteret. Kontroller felterne, og prøv igen.</value>
   </data>
 </root>

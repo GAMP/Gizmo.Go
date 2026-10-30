@@ -29,7 +29,9 @@ namespace Gizmo.Go.Provider.Platform.Extensions
             services.AddSingleton<IUserRegistrationService, PlatformUserRegistrationService>();
             services.AddSingleton<IPasswordRecoveryService, PlatformPasswordRecoveryService>();
             services.AddSingleton<IPhoneValidationService, PlatformPhoneValidationService>();
-            services.AddSingleton<IRegistrationOptionsService, PlatformRegistrationOptionsService>();
+            services.AddSingleton<IMobileOptionsService, PlatformMobileOptionsService>();
+            services.AddSingleton<IUserProfileService, PlatformUserProfileService>();
+            services.AddSingleton<IPendingUserAgreementsService, PlatformPendingUserAgreementsService>();
 
             return services;
         }

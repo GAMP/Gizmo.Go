@@ -3,6 +3,7 @@ using System.Net;
 using System.Security.Claims;
 using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Services;
+using Gizmo.Server.Exceptions;
 using Gizmo.Web.Api.Clients;
 using Gizmo.Web.Api.Models;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,7 @@ namespace Gizmo.Go.Provider.Direct.Services
         private string? _accessToken;
         private string? _refreshToken;
         private DateTime? _expiresUtc;
+        private bool _isPersonalInfoRequested;
 
         public DirectAuthService(IServiceProvider serviceProvider, ITokenStorageService tokenStorageService)
         {
@@ -33,6 +35,8 @@ namespace Gizmo.Go.Provider.Direct.Services
         public AuthState State { get; private set; } = AuthState.Unknown;
 
         public UserProfile? CurrentUser { get; private set; }
+
+        public bool IsPersonalInfoRequested => _isPersonalInfoRequested;
 
         public event EventHandler<AuthState>? StateChanged;
 
@@ -57,6 +61,9 @@ namespace Gizmo.Go.Provider.Direct.Services
                     _refreshToken = result.RefreshToken;
                     _expiresUtc = ReadExpiration(result.Token);
                     CurrentUser = ReadUserProfile(result.Token);
+
+                    // the password bit is not a profile step: the app has no "set password after login"
+                    _isPersonalInfoRequested = (result.RequiredInfo & ~UserInfoTypes.Password) != UserInfoTypes.None;
                 }
                 finally
                 {
@@ -68,8 +75,9 @@ namespace Gizmo.Go.Provider.Direct.Services
                 SetState(AuthState.Authenticated);
                 return AuthResult.Succeeded();
             }
-            catch (WebApiClientException ex) when (ex.IsHttpStatusCode(HttpStatusCode.Unauthorized))
+            catch (WebApiClientException ex) when (ex.IsHttpStatusCode(HttpStatusCode.Unauthorized) || ex.IsExceptionCode(ExceptionCode.ValidationError))
             {
+                // every login failure is a plain 401 without a reason; empty credentials fail the request model validation
                 SetState(AuthState.Unauthenticated);
                 return AuthResult.Failed(AuthErrorCode.InvalidCredentials);
             }
@@ -85,6 +93,15 @@ namespace Gizmo.Go.Provider.Direct.Services
             }
         }
 
+        public async Task ClearPersonalInfoRequestedAsync(CancellationToken cancellationToken = default)
+        {
+            if (!_isPersonalInfoRequested)
+                return;
+
+            _isPersonalInfoRequested = false;
+            await PersistTokensAsync(cancellationToken);
+        }
+
         public async Task LogoutAsync(CancellationToken cancellationToken = default)
         {
             await _tokenStorageService.ClearAsync(cancellationToken);
@@ -92,6 +109,7 @@ namespace Gizmo.Go.Provider.Direct.Services
             _accessToken = null;
             _refreshToken = null;
             _expiresUtc = null;
+            _isPersonalInfoRequested = false;
             CurrentUser = null;
 
             SetState(AuthState.Unauthenticated);
@@ -136,6 +154,7 @@ namespace Gizmo.Go.Provider.Direct.Services
                 _refreshToken = stored.RefreshToken;
                 _expiresUtc = stored.ExpiresUtc ?? ReadExpiration(stored.Token);
                 CurrentUser = ReadUserProfile(stored.Token);
+                _isPersonalInfoRequested = stored.IsPersonalInfoRequested;
             }
             finally
             {
@@ -203,7 +222,8 @@ namespace Gizmo.Go.Provider.Direct.Services
             {
                 Token = _accessToken,
                 RefreshToken = _refreshToken,
-                ExpiresUtc = _expiresUtc
+                ExpiresUtc = _expiresUtc,
+                IsPersonalInfoRequested = _isPersonalInfoRequested
             }, cancellationToken);
         }
 

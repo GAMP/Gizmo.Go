@@ -1,4 +1,4 @@
-using Gizmo.Go.Core.Configuration;
+using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.Provider.Direct.Mappers.Common;
@@ -7,7 +7,6 @@ using Gizmo.Web.Api.Clients;
 using Gizmo.Web.Api.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using UserAgreementsClient = Gizmo.Web.Api.User.Clients.UserAgreementsWebApiClient;
 using UserTokensClient = Gizmo.Web.Api.User.Clients.TokensWebApiClient;
 using UserUsersClient = Gizmo.Web.Api.User.Clients.UsersWebApiClient;
@@ -20,17 +19,14 @@ namespace Gizmo.Go.Provider.Direct.Services
     internal sealed class DirectUserRegistrationService : IUserRegistrationService
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly IOptions<RegistrationStubSettings> _stubSettings;
         private readonly ILogger<DirectUserRegistrationService> _logger;
         private IReadOnlyList<RegistrationProvider>? _cachedMethods;
 
         public DirectUserRegistrationService(
             IServiceProvider serviceProvider,
-            IOptions<RegistrationStubSettings> stubSettings,
             ILogger<DirectUserRegistrationService> logger)
         {
             _serviceProvider = serviceProvider;
-            _stubSettings = stubSettings;
             _logger = logger;
         }
 
@@ -45,27 +41,13 @@ namespace Gizmo.Go.Provider.Direct.Services
             return _cachedMethods;
         }
 
-        public Task<RegistrationRequiredInfo?> GetRequiredUserInfoAsync(CancellationToken ct = default)
+        public async Task<RequiredUserInfo?> GetRequiredUserInfoAsync(CancellationToken ct = default)
         {
-            // stub: default-group required info is not in the open API yet (client reads it over RPC)
-            var info = _stubSettings.Value.RequiredInfo;
+            var client = _serviceProvider.GetRequiredService<RegistrationsWebApiClient>();
+            var info = await client.GetRequiredInfoAsync(ct);
 
-            return Task.FromResult<RegistrationRequiredInfo?>(new RegistrationRequiredInfo
-            {
-                FirstName = info.FirstName,
-                LastName = info.LastName,
-                BirthDate = info.BirthDate,
-                Address = info.Address,
-                City = info.City,
-                PostCode = info.PostCode,
-                State = info.State,
-                Country = info.Country,
-                Email = info.Email,
-                Phone = info.Phone,
-                Mobile = info.Mobile,
-                Sex = info.Sex,
-                Password = true,
-            });
+            // null: the server has no default user group
+            return info is null ? null : RequiredUserInfoMapper.Map(info);
         }
 
         public async Task<IReadOnlyList<RegistrationAgreement>> GetAgreementsAsync(CancellationToken ct = default)
@@ -129,14 +111,6 @@ namespace Gizmo.Go.Provider.Direct.Services
             var client = _serviceProvider.GetRequiredService<RegistrationsWebApiClient>();
             var model = RegistrationCompleteRequestMapper.MapComplete(request);
             var result = await client.CompleteAsync(model, ct);
-            return RegistrationCompleteCodeMapper.Map(result);
-        }
-
-        public async Task<RegistrationCompleteCode> DirectAsync(RegistrationCompleteRequest request, CancellationToken ct = default)
-        {
-            var client = _serviceProvider.GetRequiredService<RegistrationsWebApiClient>();
-            var model = RegistrationCompleteRequestMapper.MapDirect(request);
-            var result = await client.DirectAsync(model, ct);
             return RegistrationCompleteCodeMapper.Map(result);
         }
     }

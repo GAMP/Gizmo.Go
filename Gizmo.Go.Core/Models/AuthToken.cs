@@ -19,5 +19,10 @@ namespace Gizmo.Go.Core.Models
         /// Gets or sets token expiration time (UTC).
         /// </summary>
         public DateTime? ExpiresUtc { get; init; }
+
+        /// <summary>
+        /// Gets or sets whether the server requested the user profile step on login ("personal info requested").
+        /// </summary>
+        public bool IsPersonalInfoRequested { get; init; }
     }
 }

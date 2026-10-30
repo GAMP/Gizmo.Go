@@ -4,6 +4,7 @@ using System.Linq;
 using Gizmo.Go.Core.Models.PasswordRecovery;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
+using Gizmo.Go.UI.Services.Common;
 using Gizmo.Go.UI.Services.PasswordRecovery;
 using Gizmo.Go.UI.Services.Registration;
 using Gizmo.Go.UI.View.States.Pages.PasswordRecovery;
@@ -40,13 +41,17 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             IPasswordRecoveryService passwordRecoveryService,
             IPasswordRecoverySessionService session,
             ILocalizationService localizationService,
-            IPhoneValidationService phoneValidationService) : base(viewState, logger, serviceProvider)
+            IPhoneValidationService phoneValidationService,
+            IAuthOptionsService authOptionsService) : base(viewState, logger, serviceProvider)
         {
             _passwordRecoveryService = passwordRecoveryService;
             _session = session;
             _localizationService = localizationService;
             _phoneValidationService = phoneValidationService;
+            _authOptionsService = authOptionsService;
         }
+
+        private readonly IAuthOptionsService _authOptionsService;
 
         public int MatchValueMaxLength => ViewState.IdentifierKind == PasswordRecoveryIdentifierKind.Email
             ? EMAIL_MAX_LENGTH
@@ -168,6 +173,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
 
             if (ViewState.IdentifierKind == PasswordRecoveryIdentifierKind.MobilePhone)
             {
+                ViewState.DefaultPhoneRegionCode = (await _authOptionsService.GetAsync(cancellationToken))?.CountryCode;
                 ViewState.Countries = await _phoneValidationService.GetCountriesAsync(cancellationToken);
 
                 if (ViewState.Countries.Count == 0)

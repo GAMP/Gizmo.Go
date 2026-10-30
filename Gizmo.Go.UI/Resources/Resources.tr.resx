@@ -349,6 +349,9 @@
   <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
     <value>Ana sayfaya dön</value>
   </data>
+  <data name="GO_ERROR_BLOCK_RETRY" xml:space="preserve">
+    <value>Tekrar dene</value>
+  </data>
   <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
     <value>G</value>
   </data>
@@ -634,6 +637,9 @@
   <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
     <value>Parolamı unuttum</value>
   </data>
+  <data name="GO_PASSWORD_RECOVERY_FIND_ACCOUNT" xml:space="preserve">
+    <value>Hesabı bul</value>
+  </data>
   <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
     <value>E-posta</value>
   </data>
@@ -876,5 +882,26 @@
   </data>
   <data name="GO_GEN_CLOSE" xml:space="preserve">
     <value>Kapat</value>
+  </data>
+  <data name="GO_OPTIONS_LOAD_ERROR" xml:space="preserve">
+    <value>Sunucuya bağlanılamadı. Bağlantınızı kontrol edin ve tekrar deneyin.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_PAGE_TITLE" xml:space="preserve">
+    <value>Profilinizi tamamlayın</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_HEADING" xml:space="preserve">
+    <value>Profilinizi tamamlayın</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBTITLE" xml:space="preserve">
+    <value>Devam etmek için gerekli bilgileri girin.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBMIT" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_NON_UNIQUE" xml:space="preserve">
+    <value>Bu e-posta adresi veya telefon numarası başka bir hesap tarafından kullanılıyor.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
+    <value>Girilen değerlerden bazıları kabul edilmedi. Alanları kontrol edip tekrar deneyin.</value>
   </data>
 </root>

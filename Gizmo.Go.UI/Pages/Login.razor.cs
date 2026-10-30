@@ -1,7 +1,6 @@
 using System.Linq.Expressions;
 using Gizmo.Go.UI.View.Services;
 using Gizmo.Go.UI.View.Services.Pages;
-using Gizmo.Go.UI.View.States;
 using Gizmo.Go.UI.View.States.Pages;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
@@ -19,9 +18,6 @@ namespace Gizmo.Go.UI.Pages
         private LoginViewService LoginViewService { get; set; } = null!;
 
         [Inject]
-        private RegistrationConfigurationViewState RegistrationConfigurationViewState { get; set; } = null!;
-
-        [Inject]
         private ILocalizationService LocalizationService { get; set; } = null!;
 
         private bool _isPhoneTab = true;
@@ -30,18 +26,24 @@ namespace Gizmo.Go.UI.Pages
         protected override void OnInitialized()
         {
             this.SubscribeChange(LoginViewState);
-            this.SubscribeChange(RegistrationConfigurationViewState);
             base.OnInitialized();
+        }
+
+        protected override async Task OnInitializedAsync()
+        {
+            await LoginViewService.LoadOptionsAsync();
+            await base.OnInitializedAsync();
         }
 
         public void Dispose()
         {
             this.UnsubscribeChange(LoginViewState);
-            this.UnsubscribeChange(RegistrationConfigurationViewState);
         }
 
         private bool IsPhoneTab => _isPhoneTab;
         private bool ShowPassword => _showPassword;
+
+        private Task RetryOptionsAsync() => LoginViewService.LoadOptionsAsync();
 
         private void SetPhoneTab()
         {

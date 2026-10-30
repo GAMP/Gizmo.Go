@@ -349,6 +349,9 @@
   <data name="GO_ERROR_BLOCK_GO_HOME" xml:space="preserve">
     <value>Etusivulle</value>
   </data>
+  <data name="GO_ERROR_BLOCK_RETRY" xml:space="preserve">
+    <value>Yritä uudelleen</value>
+  </data>
   <data name="GO_DATE_INPUT_DAY_LETTER" xml:space="preserve">
     <value>P</value>
   </data>
@@ -634,6 +637,9 @@
   <data name="GO_PASSWORD_RECOVERY_FORGOT_PASSWORD" xml:space="preserve">
     <value>Unohtunut salasana</value>
   </data>
+  <data name="GO_PASSWORD_RECOVERY_FIND_ACCOUNT" xml:space="preserve">
+    <value>Etsi tili</value>
+  </data>
   <data name="GO_PASSWORD_RECOVERY_KIND_EMAIL" xml:space="preserve">
     <value>Sähköposti</value>
   </data>
@@ -876,5 +882,26 @@
   </data>
   <data name="GO_GEN_CLOSE" xml:space="preserve">
     <value>Sulje</value>
+  </data>
+  <data name="GO_OPTIONS_LOAD_ERROR" xml:space="preserve">
+    <value>Yhteyden muodostaminen palvelimeen epäonnistui. Tarkista yhteys ja yritä uudelleen.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_PAGE_TITLE" xml:space="preserve">
+    <value>Täydennä profiilisi</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_HEADING" xml:space="preserve">
+    <value>Täydennä profiilisi</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBTITLE" xml:space="preserve">
+    <value>Anna jatkamiseen tarvittavat tiedot.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_SUBMIT" xml:space="preserve">
+    <value>Tallenna</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_NON_UNIQUE" xml:space="preserve">
+    <value>Tämä sähköpostiosoite tai puhelinnumero on jo toisen tilin käytössä.</value>
+  </data>
+  <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
+    <value>Joitakin syötettyjä arvoja ei hyväksytty. Tarkista kentät ja yritä uudelleen.</value>
   </data>
 </root>

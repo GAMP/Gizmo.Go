@@ -1,0 +1,88 @@
+// ============================================
+// Auth form pages: the shared layout of the form steps
+// (registration account / profile / additional fields, new password, profile completion).
+//
+// .auth-form-page    page root (auth shell)
+// .auth-form         body below the back header
+// .auth-form--profile  profile forms: 24px between blocks
+// .auth-form__fields fields stack
+// .auth-form__actions  actions stack
+// .auth-form__note   small note under the actions
+//
+// Figma 159:12747, 159:13754: content starts 118px from the frame top (back header 84.5px + 33.5px).
+// ============================================
+@use '../themes/default/theme' as *;
+@use 'auth-shell';
+
+.auth-form-page {
+  @include auth-shell.auth-page-shell;
+
+  .auth-hero {
+    gap: 8px;
+  }
+
+  .auth-hero__title {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 29px;
+  }
+
+  .auth-hero__subtitle {
+    font-size: 13px;
+    line-height: 18px;
+    color: #808185;
+  }
+
+  .auth-form__fields .auth-field {
+    gap: 4px;
+  }
+
+  .auth-field__hint {
+    margin-top: 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+// ---- Body: flat layout, no card wrapper ----
+
+.auth-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 33.5px 16px 32px;
+  box-sizing: border-box;
+
+  &--profile {
+    gap: 24px;
+  }
+}
+
+// ---- Fields ----
+
+.auth-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ---- Actions stack ----
+
+.auth-form__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// ---- Note ----
+
+.auth-form__note {
+  margin: 0;
+  font-size: 11px;
+  font-family: 'Noto Sans', $font-family-base;
+  font-weight: $font-weight-regular;
+  color: #55575c;
+  text-align: center;
+  line-height: 16.5px;
+}

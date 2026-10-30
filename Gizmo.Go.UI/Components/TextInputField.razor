@@ -1,0 +1,16 @@
+<div class="auth-field">
+    <label class="auth-field__label" for="@Id">@Label</label>
+    <div class="auth-field__input-wrap @(IsInvalid ? "auth-field__input-wrap--invalid" : "")">
+        <input id="@Id"
+               type="@InputType"
+               class="auth-field__input"
+               value="@Value"
+               @oninput="OnInputAsync"
+               disabled="@Disabled"
+               autocomplete="@Autocomplete"
+               inputmode="@InputMode"
+               maxlength="@MaxLength"
+               placeholder="@Placeholder" />
+    </div>
+    <ValidationMessage For="@For" />
+</div>
