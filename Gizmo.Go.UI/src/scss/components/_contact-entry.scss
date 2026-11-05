@@ -1,6 +1,5 @@
 // ============================================
 // Contact entry step (ContactEntryForm): registration by email / phone, recovery destination.
-// Matches Figma: 159:13640, 159:13692, 159:13260, 159:13339, 159:13301.
 // Content starts 118px from the frame top (back header 84.5px + 33.5px); blocks 24px apart.
 // ============================================
 @use '../themes/default/theme' as *;
@@ -120,7 +119,7 @@
   color: rgba(#ffffff, 0.75);
 }
 
-// ---- Recovery method choice (Figma 159:14334): 20px from the subtitle, buttons 12px apart ----
+// ---- Recovery method choice: 20px from the subtitle, buttons 12px apart ----
 
 .recovery-kind-body {
   gap: 20px;

@@ -7,7 +7,6 @@ namespace Gizmo.Go.UI.Components
     /// <summary>
     /// Contact entry step shared by registration (email, phone) and password recovery (phone, email, username):
     /// title, subtitle, one field, a hint, the submit button and the optional bottom actions.
-    /// Figma 159:13640, 159:13692, 159:13260, 159:13339, 159:13301.
     /// </summary>
     public partial class ContactEntryForm : ComponentBase
     {

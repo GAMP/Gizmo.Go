@@ -1,6 +1,5 @@
 // ============================================
 // Login page styles.
-// Matches Figma: "Auth / 02 · Вход"
 //
 // Shared auth shell styles (card, fields, submit, footer)
 // live in layout/_auth-shell.scss (frameless .auth-card--plain, 48px
@@ -23,7 +22,7 @@
   padding-bottom: env(safe-area-inset-bottom, 0px);
   box-sizing: border-box;
 
-  // Figma: content starts 118px from the frame top (54px status bar + 48px header row + 16px).
+  // Content starts 118px from the frame top (54px status bar + 48px header row + 16px).
   // On devices the status bar is the safe-area inset.
   .auth-body {
     padding: max(118px, calc(env(safe-area-inset-top, 0px) + 64px)) 16px 32px;

@@ -1,0 +1,102 @@
+@use '../themes/default/theme' as *;
+
+// "How Ladder works": title with the intro, scrollable sections, "Got it".
+// compound selectors: _dialog.scss comes later in app.scss
+.giz-dialog__card.giz-ladder-info-dialog {
+    max-width: 351px;
+    max-height: 100%;
+    border-color: $color-home-dialog-border;
+    border-radius: 18px;
+    background: $color-home-dialog;
+    box-shadow: 0 20px 48px rgba($color-home-shadow, 0.50);
+
+    .giz-dialog__header {
+        align-items: flex-start;
+        padding: 20px 16px 20px 20px;
+        border-bottom-color: $color-home-divider;
+    }
+
+    .giz-dialog__body {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+        padding: 20px;
+    }
+
+    .giz-dialog__footer {
+        padding: 20px;
+        border-top: none;
+    }
+
+    .giz-dialog__close {
+        border-radius: 10px;
+        background: rgba($color-text-on-primary, 0.05);
+    }
+}
+
+.giz-ladder-info-dialog {
+    &__heading-block {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+        min-width: 0;
+    }
+
+    &__title {
+        font-family: 'Rubik', $font-family-heading;
+        font-size: 19px;
+        font-weight: $font-weight-bold;
+        line-height: 24px;
+        letter-spacing: 0.12px;
+    }
+
+    &__intro {
+        margin: 0;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: -0.08px;
+        color: $color-home-text-muted;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+    }
+
+    &__icon {
+        color: $color-home-text-muted;
+    }
+
+    &__heading {
+        margin: 0;
+        font-family: 'Rubik', $font-family-heading;
+        font-size: 15px;
+        font-weight: $font-weight-bold;
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: -0.23px;
+        color: $color-home-text-muted;
+    }
+
+    &__button {
+        width: 100%;
+        height: 52px;
+        padding: 0;
+        border: none;
+        border-radius: 12px;
+        background: $color-welcome-btn-primary;
+        color: $color-text-on-primary;
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 15px;
+        font-weight: $font-weight-medium;
+        letter-spacing: 0.02px;
+        cursor: pointer;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}

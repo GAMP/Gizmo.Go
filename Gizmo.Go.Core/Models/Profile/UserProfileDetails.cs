@@ -6,6 +6,10 @@ namespace Gizmo.Go.Core.Models.Profile
     /// </summary>
     public sealed class UserProfileDetails
     {
+        /// <summary>
+        /// Gets the username (nickname).
+        /// </summary>
+        public string Username { get; init; } = string.Empty;
         public string? FirstName { get; init; }
         public string? LastName { get; init; }
         public DateTime? BirthDate { get; init; }
@@ -17,5 +21,10 @@ namespace Gizmo.Go.Core.Models.Profile
         public string? City { get; init; }
         public string? PostCode { get; init; }
         public string? Country { get; init; }
+
+        /// <summary>
+        /// Gets the registration date; null until the server provides it.
+        /// </summary>
+        public DateTime? RegisteredAt { get; init; }
     }
 }

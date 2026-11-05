@@ -835,33 +835,6 @@
   <data name="GO_APP_NAME" xml:space="preserve">
     <value>Gizmo Go</value>
   </data>
-  <data name="GO_NAV_HOME" xml:space="preserve">
-    <value>Главная</value>
-  </data>
-  <data name="GO_NAV_BRANCHES" xml:space="preserve">
-    <value>Клубы</value>
-  </data>
-  <data name="GO_NAV_FAVORITES" xml:space="preserve">
-    <value>Избранное</value>
-  </data>
-  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
-    <value>Аккаунт</value>
-  </data>
-  <data name="GO_NAV_LOGIN" xml:space="preserve">
-    <value>Вход</value>
-  </data>
-  <data name="GO_HOME_WELCOME" xml:space="preserve">
-    <value>Добро пожаловать</value>
-  </data>
-  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
-    <value>Клубы - Gizmo Go</value>
-  </data>
-  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
-    <value>Избранное - Gizmo Go</value>
-  </data>
-  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
-    <value>Аккаунт - Gizmo Go</value>
-  </data>
   <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
     <value>Восстановить через </value>
   </data>
@@ -903,5 +876,170 @@
   </data>
   <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
     <value>Часть введённых значений не принята. Проверьте поля и повторите попытку.</value>
+  </data>
+  <data name="GO_GEN_BACK" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="GO_GEN_CANCEL" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="GO_GEN_LOAD_ERROR" xml:space="preserve">
+    <value>Не удалось загрузить данные.</value>
+  </data>
+  <data name="GO_HOME_LADDER_LEVEL_SHORT" xml:space="preserve">
+    <value>Ур. {0}</value>
+  </data>
+  <data name="GO_HOME_PROFILE_BUTTON" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="GO_HOME_MAIN_BALANCE" xml:space="preserve">
+    <value>Основной баланс</value>
+  </data>
+  <data name="GO_HOME_BONUSES" xml:space="preserve">
+    <value>Бонусы</value>
+  </data>
+  <data name="GO_HOME_TOP_UP" xml:space="preserve">
+    <value>Пополнить</value>
+  </data>
+  <data name="GO_HOME_NEAREST_RESERVATION" xml:space="preserve">
+    <value>Ближайшая бронь</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_CONFIRMED" xml:space="preserve">
+    <value>Подтверждена</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
+    <value>Активна</value>
+  </data>
+  <data name="GO_HOME_OPEN_RESERVATION" xml:space="preserve">
+    <value>Открыть бронь</value>
+  </data>
+  <data name="GO_HOME_TODAY" xml:space="preserve">
+    <value>Сегодня</value>
+  </data>
+  <data name="GO_HOME_TOMORROW" xml:space="preserve">
+    <value>Завтра</value>
+  </data>
+  <data name="GO_HOME_NEWS_ALL_CLUBS" xml:space="preserve">
+    <value>Все клубы</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS" xml:space="preserve">
+    <value>Все новости</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS_TEXT" xml:space="preserve">
+    <value>Открыть полный список новостей</value>
+  </data>
+  <data name="GO_HOME_QUICK_CLUBS_MAP" xml:space="preserve">
+    <value>Клубы на карте</value>
+  </data>
+  <data name="GO_HOME_QUICK_BOOKING" xml:space="preserve">
+    <value>Бронирование</value>
+  </data>
+  <data name="GO_HOME_QUICK_QR" xml:space="preserve">
+    <value>Войти по QR</value>
+  </data>
+  <data name="GO_HOME_CLUBS" xml:space="preserve">
+    <value>Клубы</value>
+  </data>
+  <data name="GO_HOME_CLUB_OPEN" xml:space="preserve">
+    <value>Открыто</value>
+  </data>
+  <data name="GO_HOME_CLUB_CLOSED" xml:space="preserve">
+    <value>Закрыто</value>
+  </data>
+  <data name="GO_HOME_CLUB_AROUND_THE_CLOCK" xml:space="preserve">
+    <value>Круглосуточно • 24/7</value>
+  </data>
+  <data name="GO_HOME_CLUB_BOOK" xml:space="preserve">
+    <value>Забронировать</value>
+  </data>
+  <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
+    <value>Клубы не найдены</value>
+  </data>
+  <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
+    <value>Новости</value>
+  </data>
+  <data name="GO_NEWS_NOT_FOUND" xml:space="preserve">
+    <value>Новость не найдена.</value>
+  </data>
+  <data name="GO_NEWS_EMPTY" xml:space="preserve">
+    <value>Новостей пока нет.</value>
+  </data>
+  <data name="GO_LADDER_INFO_TITLE" xml:space="preserve">
+    <value>Как работает Ladder</value>
+  </data>
+  <data name="GO_LADDER_INFO_INTRO" xml:space="preserve">
+    <value>Ladder — это система уровней, которая отражает вашу активность в клубе.</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TITLE" xml:space="preserve">
+    <value>Уровни</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TEXT" xml:space="preserve">
+    <value>Выполняйте условия текущего периода, чтобы сохранять свой уровень и открывать следующие. Каждый уровень может давать дополнительные преимущества.</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TITLE" xml:space="preserve">
+    <value>Текущий период</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TEXT" xml:space="preserve">
+    <value>Прогресс считается в рамках текущего периода. После его завершения система проверяет, какие требования вы выполнили.</value>
+  </data>
+  <data name="GO_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="GO_PROFILE_SINCE" xml:space="preserve">
+    <value>В Gizmo с {0}</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFICATIONS" xml:space="preserve">
+    <value>Уведомления</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH" xml:space="preserve">
+    <value>Push-уведомления</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH_TEXT" xml:space="preserve">
+    <value>Бронирования, баланс, акции</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO" xml:space="preserve">
+    <value>Промо и новости</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO_TEXT" xml:space="preserve">
+    <value>Турниры, скидки, события</value>
+  </data>
+  <data name="GO_PROFILE_SETTINGS" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="GO_PROFILE_LANGUAGE" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Смена пароля</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_TEXT" xml:space="preserve">
+    <value>Изменить пароль для входа</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES" xml:space="preserve">
+    <value>Политики</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES_TEXT" xml:space="preserve">
+    <value>Документы и правила</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT" xml:space="preserve">
+    <value>О приложении</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_TEXT" xml:space="preserve">
+    <value>Помощь и обратная связь</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT" xml:space="preserve">
+    <value>Выйти из аккаунта</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_ACCOUNT" xml:space="preserve">
+    <value>Удалить аккаунт</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TITLE" xml:space="preserve">
+    <value>Выйти из аккаунта?</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TEXT" xml:space="preserve">
+    <value>Чтобы снова пользоваться приложением, нужно будет войти заново.</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
+    <value>Выйти</value>
   </data>
 </root>

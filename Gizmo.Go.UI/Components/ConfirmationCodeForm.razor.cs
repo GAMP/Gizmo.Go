@@ -6,7 +6,6 @@ namespace Gizmo.Go.UI.Components
     /// <summary>
     /// Confirmation code step shared by registration and password recovery (phone and email):
     /// title, subtitle, code cells, resend / change links, hint with the code lifetime and the submit button.
-    /// Figma 159:13381.
     /// </summary>
     public partial class ConfirmationCodeForm : ComponentBase
     {

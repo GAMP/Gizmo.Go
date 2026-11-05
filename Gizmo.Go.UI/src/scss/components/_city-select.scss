@@ -1,0 +1,89 @@
+@use '../themes/default/theme' as *;
+
+// City selector next to the clubs title: blue pin, city name and arrow.
+.city-select {
+  position: relative;
+  min-width: 0;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: $color-welcome-accent-mid;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    span {
+      @include text-truncate;
+    }
+
+    &--static {
+      cursor: default;
+    }
+  }
+
+  &__pin,
+  &__arrow {
+    flex-shrink: 0;
+  }
+
+  &__arrow {
+    transition: transform $transition-fast;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: $z-index-dropdown;
+  }
+
+  &__list {
+    position: absolute;
+    top: calc(100% + #{$spacing-sm});
+    left: 0;
+    z-index: $z-index-dropdown;
+    min-width: 160px;
+    max-height: 240px;
+    margin: 0;
+    padding: $spacing-xs;
+    list-style: none;
+    overflow-y: auto;
+    border: 1px solid $color-home-dialog-border;
+    border-radius: 12px;
+    background: $color-home-dialog;
+    box-shadow: 0 12px 40px rgba($color-home-shadow, 0.5);
+  }
+
+  &__item {
+    width: 100%;
+    padding: $spacing-sm 12px;
+    border: none;
+    border-radius: $radius-md;
+    background: transparent;
+    color: $color-text-on-primary;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 14px;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    appearance: none;
+
+    &--selected {
+      background: $color-home-chip;
+      color: $color-welcome-accent;
+    }
+  }
+}

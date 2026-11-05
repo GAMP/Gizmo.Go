@@ -22,5 +22,8 @@ namespace Gizmo.Go.Provider.Platform.Services
 
         public Task RemoveFavoriteAsync(int branchId, CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
+
+        public Task<IReadOnlyList<string>> GetCitiesAsync(CancellationToken cancellationToken = default) =>
+            throw new NotImplementedException();
     }
 }

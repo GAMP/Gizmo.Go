@@ -38,5 +38,30 @@ namespace Gizmo.Go.UI.Services.Dialog
                 CloseOnClick = true
             }, default, cancellationToken);
         }
+
+        public Task<AddDialogResult<EmptyComponentResult>> ShowConfirmDialogAsync(string title, string text, string confirmText, CancellationToken cancellationToken = default)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                [nameof(ConfirmDialog.Title)] = title,
+                [nameof(ConfirmDialog.Text)] = text,
+                [nameof(ConfirmDialog.ConfirmText)] = confirmText
+            };
+
+            return ShowDialogAsync<ConfirmDialog, EmptyComponentResult>(parameters, new DialogDisplayOptions()
+            {
+                Closable = true,
+                CloseOnClick = true
+            }, default, cancellationToken);
+        }
+
+        public Task<AddDialogResult<EmptyComponentResult>> ShowLadderInfoDialogAsync(CancellationToken cancellationToken = default)
+        {
+            return ShowDialogAsync<LadderInfoDialog, EmptyComponentResult>(new Dictionary<string, object>(), new DialogDisplayOptions()
+            {
+                Closable = true,
+                CloseOnClick = true
+            }, default, cancellationToken);
+        }
     }
 }

@@ -7,6 +7,7 @@ using Gizmo.Go.UI.Services.Dialog;
 using Gizmo.Go.UI.Services.Profile;
 using Gizmo.UI;
 using Gizmo.UI.Services;
+using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 
 namespace Gizmo.Go.UI.Services.Common
@@ -64,8 +65,9 @@ namespace Gizmo.Go.UI.Services.Common
                 if (await ProcessProfileAsync(landingUrl, cancellationToken))
                     return;
 
+                // the landing replaces the auth screen entry: the system back button does not return to the login
                 if (!IsCurrentLocation(landingUrl))
-                    _navigationService.NavigateTo(landingUrl);
+                    _navigationService.NavigateTo(landingUrl, new NavigationOptions { ReplaceHistoryEntry = true });
             }
             catch (OperationCanceledException)
             {
@@ -196,7 +198,7 @@ namespace Gizmo.Go.UI.Services.Common
                 _profileCompletionSession.Start(fields, profile, phoneCountries, defaultPhoneRegionCode, landingUrl);
 
                 if (!IsCurrentLocation(NavigationHelper.ProfileCompletionRoute))
-                    _navigationService.NavigateTo(NavigationHelper.ProfileCompletionRoute);
+                    _navigationService.NavigateTo(NavigationHelper.ProfileCompletionRoute, new NavigationOptions { ReplaceHistoryEntry = true });
 
                 return true;
             }

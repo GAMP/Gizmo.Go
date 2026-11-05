@@ -1,6 +1,5 @@
 // ============================================
 // Welcome / Auth landing page styles.
-// Matches Figma: "Auth / 01 · Добро пожаловать"
 // ============================================
 @use '../themes/default/theme' as *;
 @use 'sass:color';
@@ -16,7 +15,7 @@
   color: #ffffff;
   font-family: 'Noto Sans', $font-family-base;
   overflow-x: hidden;
-  // Content block is vertically centered as in Figma; safe-area insets keep it clear of notch / home indicator
+  // Content block is vertically centered; safe-area insets keep it clear of notch / home indicator
   justify-content: center;
   padding: calc(20px + env(safe-area-inset-top, 0px)) 16px calc(24px + env(safe-area-inset-bottom, 0px));
   box-sizing: border-box;

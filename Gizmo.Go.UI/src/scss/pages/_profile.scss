@@ -1,0 +1,263 @@
+@use '../themes/default/theme' as *;
+
+// Profile.
+.page-profile {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    padding: 0 $spacing-md $spacing-xl;
+  }
+
+  &__skeleton {
+    height: 169px;
+  }
+}
+
+.profile-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: $spacing-sm;
+  text-align: center;
+
+  &__avatar {
+    @include flex-center;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: $radius-full;
+    background: linear-gradient(135deg, $color-home-avatar-start 0%, $color-home-avatar-end 100%);
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 42px;
+  }
+
+  // the level pill sits on the lower edge of the avatar
+  &__level {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border: 1px solid rgba($color-welcome-accent-mid, 0.40);
+    border-radius: $radius-full;
+    background: linear-gradient(135deg, rgba($color-home-avatar-start, 0.80) 0%, rgba($color-home-avatar-end, 0.80) 100%);
+    color: $color-welcome-accent;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 9px;
+    font-weight: $font-weight-bold;
+    line-height: 13.5px;
+    letter-spacing: 0.36px;
+    white-space: nowrap;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    max-width: 100%;
+  }
+
+  &__name {
+    margin: 0;
+    max-width: 100%;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 19px;
+    font-weight: $font-weight-bold;
+    line-height: 28.5px;
+    @include text-truncate;
+  }
+
+  &__phone {
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba($color-text-on-primary, 0.40);
+  }
+
+  &__since {
+    font-size: 11px;
+    line-height: 16.5px;
+    color: rgba($color-text-on-primary, 0.25);
+  }
+}
+
+.profile-divider {
+  height: 2px;
+  margin: 0 8px;
+  background: $color-home-surface-border;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__title {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16.5px;
+    letter-spacing: 0.88px;
+    color: rgba($color-text-on-primary, 0.35);
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $color-home-surface-border;
+    border-radius: 16px;
+    background: $color-home-surface;
+    box-shadow: 0 4px 24px rgba($color-home-shadow, 0.30);
+    overflow: hidden;
+  }
+}
+
+// inactive rows: no handlers yet
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 66px;
+  padding: 12px $spacing-md;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid $color-home-divider;
+  background: transparent;
+  color: $color-text-on-primary;
+  font-family: 'Noto Sans', $font-family-base;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &--switch {
+    min-height: 68px;
+  }
+
+  &__icon {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: $color-home-chip;
+    color: $color-text-on-primary;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 21px;
+    @include text-truncate;
+
+    &--large {
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: -0.23px;
+    }
+  }
+
+  &__detail {
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba($color-text-on-primary, 0.45);
+    @include text-truncate;
+
+    &--small {
+      font-size: 11px;
+      font-weight: $font-weight-medium;
+      line-height: 16.5px;
+      color: rgba($color-text-on-primary, 0.35);
+    }
+  }
+
+  &__chevron {
+    flex-shrink: 0;
+    color: rgba($color-text-on-primary, 0.20);
+  }
+}
+
+// switch shown off
+.profile-switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: rgba($color-text-on-primary, 0.15);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: $radius-full;
+    background: $color-text-on-primary;
+    box-shadow: 0 1px 3px rgba($color-home-shadow, 0.30);
+  }
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 56px;
+  padding: 0 $spacing-md;
+  border: 1px solid rgba($color-text-on-primary, 0.08);
+  border-radius: 16px;
+  background: rgba($color-text-on-primary, 0.03);
+  color: $color-text-on-primary;
+  font-family: 'Noto Sans', $font-family-base;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__label {
+    flex: 1;
+    min-width: 0;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    @include text-truncate;
+  }
+
+  &--danger {
+    border-color: rgba($color-home-danger, 0.20);
+    background: rgba($color-home-danger, 0.07);
+    color: $color-home-danger;
+
+    .profile-row__icon {
+      background: rgba($color-home-danger, 0.12);
+      color: $color-home-danger;
+    }
+  }
+}

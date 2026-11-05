@@ -1,6 +1,5 @@
 // ============================================
 // Date input: digits-only field with a culture mask.
-// Matches Figma: "Дата рождения" states (159:12345, 159:12318, 159:12290, 159:12252).
 // Field shell (.auth-field__input-wrap) lives in layout/_auth-shell.scss.
 // ============================================
 @use '../themes/default/theme' as *;

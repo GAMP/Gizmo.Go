@@ -11,7 +11,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
 {
     /// <summary>
     /// Account search result between the identifier entry and the provider choice.
-    /// Mobile deviation: Figma 159:14156 (found), 159:14187 (not found).
+    /// Mobile deviation: the client has no such step.
     /// </summary>
     [Register()]
     [Route(NavigationHelper.PasswordRecoveryAccountRoute)]

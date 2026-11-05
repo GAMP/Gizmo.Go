@@ -1,0 +1,81 @@
+@use '../themes/default/theme' as *;
+
+// Home header: logo, ladder level chip, profile avatar.
+.home-header {
+  @include flex-between;
+  gap: 12px;
+  padding: 16px 16px 8px;
+
+  &__logo {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    border: 1px solid $color-home-dialog-border;
+    border-radius: 8px;
+    background: linear-gradient(135deg, $color-home-bg-end 0%, $color-home-bg-mid 100%);
+    overflow: hidden;
+
+    // the club logo keeps its proportions in the 32px row
+    &--image {
+      width: auto;
+      max-width: 160px;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    img {
+      display: block;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__level {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 40px;
+    padding: 4px 12px;
+    box-sizing: border-box;
+    border: 1px solid $color-home-card-border;
+    border-radius: $radius-full;
+    background: $color-home-card;
+    color: $color-text-on-primary;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__level-emblem {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  &__avatar {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    box-sizing: border-box;
+    border: 2px solid $color-welcome-accent-mid;
+    border-radius: $radius-full;
+    background: $color-home-card;
+    color: $color-text-on-primary;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}

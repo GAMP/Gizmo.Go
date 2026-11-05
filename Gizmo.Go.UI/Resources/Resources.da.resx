@@ -835,33 +835,6 @@
   <data name="GO_APP_NAME" xml:space="preserve">
     <value>Gizmo Go</value>
   </data>
-  <data name="GO_NAV_HOME" xml:space="preserve">
-    <value>Hjem</value>
-  </data>
-  <data name="GO_NAV_BRANCHES" xml:space="preserve">
-    <value>Afdelinger</value>
-  </data>
-  <data name="GO_NAV_FAVORITES" xml:space="preserve">
-    <value>Favoritter</value>
-  </data>
-  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
-    <value>Konto</value>
-  </data>
-  <data name="GO_NAV_LOGIN" xml:space="preserve">
-    <value>Log ind</value>
-  </data>
-  <data name="GO_HOME_WELCOME" xml:space="preserve">
-    <value>Velkommen</value>
-  </data>
-  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
-    <value>Afdelinger - Gizmo Go</value>
-  </data>
-  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
-    <value>Favoritter - Gizmo Go</value>
-  </data>
-  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
-    <value>Konto - Gizmo Go</value>
-  </data>
   <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
     <value>Gendan via </value>
   </data>
@@ -903,5 +876,170 @@
   </data>
   <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
     <value>Nogle af de indtastede værdier blev ikke accepteret. Kontroller felterne, og prøv igen.</value>
+  </data>
+  <data name="GO_GEN_BACK" xml:space="preserve">
+    <value>Tilbage</value>
+  </data>
+  <data name="GO_GEN_CANCEL" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="GO_GEN_LOAD_ERROR" xml:space="preserve">
+    <value>Dataene kunne ikke indlæses.</value>
+  </data>
+  <data name="GO_HOME_LADDER_LEVEL_SHORT" xml:space="preserve">
+    <value>Niv. {0}</value>
+  </data>
+  <data name="GO_HOME_PROFILE_BUTTON" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="GO_HOME_MAIN_BALANCE" xml:space="preserve">
+    <value>Hovedsaldo</value>
+  </data>
+  <data name="GO_HOME_BONUSES" xml:space="preserve">
+    <value>Bonusser</value>
+  </data>
+  <data name="GO_HOME_TOP_UP" xml:space="preserve">
+    <value>Indbetal</value>
+  </data>
+  <data name="GO_HOME_NEAREST_RESERVATION" xml:space="preserve">
+    <value>Nærmeste reservation</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_CONFIRMED" xml:space="preserve">
+    <value>Bekræftet</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  <data name="GO_HOME_OPEN_RESERVATION" xml:space="preserve">
+    <value>Åbn reservation</value>
+  </data>
+  <data name="GO_HOME_TODAY" xml:space="preserve">
+    <value>I dag</value>
+  </data>
+  <data name="GO_HOME_TOMORROW" xml:space="preserve">
+    <value>I morgen</value>
+  </data>
+  <data name="GO_HOME_NEWS_ALL_CLUBS" xml:space="preserve">
+    <value>Alle klubber</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS" xml:space="preserve">
+    <value>Alle nyheder</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS_TEXT" xml:space="preserve">
+    <value>Åbn den fulde liste over nyheder</value>
+  </data>
+  <data name="GO_HOME_QUICK_CLUBS_MAP" xml:space="preserve">
+    <value>Klubber på kortet</value>
+  </data>
+  <data name="GO_HOME_QUICK_BOOKING" xml:space="preserve">
+    <value>Booking</value>
+  </data>
+  <data name="GO_HOME_QUICK_QR" xml:space="preserve">
+    <value>Log ind med QR</value>
+  </data>
+  <data name="GO_HOME_CLUBS" xml:space="preserve">
+    <value>Klubber</value>
+  </data>
+  <data name="GO_HOME_CLUB_OPEN" xml:space="preserve">
+    <value>Åben</value>
+  </data>
+  <data name="GO_HOME_CLUB_CLOSED" xml:space="preserve">
+    <value>Lukket</value>
+  </data>
+  <data name="GO_HOME_CLUB_AROUND_THE_CLOCK" xml:space="preserve">
+    <value>Døgnet rundt • 24/7</value>
+  </data>
+  <data name="GO_HOME_CLUB_BOOK" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
+    <value>Ingen klubber fundet</value>
+  </data>
+  <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
+    <value>Nyheder</value>
+  </data>
+  <data name="GO_NEWS_NOT_FOUND" xml:space="preserve">
+    <value>Nyheden blev ikke fundet.</value>
+  </data>
+  <data name="GO_NEWS_EMPTY" xml:space="preserve">
+    <value>Ingen nyheder endnu.</value>
+  </data>
+  <data name="GO_LADDER_INFO_TITLE" xml:space="preserve">
+    <value>Sådan fungerer Ladder</value>
+  </data>
+  <data name="GO_LADDER_INFO_INTRO" xml:space="preserve">
+    <value>Ladder er et niveausystem, der afspejler din aktivitet i klubben.</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TITLE" xml:space="preserve">
+    <value>Niveauer</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TEXT" xml:space="preserve">
+    <value>Opfyld betingelserne for den aktuelle periode for at beholde dit niveau og låse op for de næste. Hvert niveau kan give ekstra fordele.</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TITLE" xml:space="preserve">
+    <value>Nuværende periode</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TEXT" xml:space="preserve">
+    <value>Fremskridt tælles inden for den aktuelle periode. Når den slutter, tjekker systemet, hvilke krav du har opfyldt.</value>
+  </data>
+  <data name="GO_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="GO_PROFILE_SINCE" xml:space="preserve">
+    <value>I Gizmo siden {0}</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFICATIONS" xml:space="preserve">
+    <value>Notifikationer</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH" xml:space="preserve">
+    <value>Push-notifikationer</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH_TEXT" xml:space="preserve">
+    <value>Bookinger, saldo, tilbud</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO" xml:space="preserve">
+    <value>Kampagner og nyheder</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO_TEXT" xml:space="preserve">
+    <value>Turneringer, rabatter, begivenheder</value>
+  </data>
+  <data name="GO_PROFILE_SETTINGS" xml:space="preserve">
+    <value>Indstillinger</value>
+  </data>
+  <data name="GO_PROFILE_LANGUAGE" xml:space="preserve">
+    <value>Sprog</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Skift adgangskode</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_TEXT" xml:space="preserve">
+    <value>Skift adgangskoden til login</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES" xml:space="preserve">
+    <value>Politikker</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES_TEXT" xml:space="preserve">
+    <value>Dokumenter og regler</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT" xml:space="preserve">
+    <value>Om appen</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_TEXT" xml:space="preserve">
+    <value>Hjælp og feedback</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT" xml:space="preserve">
+    <value>Log ud af kontoen</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_ACCOUNT" xml:space="preserve">
+    <value>Slet konto</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TITLE" xml:space="preserve">
+    <value>Log ud af kontoen?</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TEXT" xml:space="preserve">
+    <value>Du skal logge ind igen for at bruge appen.</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
+    <value>Log ud</value>
   </data>
 </root>

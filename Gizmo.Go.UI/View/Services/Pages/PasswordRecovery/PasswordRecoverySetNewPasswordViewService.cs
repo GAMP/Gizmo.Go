@@ -102,7 +102,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             }
         }
 
-        // Figma 159:13088: back drops the started recovery and returns to the provider choice
+        // back drops the started recovery and returns to the provider choice
         public Task NavigateBackAsync()
         {
             _session.ResetStart();

@@ -1,0 +1,77 @@
+@use '../themes/default/theme' as *;
+
+// Balance and bonuses.
+.balance-cards {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+.balance-card {
+  @include flex-between;
+  gap: $spacing-sm;
+  min-width: 0;
+  min-height: 68px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border: 1px solid $color-home-card-border;
+  border-radius: 16px;
+  background: $color-home-card;
+
+  &--bonuses {
+    border-color: rgba($color-home-bonus, 0.22);
+    background: rgba($color-home-bonus, 0.08);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__label {
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.5px;
+    color: $color-home-text-secondary;
+    @include text-truncate;
+  }
+
+  &__value {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+    line-height: 28px;
+    letter-spacing: 0.38px;
+    @include text-truncate;
+  }
+
+  &--bonuses &__value {
+    color: $color-home-bonus;
+  }
+
+  &__bolt {
+    flex-shrink: 0;
+    color: $color-home-bonus;
+  }
+
+  // inactive: always blue, no handler yet
+  &__add {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: $color-welcome-btn-primary;
+    color: $color-text-on-primary;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}

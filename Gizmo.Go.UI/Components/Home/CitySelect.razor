@@ -1,0 +1,47 @@
+<div class="city-select">
+    @if (Cities.Count > 1)
+    {
+        <button type="button"
+                class="city-select__button"
+                aria-haspopup="listbox"
+                aria-expanded="@_open.ToString().ToLowerInvariant()"
+                @onclick="Toggle">
+            <svg class="city-select__pin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>@SelectedCity</span>
+            <svg class="city-select__arrow @(_open ? "city-select__arrow--open" : "")" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+            </svg>
+        </button>
+
+        @if (_open)
+        {
+            @* a tap outside the list closes it *@
+            <div class="city-select__backdrop" @onclick="Toggle"></div>
+            <ul class="city-select__list" role="listbox">
+                @foreach (var city in Cities)
+                {
+                    <li role="option" aria-selected="@(city == SelectedCity ? "true" : "false")">
+                        <button type="button"
+                                class="city-select__item @(city == SelectedCity ? "city-select__item--selected" : "")"
+                                @onclick="() => SelectAsync(city)">
+                            @city
+                        </button>
+                    </li>
+                }
+            </ul>
+        }
+    }
+    else
+    {
+        <div class="city-select__button city-select__button--static">
+            <svg class="city-select__pin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>@SelectedCity</span>
+        </div>
+    }
+</div>

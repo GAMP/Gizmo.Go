@@ -40,6 +40,36 @@ $color-success-light: null !default;
 $color-info-bg: null !default;
 $color-info-border: null !default;
 
+// Main zone (Home, news, profile, their dialogs) on the dark shell
+$color-home-bg-start: null !default;
+$color-home-bg-mid: null !default;
+$color-home-bg-end: null !default;
+$color-home-bg-glow: null !default;
+$color-home-bg-glow-soft: null !default;
+$color-news-bg-start: null !default;
+$color-news-bg-end: null !default;
+$color-home-card: null !default;
+$color-home-card-border: null !default;
+$color-home-surface: null !default;
+$color-home-surface-border: null !default;
+$color-home-divider: null !default;
+$color-home-chip: null !default;
+$color-home-skeleton: null !default;
+$color-home-text-secondary: null !default;
+$color-home-text-muted: null !default;
+$color-home-text-dim: null !default;
+$color-home-bonus: null !default;
+$color-home-violet: null !default;
+$color-home-reservation-bg: null !default;
+$color-home-closed: null !default;
+$color-home-danger: null !default;
+$color-home-avatar-start: null !default;
+$color-home-avatar-end: null !default;
+$color-home-dialog: null !default;
+$color-home-dialog-border: null !default;
+$color-home-overlay: null !default;
+$color-home-shadow: null !default;
+
 // -- Typography --
 $font-family-base: null !default;
 $font-family-heading: null !default;

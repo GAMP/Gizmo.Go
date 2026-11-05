@@ -1,4 +1,5 @@
-<div class="giz-dialog__card giz-user-agreement-dialog giz-dialog__card--agreement">
+@* the click inside the card must not reach the overlay of DialogHost, which closes a dialog with CloseOnClick *@
+<div class="giz-dialog__card giz-user-agreement-dialog giz-dialog__card--agreement" @onclick:stopPropagation="true">
     <div class="giz-dialog__header giz-dialog__header--row">
         <div class="giz-dialog__title">@Name</div>
         <button type="button"

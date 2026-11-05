@@ -1,0 +1,138 @@
+@use '../themes/default/theme' as *;
+
+// Nearest reservation: green card with the host tag, club, time and the status pill.
+.reservation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid $color-success-light;
+  border-radius: 16px;
+  background: $color-home-reservation-bg;
+
+  &__top {
+    @include flex-between;
+    gap: $spacing-sm;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: $color-success-light;
+  }
+
+  &__dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: $radius-full;
+    background: $color-success-light;
+  }
+
+  // an active reservation pulses
+  &--active &__dot {
+    animation: reservation-dot-pulse 1.6s ease-in-out infinite;
+  }
+
+  &__host {
+    flex-shrink: 0;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: rgba($color-success-light, 0.10);
+    color: $color-success-light;
+    font-size: 11px;
+    font-weight: $font-weight-bold;
+  }
+
+  &__body {
+    @include flex-between;
+    gap: $spacing-md;
+  }
+
+  &__club {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  &__club-name,
+  &__time {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 16px;
+    font-weight: $font-weight-bold;
+  }
+
+  &__club-name {
+    @include text-truncate;
+  }
+
+  &__club-address {
+    font-size: 12px;
+    color: $color-home-text-secondary;
+    @include text-truncate;
+  }
+
+  &__when {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  &__day {
+    font-size: 10px;
+    color: rgba($color-text-on-primary, 0.33);
+  }
+
+  &__time {
+    white-space: nowrap;
+  }
+
+  &__footer {
+    @include flex-between;
+    gap: $spacing-sm;
+    padding-top: 10px;
+    border-top: 1px solid $color-home-card-border;
+  }
+
+  &__status {
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba($color-success-light, 0.10);
+    color: $color-success-light;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  // inactive: no handler yet
+  &__open {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 8px;
+    background: $color-success-light;
+    color: $color-text-on-primary;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    white-space: nowrap;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@keyframes reservation-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}

@@ -835,33 +835,6 @@
   <data name="GO_APP_NAME" xml:space="preserve">
     <value>Gizmo Go</value>
   </data>
-  <data name="GO_NAV_HOME" xml:space="preserve">
-    <value>Αρχική</value>
-  </data>
-  <data name="GO_NAV_BRANCHES" xml:space="preserve">
-    <value>Υποκαταστήματα</value>
-  </data>
-  <data name="GO_NAV_FAVORITES" xml:space="preserve">
-    <value>Αγαπημένα</value>
-  </data>
-  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
-    <value>Λογαριασμός</value>
-  </data>
-  <data name="GO_NAV_LOGIN" xml:space="preserve">
-    <value>Σύνδεση</value>
-  </data>
-  <data name="GO_HOME_WELCOME" xml:space="preserve">
-    <value>Καλώς ήρθατε</value>
-  </data>
-  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
-    <value>Υποκαταστήματα - Gizmo Go</value>
-  </data>
-  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
-    <value>Αγαπημένα - Gizmo Go</value>
-  </data>
-  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
-    <value>Λογαριασμός - Gizmo Go</value>
-  </data>
   <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
     <value>Ανάκτηση μέσω </value>
   </data>
@@ -903,5 +876,170 @@
   </data>
   <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
     <value>Ορισμένες από τις τιμές που καταχωρίσατε δεν έγιναν δεκτές. Ελέγξτε τα πεδία και δοκιμάστε ξανά.</value>
+  </data>
+  <data name="GO_GEN_BACK" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="GO_GEN_CANCEL" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="GO_GEN_LOAD_ERROR" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η φόρτωση των δεδομένων.</value>
+  </data>
+  <data name="GO_HOME_LADDER_LEVEL_SHORT" xml:space="preserve">
+    <value>Επ. {0}</value>
+  </data>
+  <data name="GO_HOME_PROFILE_BUTTON" xml:space="preserve">
+    <value>Προφίλ</value>
+  </data>
+  <data name="GO_HOME_MAIN_BALANCE" xml:space="preserve">
+    <value>Κύριο υπόλοιπο</value>
+  </data>
+  <data name="GO_HOME_BONUSES" xml:space="preserve">
+    <value>Μπόνους</value>
+  </data>
+  <data name="GO_HOME_TOP_UP" xml:space="preserve">
+    <value>Ανανέωση</value>
+  </data>
+  <data name="GO_HOME_NEAREST_RESERVATION" xml:space="preserve">
+    <value>Πλησιέστερη κράτηση</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_CONFIRMED" xml:space="preserve">
+    <value>Επιβεβαιωμένη</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
+    <value>Ενεργή</value>
+  </data>
+  <data name="GO_HOME_OPEN_RESERVATION" xml:space="preserve">
+    <value>Άνοιγμα κράτησης</value>
+  </data>
+  <data name="GO_HOME_TODAY" xml:space="preserve">
+    <value>Σήμερα</value>
+  </data>
+  <data name="GO_HOME_TOMORROW" xml:space="preserve">
+    <value>Αύριο</value>
+  </data>
+  <data name="GO_HOME_NEWS_ALL_CLUBS" xml:space="preserve">
+    <value>Όλα τα κλαμπ</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS" xml:space="preserve">
+    <value>Όλα τα νέα</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS_TEXT" xml:space="preserve">
+    <value>Ανοίξτε την πλήρη λίστα ειδήσεων</value>
+  </data>
+  <data name="GO_HOME_QUICK_CLUBS_MAP" xml:space="preserve">
+    <value>Κλαμπ στον χάρτη</value>
+  </data>
+  <data name="GO_HOME_QUICK_BOOKING" xml:space="preserve">
+    <value>Κράτηση</value>
+  </data>
+  <data name="GO_HOME_QUICK_QR" xml:space="preserve">
+    <value>Σύνδεση με QR</value>
+  </data>
+  <data name="GO_HOME_CLUBS" xml:space="preserve">
+    <value>Κλαμπ</value>
+  </data>
+  <data name="GO_HOME_CLUB_OPEN" xml:space="preserve">
+    <value>Ανοιχτό</value>
+  </data>
+  <data name="GO_HOME_CLUB_CLOSED" xml:space="preserve">
+    <value>Κλειστό</value>
+  </data>
+  <data name="GO_HOME_CLUB_AROUND_THE_CLOCK" xml:space="preserve">
+    <value>Όλο το 24ωρο • 24/7</value>
+  </data>
+  <data name="GO_HOME_CLUB_BOOK" xml:space="preserve">
+    <value>Κράτηση</value>
+  </data>
+  <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
+    <value>Δεν βρέθηκαν κλαμπ</value>
+  </data>
+  <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
+    <value>Νέα</value>
+  </data>
+  <data name="GO_NEWS_NOT_FOUND" xml:space="preserve">
+    <value>Η είδηση δεν βρέθηκε.</value>
+  </data>
+  <data name="GO_NEWS_EMPTY" xml:space="preserve">
+    <value>Δεν υπάρχουν ειδήσεις ακόμα.</value>
+  </data>
+  <data name="GO_LADDER_INFO_TITLE" xml:space="preserve">
+    <value>Πώς λειτουργεί το Ladder</value>
+  </data>
+  <data name="GO_LADDER_INFO_INTRO" xml:space="preserve">
+    <value>Το Ladder είναι ένα σύστημα επιπέδων που αντικατοπτρίζει τη δραστηριότητά σας στο club.</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TITLE" xml:space="preserve">
+    <value>Επίπεδα</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TEXT" xml:space="preserve">
+    <value>Εκπληρώστε τις προϋποθέσεις της τρέχουσας περιόδου για να διατηρήσετε το επίπεδό σας και να ξεκλειδώσετε τα επόμενα. Κάθε επίπεδο μπορεί να δίνει επιπλέον πλεονεκτήματα.</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TITLE" xml:space="preserve">
+    <value>Τρέχουσα περίοδος</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TEXT" xml:space="preserve">
+    <value>Η πρόοδος μετράει εντός της τρέχουσας περιόδου. Μόλις λήξει, το σύστημα ελέγχει ποιες απαιτήσεις εκπληρώσατε.</value>
+  </data>
+  <data name="GO_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Προφίλ</value>
+  </data>
+  <data name="GO_PROFILE_SINCE" xml:space="preserve">
+    <value>Στο Gizmo από {0}</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFICATIONS" xml:space="preserve">
+    <value>Ειδοποιήσεις</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH" xml:space="preserve">
+    <value>Ειδοποιήσεις push</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH_TEXT" xml:space="preserve">
+    <value>Κρατήσεις, υπόλοιπο, προσφορές</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO" xml:space="preserve">
+    <value>Προσφορές και ειδήσεις</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO_TEXT" xml:space="preserve">
+    <value>Τουρνουά, εκπτώσεις, εκδηλώσεις</value>
+  </data>
+  <data name="GO_PROFILE_SETTINGS" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="GO_PROFILE_LANGUAGE" xml:space="preserve">
+    <value>Γλώσσα</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Αλλαγή κωδικού</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_TEXT" xml:space="preserve">
+    <value>Αλλαγή του κωδικού σύνδεσης</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES" xml:space="preserve">
+    <value>Πολιτικές</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES_TEXT" xml:space="preserve">
+    <value>Έγγραφα και κανόνες</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT" xml:space="preserve">
+    <value>Σχετικά με την εφαρμογή</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_TEXT" xml:space="preserve">
+    <value>Βοήθεια και σχόλια</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT" xml:space="preserve">
+    <value>Αποσύνδεση από τον λογαριασμό</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_ACCOUNT" xml:space="preserve">
+    <value>Διαγραφή λογαριασμού</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TITLE" xml:space="preserve">
+    <value>Αποσύνδεση από τον λογαριασμό;</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TEXT" xml:space="preserve">
+    <value>Θα χρειαστεί να συνδεθείτε ξανά για να χρησιμοποιήσετε την εφαρμογή.</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
+    <value>Αποσύνδεση</value>
   </data>
 </root>

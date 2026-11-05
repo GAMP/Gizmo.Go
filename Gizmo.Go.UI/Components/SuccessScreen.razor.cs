@@ -5,7 +5,6 @@ namespace Gizmo.Go.UI.Components
     /// <summary>
     /// Success step shared by registration and password recovery: check icon, title, subtitle,
     /// an optional block (e.g. the contact card) and the primary button.
-    /// Figma 159:13238 (registration), 159:12653 (password recovery).
     /// </summary>
     public partial class SuccessScreen : ComponentBase
     {

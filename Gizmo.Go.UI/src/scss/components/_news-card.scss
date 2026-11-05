@@ -1,0 +1,169 @@
+@use '../themes/default/theme' as *;
+
+// Carousel: CSS scroll-snap, no package; the track bleeds to the screen edges.
+.news-carousel {
+  margin: 0 (-$spacing-md);
+
+  &__track {
+    display: flex;
+    gap: 12px;
+    padding: 0 $spacing-md;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 $spacing-md;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@mixin news-card-accent($color) {
+  border-color: $color;
+  background: linear-gradient(160deg, rgba($color, 0.13) 0%, rgba($color, 0.02) 100%);
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid $color-home-card-border;
+  border-radius: 16px;
+  background: $color-home-card;
+  color: $color-text-on-primary;
+  font-family: 'Noto Sans', $font-family-base;
+  text-align: left;
+  overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 12px;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  &__text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  &__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+    line-height: 18px;
+  }
+
+  &__text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 14px;
+    color: $color-home-text-muted;
+  }
+
+  &__footer {
+    @include flex-between;
+    gap: $spacing-sm;
+  }
+
+  &__caption {
+    font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
+    color: $color-home-text-dim;
+    @include text-truncate;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    color: $color-home-text-dim;
+  }
+
+  // -- Carousel card: 220 x 156 --
+  &--carousel {
+    flex: 0 0 220px;
+    height: 156px;
+    scroll-snap-align: start;
+  }
+
+  &--accent-0 { @include news-card-accent($color-home-violet); }
+  &--accent-1 { @include news-card-accent($color-welcome-accent-mid); }
+  &--accent-2 { @include news-card-accent($color-home-bonus); }
+
+  &--all &__footer {
+    justify-content: flex-start;
+  }
+
+  &--all &__arrow {
+    color: $color-home-text-muted;
+  }
+
+  // -- List card: image on top, text below --
+  &--list {
+    width: 100%;
+    border-color: $color-home-surface-border;
+    background: $color-home-surface;
+    box-shadow: 0 2px 20px rgba($color-home-shadow, 0.35);
+  }
+
+  &--list &__media {
+    position: relative;
+    display: block;
+    height: 176px;
+
+    // the image fades into the card under the top edge
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 60px;
+      background: linear-gradient(180deg, $color-home-surface 0%, transparent 100%);
+    }
+  }
+
+  &--list &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--list &__content {
+    gap: 12px;
+    padding: 13px 16px;
+  }
+
+  &--list &__text-block {
+    gap: 8px;
+  }
+
+  &--list &__title {
+    line-height: 20px;
+  }
+
+  &--list &__text {
+    -webkit-line-clamp: 2;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.08px;
+  }
+}

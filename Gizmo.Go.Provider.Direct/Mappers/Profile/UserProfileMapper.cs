@@ -9,6 +9,7 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Profile
         internal static UserProfileDetails Map(UserProfileModel source) =>
             new()
             {
+                Username    = source.Username,
                 FirstName   = source.FirstName,
                 LastName    = source.LastName,
                 BirthDate   = source.BirthDate,
@@ -20,6 +21,7 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Profile
                 City        = source.City,
                 PostCode    = source.PostCode,
                 Country     = source.Country,
+                RegisteredAt = null, // the server does not provide the registration date yet
             };
 
         internal static UserProfileModelUserUpdate Map(UserProfileUpdate source) =>

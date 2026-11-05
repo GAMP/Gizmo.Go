@@ -15,6 +15,7 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Common
                     : null,
                 PreferredLanguage         = source.PreferredLanguage,
                 CountryCode               = source.CountryCode,
+                Currency                  = source.Currency,
                 PasswordValidation        = source.PasswordValidation,
             };
     }

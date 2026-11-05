@@ -206,6 +206,13 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         protected override async Task OnNavigatedIn(NavigationParameters navigationParameters, CancellationToken cancellationToken = default)
         {
+            // a logged in user reaches the login only by the system back button from the main zone: back to Home
+            if (_authService.State == AuthState.Authenticated)
+            {
+                _navigationService.NavigateTo(NavigationHelper.HomePage, new NavigationOptions { ReplaceHistoryEntry = true });
+                return;
+            }
+
             ViewState.Username = string.Empty;
             ViewState.Password = string.Empty;
             ViewState.Phone = string.Empty;

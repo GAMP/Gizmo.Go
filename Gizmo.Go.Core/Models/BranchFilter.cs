@@ -29,5 +29,10 @@ namespace Gizmo.Go.Core.Models
         /// Gets or sets whether to filter by currently open branches.
         /// </summary>
         public bool? IsOpen { get; set; }
+
+        /// <summary>
+        /// Gets or sets the city of the branches.
+        /// </summary>
+        public string? City { get; set; }
     }
 }

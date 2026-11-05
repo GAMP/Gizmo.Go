@@ -179,7 +179,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                         await _authService.ClearPersonalInfoRequestedAsync();
                         var landingUrl = _profileCompletionSession.LandingUrl;
                         _profileCompletionSession.Clear();
-                        NavigationService.NavigateTo(string.IsNullOrEmpty(landingUrl) ? NavigationHelper.HomePage : landingUrl);
+                        NavigationService.NavigateTo(string.IsNullOrEmpty(landingUrl) ? NavigationHelper.HomePage : landingUrl, new NavigationOptions { ReplaceHistoryEntry = true });
                         break;
                     case UserProfileUpdateCode.NonUniqueValue:
                         // the availability check shows which of the values is taken
@@ -231,7 +231,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         {
             // the page is opened only by the post-login steps; a direct entry has no form and no way back
             if (!_profileCompletionSession.IsActive)
-                NavigationService.NavigateTo(NavigationHelper.HomePage);
+                NavigationService.NavigateTo(NavigationHelper.HomePage, new NavigationOptions { ReplaceHistoryEntry = true });
 
             return Task.CompletedTask;
         }

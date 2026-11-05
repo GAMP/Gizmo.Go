@@ -835,33 +835,6 @@
   <data name="GO_APP_NAME" xml:space="preserve">
     <value>Gizmo Go</value>
   </data>
-  <data name="GO_NAV_HOME" xml:space="preserve">
-    <value>Inicio</value>
-  </data>
-  <data name="GO_NAV_BRANCHES" xml:space="preserve">
-    <value>Sucursales</value>
-  </data>
-  <data name="GO_NAV_FAVORITES" xml:space="preserve">
-    <value>Favoritos</value>
-  </data>
-  <data name="GO_NAV_ACCOUNT" xml:space="preserve">
-    <value>Cuenta</value>
-  </data>
-  <data name="GO_NAV_LOGIN" xml:space="preserve">
-    <value>Iniciar sesión</value>
-  </data>
-  <data name="GO_HOME_WELCOME" xml:space="preserve">
-    <value>Bienvenido</value>
-  </data>
-  <data name="GO_BRANCHES_PAGE_TITLE" xml:space="preserve">
-    <value>Sucursales - Gizmo Go</value>
-  </data>
-  <data name="GO_FAVORITES_PAGE_TITLE" xml:space="preserve">
-    <value>Favoritos - Gizmo Go</value>
-  </data>
-  <data name="GO_ACCOUNT_PAGE_TITLE" xml:space="preserve">
-    <value>Cuenta - Gizmo Go</value>
-  </data>
   <data name="GO_PASSWORD_RECOVERY_RESTORE_WITH" xml:space="preserve">
     <value>Recuperar mediante </value>
   </data>
@@ -903,5 +876,170 @@
   </data>
   <data name="GO_PROFILE_COMPLETION_INVALID_INPUT" xml:space="preserve">
     <value>Algunos de los valores ingresados no fueron aceptados. Revise los campos e inténtelo de nuevo.</value>
+  </data>
+  <data name="GO_GEN_BACK" xml:space="preserve">
+    <value>Atrás</value>
+  </data>
+  <data name="GO_GEN_CANCEL" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="GO_GEN_LOAD_ERROR" xml:space="preserve">
+    <value>No se pudieron cargar los datos.</value>
+  </data>
+  <data name="GO_HOME_LADDER_LEVEL_SHORT" xml:space="preserve">
+    <value>Nv. {0}</value>
+  </data>
+  <data name="GO_HOME_PROFILE_BUTTON" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="GO_HOME_MAIN_BALANCE" xml:space="preserve">
+    <value>Saldo principal</value>
+  </data>
+  <data name="GO_HOME_BONUSES" xml:space="preserve">
+    <value>Bonos</value>
+  </data>
+  <data name="GO_HOME_TOP_UP" xml:space="preserve">
+    <value>Recargar</value>
+  </data>
+  <data name="GO_HOME_NEAREST_RESERVATION" xml:space="preserve">
+    <value>Reserva más próxima</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_CONFIRMED" xml:space="preserve">
+    <value>Confirmada</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
+    <value>Activa</value>
+  </data>
+  <data name="GO_HOME_OPEN_RESERVATION" xml:space="preserve">
+    <value>Abrir reserva</value>
+  </data>
+  <data name="GO_HOME_TODAY" xml:space="preserve">
+    <value>Hoy</value>
+  </data>
+  <data name="GO_HOME_TOMORROW" xml:space="preserve">
+    <value>Mañana</value>
+  </data>
+  <data name="GO_HOME_NEWS_ALL_CLUBS" xml:space="preserve">
+    <value>Todos los clubes</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS" xml:space="preserve">
+    <value>Todas las noticias</value>
+  </data>
+  <data name="GO_HOME_ALL_NEWS_TEXT" xml:space="preserve">
+    <value>Abre la lista completa de noticias</value>
+  </data>
+  <data name="GO_HOME_QUICK_CLUBS_MAP" xml:space="preserve">
+    <value>Clubes en el mapa</value>
+  </data>
+  <data name="GO_HOME_QUICK_BOOKING" xml:space="preserve">
+    <value>Reservar</value>
+  </data>
+  <data name="GO_HOME_QUICK_QR" xml:space="preserve">
+    <value>Entrar con QR</value>
+  </data>
+  <data name="GO_HOME_CLUBS" xml:space="preserve">
+    <value>Clubes</value>
+  </data>
+  <data name="GO_HOME_CLUB_OPEN" xml:space="preserve">
+    <value>Abierto</value>
+  </data>
+  <data name="GO_HOME_CLUB_CLOSED" xml:space="preserve">
+    <value>Cerrado</value>
+  </data>
+  <data name="GO_HOME_CLUB_AROUND_THE_CLOCK" xml:space="preserve">
+    <value>Las 24 horas • 24/7</value>
+  </data>
+  <data name="GO_HOME_CLUB_BOOK" xml:space="preserve">
+    <value>Reservar</value>
+  </data>
+  <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
+    <value>No se encontraron clubes</value>
+  </data>
+  <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
+    <value>Noticias</value>
+  </data>
+  <data name="GO_NEWS_NOT_FOUND" xml:space="preserve">
+    <value>No se encontró la noticia.</value>
+  </data>
+  <data name="GO_NEWS_EMPTY" xml:space="preserve">
+    <value>Aún no hay noticias.</value>
+  </data>
+  <data name="GO_LADDER_INFO_TITLE" xml:space="preserve">
+    <value>Cómo funciona Ladder</value>
+  </data>
+  <data name="GO_LADDER_INFO_INTRO" xml:space="preserve">
+    <value>Ladder es un sistema de niveles que refleja tu actividad en el club.</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TITLE" xml:space="preserve">
+    <value>Niveles</value>
+  </data>
+  <data name="GO_LADDER_INFO_LEVELS_TEXT" xml:space="preserve">
+    <value>Cumple las condiciones del período actual para mantener tu nivel y desbloquear los siguientes. Cada nivel puede darte ventajas adicionales.</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TITLE" xml:space="preserve">
+    <value>Período actual</value>
+  </data>
+  <data name="GO_LADDER_INFO_PERIOD_TEXT" xml:space="preserve">
+    <value>El progreso se cuenta dentro del período actual. Cuando termina, el sistema comprueba qué requisitos cumpliste.</value>
+  </data>
+  <data name="GO_PROFILE_PAGE_TITLE" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="GO_PROFILE_SINCE" xml:space="preserve">
+    <value>En Gizmo desde {0}</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFICATIONS" xml:space="preserve">
+    <value>Notificaciones</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH" xml:space="preserve">
+    <value>Notificaciones push</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PUSH_TEXT" xml:space="preserve">
+    <value>Reservas, saldo, promociones</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO" xml:space="preserve">
+    <value>Promociones y noticias</value>
+  </data>
+  <data name="GO_PROFILE_NOTIFY_PROMO_TEXT" xml:space="preserve">
+    <value>Torneos, descuentos, eventos</value>
+  </data>
+  <data name="GO_PROFILE_SETTINGS" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="GO_PROFILE_LANGUAGE" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_TEXT" xml:space="preserve">
+    <value>Cambia la contraseña de inicio de sesión</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES" xml:space="preserve">
+    <value>Políticas</value>
+  </data>
+  <data name="GO_PROFILE_POLICIES_TEXT" xml:space="preserve">
+    <value>Documentos y reglas</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT" xml:space="preserve">
+    <value>Acerca de la aplicación</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_TEXT" xml:space="preserve">
+    <value>Ayuda y comentarios</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_ACCOUNT" xml:space="preserve">
+    <value>Eliminar cuenta</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TITLE" xml:space="preserve">
+    <value>¿Cerrar sesión?</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_TEXT" xml:space="preserve">
+    <value>Deberás iniciar sesión de nuevo para usar la aplicación.</value>
+  </data>
+  <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
+    <value>Cerrar sesión</value>
   </data>
 </root>

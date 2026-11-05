@@ -10,85 +10,53 @@
   height: 100dvh;
 }
 
-// -- Header --
-.app-header {
-  position: sticky;
-  top: 0;
-  z-index: $z-index-dropdown;
-  background-color: $color-surface;
-  border-bottom: 1px solid $color-border;
-}
-
-.app-header-content {
-  @include flex-between;
-  padding: $spacing-sm $spacing-md;
-  min-height: 3rem;
-}
-
-.app-header-title {
-  font-size: $font-size-md;
-  font-weight: $font-weight-medium;
-  margin: 0;
-}
-
 // -- Content --
+// Pages own their safe-area insets (see .page-shell).
 .app-content {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: $spacing-md;
+  padding: 0;
 
   &--centered {
     @include flex-center;
   }
 
   &--fill {
-    padding: 0;
     display: flex;
     flex-direction: column;
   }
 }
 
-// -- Dark variant (for Welcome / Auth screens) --
+// -- Dark variant (main zone and auth screens) --
 .app--dark {
   background-color: $color-welcome-bg;
 }
 
-// -- Bottom navigation --
-.app-nav {
-  display: flex;
-  background-color: $color-surface;
-  border-top: 1px solid $color-border;
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.app-nav-item {
-  flex: 1;
+// -- Main zone page shell: dark page with safe-area insets --
+.page-shell {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: $spacing-xs;
-  padding: $spacing-sm $spacing-xs;
-  color: $color-text-secondary;
-  text-decoration: none;
-  transition: color $transition-fast;
-  -webkit-tap-highlight-color: transparent;
-
-  &:active {
-    opacity: 0.7;
-  }
-
-  &.active {
-    color: $color-primary;
-  }
+  flex: 1;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  // dark linear base with two blue glows at the top
+  background-color: $color-home-bg-mid;
+  background-image:
+    radial-gradient(120% 60% at 100% 0%, $color-home-bg-glow 0%, transparent 50%),
+    radial-gradient(100% 50% at 0% 0%, $color-home-bg-glow-soft 0%, transparent 50%),
+    linear-gradient(160deg, $color-home-bg-start 0%, $color-home-bg-mid 50%, $color-home-bg-end 100%);
+  background-attachment: local;
+  color: $color-text-on-primary;
+  font-family: 'Noto Sans', $font-family-base;
+  overflow-x: hidden;
 }
 
-.app-nav-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.app-nav-label {
-  font-size: $font-size-xs;
-  line-height: 1;
+// News screens: a deeper blue base
+.page-shell--news {
+  background-color: $color-news-bg-end;
+  background-image:
+    radial-gradient(120% 60% at 100% 0%, $color-home-bg-glow 0%, transparent 50%),
+    linear-gradient(180deg, $color-news-bg-start 0%, $color-news-bg-end 100%);
 }

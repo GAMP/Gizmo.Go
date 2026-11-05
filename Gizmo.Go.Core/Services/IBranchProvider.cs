@@ -31,5 +31,10 @@ namespace Gizmo.Go.Core.Services
         /// Removes a branch from user's favorites.
         /// </summary>
         Task RemoveFavoriteAsync(int branchId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Gets the distinct cities of the branches.
+        /// </summary>
+        Task<IReadOnlyList<string>> GetCitiesAsync(CancellationToken cancellationToken = default);
     }
 }

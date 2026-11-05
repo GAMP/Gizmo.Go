@@ -1,11 +1,43 @@
+using Gizmo.UI.Services;
+using Microsoft.AspNetCore.Components;
+
 namespace Gizmo.Go.UI.Helpers;
 
 public static class NavigationHelper
 {
     public const string WelcomePage = "/";
-    public const string AccountPage = "/account";
     public const string LoginPage = "/login";
     public const string HomePage = "/home";
+    public const string ProfileRoute = "/profile";
+    public const string NewsRoute = "/news";
+    public const string NewsDetailsRoute = "/news/{id:int}";
+
+    /// <summary>History entry state of a navigation made inside the app (a back step stays in the app).</summary>
+    public const string InAppHistoryState = "app";
+
+    /// <summary>
+    /// Options of a forward navigation inside the main zone: the new history entry is marked with <see cref="InAppHistoryState"/>,
+    /// so its back button returns through the history (the browser, the PWA and the Android back button stay in step).
+    /// </summary>
+    public static NavigationOptions InAppNavigation => new() { HistoryEntryState = InAppHistoryState };
+
+    /// <summary>Gets whether the current history entry was opened by an in-app navigation (<see cref="InAppNavigation"/>).</summary>
+    public static bool IsInAppEntry(string? historyEntryState) => historyEntryState == InAppHistoryState;
+
+    public static string GetNewsDetailsRoute(int id) => $"{NewsRoute}/{id}";
+
+    /// <summary>
+    /// Back button of a main zone screen: an entry opened inside the app steps back through the history; an entry opened
+    /// directly (a link, a reload without the state) has nothing in the app to return to and opens <paramref name="fallbackRoute"/>.
+    /// </summary>
+    public static async Task GoBackOrNavigateAsync(this NavigationService navigationService, string? historyEntryState, string fallbackRoute)
+    {
+        if (IsInAppEntry(historyEntryState))
+            await navigationService.GoBackAsync();
+        else
+            navigationService.NavigateTo(fallbackRoute, new NavigationOptions { ReplaceHistoryEntry = true });
+    }
+
     public const string ProfileCompletionRoute = "/profile-completion";
 
     public const string RegistrationIndexRoute = "/registration-index";

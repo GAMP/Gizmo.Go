@@ -198,7 +198,7 @@
 }
 
 // ---- Plain card ----
-// Frameless variant (Figma auth screens 159:13460, 159:14223): no frame or background,
+// Frameless variant: no frame or background,
 // 64px logo with a gradient, 24px title.
 
 .auth-card--plain {
@@ -262,7 +262,7 @@
   font-family: 'Noto Sans', $font-family-base;
 }
 
-// Figma auth fields (159:13460, 159:12747): 48px, radius 12, translucent fill
+// Auth fields: 48px, radius 12, translucent fill
 .auth-field__input-wrap {
   position: relative;
   display: flex;
@@ -407,7 +407,7 @@
 }
 
 // ---- Submit button ----
-// One primary button for all auth screens (Figma PrimaryButton): 52px, radius 12, 15px Medium;
+// One primary button for all auth screens: 52px, radius 12, 15px Medium;
 // disabled = 6% white fill with 30% text.
 
 .auth-submit {
@@ -450,7 +450,7 @@
 }
 
 // ---- Secondary (glass) button ----
-// Figma SecondaryButton / AltPlainButton: 52px, radius 12, 5% fill, 6% border, 75% text.
+// 52px, radius 12, 5% fill, 6% border, 75% text.
 
 .auth-btn-secondary {
   width: 100%;

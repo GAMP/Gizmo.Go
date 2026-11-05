@@ -23,6 +23,9 @@
 // -- Pages --
 @use 'pages/welcome';
 @use 'pages/login';
+@use 'pages/home';
+@use 'pages/news';
+@use 'pages/profile';
 @use 'pages/registration/registration-phone';
 @use 'pages/registration/registration-email';
 @use 'pages/registration/registration-confirmation';
@@ -39,13 +42,24 @@
 
 // -- Components --
 @use 'components/app-loading';
+@use 'components/balance-cards';
 @use 'components/channel-icon';
+@use 'components/city-select';
+@use 'components/club-card';
+@use 'components/confirm-dialog';
 @use 'components/contact-entry';
 @use 'components/date-input';
 @use 'components/dialog';
 @use 'components/error-block';
+@use 'components/home-header';
+@use 'components/home-skeleton';
 @use 'components/info-block';
+@use 'components/ladder-info-dialog';
+@use 'components/news-card';
 @use 'components/phone-input';
+@use 'components/quick-actions';
+@use 'components/reservation-card';
+@use 'components/screen-back-header';
 @use 'components/toast-notification';
 
 // -- Utilities (last, for overrides) --

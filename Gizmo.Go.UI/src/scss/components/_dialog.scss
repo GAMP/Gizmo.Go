@@ -9,7 +9,7 @@
     justify-content: center;
     padding: $spacing-md;
     box-sizing: border-box;
-    background: rgba(#000000, 0.6);
+    background: rgba($color-home-shadow, 0.6);
 
     &__card {
         display: flex;
@@ -56,7 +56,7 @@
         gap: $spacing-md;
     }
 
-    // Agreement (Figma 159:12480, 159:14680): title row with a close button,
+    // Agreement: title row with a close button,
     // header and footer separated from the scrollable text
     &__card--agreement {
         gap: 0;

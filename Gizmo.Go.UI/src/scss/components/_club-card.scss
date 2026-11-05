@@ -1,0 +1,121 @@
+@use '../themes/default/theme' as *;
+
+// Club card: thumbnail, name with the open state, address, hours, "Book".
+.club-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid $color-home-card-border;
+  border-radius: 16px;
+  background: $color-home-card;
+
+  &__row {
+    display: flex;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  &__thumb {
+    position: relative;
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+    border-radius: 12px;
+    background: $color-home-skeleton;
+    overflow: hidden;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__heading {
+    @include flex-between;
+    gap: $spacing-sm;
+  }
+
+  &__name {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 15px;
+    font-weight: $font-weight-bold;
+    line-height: 18px;
+    @include text-truncate;
+  }
+
+  &__state {
+    flex-shrink: 0;
+    padding: 4px 8px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 15px;
+
+    &--open {
+      background: rgba($color-success-light, 0.10);
+      color: $color-success-light;
+    }
+
+    &--closed {
+      border-color: rgba($color-home-closed, 0.15);
+      background: rgba($color-home-closed, 0.08);
+      color: $color-home-closed;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.08px;
+  }
+
+  &__address {
+    color: $color-home-text-muted;
+    @include text-truncate;
+  }
+
+  &__hours {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: $color-home-text-dim;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  // inactive: no handler yet
+  &__book {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba($color-welcome-accent-mid, 0.32);
+    border-radius: 12px;
+    background: rgba($color-welcome-btn-primary, 0.14);
+    color: $color-welcome-accent;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    letter-spacing: -0.08px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}

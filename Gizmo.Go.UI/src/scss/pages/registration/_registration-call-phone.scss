@@ -1,6 +1,5 @@
 // ============================================
 // Registration Call Phone page styles.
-// Matches Figma: "PhoneCallScreen / Ввод номера"
 //
 // Flat full-screen layout (no auth-card).
 // Shared auth shell: auth-header, auth-field, auth-submit.
@@ -83,7 +82,7 @@
   height: 100%;
 }
 
-// ---- Submit override: radius 10 to match Figma ----
+// ---- Submit override: radius 10 ----
 
 .call-phone-submit {
   border-radius: 10px;

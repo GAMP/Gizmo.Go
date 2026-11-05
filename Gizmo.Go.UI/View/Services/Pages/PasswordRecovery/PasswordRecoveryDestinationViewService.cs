@@ -122,7 +122,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
 
                 var methods = await _passwordRecoveryService.GetMethodsAsync(identifierKind, matchValue);
 
-                // mobile deviation: the search result gets its own step (Figma 159:14156, 159:14187);
+                // mobile deviation: the search result gets its own step;
                 // the provider step always follows a found account, even with a single method
                 _session.SetMatchValue(matchValue, identifierKind);
                 _session.SetAvailableMethods(methods);
@@ -149,7 +149,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             return Task.CompletedTask;
         }
 
-        // mobile deviation: "Back to sign in" link (Figma)
+        // mobile deviation: "Back to sign in" link
         public Task NavigateToLoginAsync()
         {
             NavigationService.NavigateTo(NavigationHelper.LoginPage);

@@ -106,7 +106,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.PasswordRecovery
             return Task.CompletedTask;
         }
 
-        // mobile deviation: "Back to sign in" link (Figma)
+        // mobile deviation: "Back to sign in" link
         public Task NavigateToLoginAsync()
         {
             NavigationService.NavigateTo(NavigationHelper.LoginPage);

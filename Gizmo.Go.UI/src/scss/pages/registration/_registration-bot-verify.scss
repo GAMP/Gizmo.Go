@@ -1,6 +1,5 @@
 // ============================================
 // Registration Bot Verify page styles.
-// Matches Figma: "Auth / Registration Bot Verify"
 //
 // Page shell reuses .page-create-account (hero backdrop + gradient).
 // Header uses <AuthBackHeader> component (auth-header + auth-back-btn + auth-header--with-back).
@@ -77,7 +76,7 @@
     color: #ffffff;
 }
 
-// Figma 159:12688: green pill without an icon
+// green pill without an icon
 .registration-bot-verify-card__verified-pill {
     display: inline-flex;
     align-items: center;

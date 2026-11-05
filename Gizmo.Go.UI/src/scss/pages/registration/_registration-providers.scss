@@ -1,6 +1,5 @@
 // ============================================
 // Registration Providers page styles.
-// Matches Figma: "Auth / Registration Providers"
 //
 // Page shell reuses .page-create-account (identical hero backdrop).
 // Card reuses .auth-card, .auth-card__header, .auth-card__logo, etc.
@@ -10,7 +9,7 @@
 @use 'sass:color';
 
 // ---- Page layout ----
-// Figma 159:14223: frameless card, content block centered vertically, no back button.
+// Frameless card, content block centered vertically, no back button.
 
 .page-registration-providers {
   .auth-body {
@@ -54,8 +53,8 @@
 }
 
 // ---- Single provider button (ProviderButton component) ----
-// Figma SocialButton: 52px, radius 12, icon and text on the left, 16px inset, 12px between icon and text.
-// Base: glass style; --primary modifier: our primary button color (deliberate deviation from the Figma fill).
+// 52px, radius 12, icon and text on the left, 16px inset, 12px between icon and text.
+// Base: glass style; --primary modifier: our primary button color (deliberate deviation from the design fill).
 
 .registration-providers-btn {
   width: 100%;

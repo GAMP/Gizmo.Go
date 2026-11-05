@@ -1,4 +1,5 @@
 using Gizmo.Client.Options;
+using Gizmo.UI;
 
 namespace Gizmo.Go.Core.Models
 {
@@ -31,6 +32,11 @@ namespace Gizmo.Go.Core.Models
         /// Gets the default phone country (ISO 3166-1 alpha-2).
         /// </summary>
         public string? CountryCode { get; init; }
+
+        /// <summary>
+        /// Gets the server currency options; null or empty fields keep the culture currency format.
+        /// </summary>
+        public CurrencyOptions? Currency { get; init; }
 
         /// <summary>
         /// Gets the password rules.

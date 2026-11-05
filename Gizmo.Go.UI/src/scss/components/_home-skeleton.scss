@@ -1,0 +1,34 @@
+@use '../themes/default/theme' as *;
+
+// -- Loading skeletons (the size of the block they stand for) --
+.home-skeleton {
+  display: block;
+  border-radius: 16px;
+  background: $color-home-skeleton;
+  animation: home-skeleton-pulse 1.4s ease-in-out infinite;
+
+  &--text {
+    width: 72px;
+    height: 28px;
+    border-radius: $radius-md;
+  }
+
+  &--reservation {
+    height: 152px;
+  }
+
+  &--news {
+    flex: 0 0 220px;
+    height: 156px;
+    scroll-snap-align: start;
+  }
+
+  &--club {
+    height: 164px;
+  }
+}
+
+@keyframes home-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

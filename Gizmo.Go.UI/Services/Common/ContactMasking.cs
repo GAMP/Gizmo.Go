@@ -12,7 +12,7 @@ namespace Gizmo.Go.UI.Services.Common
         }
 
         /// <summary>
-        /// Masks a phone as in Figma "+7 999 ***-**-42": calling code, the first 3 national digits,
+        /// Masks a phone as "+7 999 ***-**-42": calling code, the first 3 national digits,
         /// masked middle and the last 2 digits. The calling code is the longest one from <paramref name="countries"/>
         /// that the number starts with; without a match the number is masked without a code.
         /// </summary>

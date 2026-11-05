@@ -1,6 +1,6 @@
 // ============================================
 // Success step styles (SuccessScreen component).
-// Base: registration, Figma 159:13238. Modifier --recovery: password recovery, Figma 159:12653.
+// Base: registration. Modifier --recovery: password recovery.
 //
 // Page shell reuses .page-create-account background.
 // Button reuses .auth-submit from layout/_auth-shell.scss.
@@ -23,7 +23,7 @@
 }
 
 // ---- Body: vertically centered content ----
-// Figma 159:13238: icon, text and contact card 36px apart, centered on the screen.
+// Icon, text and contact card 36px apart, centered on the screen.
 
 .registration-success-body {
     flex: 1;
@@ -121,7 +121,7 @@
     }
 }
 
-// ---- Password recovery (Figma 159:12653) ----
+// ---- Password recovery ----
 // Icon, text and button 20px apart; wider text block with taller lines.
 
 .registration-success--recovery {

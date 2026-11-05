@@ -94,5 +94,25 @@ namespace Gizmo.Go.Core.Models
         /// Gets or sets business day end time.
         /// </summary>
         public TimeOnly? BusinessDayEnd { get; init; }
+
+        /// <summary>
+        /// Gets or sets the image URL.
+        /// </summary>
+        public string? ImageUrl { get; init; }
+
+        /// <summary>
+        /// Gets or sets whether the branch has its own business schedule; false means the server-wide schedule.
+        /// </summary>
+        public bool HasBusinessSchedule { get; init; }
+
+        /// <summary>
+        /// Gets or sets business start week day.
+        /// </summary>
+        public DayOfWeek? BusinessStartWeekDay { get; init; }
+
+        /// <summary>
+        /// Gets or sets business end week day.
+        /// </summary>
+        public DayOfWeek? BusinessEndWeekDay { get; init; }
     }
 }
