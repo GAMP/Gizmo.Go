@@ -16,7 +16,9 @@
 
         @if (HomeViewState.Reservation.IsLoading || HomeViewState.Reservation.Value is not null)
         {
-            <NearestReservationCard Reservation="@HomeViewState.Reservation.Value" IsLoading="@HomeViewState.Reservation.IsLoading" />
+            <NearestReservationCard Reservation="@HomeViewState.Reservation.Value"
+                                    IsLoading="@HomeViewState.Reservation.IsLoading"
+                                    OnOpen="HomeViewService.OpenReservations" />
         }
 
         <NewsCarousel News="@HomeViewState.News.Value"

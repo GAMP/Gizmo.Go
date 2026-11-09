@@ -1,0 +1,552 @@
+@use '../themes/default/theme' as *;
+
+// Reservation card of the "My reservations" list. The status color is carried by --status-color,
+// the payment color by --payment-accent.
+.reservation-list-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid rgba($color-reservation-accent-mid, 0.15);
+  border-radius: 16px;
+  background: $color-home-surface;
+  font-family: 'Noto Sans', $font-family-base;
+
+  // the completed list is dimmed
+  &--past {
+    border-color: $color-home-surface-border;
+    opacity: 0.75;
+  }
+
+  &__header {
+    @include flex-between;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  &__club {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__club-name {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 21px;
+    letter-spacing: -0.14px;
+    overflow-wrap: anywhere;
+  }
+
+  &__club-address {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    line-height: 16.5px;
+    color: rgba($color-text-on-primary, 0.35);
+    overflow-wrap: anywhere;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  &__status {
+    --status-color: #{$color-reservation-accent};
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    height: 23px;
+    padding: 0 7px;
+    border: 1px solid color-mix(in srgb, var(--status-color) 30%, transparent);
+    border-radius: $radius-full;
+    background: color-mix(in srgb, var(--status-color) 12%, transparent);
+    color: var(--status-color);
+    font-size: 10px;
+    font-weight: $font-weight-bold;
+    line-height: 15px;
+  }
+
+  &--upcoming &__status {
+    border-color: rgba($color-reservation-accent-mid, 0.30);
+    background: rgba($color-reservation-accent-deep, 0.12);
+  }
+
+  &--active &__status {
+    --status-color: #{$color-success-light};
+    padding: 0 8px;
+    border-color: rgba($color-success-light, 0.35);
+  }
+
+  &--completed &__status,
+  &--expired &__status {
+    border-color: rgba($color-text-on-primary, 0.10);
+    background: rgba($color-text-on-primary, 0.06);
+    color: rgba($color-text-on-primary, 0.40);
+  }
+
+  &--canceled &__status {
+    --status-color: #{$color-reservation-danger};
+    border-color: rgba($color-reservation-danger, 0.28);
+    background: rgba($color-reservation-danger, 0.10);
+  }
+
+  // payment banner
+  &__payment {
+    --payment-accent: #{$color-success-light};
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 9px 12px;
+    border: 1px solid rgba($color-success-light, 0.60);
+    border-radius: 9px;
+    background: rgba($color-success-light, 0.07);
+
+    &--unpaid {
+      --payment-accent: #{$color-reservation-unpaid};
+      border-color: rgba($color-reservation-unpaid, 0.22);
+      background: rgba($color-reservation-unpaid, 0.07);
+    }
+
+    &--partial {
+      --payment-accent: #{$color-reservation-accent};
+      padding: 11px 15px;
+      border-color: rgba($color-reservation-accent-mid, 0.20);
+      background: rgba($color-reservation-accent-deep, 0.08);
+    }
+  }
+
+  &__payment-top {
+    @include flex-between;
+    gap: $spacing-sm;
+  }
+
+  &__payment-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  &__payment-icon {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid color-mix(in srgb, var(--payment-accent) 30%, transparent);
+    border-radius: $radius-full;
+    background: color-mix(in srgb, var(--payment-accent) 13%, transparent);
+    color: var(--payment-accent);
+  }
+
+  &__payment-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  &__payment-title {
+    font-size: 11px;
+    font-weight: $font-weight-bold;
+    line-height: 16.5px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--payment-accent);
+  }
+
+  &__payment-note {
+    font-size: 10px;
+    line-height: 15px;
+    color: color-mix(in srgb, var(--payment-accent) 60%, transparent);
+  }
+
+  &__payment-amount {
+    flex-shrink: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 22.5px;
+    white-space: nowrap;
+    color: color-mix(in srgb, var(--payment-accent) 90%, transparent);
+  }
+
+  &__payment--unpaid &__payment-amount,
+  &__payment--partial &__payment-amount {
+    color: var(--payment-accent);
+  }
+
+  &__payment-split {
+    display: flex;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  &__payment-part {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0;
+    min-height: 28px;
+    padding: 4px 8px;
+    background: rgba($color-reservation-accent, 0.05);
+    color: rgba($color-text-on-primary, 0.40);
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+
+    svg {
+      flex-shrink: 0;
+    }
+
+    &--paid {
+      border-right: 1px solid rgba($color-reservation-accent, 0.20);
+      background: rgba($color-reservation-accent, 0.10);
+      color: rgba($color-reservation-accent, 0.75);
+    }
+  }
+
+  &__payment-rest {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding-top: 7px;
+    border-top: 1px solid rgba($color-reservation-accent, 0.12);
+    font-size: 11px;
+    line-height: 16.5px;
+    color: rgba($color-text-on-primary, 0.40);
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+
+  // date / time / session / cost: equal tiles
+  &__tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 6px;
+  }
+
+  &__tile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 54px;
+    padding: 8px 10px;
+    border: 1px solid rgba($color-text-on-primary, 0.07);
+    border-radius: 10px;
+    background: rgba($color-text-on-primary, 0.04);
+    color: rgba($color-text-on-primary, 0.35);
+
+    &--struck {
+      border-color: rgba($color-reservation-danger, 0.15);
+      background: rgba($color-reservation-danger, 0.06);
+    }
+  }
+
+  &__tile-icon {
+    flex-shrink: 0;
+  }
+
+  &__tile-currency {
+    flex-shrink: 0;
+    min-width: 13px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;
+  }
+
+  &__tile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  &__tile-label {
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  &__tile-value {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    line-height: 18px;
+    color: $color-text-on-primary;
+    overflow-wrap: anywhere;
+
+    &--cost {
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 21px;
+    }
+  }
+
+  &__tile--struck &__tile-value {
+    text-decoration: line-through;
+    color: rgba($color-text-on-primary, 0.30);
+  }
+
+  &__tile-hint {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  &__pin {
+    @include flex-between;
+    gap: $spacing-sm;
+    padding: 9px 12px;
+    border: 1px solid rgba($color-reservation-accent, 0.13);
+    border-radius: 9px;
+    background: rgba($color-reservation-accent, 0.05);
+  }
+
+  &__pin-label {
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: rgba($color-reservation-accent, 0.65);
+  }
+
+  &__pin-value {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 21px;
+    color: $color-reservation-accent;
+  }
+
+  // host chips and the "Details" toggle on one row
+  &__hosts-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacing-sm;
+  }
+
+  &__hosts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+    min-height: 23px;
+    padding: 0 7px;
+    border: 1px solid rgba($color-reservation-accent, 0.13);
+    border-radius: $radius-full;
+    background: rgba($color-reservation-accent, 0.05);
+    color: $color-reservation-accent;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  &__chip-name {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 10px;
+    font-weight: $font-weight-bold;
+    line-height: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  &__chip-zone {
+    font-size: 9px;
+    line-height: 13.5px;
+    color: rgba($color-reservation-accent, 0.53);
+    overflow-wrap: anywhere;
+  }
+
+  &__details-toggle {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    min-height: 23px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: rgba($color-text-on-primary, 0.30);
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    line-height: 15px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    svg {
+      transition: transform 0.15s ease;
+    }
+
+    &[aria-expanded='true'] svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid $color-home-surface-border;
+  }
+
+  &__host {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__host-number {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba($color-reservation-accent, 0.13);
+    border-radius: 7px;
+    background: rgba($color-reservation-accent, 0.07);
+    color: $color-reservation-accent;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  &__host-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  &__host-name {
+    font-size: 12px;
+    line-height: 18px;
+    overflow-wrap: anywhere;
+  }
+
+  &__host-zone {
+    font-size: 10px;
+    line-height: 15px;
+    color: rgba($color-text-on-primary, 0.35);
+    overflow-wrap: anywhere;
+  }
+
+  // inactive: paying a reservation is not implemented yet
+  &__pay {
+    @include flex-center;
+    gap: 7px;
+    height: 38px;
+    border: 1px solid rgba($color-reservation-unpaid, 0.45);
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba($color-reservation-unpaid, 0.85), rgba($color-reservation-unpaid-end, 0.90));
+    box-shadow: 0 3px 14px rgba($color-reservation-unpaid, 0.22);
+    color: rgba($color-home-shadow, 0.75);
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    letter-spacing: -0.08px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__cancel {
+    @include flex-center;
+    gap: 6px;
+    height: 36px;
+    border: 1px solid rgba($color-reservation-danger, 0.20);
+    border-radius: 10px;
+    background: rgba($color-reservation-danger, 0.08);
+    color: $color-reservation-danger;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__confirm {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba($color-reservation-danger, 0.22);
+    border-radius: 10px;
+    background: rgba($color-reservation-danger, 0.08);
+  }
+
+  &__confirm-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    color: rgba($color-text-on-primary, 0.55);
+    font-size: 12px;
+    line-height: 18px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__confirm-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: $color-reservation-danger;
+  }
+
+  &__confirm-actions {
+    display: flex;
+    gap: 6px;
+    padding: 0 12px 10px;
+  }
+
+  &__confirm-button {
+    flex: 1;
+    height: 36px;
+    border: 1px solid rgba($color-text-on-primary, 0.10);
+    border-radius: 8px;
+    background: rgba($color-text-on-primary, 0.06);
+    color: rgba($color-text-on-primary, 0.55);
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &--danger {
+      border-color: rgba($color-reservation-danger, 0.35);
+      background: rgba($color-reservation-danger, 0.18);
+      color: $color-reservation-danger;
+      font-family: 'Rubik', $font-family-heading;
+      font-weight: $font-weight-bold;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}

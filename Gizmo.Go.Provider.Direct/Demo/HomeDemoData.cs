@@ -1,28 +1,16 @@
 using Gizmo.Go.Core.Models;
-using Gizmo.Go.Core.Models.Reservation;
 
 namespace Gizmo.Go.Provider.Direct.Demo
 {
     /// <summary>
     /// Demo data of the Home blocks that have no server endpoint yet.
-    /// Edit this class to try other scenarios (e.g. make <see cref="NearestReservation"/> return null).
+    /// Edit this class to try other scenarios.
     /// The dated items are built on every read, so "today" stays today while the app runs.
     /// No images: the image places stay empty until the server provides the urls (the models and the UI already carry them).
     /// </summary>
     internal static class HomeDemoData
     {
         internal static readonly TimeSpan Delay = TimeSpan.FromMilliseconds(300);
-
-        internal static NearestReservation? NearestReservation => new()
-        {
-            Id = 1,
-            BranchName = "Gizmo Arena",
-            BranchAddress = "Rustaveli Ave, 12",
-            HostName = "PC #04",
-            Start = DateTime.Today.AddHours(14),
-            End = DateTime.Today.AddHours(16),
-            Status = NearestReservationStatus.Waiting,
-        };
 
         internal static IReadOnlyList<Branch> Branches { get; } =
         [

@@ -25,6 +25,7 @@
 @use 'pages/login';
 @use 'pages/home';
 @use 'pages/news';
+@use 'pages/reservations';
 @use 'pages/profile';
 @use 'pages/registration/registration-phone';
 @use 'pages/registration/registration-email';
@@ -59,6 +60,7 @@
 @use 'components/phone-input';
 @use 'components/quick-actions';
 @use 'components/reservation-card';
+@use 'components/reservation-list-card';
 @use 'components/screen-back-header';
 @use 'components/toast-notification';
 

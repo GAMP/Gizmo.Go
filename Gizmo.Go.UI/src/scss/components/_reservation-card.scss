@@ -20,9 +20,11 @@
     align-items: center;
     gap: 6px;
     min-width: 0;
+    font-family: 'Noto Sans', $font-family-base;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
     color: $color-success-light;
   }
 
@@ -95,6 +97,11 @@
     white-space: nowrap;
   }
 
+  &__hint {
+    font-size: 10px;
+    color: $color-home-text-muted;
+  }
+
   &__footer {
     @include flex-between;
     gap: $spacing-sm;
@@ -103,15 +110,24 @@
   }
 
   &__status {
+    --status-color: #{$color-success-light};
     padding: 3px 8px;
     border-radius: 6px;
-    background: rgba($color-success-light, 0.10);
-    color: $color-success-light;
+    background: color-mix(in srgb, var(--status-color) 10%, transparent);
+    color: var(--status-color);
+    font-family: 'Noto Sans', $font-family-base;
     font-size: 11px;
     font-weight: 600;
+
+    &--partial {
+      --status-color: #{$color-reservation-accent};
+    }
+
+    &--unpaid {
+      --status-color: #{$color-reservation-unpaid};
+    }
   }
 
-  // inactive: no handler yet
   &__open {
     display: flex;
     align-items: center;

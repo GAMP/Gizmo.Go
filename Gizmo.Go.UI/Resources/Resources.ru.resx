@@ -904,11 +904,17 @@
   <data name="GO_HOME_NEAREST_RESERVATION" xml:space="preserve">
     <value>Ближайшая бронь</value>
   </data>
+  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
+    <value>Активна</value>
+  </data>
   <data name="GO_HOME_RESERVATION_CONFIRMED" xml:space="preserve">
     <value>Подтверждена</value>
   </data>
-  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
-    <value>Активна</value>
+  <data name="GO_HOME_RESERVATION_PARTIALLY_CONFIRMED" xml:space="preserve">
+    <value>Подтверждена частично</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_NOT_CONFIRMED" xml:space="preserve">
+    <value>Не подтверждена</value>
   </data>
   <data name="GO_HOME_OPEN_RESERVATION" xml:space="preserve">
     <value>Открыть бронь</value>
@@ -918,6 +924,117 @@
   </data>
   <data name="GO_HOME_TOMORROW" xml:space="preserve">
     <value>Завтра</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAGE_TITLE" xml:space="preserve">
+    <value>Мои брони</value>
+  </data>
+  <data name="GO_RESERVATIONS_CURRENT_TITLE" xml:space="preserve">
+    <value>Мои бронирования</value>
+  </data>
+  <data name="GO_RESERVATIONS_COMPLETED_TITLE" xml:space="preserve">
+    <value>Завершённые</value>
+  </data>
+  <data name="GO_RESERVATIONS_SHOW" xml:space="preserve">
+    <value>Показать</value>
+  </data>
+  <data name="GO_RESERVATIONS_HIDE" xml:space="preserve">
+    <value>Скрыть</value>
+  </data>
+  <data name="GO_RESERVATIONS_EMPTY" xml:space="preserve">
+    <value>Нет предстоящих броней</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_UPCOMING" xml:space="preserve">
+    <value>Предстоящая</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_COMPLETED" xml:space="preserve">
+    <value>Завершена</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_CANCELED" xml:space="preserve">
+    <value>Отменена</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_EXPIRED" xml:space="preserve">
+    <value>Истекла</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID" xml:space="preserve">
+    <value>Оплачено</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PARTIAL" xml:space="preserve">
+    <value>Частично оплачено</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_NOT_PAID" xml:space="preserve">
+    <value>Не оплачено</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID_NOTE" xml:space="preserve">
+    <value>Бронь подтверждена</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PARTIAL_NOTE" xml:space="preserve">
+    <value>Бронь подтверждена частично</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_NOT_PAID_NOTE" xml:space="preserve">
+    <value>Бронь не подтверждена до оплаты</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID_AMOUNT" xml:space="preserve">
+    <value>Оплачено: {0}</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_LEFT_AMOUNT" xml:space="preserve">
+    <value>Осталось: {0}</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAY_REST_NOTE" xml:space="preserve">
+    <value>Полностью оплатить бронирование вы сможете на месте перед началом сеанса</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAY" xml:space="preserve">
+    <value>Оплатить</value>
+  </data>
+  <data name="GO_RESERVATIONS_DATE" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="GO_RESERVATIONS_TIME" xml:space="preserve">
+    <value>Время</value>
+  </data>
+  <data name="GO_RESERVATIONS_SESSION" xml:space="preserve">
+    <value>Сеанс</value>
+  </data>
+  <data name="GO_RESERVATIONS_COST" xml:space="preserve">
+    <value>Стоимость</value>
+  </data>
+  <data name="GO_RESERVATIONS_PIN" xml:space="preserve">
+    <value>PIN-код</value>
+  </data>
+  <data name="GO_RESERVATIONS_DETAILS" xml:space="preserve">
+    <value>Детали</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_HOURS" xml:space="preserve">
+    <value>{0} ч</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_MINUTES" xml:space="preserve">
+    <value>{0} мин</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_HOURS_MINUTES" xml:space="preserve">
+    <value>{0} ч {1} мин</value>
+  </data>
+  <data name="GO_RESERVATIONS_CLUB_TIME" xml:space="preserve">
+    <value>Время клуба</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL" xml:space="preserve">
+    <value>Отменить бронирование</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_CONFIRM" xml:space="preserve">
+    <value>Подтвердите отмену бронирования.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_REFUND" xml:space="preserve">
+    <value>Возврат средств — в течение 24 часов.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_REFUND_EXPIRED" xml:space="preserve">
+    <value>Время возврата средств истекло.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_YES" xml:space="preserve">
+    <value>Да, отменить</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_KEEP" xml:space="preserve">
+    <value>Оставить</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_NOT_AVAILABLE" xml:space="preserve">
+    <value>Бронь больше нельзя отменить</value>
   </data>
   <data name="GO_HOME_NEWS_ALL_CLUBS" xml:space="preserve">
     <value>Все клубы</value>

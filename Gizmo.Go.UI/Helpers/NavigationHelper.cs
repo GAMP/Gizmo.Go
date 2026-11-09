@@ -11,6 +11,7 @@ public static class NavigationHelper
     public const string ProfileRoute = "/profile";
     public const string NewsRoute = "/news";
     public const string NewsDetailsRoute = "/news/{id:int}";
+    public const string ReservationsRoute = "/reservations";
 
     /// <summary>History entry state of a navigation made inside the app (a back step stays in the app).</summary>
     public const string InAppHistoryState = "app";

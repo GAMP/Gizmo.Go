@@ -1,0 +1,145 @@
+@use '../themes/default/theme' as *;
+
+// "My reservations": the list title, payment legend, the current list and the collapsible completed list.
+.page-reservations {
+  // the centered top bar of this page is taller than the shared one
+  .screen-back-header {
+    padding-top: 40px;
+    padding-bottom: 32px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 $spacing-md $spacing-xl;
+  }
+
+  // "My bookings · N" and "Completed"
+  &__title {
+    margin: 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16.5px;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    color: rgba($color-text-on-primary, 0.35);
+  }
+
+  &__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding: 2px 2px 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  &__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    svg {
+      flex-shrink: 0;
+    }
+
+    &--paid {
+      color: rgba($color-success-light, 0.65);
+    }
+
+    &--unpaid {
+      color: rgba($color-reservation-unpaid, 0.65);
+    }
+
+    &--partial {
+      color: rgba($color-reservation-accent, 0.65);
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__divider {
+    @include flex-between;
+    gap: $spacing-sm;
+    padding: 4px 2px;
+  }
+
+  &__divider-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  &__divider-line {
+    flex-shrink: 0;
+    width: 16px;
+    height: 1px;
+    background: rgba($color-text-on-primary, 0.10);
+  }
+
+  &__count {
+    flex-shrink: 0;
+    min-width: 18px;
+    height: 16px;
+    padding: 0 5px;
+    border-radius: 8px;
+    background: rgba($color-text-on-primary, 0.07);
+    color: rgba($color-text-on-primary, 0.25);
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: rgba($color-text-on-primary, 0.30);
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    line-height: 15px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    svg {
+      transition: transform 0.15s ease;
+    }
+
+    &[aria-expanded='true'] svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__skeleton {
+    height: 280px;
+  }
+
+  &__empty {
+    padding: $spacing-lg $spacing-md;
+    text-align: center;
+    font-size: 13px;
+    color: $color-home-text-muted;
+  }
+}

@@ -904,11 +904,17 @@
   <data name="GO_HOME_NEAREST_RESERVATION" xml:space="preserve">
     <value>Πλησιέστερη κράτηση</value>
   </data>
+  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
+    <value>Ενεργή</value>
+  </data>
   <data name="GO_HOME_RESERVATION_CONFIRMED" xml:space="preserve">
     <value>Επιβεβαιωμένη</value>
   </data>
-  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
-    <value>Ενεργή</value>
+  <data name="GO_HOME_RESERVATION_PARTIALLY_CONFIRMED" xml:space="preserve">
+    <value>Μερικώς επιβεβαιωμένη</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_NOT_CONFIRMED" xml:space="preserve">
+    <value>Μη επιβεβαιωμένη</value>
   </data>
   <data name="GO_HOME_OPEN_RESERVATION" xml:space="preserve">
     <value>Άνοιγμα κράτησης</value>
@@ -918,6 +924,117 @@
   </data>
   <data name="GO_HOME_TOMORROW" xml:space="preserve">
     <value>Αύριο</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAGE_TITLE" xml:space="preserve">
+    <value>Οι κρατήσεις μου</value>
+  </data>
+  <data name="GO_RESERVATIONS_CURRENT_TITLE" xml:space="preserve">
+    <value>Οι κρατήσεις μου</value>
+  </data>
+  <data name="GO_RESERVATIONS_COMPLETED_TITLE" xml:space="preserve">
+    <value>Ολοκληρωμένες</value>
+  </data>
+  <data name="GO_RESERVATIONS_SHOW" xml:space="preserve">
+    <value>Εμφάνιση</value>
+  </data>
+  <data name="GO_RESERVATIONS_HIDE" xml:space="preserve">
+    <value>Απόκρυψη</value>
+  </data>
+  <data name="GO_RESERVATIONS_EMPTY" xml:space="preserve">
+    <value>Δεν υπάρχουν επερχόμενες κρατήσεις</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_UPCOMING" xml:space="preserve">
+    <value>Επερχόμενη</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_COMPLETED" xml:space="preserve">
+    <value>Ολοκληρωμένη</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_CANCELED" xml:space="preserve">
+    <value>Ακυρωμένη</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_EXPIRED" xml:space="preserve">
+    <value>Έληξε</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID" xml:space="preserve">
+    <value>Πληρωμένη</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PARTIAL" xml:space="preserve">
+    <value>Μερικώς πληρωμένη</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_NOT_PAID" xml:space="preserve">
+    <value>Απλήρωτη</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID_NOTE" xml:space="preserve">
+    <value>Η κράτηση επιβεβαιώθηκε</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PARTIAL_NOTE" xml:space="preserve">
+    <value>Η κράτηση επιβεβαιώθηκε μερικώς</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_NOT_PAID_NOTE" xml:space="preserve">
+    <value>Η κράτηση δεν επιβεβαιώνεται μέχρι την πληρωμή</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID_AMOUNT" xml:space="preserve">
+    <value>Πληρώθηκαν: {0}</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_LEFT_AMOUNT" xml:space="preserve">
+    <value>Απομένουν: {0}</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAY_REST_NOTE" xml:space="preserve">
+    <value>Μπορείτε να εξοφλήσετε την κράτηση στο κλαμπ πριν ξεκινήσει η συνεδρία</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAY" xml:space="preserve">
+    <value>Πληρωμή</value>
+  </data>
+  <data name="GO_RESERVATIONS_DATE" xml:space="preserve">
+    <value>Ημερομηνία</value>
+  </data>
+  <data name="GO_RESERVATIONS_TIME" xml:space="preserve">
+    <value>Ώρα</value>
+  </data>
+  <data name="GO_RESERVATIONS_SESSION" xml:space="preserve">
+    <value>Συνεδρία</value>
+  </data>
+  <data name="GO_RESERVATIONS_COST" xml:space="preserve">
+    <value>Κόστος</value>
+  </data>
+  <data name="GO_RESERVATIONS_PIN" xml:space="preserve">
+    <value>PIN</value>
+  </data>
+  <data name="GO_RESERVATIONS_DETAILS" xml:space="preserve">
+    <value>Λεπτομέρειες</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_HOURS" xml:space="preserve">
+    <value>{0} ώ</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_MINUTES" xml:space="preserve">
+    <value>{0} λ</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_HOURS_MINUTES" xml:space="preserve">
+    <value>{0} ώ {1} λ</value>
+  </data>
+  <data name="GO_RESERVATIONS_CLUB_TIME" xml:space="preserve">
+    <value>Ώρα κλαμπ</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL" xml:space="preserve">
+    <value>Ακύρωση κράτησης</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_CONFIRM" xml:space="preserve">
+    <value>Επιβεβαιώστε την ακύρωση της κράτησης.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_REFUND" xml:space="preserve">
+    <value>Επιστροφή χρημάτων εντός 24 ωρών.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_REFUND_EXPIRED" xml:space="preserve">
+    <value>Ο χρόνος επιστροφής χρημάτων έχει λήξει.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_YES" xml:space="preserve">
+    <value>Ναι, ακύρωση</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_KEEP" xml:space="preserve">
+    <value>Διατήρηση</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_NOT_AVAILABLE" xml:space="preserve">
+    <value>Η κράτηση δεν μπορεί πλέον να ακυρωθεί</value>
   </data>
   <data name="GO_HOME_NEWS_ALL_CLUBS" xml:space="preserve">
     <value>Όλα τα κλαμπ</value>

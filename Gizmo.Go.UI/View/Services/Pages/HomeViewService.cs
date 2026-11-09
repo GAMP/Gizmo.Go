@@ -104,6 +104,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public void OpenAllNews() => _navigationService.NavigateTo(NavigationHelper.NewsRoute, NavigationHelper.InAppNavigation);
 
+        public void OpenReservations() => _navigationService.NavigateTo(NavigationHelper.ReservationsRoute, NavigationHelper.InAppNavigation);
+
         public void OpenNews(int id) => _navigationService.NavigateTo(NavigationHelper.GetNewsDetailsRoute(id), NavigationHelper.InAppNavigation);
 
         protected override Task OnInitializing(CancellationToken ct)
@@ -178,7 +180,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 ViewState.Logo.LoadAsync(async ct => (await _authOptionsService.GetAsync(ct))?.LogoUrl, Logger, "logo", DebounceViewStateChanged, cancellationToken),
                 ViewState.Level.LoadAsync(ct => _ladderService.GetLevelAsync(ct), Logger, "ladder level", DebounceViewStateChanged, cancellationToken),
                 ViewState.Balance.LoadAsync(ct => _userBalanceService.GetAsync(ct)!, Logger, "balance", DebounceViewStateChanged, cancellationToken),
-                ViewState.Reservation.LoadAsync(ct => _reservationService.GetNearestAsync(ct), Logger, "nearest reservation", DebounceViewStateChanged, cancellationToken),
+                ViewState.Reservation.LoadAsync(async ct => (await _reservationService.GetCurrentAsync(ct)).FirstOrDefault(), Logger, "nearest reservation", DebounceViewStateChanged, cancellationToken),
                 ViewState.News.LoadAsync(ct => _newsService.GetListAsync(CarouselNewsCount, ct)!, Logger, "news", DebounceViewStateChanged, cancellationToken),
                 LoadCitiesAsync(cancellationToken));
 

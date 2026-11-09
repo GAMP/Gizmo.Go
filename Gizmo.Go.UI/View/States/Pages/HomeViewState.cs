@@ -18,7 +18,7 @@ namespace Gizmo.Go.UI.View.States.Pages
 
         public ViewBlock<UserBalance> Balance { get; } = new();
 
-        public ViewBlock<NearestReservation> Reservation { get; } = new();
+        public ViewBlock<Reservation> Reservation { get; } = new();
 
         /// <summary>
         /// Gets the latest news shown in the carousel.

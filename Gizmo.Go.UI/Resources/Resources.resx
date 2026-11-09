@@ -904,11 +904,17 @@
   <data name="GO_HOME_NEAREST_RESERVATION" xml:space="preserve">
     <value>Nearest reservation</value>
   </data>
+  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
+    <value>Active</value>
+  </data>
   <data name="GO_HOME_RESERVATION_CONFIRMED" xml:space="preserve">
     <value>Confirmed</value>
   </data>
-  <data name="GO_HOME_RESERVATION_ACTIVE" xml:space="preserve">
-    <value>Active</value>
+  <data name="GO_HOME_RESERVATION_PARTIALLY_CONFIRMED" xml:space="preserve">
+    <value>Partially confirmed</value>
+  </data>
+  <data name="GO_HOME_RESERVATION_NOT_CONFIRMED" xml:space="preserve">
+    <value>Not confirmed</value>
   </data>
   <data name="GO_HOME_OPEN_RESERVATION" xml:space="preserve">
     <value>Open reservation</value>
@@ -918,6 +924,117 @@
   </data>
   <data name="GO_HOME_TOMORROW" xml:space="preserve">
     <value>Tomorrow</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAGE_TITLE" xml:space="preserve">
+    <value>My reservations</value>
+  </data>
+  <data name="GO_RESERVATIONS_CURRENT_TITLE" xml:space="preserve">
+    <value>My bookings</value>
+  </data>
+  <data name="GO_RESERVATIONS_COMPLETED_TITLE" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="GO_RESERVATIONS_SHOW" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="GO_RESERVATIONS_HIDE" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="GO_RESERVATIONS_EMPTY" xml:space="preserve">
+    <value>No upcoming reservations</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_UPCOMING" xml:space="preserve">
+    <value>Upcoming</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_COMPLETED" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_CANCELED" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="GO_RESERVATIONS_STATUS_EXPIRED" xml:space="preserve">
+    <value>Expired</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PARTIAL" xml:space="preserve">
+    <value>Partially paid</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_NOT_PAID" xml:space="preserve">
+    <value>Not paid</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID_NOTE" xml:space="preserve">
+    <value>Reservation confirmed</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PARTIAL_NOTE" xml:space="preserve">
+    <value>Reservation partially confirmed</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_NOT_PAID_NOTE" xml:space="preserve">
+    <value>Reservation not confirmed until paid</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_PAID_AMOUNT" xml:space="preserve">
+    <value>Paid: {0}</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAYMENT_LEFT_AMOUNT" xml:space="preserve">
+    <value>Left: {0}</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAY_REST_NOTE" xml:space="preserve">
+    <value>You can pay the rest of the reservation at the club before the session starts</value>
+  </data>
+  <data name="GO_RESERVATIONS_PAY" xml:space="preserve">
+    <value>Pay</value>
+  </data>
+  <data name="GO_RESERVATIONS_DATE" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GO_RESERVATIONS_TIME" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="GO_RESERVATIONS_SESSION" xml:space="preserve">
+    <value>Session</value>
+  </data>
+  <data name="GO_RESERVATIONS_COST" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="GO_RESERVATIONS_PIN" xml:space="preserve">
+    <value>PIN</value>
+  </data>
+  <data name="GO_RESERVATIONS_DETAILS" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_HOURS" xml:space="preserve">
+    <value>{0} h</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_MINUTES" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="GO_RESERVATIONS_DURATION_HOURS_MINUTES" xml:space="preserve">
+    <value>{0} h {1} min</value>
+  </data>
+  <data name="GO_RESERVATIONS_CLUB_TIME" xml:space="preserve">
+    <value>Club time</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL" xml:space="preserve">
+    <value>Cancel reservation</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_CONFIRM" xml:space="preserve">
+    <value>Confirm the reservation cancellation.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_REFUND" xml:space="preserve">
+    <value>Refund — within 24 hours.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_REFUND_EXPIRED" xml:space="preserve">
+    <value>The refund time has expired.</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_YES" xml:space="preserve">
+    <value>Yes, cancel</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_KEEP" xml:space="preserve">
+    <value>Keep</value>
+  </data>
+  <data name="GO_RESERVATIONS_CANCEL_NOT_AVAILABLE" xml:space="preserve">
+    <value>The reservation can no longer be canceled</value>
   </data>
   <data name="GO_HOME_NEWS_ALL_CLUBS" xml:space="preserve">
     <value>All clubs</value>
