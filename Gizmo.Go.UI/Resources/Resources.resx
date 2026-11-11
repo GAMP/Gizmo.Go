@@ -1159,4 +1159,76 @@
   <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
     <value>Log out</value>
   </data>
+  <data name="GO_PROFILE_DOCUMENTS_EMPTY" xml:space="preserve">
+    <value>No documents</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_DEFAULT_NAME" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_NOT_FOUND" xml:space="preserve">
+    <value>Document not found</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_VERSION" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DESCRIPTION" xml:space="preserve">
+    <value>Find gaming clubs, book a PC, log in with a QR code and manage your balance in Gizmo.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_INFO" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TITLE" xml:space="preserve">
+    <value>Section 1</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TEXT" xml:space="preserve">
+    <value>The text of this section will be added soon.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TITLE" xml:space="preserve">
+    <value>Section 2</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TEXT" xml:space="preserve">
+    <value>The text of this section will be added soon.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_LABEL" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_PLACEHOLDER" xml:space="preserve">
+    <value>Enter the current password</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_WRONG" xml:space="preserve">
+    <value>The current password is wrong</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_INVALID" xml:space="preserve">
+    <value>The new password does not meet the requirements</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_SUCCESS_TEXT" xml:space="preserve">
+    <value>Your password was updated.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_DONE" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TITLE" xml:space="preserve">
+    <value>Delete the account forever?</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TEXT" xml:space="preserve">
+    <value>All account data will be deleted with no way to restore it.</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_BUTTON" xml:space="preserve">
+    <value>Delete the account forever</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CREATED" xml:space="preserve">
+    <value>Reservation {0} was created</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CANCELED" xml:space="preserve">
+    <value>Reservation {0} was canceled</value>
+  </data>
+  <data name="GO_NOTIFY_BALANCE_TOPUP" xml:space="preserve">
+    <value>Your balance was topped up</value>
+  </data>
+  <data name="GO_NOTIFY_NEWS" xml:space="preserve">
+    <value>News: {0}</value>
+  </data>
+  <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
+    <value>Details</value>
+  </data>
 </root>

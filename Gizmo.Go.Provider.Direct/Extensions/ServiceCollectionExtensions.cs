@@ -50,6 +50,8 @@ namespace Gizmo.Go.Provider.Direct.Extensions
             services.AddSingleton<IMobileOptionsService, DirectMobileOptionsService>();
             services.AddSingleton<IUserProfileService, DirectUserProfileService>();
             services.AddSingleton<IPendingUserAgreementsService, DirectPendingUserAgreementsService>();
+            services.AddSingleton<IUserAgreementsService, DirectUserAgreementsService>();
+            services.AddSingleton<IUserEventsService, DirectUserEventsService>();
 
             return services;
         }

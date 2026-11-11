@@ -5,6 +5,7 @@ using Gizmo.Go.Provider.Direct.Mappers.Common;
 using Gizmo.Go.Provider.Direct.Mappers.Profile;
 using Gizmo.Server.Exceptions;
 using Gizmo.Web.Api.Clients;
+using Gizmo.Web.Api.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ProfileClient = Gizmo.Web.Api.User.Clients.ProfileWebApiClient;
@@ -35,6 +36,40 @@ namespace Gizmo.Go.Provider.Direct.Services
         {
             var client = _serviceProvider.GetRequiredService<ProfileClient>();
             return RequiredUserInfoMapper.Map(await client.GetRequiredInfoAsync(cancellationToken));
+        }
+
+        public async Task<UserPasswordChangeCode> ChangePasswordAsync(string currentPassword, string newPassword, CancellationToken cancellationToken = default)
+        {
+            var client = _serviceProvider.GetRequiredService<ProfileClient>();
+
+            try
+            {
+                await client.ChangePasswordAsync(new UserPasswordChangeModel { CurrentPassword = currentPassword, NewPassword = newPassword }, cancellationToken);
+                return UserPasswordChangeCode.Success;
+            }
+            catch (Exception ex) when (ex.IsExceptionCode(ExceptionCode.InvalidProperty))
+            {
+                // the server names the rejected field: the current password (WRONG_PASSWORD) or the new one (empty).
+                // MessagePack reads WebApiValidationError through its (propertyName, errorMessage) constructor in key order
+                // (0 = Message, 1 = PropertyName), so the two values come swapped; both are checked
+                var properties = ((WebApiClientException)ex).Errors.OfType<WebApiValidationError>()
+                    .SelectMany(error => new[] { error.PropertyName, error.Message })
+                    .ToList();
+
+                if (properties.Contains(nameof(UserPasswordChangeModel.CurrentPassword)))
+                    return UserPasswordChangeCode.WrongPassword;
+
+                if (properties.Contains(nameof(UserPasswordChangeModel.NewPassword)))
+                    return UserPasswordChangeCode.InvalidPassword;
+
+                throw;
+            }
+        }
+
+        public async Task DeleteAsync(CancellationToken cancellationToken = default)
+        {
+            var client = _serviceProvider.GetRequiredService<ProfileClient>();
+            await client.DeleteAsync(cancellationToken);
         }
 
         public async Task<UserProfileUpdateCode> UpdateAsync(UserProfileUpdate update, CancellationToken cancellationToken = default)

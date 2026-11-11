@@ -39,6 +39,9 @@ builder.Services.AddViewServices(uiAssembly);
 
 // token storage
 builder.Services.AddSingleton<ITokenStorageService, LocalStorageTokenStorageService>();
+
+// device settings (language, notification switches)
+builder.Services.AddSingleton<IDeviceSettingsService, LocalStorageDeviceSettingsService>();
 builder.Services.AddGizmoGoUI();
 
 // external launcher
@@ -71,13 +74,15 @@ builder.Services.AddSingleton<IAppLifecycleService>(sp =>
 
 var host = builder.Build();
 
-// the app has no language selection: the start culture is always the server one (mobile options, not persisted);
-// an unreachable server keeps the current culture (HTTP only, no resource lookups before RunAsync)
-await CultureHelper.TrySetServerCultureAsync(
+// the start culture: the language chosen on the device (localStorage), otherwise the server one (mobile options);
+// an unreachable server keeps the stored or the current culture (localStorage and HTTP only, no resource lookups before RunAsync)
+var deviceSettings = await host.Services.GetRequiredService<IDeviceSettingsService>().GetAsync();
+await CultureHelper.TrySetStartCultureAsync(
     host.Services.GetRequiredService<IMobileOptionsService>(),
+    deviceSettings.Language,
     host.Services.GetRequiredService<ILogger<Program>>());
 
-// no server culture: keep the current one fixed, so App.razor.cs does not set a culture after RunAsync
+// no stored and no server culture: keep the current one fixed, so App.razor.cs does not set a culture after RunAsync
 // (satellite resource assemblies are loaded only for the culture of RunAsync)
 if (CultureInfo.DefaultThreadCurrentUICulture is null)
 {

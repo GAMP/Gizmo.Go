@@ -1159,4 +1159,76 @@
   <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
     <value>Log ud</value>
   </data>
+  <data name="GO_PROFILE_DOCUMENTS_EMPTY" xml:space="preserve">
+    <value>Ingen dokumenter</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_DEFAULT_NAME" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_NOT_FOUND" xml:space="preserve">
+    <value>Dokumentet blev ikke fundet</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_VERSION" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DESCRIPTION" xml:space="preserve">
+    <value>Find gamingklubber, book en pc, log ind med en QR-kode og administrer din saldo i Gizmo.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_INFO" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TITLE" xml:space="preserve">
+    <value>Afsnit 1</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TEXT" xml:space="preserve">
+    <value>Teksten til dette afsnit tilføjes snart.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TITLE" xml:space="preserve">
+    <value>Afsnit 2</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TEXT" xml:space="preserve">
+    <value>Teksten til dette afsnit tilføjes snart.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_LABEL" xml:space="preserve">
+    <value>Nuværende adgangskode</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_PLACEHOLDER" xml:space="preserve">
+    <value>Indtast den nuværende adgangskode</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_WRONG" xml:space="preserve">
+    <value>Den nuværende adgangskode er forkert</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_INVALID" xml:space="preserve">
+    <value>Den nye adgangskode opfylder ikke kravene</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_SUCCESS_TEXT" xml:space="preserve">
+    <value>Din adgangskode er opdateret.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_DONE" xml:space="preserve">
+    <value>Færdig</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TITLE" xml:space="preserve">
+    <value>Slet kontoen for altid?</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TEXT" xml:space="preserve">
+    <value>Alle kontoens data slettes uden mulighed for gendannelse.</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_BUTTON" xml:space="preserve">
+    <value>Slet kontoen for altid</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CREATED" xml:space="preserve">
+    <value>Reservation {0} er oprettet</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CANCELED" xml:space="preserve">
+    <value>Reservation {0} er annulleret</value>
+  </data>
+  <data name="GO_NOTIFY_BALANCE_TOPUP" xml:space="preserve">
+    <value>Din saldo er fyldt op</value>
+  </data>
+  <data name="GO_NOTIFY_NEWS" xml:space="preserve">
+    <value>Nyhed: {0}</value>
+  </data>
+  <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
 </root>

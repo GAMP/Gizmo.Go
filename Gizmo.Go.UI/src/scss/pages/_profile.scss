@@ -119,7 +119,6 @@
   }
 }
 
-// inactive rows: no handlers yet
 .profile-row {
   display: flex;
   align-items: center;
@@ -196,7 +195,7 @@
   }
 }
 
-// switch shown off
+// notification switch, off by default
 .profile-switch {
   position: relative;
   flex-shrink: 0;
@@ -215,6 +214,15 @@
     border-radius: $radius-full;
     background: $color-text-on-primary;
     box-shadow: 0 1px 3px rgba($color-home-shadow, 0.30);
+    transition: transform 0.15s ease;
+  }
+
+  &--on {
+    background: $color-reservation-accent-mid;
+
+    &::after {
+      transform: translateX(20px);
+    }
   }
 }
 

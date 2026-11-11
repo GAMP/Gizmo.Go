@@ -12,6 +12,12 @@ public static class NavigationHelper
     public const string NewsRoute = "/news";
     public const string NewsDetailsRoute = "/news/{id:int}";
     public const string ReservationsRoute = "/reservations";
+    public const string ProfileLanguageRoute = "/profile/language";
+    public const string ProfilePoliciesRoute = "/profile/policies";
+    public const string ProfilePolicyRoute = "/profile/policies/{id:int}";
+    public const string ProfileAboutRoute = "/profile/about";
+    public const string ProfileAboutDocumentRoute = "/profile/about/{id:int}";
+    public const string ProfileChangePasswordRoute = "/profile/password";
 
     /// <summary>History entry state of a navigation made inside the app (a back step stays in the app).</summary>
     public const string InAppHistoryState = "app";
@@ -26,6 +32,13 @@ public static class NavigationHelper
     public static bool IsInAppEntry(string? historyEntryState) => historyEntryState == InAppHistoryState;
 
     public static string GetNewsDetailsRoute(int id) => $"{NewsRoute}/{id}";
+
+    /// <summary>Gets the reservations route that scrolls to the reservation with the specified id.</summary>
+    public static string GetReservationsRoute(int id) => $"{ReservationsRoute}?id={id}";
+
+    public static string GetProfilePolicyRoute(int id) => $"{ProfilePoliciesRoute}/{id}";
+
+    public static string GetProfileAboutDocumentRoute(int id) => $"{ProfileAboutRoute}/{id}";
 
     /// <summary>
     /// Back button of a main zone screen: an entry opened inside the app steps back through the history; an entry opened

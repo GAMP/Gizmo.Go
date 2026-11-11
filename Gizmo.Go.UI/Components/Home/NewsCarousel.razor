@@ -10,7 +10,7 @@
 else if (News is { Count: > 0 })
 {
     <div class="news-carousel">
-        <div class="news-carousel__track">
+        <div class="news-carousel__track" @ref="_track">
             @for (var i = 0; i < News.Count; i++)
             {
                 var item = News[i];

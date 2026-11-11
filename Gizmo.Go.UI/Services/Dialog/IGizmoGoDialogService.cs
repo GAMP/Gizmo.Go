@@ -20,10 +20,12 @@ namespace Gizmo.Go.UI.Services.Dialog
         /// Shows a confirmation dialog. The result is <see cref="AddComponentResultCode.Ok"/> when confirmed;
         /// "Cancel", the close by an overlay click and a global cancellation give any other code.
         /// </summary>
+        /// <param name="isDanger">Shows the confirm button in the danger color (irreversible actions).</param>
         Task<AddDialogResult<EmptyComponentResult>> ShowConfirmDialogAsync(
             string title,
             string text,
             string confirmText,
+            bool isDanger = false,
             CancellationToken cancellationToken = default);
 
         /// <summary>

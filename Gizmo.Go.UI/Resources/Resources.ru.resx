@@ -1159,4 +1159,76 @@
   <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
     <value>Выйти</value>
   </data>
+  <data name="GO_PROFILE_DOCUMENTS_EMPTY" xml:space="preserve">
+    <value>Нет документов</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_DEFAULT_NAME" xml:space="preserve">
+    <value>Документ</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_NOT_FOUND" xml:space="preserve">
+    <value>Документ не найден</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_VERSION" xml:space="preserve">
+    <value>Версия {0}</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DESCRIPTION" xml:space="preserve">
+    <value>Находите игровые клубы, бронируйте ПК, входите по QR-коду и управляйте балансом в Gizmo.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_INFO" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TITLE" xml:space="preserve">
+    <value>Раздел 1</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TEXT" xml:space="preserve">
+    <value>Текст этого раздела будет добавлен позже.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TITLE" xml:space="preserve">
+    <value>Раздел 2</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TEXT" xml:space="preserve">
+    <value>Текст этого раздела будет добавлен позже.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_LABEL" xml:space="preserve">
+    <value>Текущий пароль</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_PLACEHOLDER" xml:space="preserve">
+    <value>Введите текущий пароль</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_WRONG" xml:space="preserve">
+    <value>Текущий пароль неверный</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_INVALID" xml:space="preserve">
+    <value>Новый пароль не соответствует требованиям</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_SUCCESS_TEXT" xml:space="preserve">
+    <value>Ваш пароль обновлён.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_DONE" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TITLE" xml:space="preserve">
+    <value>Удалить аккаунт навсегда?</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TEXT" xml:space="preserve">
+    <value>Все данные аккаунта будут удалены без возможности восстановления.</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_BUTTON" xml:space="preserve">
+    <value>Удалить аккаунт навсегда</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CREATED" xml:space="preserve">
+    <value>Бронь {0} создана</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CANCELED" xml:space="preserve">
+    <value>Бронь {0} отменена</value>
+  </data>
+  <data name="GO_NOTIFY_BALANCE_TOPUP" xml:space="preserve">
+    <value>Баланс пополнен</value>
+  </data>
+  <data name="GO_NOTIFY_NEWS" xml:space="preserve">
+    <value>Новость: {0}</value>
+  </data>
+  <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
+    <value>Подробнее</value>
+  </data>
 </root>

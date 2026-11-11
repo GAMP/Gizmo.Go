@@ -14,5 +14,10 @@ namespace Gizmo.Go.Core.Models.Balance
         /// Gets the bonus points.
         /// </summary>
         public int Points { get; init; }
+
+        /// <summary>
+        /// Gets the deposit balance.
+        /// </summary>
+        public decimal Deposits { get; init; }
     }
 }

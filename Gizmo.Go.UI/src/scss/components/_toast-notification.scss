@@ -1,13 +1,16 @@
 @use '../themes/default/theme' as *;
 
+// a push notification look: a banner slides in from the top over the whole width of the screen
 .giz-toast-host {
     position: fixed;
-    bottom: $spacing-lg;
-    right: $spacing-lg;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: $z-index-toast;
     display: flex;
     flex-direction: column;
     gap: $spacing-sm;
+    padding: calc(env(safe-area-inset-top, 0px) + #{$spacing-sm}) $spacing-sm 0;
     pointer-events: none;
 }
 
@@ -15,20 +18,31 @@
     display: flex;
     align-items: center;
     gap: $spacing-sm;
-    padding: $spacing-sm $spacing-md;
-    border-radius: $radius-md;
-    box-shadow: $shadow-md;
-    font-size: $font-size-sm;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $spacing-md;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    font-size: $font-size-base;
     pointer-events: all;
+    animation: giz-toast-slide-in $transition-base;
 
-    &--info {
-        background-color: $color-info;
-        color: $color-text-on-primary;
+    // the app accent, as the "Book" button of the club list; the tint lies on the dark app background (and blurs what is
+    // under it), so the text stays readable over any content
+    &--info,
+    &--success {
+        border: 1px solid rgba($color-welcome-accent-mid, 0.32);
+        background:
+            linear-gradient(rgba($color-welcome-btn-primary, 0.14), rgba($color-welcome-btn-primary, 0.14)),
+            rgba($color-home-bg-mid, 0.92);
+        color: $color-welcome-accent;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
 
-    &--success {
-        background-color: $color-success;
-        color: $color-text-on-primary;
+    &--link {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
     }
 
     &--warning {
@@ -45,6 +59,14 @@
         flex: 1;
     }
 
+    &__details {
+        flex-shrink: 0;
+        font-weight: $font-weight-medium;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        white-space: nowrap;
+    }
+
     &__close {
         background: none;
         border: none;
@@ -58,5 +80,23 @@
         &:hover {
             opacity: 1;
         }
+    }
+}
+
+@keyframes giz-toast-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .giz-toast {
+        animation: none;
     }
 }

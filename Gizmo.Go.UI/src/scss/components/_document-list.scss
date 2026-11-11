@@ -1,0 +1,69 @@
+@use '../themes/default/theme' as *;
+
+// List of documents (policies, app documents) in a card.
+.document-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-home-surface-border;
+  border-radius: 16px;
+  background: $color-home-surface;
+  box-shadow: 0 4px 24px rgba($color-home-shadow, 0.30);
+  overflow: hidden;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 56px;
+    padding: 12px $spacing-md;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid $color-home-divider;
+    background: transparent;
+    color: $color-text-on-primary;
+    font-family: 'Noto Sans', $font-family-base;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: $color-home-chip;
+  }
+
+  &__title {
+    flex: 1;
+    min-width: 0;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    @include text-truncate;
+  }
+
+  &__item > svg:last-child {
+    flex-shrink: 0;
+    color: rgba($color-text-on-primary, 0.20);
+  }
+}
+
+.document-list-skeleton {
+  height: 168px;
+}
+
+.document-empty {
+  padding: $spacing-lg $spacing-md;
+  text-align: center;
+  font-size: 13px;
+  color: $color-home-text-muted;
+}

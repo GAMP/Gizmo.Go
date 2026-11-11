@@ -39,13 +39,14 @@ namespace Gizmo.Go.UI.Services.Dialog
             }, default, cancellationToken);
         }
 
-        public Task<AddDialogResult<EmptyComponentResult>> ShowConfirmDialogAsync(string title, string text, string confirmText, CancellationToken cancellationToken = default)
+        public Task<AddDialogResult<EmptyComponentResult>> ShowConfirmDialogAsync(string title, string text, string confirmText, bool isDanger = false, CancellationToken cancellationToken = default)
         {
             var parameters = new Dictionary<string, object>
             {
                 [nameof(ConfirmDialog.Title)] = title,
                 [nameof(ConfirmDialog.Text)] = text,
-                [nameof(ConfirmDialog.ConfirmText)] = confirmText
+                [nameof(ConfirmDialog.ConfirmText)] = confirmText,
+                [nameof(ConfirmDialog.IsDanger)] = isDanger
             };
 
             return ShowDialogAsync<ConfirmDialog, EmptyComponentResult>(parameters, new DialogDisplayOptions()

@@ -23,12 +23,15 @@ namespace Gizmo.Go.UI.Extensions
             services.AddSingleton<IUserLoginStatusService, UserLoginStatusService>();
             services.AddSingleton<IAuthOptionsService, AuthOptionsService>();
             services.AddSingleton<IAuthFlowService, AuthFlowService>();
+            services.AddSingleton<IUserNotificationsService, UserNotificationsService>();
 
             services.AddSingleton<GizmoGoNotificationsService>();
             services.AddSingleton<IGizmoGoNotificationsService>(sp => sp.GetRequiredService<GizmoGoNotificationsService>());
             services.AddSingleton<INotificationsService>(sp => sp.GetRequiredService<GizmoGoNotificationsService>());
             services.AddSingleton<NotificationsHostViewState>();
             services.AddSingleton<NotificationsHostViewService>();
+            // constructed on startup so it subscribes to NotificationsChanged before the first toast is shown
+            services.AddSingleton<IViewService>(sp => sp.GetRequiredService<NotificationsHostViewService>());
 
             services.AddSingleton<GizmoGoDialogService>();
             services.AddSingleton<IGizmoGoDialogService>(sp => sp.GetRequiredService<GizmoGoDialogService>());

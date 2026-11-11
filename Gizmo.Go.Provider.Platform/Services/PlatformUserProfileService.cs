@@ -14,5 +14,11 @@ namespace Gizmo.Go.Provider.Platform.Services
 
         public Task<UserProfileUpdateCode> UpdateAsync(UserProfileUpdate update, CancellationToken cancellationToken = default) =>
             throw new NotImplementedException();
+
+        public Task<UserPasswordChangeCode> ChangePasswordAsync(string currentPassword, string newPassword, CancellationToken cancellationToken = default) =>
+            throw new NotImplementedException();
+
+        public Task DeleteAsync(CancellationToken cancellationToken = default) =>
+            throw new NotImplementedException();
     }
 }

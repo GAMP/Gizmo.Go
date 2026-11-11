@@ -8,8 +8,9 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Balance
         internal static UserBalance Map(UserBalanceExtendedModel source) =>
             new()
             {
-                Balance = source.Balance,
-                Points  = source.Points,
+                Balance  = source.Balance,
+                Points   = source.Points,
+                Deposits = source.Deposits,
             };
     }
 }

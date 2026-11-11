@@ -37,7 +37,13 @@ namespace Gizmo.Go.UI
         private IMobileOptionsService MobileOptionsService { get; set; } = null!;
 
         [Inject]
+        private IDeviceSettingsService DeviceSettingsService { get; set; } = null!;
+
+        [Inject]
         private IUserLoginStatusService UserLoginStatusService { get; set; } = null!;
+
+        [Inject]
+        private IUserNotificationsService UserNotificationsService { get; set; } = null!;
 
         [Inject]
         private ILogger<App> Logger { get; set; } = null!;
@@ -55,9 +61,12 @@ namespace Gizmo.Go.UI
             try
             {
                 await AuthService.TryRestoreSessionAsync();
-                await SetServerCultureAsync();
+                await SetStartCultureAsync();
                 await ServiceProvider.InitializeViewsServices();
                 await AppLifecycleService.InitializeAsync();
+
+                // toasts for the real-time events of the user (connects when the session is restored)
+                UserNotificationsService.Run();
             }
             catch (Exception ex)
             {
@@ -87,15 +96,18 @@ namespace Gizmo.Go.UI
             return base.OnAfterRenderAsync(firstRender);
         }
 
-        // MAUI only (Web always sets the culture in Program.cs before RunAsync): the start culture is the server one,
-        // not persisted; must run before the view services are initialized (localized texts)
-        private async Task SetServerCultureAsync()
+        // MAUI only (Web always sets the culture in Program.cs before RunAsync): the start culture is the language stored on
+        // the device, otherwise the server one; a culture that is already set (the WebView reloaded after a language change)
+        // is kept; must run before the view services are initialized (localized texts)
+        private async Task SetStartCultureAsync()
         {
             if (CultureInfo.DefaultThreadCurrentUICulture is not null)
                 return;
 
+            var deviceSettings = await DeviceSettingsService.GetAsync();
+
             // a failure keeps the neutral English culture; the screens show the connection error
-            await CultureHelper.TrySetServerCultureAsync(MobileOptionsService, Logger);
+            await CultureHelper.TrySetStartCultureAsync(MobileOptionsService, deviceSettings.Language, Logger);
         }
     }
 }

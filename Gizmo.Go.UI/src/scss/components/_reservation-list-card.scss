@@ -550,3 +550,19 @@
     }
   }
 }
+
+// the reservation opened from a notification: a short accent ring after the scroll (gizmoGoScroll.toElement)
+.reservation-list-card--highlight {
+  animation: reservation-list-card-highlight 1.5s ease;
+}
+
+@keyframes reservation-list-card-highlight {
+  0%,
+  60% {
+    box-shadow: 0 0 0 2px rgba($color-welcome-accent, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 0 2px rgba($color-welcome-accent, 0);
+  }
+}

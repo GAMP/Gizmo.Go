@@ -1,0 +1,26 @@
+@use '../themes/default/theme' as *;
+
+// Card with the text of a document (HTML of a server agreement or a plain app text).
+.document-text {
+  padding: $spacing-md;
+  border: 1px solid $color-home-surface-border;
+  border-radius: 16px;
+  background: $color-home-surface;
+  box-shadow: 0 4px 24px rgba($color-home-shadow, 0.30);
+  font-size: 13px;
+  line-height: 19.5px;
+  color: rgba($color-text-on-primary, 0.75);
+  overflow-wrap: anywhere;
+
+  &--plain {
+    white-space: pre-line;
+  }
+
+  p {
+    margin: 0 0 $spacing-sm;
+  }
+
+  a {
+    color: $color-reservation-accent;
+  }
+}

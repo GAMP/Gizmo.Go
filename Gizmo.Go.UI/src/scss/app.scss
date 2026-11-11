@@ -27,6 +27,9 @@
 @use 'pages/news';
 @use 'pages/reservations';
 @use 'pages/profile';
+@use 'pages/profile-language';
+@use 'pages/profile-about';
+@use 'pages/profile-change-password';
 @use 'pages/registration/registration-phone';
 @use 'pages/registration/registration-email';
 @use 'pages/registration/registration-confirmation';
@@ -51,6 +54,8 @@
 @use 'components/contact-entry';
 @use 'components/date-input';
 @use 'components/dialog';
+@use 'components/document-list';
+@use 'components/document-text';
 @use 'components/error-block';
 @use 'components/home-header';
 @use 'components/home-skeleton';

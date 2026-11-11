@@ -1159,4 +1159,76 @@
   <data name="GO_PROFILE_LOGOUT_CONFIRM_BUTTON" xml:space="preserve">
     <value>تسجيل الخروج</value>
   </data>
+  <data name="GO_PROFILE_DOCUMENTS_EMPTY" xml:space="preserve">
+    <value>لا توجد مستندات</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_DEFAULT_NAME" xml:space="preserve">
+    <value>مستند</value>
+  </data>
+  <data name="GO_PROFILE_DOCUMENT_NOT_FOUND" xml:space="preserve">
+    <value>المستند غير موجود</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_VERSION" xml:space="preserve">
+    <value>الإصدار {0}</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DESCRIPTION" xml:space="preserve">
+    <value>ابحث عن نوادي الألعاب، واحجز جهاز كمبيوتر، وسجّل الدخول برمز QR وأدر رصيدك في Gizmo.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_INFO" xml:space="preserve">
+    <value>معلومات</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TITLE" xml:space="preserve">
+    <value>القسم 1</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC1_TEXT" xml:space="preserve">
+    <value>سيتم إضافة نص هذا القسم قريبًا.</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TITLE" xml:space="preserve">
+    <value>القسم 2</value>
+  </data>
+  <data name="GO_PROFILE_ABOUT_DOC2_TEXT" xml:space="preserve">
+    <value>سيتم إضافة نص هذا القسم قريبًا.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_LABEL" xml:space="preserve">
+    <value>كلمة المرور الحالية</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_CURRENT_PLACEHOLDER" xml:space="preserve">
+    <value>أدخل كلمة المرور الحالية</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_WRONG" xml:space="preserve">
+    <value>كلمة المرور الحالية غير صحيحة</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_INVALID" xml:space="preserve">
+    <value>كلمة المرور الجديدة لا تستوفي المتطلبات</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_SUCCESS_TEXT" xml:space="preserve">
+    <value>تم تحديث كلمة المرور.</value>
+  </data>
+  <data name="GO_PROFILE_CHANGE_PASSWORD_DONE" xml:space="preserve">
+    <value>تم</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TITLE" xml:space="preserve">
+    <value>حذف الحساب نهائيًا؟</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_TEXT" xml:space="preserve">
+    <value>سيتم حذف جميع بيانات الحساب دون إمكانية استعادتها.</value>
+  </data>
+  <data name="GO_PROFILE_DELETE_CONFIRM_BUTTON" xml:space="preserve">
+    <value>حذف الحساب نهائيًا</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CREATED" xml:space="preserve">
+    <value>تم إنشاء الحجز {0}</value>
+  </data>
+  <data name="GO_NOTIFY_RESERVATION_CANCELED" xml:space="preserve">
+    <value>تم إلغاء الحجز {0}</value>
+  </data>
+  <data name="GO_NOTIFY_BALANCE_TOPUP" xml:space="preserve">
+    <value>تم شحن رصيدك</value>
+  </data>
+  <data name="GO_NOTIFY_NEWS" xml:space="preserve">
+    <value>خبر: {0}</value>
+  </data>
+  <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
 </root>

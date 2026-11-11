@@ -18,13 +18,16 @@ namespace Gizmo.Go.UI.Services.Notification
         {
         }
 
-        public Task ShowAsync(string message, GoNotificationType type = GoNotificationType.Info, CancellationToken ct = default)
+        public Task ShowAsync(string message, GoNotificationType type = GoNotificationType.Info, string? route = null, CancellationToken ct = default)
         {
             var parameters = new Dictionary<string, object>
             {
                 { nameof(ToastNotification.Message), message },
                 { nameof(ToastNotification.Type), type }
             };
+
+            if (route is not null)
+                parameters.Add(nameof(ToastNotification.Route), route);
 
             // ShowNotificationAsync completes synchronously (Task.FromResult); controller is available immediately.
             var task = ShowNotificationAsync<ToastNotification>(parameters, cancellationToken: ct);

@@ -71,5 +71,10 @@
             border: none;
             background: $color-welcome-btn-primary;
         }
+
+        // after --primary: the same specificity, the later rule wins
+        &--danger {
+            background: $color-home-danger;
+        }
     }
 }

@@ -1,0 +1,11 @@
+<div class="document-text @(IsHtml ? "" : "document-text--plain")">
+    @if (IsHtml)
+    {
+        @* operator content (trusted HTML), rendered as in the agreement dialog *@
+        @((MarkupString)(Text ?? string.Empty))
+    }
+    else
+    {
+        @Text
+    }
+</div>

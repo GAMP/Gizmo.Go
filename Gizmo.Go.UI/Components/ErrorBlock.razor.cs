@@ -24,6 +24,12 @@ namespace Gizmo.Go.UI.Components
         [Parameter]
         public EventCallback OnRetry { get; set; }
 
+        /// <summary>
+        /// Shows a "Back" link that runs the callback (e.g. returns from a document that was not found).
+        /// </summary>
+        [Parameter]
+        public EventCallback OnBack { get; set; }
+
         private void GoHome() => AuthFlowService.Leave();
     }
 }

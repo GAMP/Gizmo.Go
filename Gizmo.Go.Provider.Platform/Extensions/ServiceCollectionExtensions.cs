@@ -36,6 +36,8 @@ namespace Gizmo.Go.Provider.Platform.Extensions
             services.AddSingleton<IMobileOptionsService, PlatformMobileOptionsService>();
             services.AddSingleton<IUserProfileService, PlatformUserProfileService>();
             services.AddSingleton<IPendingUserAgreementsService, PlatformPendingUserAgreementsService>();
+            services.AddSingleton<IUserAgreementsService, PlatformUserAgreementsService>();
+            services.AddSingleton<IUserEventsService, PlatformUserEventsService>();
 
             return services;
         }

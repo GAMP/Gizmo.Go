@@ -53,6 +53,14 @@
   overflow-x: hidden;
 }
 
+// content area of a main zone screen under the back header
+.screen-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: 0 $spacing-md $spacing-xl;
+}
+
 // News screens: a deeper blue base
 .page-shell--news {
   background-color: $color-news-bg-end;

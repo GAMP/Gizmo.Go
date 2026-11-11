@@ -1,0 +1,51 @@
+@use '../themes/default/theme' as *;
+
+// About the app: the app card and the "Info" documents.
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: $spacing-lg $spacing-md;
+  border: 1px solid $color-home-surface-border;
+  border-radius: 16px;
+  background: $color-home-surface;
+  box-shadow: 0 4px 24px rgba($color-home-shadow, 0.30);
+  text-align: center;
+
+  &__name {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 32px;
+  }
+
+  &__version {
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba($color-text-on-primary, 0.45);
+  }
+
+  &__description {
+    margin: $spacing-sm 0 0;
+    font-size: 13px;
+    line-height: 19.5px;
+    color: rgba($color-text-on-primary, 0.65);
+  }
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__title {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16.5px;
+    letter-spacing: 0.88px;
+    color: rgba($color-text-on-primary, 0.35);
+  }
+}

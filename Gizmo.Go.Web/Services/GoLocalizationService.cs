@@ -24,7 +24,7 @@ namespace Gizmo.Go.Web.Services
         public override event EventHandler<EventArgs>? LocalizationOptionsChanged;
         public override event EventHandler<EventArgs>? LanguageChanged;
 
-        // the culture is not persisted: the app always starts with the server culture
+        // switches the culture of the running app; the chosen language is stored by the language screen (IDeviceSettingsService)
         public override Task SetCurrentCultureAsync(CultureInfo culture)
         {
             CultureInfo.DefaultThreadCurrentCulture = culture;

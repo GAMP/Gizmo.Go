@@ -34,5 +34,15 @@ namespace Gizmo.Go.UI.View.States.Pages
         /// Gets the name of the current UI language.
         /// </summary>
         public string LanguageName { get; internal set; } = string.Empty;
+
+        /// <summary>
+        /// Gets whether notifications about the own reservations and balance are on (stored on the device).
+        /// </summary>
+        public bool PersonalNotifications { get; internal set; } = true;
+
+        /// <summary>
+        /// Gets whether notifications about published news are on (stored on the device).
+        /// </summary>
+        public bool NewsNotifications { get; internal set; }
     }
 }

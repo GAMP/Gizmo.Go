@@ -20,6 +20,12 @@ namespace Gizmo.Go.UI.Components.Dialog
         [Parameter]
         public string ConfirmText { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Gets or sets whether the confirm button is shown in the danger color.
+        /// </summary>
+        [Parameter]
+        public bool IsDanger { get; set; }
+
         [Parameter]
         public DialogDisplayOptions? DisplayOptions { get; set; }
 

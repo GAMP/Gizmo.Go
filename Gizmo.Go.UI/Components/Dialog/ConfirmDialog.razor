@@ -4,7 +4,7 @@
         <div class="giz-confirm-dialog__text">@Text</div>
     </div>
     <div class="giz-confirm-dialog__actions">
-        <button type="button" class="giz-confirm-dialog__button giz-confirm-dialog__button--primary" @onclick="ConfirmAsync">
+        <button type="button" class="giz-confirm-dialog__button giz-confirm-dialog__button--primary @(IsDanger ? "giz-confirm-dialog__button--danger" : "")" @onclick="ConfirmAsync">
             @ConfirmText
         </button>
         <button type="button" class="giz-confirm-dialog__button" @onclick="CancelAsync">

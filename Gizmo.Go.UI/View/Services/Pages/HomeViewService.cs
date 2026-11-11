@@ -1,4 +1,5 @@
 using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Events;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.Services.Common;
@@ -27,6 +28,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly IAuthOptionsService _authOptionsService;
         private readonly ILadderService _ladderService;
         private readonly IUserBalanceService _userBalanceService;
+        private readonly IUserEventsService _userEventsService;
         private readonly IReservationService _reservationService;
         private readonly INewsService _newsService;
         private readonly IBranchProvider _branchProvider;
@@ -44,6 +46,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             IAuthOptionsService authOptionsService,
             ILadderService ladderService,
             IUserBalanceService userBalanceService,
+            IUserEventsService userEventsService,
             IReservationService reservationService,
             INewsService newsService,
             IBranchProvider branchProvider,
@@ -54,6 +57,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             _authOptionsService = authOptionsService;
             _ladderService = ladderService;
             _userBalanceService = userBalanceService;
+            _userEventsService = userEventsService;
             _reservationService = reservationService;
             _newsService = newsService;
             _branchProvider = branchProvider;
@@ -111,12 +115,14 @@ namespace Gizmo.Go.UI.View.Services.Pages
         protected override Task OnInitializing(CancellationToken ct)
         {
             _authService.StateChanged += OnAuthStateChanged;
+            _userEventsService.EventReceived += OnUserEventReceived;
             return base.OnInitializing(ct);
         }
 
         protected override void OnDisposing(bool isDisposing)
         {
             _authService.StateChanged -= OnAuthStateChanged;
+            _userEventsService.EventReceived -= OnUserEventReceived;
             base.OnDisposing(isDisposing);
         }
 
@@ -143,6 +149,26 @@ namespace Gizmo.Go.UI.View.Services.Pages
             // the data of the previous user is never shown to the next one
             CancelLoad();
             ResetBlocks();
+        }
+
+        // the balance and news blocks follow the user events while the screen is open (top ups, usage charges, news changes);
+        // the old value stays on screen until the new one arrives
+        private void OnUserEventReceived(object? sender, UserEvent userEvent)
+        {
+            var loadCts = _loadCts;
+            if (loadCts is null)
+                return;
+
+            switch (userEvent)
+            {
+                case UserBalanceChangedEvent:
+                    _ = ViewState.Balance.LoadAsync(ct => _userBalanceService.GetAsync(ct)!, Logger, "balance", DebounceViewStateChanged, loadCts.Token);
+                    break;
+
+                case NewsChangedEvent:
+                    _ = ViewState.News.LoadAsync(ct => _newsService.GetListAsync(CarouselNewsCount, ct)!, Logger, "news", DebounceViewStateChanged, loadCts.Token);
+                    break;
+            }
         }
 
         private CancellationToken GetLoadToken() => (_loadCts ??= new CancellationTokenSource()).Token;
