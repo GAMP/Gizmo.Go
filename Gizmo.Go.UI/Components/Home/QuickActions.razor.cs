@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 namespace Gizmo.Go.UI.Components.Home
 {
     /// <summary>
-    /// Quick actions row: clubs on the map, my reservations, QR login. The map and QR login are inactive in the first version.
+    /// Quick actions row: clubs on the map, my reservations, QR login.
     /// </summary>
     public partial class QuickActions : ComponentBase
     {

@@ -1,50 +1,52 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Branch;
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.Provider.Direct.Demo;
+using Gizmo.Go.Provider.Direct.Mappers.Branch;
+using Gizmo.Server.Exceptions;
+using Gizmo.Web.Api.Clients;
+using Gizmo.Web.Api.Models;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using BranchesClient = Gizmo.Web.Api.User.Clients.BranchesWebApiClient;
 
 namespace Gizmo.Go.Provider.Direct.Services
 {
     /// <summary>
-    /// Direct Gizmo Server branch provider.
+    /// Direct Gizmo Server branch provider (api/user/v3/branches, secured).
     /// </summary>
     internal sealed class DirectBranchProvider : IBranchProvider
     {
-        // demo data until GET api/user/v3/branches?city= exists
-        public async Task<IEnumerable<Branch>> GetAsync(BranchFilter? filter = null, CancellationToken cancellationToken = default)
+        private readonly IServiceProvider _serviceProvider;
+        private readonly ILogger<DirectBranchProvider> _logger;
+
+        public DirectBranchProvider(IServiceProvider serviceProvider, ILogger<DirectBranchProvider> logger)
         {
-            await Task.Delay(HomeDemoData.Delay, cancellationToken);
-
-            var city = filter?.City?.Trim();
-
-            return HomeDemoData.Branches
-                .Where(branch => string.IsNullOrEmpty(city)
-                    || string.Equals(branch.City?.Trim(), city, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            _serviceProvider = serviceProvider;
+            _logger = logger;
         }
 
-        public Task<Branch?> GetByIdAsync(int branchId, CancellationToken cancellationToken = default) =>
-            throw new NotImplementedException();
-
-        public Task<IEnumerable<Branch>> GetFavoritesAsync(CancellationToken cancellationToken = default) =>
-            throw new NotImplementedException();
-
-        public Task AddFavoriteAsync(int branchId, CancellationToken cancellationToken = default) =>
-            throw new NotImplementedException();
-
-        public Task RemoveFavoriteAsync(int branchId, CancellationToken cancellationToken = default) =>
-            throw new NotImplementedException();
-
-        // demo data until GET api/user/v3/branches/cities exists
-        public async Task<IReadOnlyList<string>> GetCitiesAsync(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Branch>> GetAsync(CancellationToken cancellationToken = default)
         {
-            await Task.Delay(HomeDemoData.Delay, cancellationToken);
+            var client = _serviceProvider.GetRequiredService<BranchesClient>();
+            var request = new UserBranchesFilter
+            {
+                Pagination = new ModelFilterPagination { Limit = -1 },
+            };
 
-            return HomeDemoData.Branches
-                .Select(branch => branch.City?.Trim())
-                .Where(city => !string.IsNullOrEmpty(city))
-                .Distinct(StringComparer.OrdinalIgnoreCase)
-                .Cast<string>()
-                .ToList();
+            var page = await client.GetAsync(request, cancellationToken);
+            return page.Data.Select(branch => BranchMapper.Map(branch, _logger)).ToList();
+        }
+
+        public async Task<BranchDetails?> GetDetailsAsync(int branchId, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var client = _serviceProvider.GetRequiredService<BranchesClient>();
+                return BranchMapper.Map(await client.GetByIdAsync(branchId, cancellationToken), _logger);
+            }
+            catch (Exception ex) when (ex.IsExceptionCode(ExceptionCode.EntityNotFound))
+            {
+                return null;
+            }
         }
     }
 }

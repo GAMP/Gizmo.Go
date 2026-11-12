@@ -1,0 +1,589 @@
+@use '../themes/default/theme' as *;
+
+// Club page: gallery placeholder, name, counters, sections, sticky booking bar.
+.page-club {
+  // .page-shell hides the horizontal overflow, which makes it the scroll container of the sticky "Book a PC" button;
+  // clip keeps the overflow hidden without that, so the button sticks to the bottom of the scrolling app content
+  overflow-x: clip;
+  background-color: $color-club-bg-end;
+  background-image: linear-gradient(180deg, $color-club-bg-start 0%, $color-club-bg-mid 50%, $color-club-bg-end 100%);
+
+  &__state {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    padding: 0 $spacing-md $spacing-xl;
+  }
+
+  &__skeleton {
+    height: 320px;
+  }
+}
+
+.club-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  &__gallery {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 240px;
+    background: $color-home-skeleton;
+  }
+
+  &__placeholder {
+    font-size: 13px;
+    line-height: 18px;
+    color: $color-home-text-muted;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: $spacing-md;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: 2px;
+  }
+
+  &__name {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 26.4px;
+    letter-spacing: -0.48px;
+    overflow-wrap: anywhere;
+  }
+
+  &__info {
+    margin: 0;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+    color: $color-home-text-muted;
+    overflow-wrap: anywhere;
+  }
+
+  // total / free computers: one card split in two
+  &__stats {
+    display: flex;
+    border: 1px solid $color-home-card-border;
+    border-radius: 13px;
+    background: $color-home-card;
+  }
+
+  &__stat {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 10px 0 11px;
+
+    & + & {
+      border-left: 1px solid $color-home-card-border;
+    }
+  }
+
+  &__stat-label {
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 13.5px;
+    letter-spacing: 0.54px;
+    text-transform: uppercase;
+    color: rgba($color-text-on-primary, 0.30);
+  }
+
+  &__stat-value {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 23.1px;
+    color: rgba($color-text-on-primary, 0.72);
+
+    &--free {
+      color: $color-success-light;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  &__label {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16.5px;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    color: rgba($color-text-on-primary, 0.30);
+  }
+
+  // map placeholder with the address strip at its bottom
+  &__map {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 158px;
+    overflow: hidden;
+    border: 1px solid $color-home-surface-border;
+    border-radius: 14px;
+    background: linear-gradient(135deg, $color-club-map-start 0%, $color-club-map-mid 50%, $color-club-map-end 100%);
+
+    .club-page__placeholder {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__map-address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px 10px;
+    border-top: 1px solid rgba($color-text-on-primary, 0.06);
+    background: $color-club-map-strip;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+    color: rgba($color-text-on-primary, 0.72);
+    overflow-wrap: anywhere;
+
+    svg {
+      flex-shrink: 0;
+      color: $color-welcome-accent;
+    }
+  }
+
+  // contact and rules rows: icon box, title with a hint, optional chevron
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 58px;
+    padding: 12px $spacing-md;
+    box-sizing: border-box;
+    border: 1px solid $color-home-card-border;
+    border-radius: 12px;
+    background: $color-home-card;
+    color: $color-text-on-primary;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    & + & {
+      margin-top: 1px;
+    }
+  }
+
+  &__row-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba($color-text-on-primary, 0.06);
+    color: rgba($color-text-on-primary, 0.50);
+
+    &--phone {
+      background: rgba($color-success-light, 0.10);
+      color: $color-success-light;
+    }
+  }
+
+  &__row-text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__row-title {
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+    overflow-wrap: anywhere;
+  }
+
+  &__row-hint {
+    font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
+    color: $color-home-text-muted;
+
+    &--call {
+      color: rgba($color-success-light, 0.70);
+    }
+  }
+
+  &__row-chevron {
+    flex-shrink: 0;
+    color: rgba($color-text-on-primary, 0.30);
+  }
+
+  // price list: header with the lowest price, host group rows, "More"
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid $color-home-surface-border;
+    border-radius: 14px;
+    background: $color-club-price-card;
+    box-shadow: 0 8px 24px rgba($color-home-shadow, 0.35);
+  }
+
+  &__prices-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-sm;
+    min-height: 48px;
+    padding: 0 $spacing-md;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color-home-card-border;
+    background: rgba($color-welcome-btn-primary, 0.08);
+  }
+
+  &__prices-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+    line-height: 19.5px;
+    letter-spacing: 0.52px;
+    text-transform: uppercase;
+
+    svg {
+      flex-shrink: 0;
+      color: $color-home-bonus;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-shrink: 0;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  &__price-from {
+    font-size: 11px;
+    font-weight: $font-weight-medium;
+    line-height: 16.5px;
+    color: rgba($color-text-on-primary, 0.40);
+
+    // languages without a separate "from" word leave it empty
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__price-value {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 22.5px;
+    color: $color-home-bonus;
+
+    &--row {
+      color: $color-text-on-primary;
+    }
+  }
+
+  &__price-unit {
+    margin-left: -4px;
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    line-height: 15px;
+    color: rgba($color-text-on-primary, 0.35);
+  }
+
+  &__price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-sm;
+    min-height: 60px;
+    padding: 0 $spacing-md;
+    box-sizing: border-box;
+
+    & + & {
+      border-top: 1px solid $color-home-divider;
+    }
+
+    &--placeholder {
+      font-size: 13px;
+      color: $color-home-text-muted;
+    }
+  }
+
+  &__price-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    font-size: 13px;
+    font-weight: $font-weight-medium;
+    line-height: 19.5px;
+    overflow-wrap: anywhere;
+  }
+
+  // host group colors in their order
+  &__price-dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &--0 {
+      background: $color-welcome-accent;
+    }
+
+    &--1 {
+      background: $color-home-bonus;
+    }
+
+    &--2 {
+      background: $color-home-violet;
+    }
+
+    &--3 {
+      background: $color-success-light;
+    }
+  }
+
+  &__prices-more {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 38px;
+    padding: 0 $spacing-md;
+    box-sizing: border-box;
+    border-top: 1px solid $color-home-card-border;
+    background: rgba($color-text-on-primary, 0.02);
+    font-size: 11px;
+    font-weight: $font-weight-medium;
+    line-height: 16.5px;
+    color: $color-welcome-accent;
+  }
+
+  // one blue button over the content: sticks to the bottom of the screen while the page scrolls behind it and rests
+  // under the last section at the end of the scroll; the disabled state looks the same as the active one
+  &__bar {
+    position: sticky;
+    bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom, 0px));
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    min-height: 52px;
+    margin: auto $spacing-md $spacing-md;
+    padding: 7px 20px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 12px;
+    background: $color-welcome-btn-primary;
+    box-shadow: $shadow-lg;
+    color: $color-text-on-primary;
+    font-family: 'Noto Sans', $font-family-base;
+    text-align: left;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:disabled {
+      cursor: default;
+      opacity: 1;
+    }
+  }
+
+  &__bar-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__bar-free {
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    line-height: 15px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: rgba($color-text-on-primary, 0.60);
+  }
+
+  &__bar-title {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 15px;
+    font-weight: $font-weight-bold;
+    line-height: 22.5px;
+  }
+
+  &__bar-price {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+    line-height: 19.5px;
+  }
+}
+
+// Working hours: today's line with the open dot and the week day; expands to the week.
+.club-schedule {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $color-home-card-border;
+  border-radius: 12px;
+  background: $color-home-card;
+
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 56px;
+    padding: 12px $spacing-md;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    color: $color-text-on-primary;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba($color-text-on-primary, 0.06);
+    color: $color-home-text-muted;
+  }
+
+  &__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__today {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+  }
+
+  &__weekday {
+    font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
+    color: $color-home-text-muted;
+  }
+
+  &__dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+
+    &--open {
+      background: $color-success-light;
+      box-shadow: 0 0 5px rgba($color-success-light, 0.70);
+    }
+
+    &--closed {
+      background: $color-home-closed;
+    }
+  }
+
+  &__chevron {
+    flex-shrink: 0;
+    color: rgba($color-text-on-primary, 0.30);
+    transition: transform 0.2s ease;
+
+    &--up {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__week {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba($color-text-on-primary, 0.06);
+    list-style: none;
+  }
+
+  &__day {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 39px;
+    padding: 0 $spacing-md;
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 19.5px;
+
+    & + & {
+      border-top: 1px solid $color-home-divider;
+    }
+
+    &--today {
+      background: rgba($color-welcome-btn-primary, 0.07);
+      font-weight: 600;
+    }
+  }
+
+  &__day-name {
+    color: rgba($color-text-on-primary, 0.42);
+
+    .club-schedule__day--today & {
+      color: $color-welcome-accent;
+    }
+  }
+
+  &__day-hours {
+    color: rgba($color-text-on-primary, 0.55);
+
+    .club-schedule__day--today & {
+      color: $color-text-on-primary;
+    }
+  }
+}

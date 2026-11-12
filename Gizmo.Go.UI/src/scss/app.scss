@@ -25,6 +25,7 @@
 @use 'pages/login';
 @use 'pages/home';
 @use 'pages/news';
+@use 'pages/club';
 @use 'pages/reservations';
 @use 'pages/profile';
 @use 'pages/profile-language';
@@ -66,6 +67,7 @@
 @use 'components/quick-actions';
 @use 'components/reservation-card';
 @use 'components/reservation-list-card';
+@use 'components/rules-dialog';
 @use 'components/screen-back-header';
 @use 'components/toast-notification';
 

@@ -1,9 +1,11 @@
 @use '../themes/default/theme' as *;
 
-// "How Ladder works": title with the intro, scrollable sections, "Got it".
+// "How Ladder works": a sheet at the bottom (about four fifths of the screen) with the title and the intro,
+// scrollable sections and "Got it".
 // compound selectors: _dialog.scss comes later in app.scss
 .giz-dialog__card.giz-ladder-info-dialog {
-    max-width: 351px;
+    align-self: flex-end;
+    height: 80dvh;
     max-height: 100%;
     border-color: $color-home-dialog-border;
     border-radius: 18px;
@@ -25,7 +27,7 @@
 
     .giz-dialog__footer {
         padding: 20px;
-        border-top: none;
+        border-top-color: $color-home-divider;
     }
 
     .giz-dialog__close {

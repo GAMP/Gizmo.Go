@@ -1,5 +1,5 @@
 <div class="city-select">
-    @if (Cities.Count > 1)
+    @if (Cities.Count > 0)
     {
         <button type="button"
                 class="city-select__button"
@@ -10,7 +10,7 @@
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
             </svg>
-            <span>@SelectedCity</span>
+            <span>@SelectedText</span>
             <svg class="city-select__arrow @(_open ? "city-select__arrow--open" : "")" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M6 9l6 6 6-6" />
             </svg>
@@ -21,6 +21,13 @@
             @* a tap outside the list closes it *@
             <div class="city-select__backdrop" @onclick="Toggle"></div>
             <ul class="city-select__list" role="listbox">
+                <li role="option" aria-selected="@(SelectedCity is null ? "true" : "false")">
+                    <button type="button"
+                            class="city-select__item @(SelectedCity is null ? "city-select__item--selected" : "")"
+                            @onclick="() => SelectAsync(null)">
+                        @AllCitiesText
+                    </button>
+                </li>
                 @foreach (var city in Cities)
                 {
                     <li role="option" aria-selected="@(city == SelectedCity ? "true" : "false")">
@@ -41,7 +48,7 @@
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
             </svg>
-            <span>@SelectedCity</span>
+            <span>@AllCitiesText</span>
         </div>
     }
 </div>

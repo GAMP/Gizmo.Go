@@ -1081,6 +1081,9 @@
   <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
     <value>Ingen klubber fundet</value>
   </data>
+  <data name="GO_HOME_ALL_CITIES" xml:space="preserve">
+    <value>Alle byer</value>
+  </data>
   <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
     <value>Nyheder</value>
   </data>
@@ -1239,5 +1242,77 @@
   </data>
   <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
     <value>Detaljer</value>
+  </data>
+  <data name="GO_GEN_NO_API_DATA" xml:space="preserve">
+    <value>Ingen API-data</value>
+  </data>
+  <data name="GO_GEN_PRICE_PLACEHOLDER" xml:space="preserve">
+    <value>XXX</value>
+  </data>
+  <data name="GO_CLUB_PAGE_TITLE" xml:space="preserve">
+    <value>Klub</value>
+  </data>
+  <data name="GO_CLUB_TOTAL_PCS" xml:space="preserve">
+    <value>PC'er i alt</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS" xml:space="preserve">
+    <value>Ledige</value>
+  </data>
+  <data name="GO_CLUB_ADDRESS" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="GO_CLUB_HOURS" xml:space="preserve">
+    <value>Åbningstider</value>
+  </data>
+  <data name="GO_CLUB_CONTACTS" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="GO_CLUB_PRICES" xml:space="preserve">
+    <value>Priser</value>
+  </data>
+  <data name="GO_CLUB_RULES" xml:space="preserve">
+    <value>Regler</value>
+  </data>
+  <data name="GO_CLUB_PRICE_LIST" xml:space="preserve">
+    <value>Prisliste</value>
+  </data>
+  <data name="GO_CLUB_MORE" xml:space="preserve">
+    <value>Mere</value>
+  </data>
+  <data name="GO_CLUB_RULES_CLUB" xml:space="preserve">
+    <value>Klubregler</value>
+  </data>
+  <data name="GO_CLUB_RULES_BOOKING" xml:space="preserve">
+    <value>Bookingregler</value>
+  </data>
+  <data name="GO_CLUB_TAP_TO_CALL" xml:space="preserve">
+    <value>Tryk for at ringe</value>
+  </data>
+  <data name="GO_CLUB_CLOSED" xml:space="preserve">
+    <value>Lukket</value>
+  </data>
+  <data name="GO_CLUB_BOOK_PC" xml:space="preserve">
+    <value>Book en PC</value>
+  </data>
+  <data name="GO_CLUB_NOT_FOUND" xml:space="preserve">
+    <value>Klubben blev ikke fundet</value>
+  </data>
+  <data name="GO_CLUB_TODAY" xml:space="preserve">
+    <value>I dag — {0}</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS_COUNT" xml:space="preserve">
+    <value>{0} PC'er ledige</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM_HOUR" xml:space="preserve">
+    <value>fra {0}/t</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM" xml:space="preserve">
+    <value>fra</value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR" xml:space="preserve">
+    <value>/time</value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
+    <value>/t</value>
   </data>
 </root>

@@ -12,6 +12,7 @@ public static class NavigationHelper
     public const string NewsRoute = "/news";
     public const string NewsDetailsRoute = "/news/{id:int}";
     public const string ReservationsRoute = "/reservations";
+    public const string ClubRoute = "/clubs/{id:int}";
     public const string ProfileLanguageRoute = "/profile/language";
     public const string ProfilePoliciesRoute = "/profile/policies";
     public const string ProfilePolicyRoute = "/profile/policies/{id:int}";
@@ -32,6 +33,8 @@ public static class NavigationHelper
     public static bool IsInAppEntry(string? historyEntryState) => historyEntryState == InAppHistoryState;
 
     public static string GetNewsDetailsRoute(int id) => $"{NewsRoute}/{id}";
+
+    public static string GetClubRoute(int id) => $"/clubs/{id}";
 
     /// <summary>Gets the reservations route that shows only the reservation with the specified id.</summary>
     public static string GetReservationRoute(int id) => $"{ReservationsRoute}?id={id}";

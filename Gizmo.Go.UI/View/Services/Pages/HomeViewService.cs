@@ -1,4 +1,3 @@
-using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Events;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
@@ -36,7 +35,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
         private readonly NavigationService _navigationService;
 
         private CancellationTokenSource? _loadCts;
-        private CancellationTokenSource? _clubsCts;
 
         public HomeViewService(
             HomeViewState viewState,
@@ -70,27 +68,19 @@ namespace Gizmo.Go.UI.View.Services.Pages
         /// </summary>
         public Task EnsureLoadedAsync() => _loadCts is null ? LoadAsync() : Task.CompletedTask;
 
-        public async Task SelectCityAsync(string city)
+        /// <summary>
+        /// Shows the clubs of the city (null shows all clubs); the clubs are filtered on the device, nothing is loaded.
+        /// </summary>
+        public void SelectCity(string? city)
         {
-            if (string.Equals(ViewState.SelectedCity, city, StringComparison.Ordinal))
-                return;
-
             ViewState.SelectedCity = city;
-
-            // the clubs of another city: the old list is not shown while the new one loads
-            ViewState.Clubs.Reset();
-            await LoadClubsAsync(GetLoadToken());
+            RaiseViewStateChanged();
         }
 
         /// <summary>
-        /// Reloads the clubs of the selected city.
+        /// Reloads the clubs.
         /// </summary>
         public Task ReloadClubsAsync() => LoadClubsAsync(GetLoadToken());
-
-        /// <summary>
-        /// Reloads the cities and the clubs.
-        /// </summary>
-        public Task ReloadCitiesAsync() => LoadCitiesAsync(GetLoadToken());
 
         public async Task OpenLadderInfoAsync()
         {
@@ -117,6 +107,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
             _navigationService.NavigateTo(NavigationHelper.GetNearestReservationRoute(reservation.Id), NavigationHelper.InAppNavigation);
         }
+
+        public void OpenClub(int id) => _navigationService.NavigateTo(NavigationHelper.GetClubRoute(id), NavigationHelper.InAppNavigation);
 
         public void OpenNews(int id) => _navigationService.NavigateTo(NavigationHelper.GetNewsDetailsRoute(id), NavigationHelper.InAppNavigation);
 
@@ -183,8 +175,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         private void CancelLoad()
         {
-            _clubsCts?.Cancel();
-            _clubsCts = null;
             _loadCts?.Cancel();
             _loadCts = null;
         }
@@ -196,7 +186,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.Balance.Reset();
             ViewState.Reservation.Reset();
             ViewState.News.Reset();
-            ViewState.Cities.Reset();
             ViewState.Clubs.Reset();
             ViewState.SelectedCity = null;
         }
@@ -216,48 +205,25 @@ namespace Gizmo.Go.UI.View.Services.Pages
                 ViewState.Balance.LoadAsync(ct => _userBalanceService.GetAsync(ct)!, Logger, "balance", DebounceViewStateChanged, cancellationToken),
                 ViewState.Reservation.LoadAsync(async ct => (await _reservationService.GetCurrentAsync(ct)).FirstOrDefault(), Logger, "nearest reservation", DebounceViewStateChanged, cancellationToken),
                 ViewState.News.LoadAsync(ct => _newsService.GetListAsync(CarouselNewsCount, ct)!, Logger, "news", DebounceViewStateChanged, cancellationToken),
-                LoadCitiesAsync(cancellationToken));
+                LoadClubsAsync(cancellationToken));
 
             if (!cancellationToken.IsCancellationRequested)
                 RaiseViewStateChanged();
         }
 
-        private async Task LoadCitiesAsync(CancellationToken cancellationToken)
+        private async Task LoadClubsAsync(CancellationToken cancellationToken)
         {
-            await ViewState.Cities.LoadAsync(ct => _branchProvider.GetCitiesAsync(ct)!, Logger, "cities", DebounceViewStateChanged, cancellationToken);
+            await ViewState.Clubs.LoadAsync(async ct => (await _branchProvider.GetAsync(ct)).ToList(), Logger, "clubs", DebounceViewStateChanged, cancellationToken);
 
-            if (cancellationToken.IsCancellationRequested || ViewState.Cities.HasError)
+            if (cancellationToken.IsCancellationRequested || ViewState.Clubs.HasError)
                 return;
 
-            // the first city is the default one; the selected city is kept while it exists
-            var cities = ViewState.Cities.Value;
-
-            if (cities is not { Count: > 0 })
+            // the selected city is kept while a club of it exists, otherwise all cities are shown
+            if (ViewState.SelectedCity is { } city && !ViewState.Cities.Contains(city, StringComparer.OrdinalIgnoreCase))
             {
                 ViewState.SelectedCity = null;
-                ViewState.Clubs.SetValue([]);
                 DebounceViewStateChanged();
-                return;
             }
-
-            if (ViewState.SelectedCity is null || !cities.Contains(ViewState.SelectedCity))
-            {
-                ViewState.SelectedCity = cities[0];
-                ViewState.Clubs.Reset();
-            }
-
-            await LoadClubsAsync(cancellationToken);
-        }
-
-        private async Task LoadClubsAsync(CancellationToken loadToken)
-        {
-            _clubsCts?.Cancel();
-            _clubsCts = CancellationTokenSource.CreateLinkedTokenSource(loadToken);
-            var cancellationToken = _clubsCts.Token;
-
-            var filter = new BranchFilter { City = ViewState.SelectedCity };
-
-            await ViewState.Clubs.LoadAsync(async ct => (await _branchProvider.GetAsync(filter, ct)).ToList(), Logger, "clubs", DebounceViewStateChanged, cancellationToken);
         }
     }
 }

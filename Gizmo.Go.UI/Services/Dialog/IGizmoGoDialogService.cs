@@ -33,5 +33,12 @@ namespace Gizmo.Go.UI.Services.Dialog
         /// </summary>
         Task<AddDialogResult<EmptyComponentResult>> ShowLadderInfoDialogAsync(
             CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Shows a rules dialog (club rules, booking rules) with the specified title.
+        /// </summary>
+        Task<AddDialogResult<EmptyComponentResult>> ShowRulesDialogAsync(
+            string title,
+            CancellationToken cancellationToken = default);
     }
 }

@@ -1081,6 +1081,9 @@
   <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
     <value>Kulüp bulunamadı</value>
   </data>
+  <data name="GO_HOME_ALL_CITIES" xml:space="preserve">
+    <value>Tüm şehirler</value>
+  </data>
   <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
     <value>Haberler</value>
   </data>
@@ -1239,5 +1242,77 @@
   </data>
   <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
     <value>Ayrıntılar</value>
+  </data>
+  <data name="GO_GEN_NO_API_DATA" xml:space="preserve">
+    <value>API verisi yok</value>
+  </data>
+  <data name="GO_GEN_PRICE_PLACEHOLDER" xml:space="preserve">
+    <value>XXX</value>
+  </data>
+  <data name="GO_CLUB_PAGE_TITLE" xml:space="preserve">
+    <value>Kulüp</value>
+  </data>
+  <data name="GO_CLUB_TOTAL_PCS" xml:space="preserve">
+    <value>Toplam bilgisayar</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS" xml:space="preserve">
+    <value>Boş</value>
+  </data>
+  <data name="GO_CLUB_ADDRESS" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="GO_CLUB_HOURS" xml:space="preserve">
+    <value>Çalışma saatleri</value>
+  </data>
+  <data name="GO_CLUB_CONTACTS" xml:space="preserve">
+    <value>İletişim</value>
+  </data>
+  <data name="GO_CLUB_PRICES" xml:space="preserve">
+    <value>Fiyatlar</value>
+  </data>
+  <data name="GO_CLUB_RULES" xml:space="preserve">
+    <value>Kurallar</value>
+  </data>
+  <data name="GO_CLUB_PRICE_LIST" xml:space="preserve">
+    <value>Fiyat listesi</value>
+  </data>
+  <data name="GO_CLUB_MORE" xml:space="preserve">
+    <value>Daha fazla</value>
+  </data>
+  <data name="GO_CLUB_RULES_CLUB" xml:space="preserve">
+    <value>Kulüp kuralları</value>
+  </data>
+  <data name="GO_CLUB_RULES_BOOKING" xml:space="preserve">
+    <value>Rezervasyon kuralları</value>
+  </data>
+  <data name="GO_CLUB_TAP_TO_CALL" xml:space="preserve">
+    <value>Aramak için dokunun</value>
+  </data>
+  <data name="GO_CLUB_CLOSED" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="GO_CLUB_BOOK_PC" xml:space="preserve">
+    <value>Bilgisayar rezerve et</value>
+  </data>
+  <data name="GO_CLUB_NOT_FOUND" xml:space="preserve">
+    <value>Kulüp bulunamadı</value>
+  </data>
+  <data name="GO_CLUB_TODAY" xml:space="preserve">
+    <value>Bugün — {0}</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS_COUNT" xml:space="preserve">
+    <value>{0} bilgisayar boş</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM_HOUR" xml:space="preserve">
+    <value>{0}/saat'ten</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR" xml:space="preserve">
+    <value>/saat'ten</value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
+    <value>/saat'ten</value>
   </data>
 </root>

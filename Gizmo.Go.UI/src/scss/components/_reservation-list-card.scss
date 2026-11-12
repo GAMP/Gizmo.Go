@@ -452,7 +452,6 @@
     overflow-wrap: anywhere;
   }
 
-  // inactive: paying a reservation is not implemented yet
   &__pay {
     @include flex-center;
     gap: 7px;

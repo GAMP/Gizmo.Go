@@ -1,0 +1,71 @@
+@use '../themes/default/theme' as *;
+
+// Rules dialog: a sheet at the bottom (about two thirds of the screen) with the title and the close button,
+// the scrollable rules and "Got it".
+// compound selectors: _dialog.scss comes later in app.scss
+.giz-dialog__card.giz-rules-dialog {
+    align-self: flex-end;
+    gap: 0;
+    height: 62dvh;
+    max-height: 100%;
+    padding: 0;
+    border-color: $color-home-dialog-border;
+    border-radius: 16px;
+    background: $color-home-dialog;
+    box-shadow: 0 12px 40px rgba($color-home-shadow, 0.50);
+
+    .giz-dialog__header {
+        align-items: flex-start;
+        padding: 20px;
+        border-bottom: 1px solid $color-home-divider;
+    }
+
+    .giz-dialog__body {
+        padding: 4px 20px 16px;
+    }
+
+    .giz-dialog__footer {
+        padding: 20px;
+        border-top: 1px solid $color-home-divider;
+    }
+
+    .giz-dialog__close {
+        border-radius: 10px;
+        background: rgba($color-text-on-primary, 0.05);
+    }
+}
+
+.giz-rules-dialog {
+    &__title {
+        font-family: 'Rubik', $font-family-heading;
+        font-size: 19px;
+        font-weight: $font-weight-bold;
+        line-height: 24px;
+        letter-spacing: 0.12px;
+    }
+
+    &__text {
+        margin: 12px 0 0;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: -0.23px;
+        color: $color-home-text-muted;
+    }
+
+    &__button {
+        width: 100%;
+        height: 52px;
+        padding: 0;
+        border: none;
+        border-radius: 12px;
+        background: $color-welcome-btn-primary;
+        color: $color-text-on-primary;
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 15px;
+        font-weight: $font-weight-medium;
+        letter-spacing: 0.02px;
+        cursor: pointer;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}

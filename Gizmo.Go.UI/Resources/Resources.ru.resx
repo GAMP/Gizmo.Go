@@ -1081,6 +1081,9 @@
   <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
     <value>Клубы не найдены</value>
   </data>
+  <data name="GO_HOME_ALL_CITIES" xml:space="preserve">
+    <value>Все города</value>
+  </data>
   <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
     <value>Новости</value>
   </data>
@@ -1239,5 +1242,77 @@
   </data>
   <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
     <value>Подробнее</value>
+  </data>
+  <data name="GO_GEN_NO_API_DATA" xml:space="preserve">
+    <value>Данных в АПИ нет</value>
+  </data>
+  <data name="GO_GEN_PRICE_PLACEHOLDER" xml:space="preserve">
+    <value>XXX</value>
+  </data>
+  <data name="GO_CLUB_PAGE_TITLE" xml:space="preserve">
+    <value>Клуб</value>
+  </data>
+  <data name="GO_CLUB_TOTAL_PCS" xml:space="preserve">
+    <value>Всего ПК</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS" xml:space="preserve">
+    <value>Свободно</value>
+  </data>
+  <data name="GO_CLUB_ADDRESS" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="GO_CLUB_HOURS" xml:space="preserve">
+    <value>Режим работы</value>
+  </data>
+  <data name="GO_CLUB_CONTACTS" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="GO_CLUB_PRICES" xml:space="preserve">
+    <value>Цены</value>
+  </data>
+  <data name="GO_CLUB_RULES" xml:space="preserve">
+    <value>Правила</value>
+  </data>
+  <data name="GO_CLUB_PRICE_LIST" xml:space="preserve">
+    <value>Прайс-лист</value>
+  </data>
+  <data name="GO_CLUB_MORE" xml:space="preserve">
+    <value>Подробнее</value>
+  </data>
+  <data name="GO_CLUB_RULES_CLUB" xml:space="preserve">
+    <value>Правила клуба</value>
+  </data>
+  <data name="GO_CLUB_RULES_BOOKING" xml:space="preserve">
+    <value>Правила бронирования</value>
+  </data>
+  <data name="GO_CLUB_TAP_TO_CALL" xml:space="preserve">
+    <value>Нажмите, чтобы позвонить</value>
+  </data>
+  <data name="GO_CLUB_CLOSED" xml:space="preserve">
+    <value>Закрыто</value>
+  </data>
+  <data name="GO_CLUB_BOOK_PC" xml:space="preserve">
+    <value>Забронировать ПК</value>
+  </data>
+  <data name="GO_CLUB_NOT_FOUND" xml:space="preserve">
+    <value>Клуб не найден</value>
+  </data>
+  <data name="GO_CLUB_TODAY" xml:space="preserve">
+    <value>Сегодня — {0}</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS_COUNT" xml:space="preserve">
+    <value>{0} ПК свободно</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM_HOUR" xml:space="preserve">
+    <value>от {0}/ч</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM" xml:space="preserve">
+    <value>от</value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR" xml:space="preserve">
+    <value>/час</value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
+    <value>/ч</value>
   </data>
 </root>

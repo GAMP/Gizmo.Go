@@ -1081,6 +1081,9 @@
   <data name="GO_HOME_NO_CLUBS" xml:space="preserve">
     <value>No clubs found</value>
   </data>
+  <data name="GO_HOME_ALL_CITIES" xml:space="preserve">
+    <value>All cities</value>
+  </data>
   <data name="GO_NEWS_PAGE_TITLE" xml:space="preserve">
     <value>News</value>
   </data>
@@ -1239,5 +1242,77 @@
   </data>
   <data name="GO_NOTIFY_DETAILS" xml:space="preserve">
     <value>Details</value>
+  </data>
+  <data name="GO_GEN_NO_API_DATA" xml:space="preserve">
+    <value>No API data</value>
+  </data>
+  <data name="GO_GEN_PRICE_PLACEHOLDER" xml:space="preserve">
+    <value>XXX</value>
+  </data>
+  <data name="GO_CLUB_PAGE_TITLE" xml:space="preserve">
+    <value>Club</value>
+  </data>
+  <data name="GO_CLUB_TOTAL_PCS" xml:space="preserve">
+    <value>Total PCs</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="GO_CLUB_ADDRESS" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="GO_CLUB_HOURS" xml:space="preserve">
+    <value>Working hours</value>
+  </data>
+  <data name="GO_CLUB_CONTACTS" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="GO_CLUB_PRICES" xml:space="preserve">
+    <value>Prices</value>
+  </data>
+  <data name="GO_CLUB_RULES" xml:space="preserve">
+    <value>Rules</value>
+  </data>
+  <data name="GO_CLUB_PRICE_LIST" xml:space="preserve">
+    <value>Price list</value>
+  </data>
+  <data name="GO_CLUB_MORE" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="GO_CLUB_RULES_CLUB" xml:space="preserve">
+    <value>Club rules</value>
+  </data>
+  <data name="GO_CLUB_RULES_BOOKING" xml:space="preserve">
+    <value>Booking rules</value>
+  </data>
+  <data name="GO_CLUB_TAP_TO_CALL" xml:space="preserve">
+    <value>Tap to call</value>
+  </data>
+  <data name="GO_CLUB_CLOSED" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="GO_CLUB_BOOK_PC" xml:space="preserve">
+    <value>Book a PC</value>
+  </data>
+  <data name="GO_CLUB_NOT_FOUND" xml:space="preserve">
+    <value>Club not found</value>
+  </data>
+  <data name="GO_CLUB_TODAY" xml:space="preserve">
+    <value>Today — {0}</value>
+  </data>
+  <data name="GO_CLUB_FREE_PCS_COUNT" xml:space="preserve">
+    <value>{0} PCs free</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM_HOUR" xml:space="preserve">
+    <value>from {0}/h</value>
+  </data>
+  <data name="GO_CLUB_PRICE_FROM" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR" xml:space="preserve">
+    <value>/hour</value>
+  </data>
+  <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
+    <value>/h</value>
   </data>
 </root>

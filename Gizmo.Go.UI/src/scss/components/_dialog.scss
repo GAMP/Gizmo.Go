@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: $spacing-md;
+    padding: $spacing-md $spacing-md calc(#{$spacing-md} + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
     background: rgba($color-home-shadow, 0.6);
 

@@ -64,5 +64,19 @@ namespace Gizmo.Go.UI.Services.Dialog
                 CloseOnClick = true
             }, default, cancellationToken);
         }
+
+        public Task<AddDialogResult<EmptyComponentResult>> ShowRulesDialogAsync(string title, CancellationToken cancellationToken = default)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                [nameof(RulesDialog.Title)] = title
+            };
+
+            return ShowDialogAsync<RulesDialog, EmptyComponentResult>(parameters, new DialogDisplayOptions()
+            {
+                Closable = true,
+                CloseOnClick = true
+            }, default, cancellationToken);
+        }
     }
 }

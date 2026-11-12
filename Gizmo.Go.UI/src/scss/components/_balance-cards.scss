@@ -59,7 +59,6 @@
     color: $color-home-bonus;
   }
 
-  // inactive: always blue, no handler yet
   &__add {
     @include flex-center;
     flex-shrink: 0;

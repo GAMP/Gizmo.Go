@@ -1,4 +1,4 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Branch;
 
 namespace Gizmo.Go.Core.Services
 {
@@ -8,33 +8,13 @@ namespace Gizmo.Go.Core.Services
     public interface IBranchProvider
     {
         /// <summary>
-        /// Gets branches matching the specified filter.
+        /// Gets all active branches ordered by name.
         /// </summary>
-        Task<IEnumerable<Branch>> GetAsync(BranchFilter? filter = null, CancellationToken cancellationToken = default);
+        Task<IEnumerable<Branch>> GetAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Gets a branch by id.
+        /// Gets the active branch with its computer counts; null when it does not exist or is not active.
         /// </summary>
-        Task<Branch?> GetByIdAsync(int branchId, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Gets user's favorite branches.
-        /// </summary>
-        Task<IEnumerable<Branch>> GetFavoritesAsync(CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Adds a branch to user's favorites.
-        /// </summary>
-        Task AddFavoriteAsync(int branchId, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Removes a branch from user's favorites.
-        /// </summary>
-        Task RemoveFavoriteAsync(int branchId, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Gets the distinct cities of the branches.
-        /// </summary>
-        Task<IReadOnlyList<string>> GetCitiesAsync(CancellationToken cancellationToken = default);
+        Task<BranchDetails?> GetDetailsAsync(int branchId, CancellationToken cancellationToken = default);
     }
 }
