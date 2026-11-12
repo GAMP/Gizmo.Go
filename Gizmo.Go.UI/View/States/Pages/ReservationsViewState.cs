@@ -18,6 +18,21 @@ namespace Gizmo.Go.UI.View.States.Pages
         /// </summary>
         public ViewBlock<IReadOnlyList<Reservation>> Completed { get; } = new();
 
+        /// <summary>
+        /// Gets the id of the only reservation shown by the page; <c>null</c> shows the full list.
+        /// </summary>
+        public int? SingleId { get; internal set; }
+
+        /// <summary>
+        /// Gets whether the single reservation is opened from the Home nearest reservation block.
+        /// </summary>
+        public bool IsNearest { get; internal set; }
+
+        /// <summary>
+        /// Gets whether both lists are being reloaded after a cancel (the loaded values stay on screen meanwhile).
+        /// </summary>
+        public bool IsReloading { get; internal set; }
+
         public bool IsCompletedCollapsed { get; internal set; }
 
         /// <summary>

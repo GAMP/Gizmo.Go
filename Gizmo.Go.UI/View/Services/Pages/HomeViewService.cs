@@ -110,6 +110,14 @@ namespace Gizmo.Go.UI.View.Services.Pages
 
         public void OpenReservations() => _navigationService.NavigateTo(NavigationHelper.ReservationsRoute, NavigationHelper.InAppNavigation);
 
+        public void OpenNearestReservation()
+        {
+            if (ViewState.Reservation.Value is not { } reservation)
+                return;
+
+            _navigationService.NavigateTo(NavigationHelper.GetNearestReservationRoute(reservation.Id), NavigationHelper.InAppNavigation);
+        }
+
         public void OpenNews(int id) => _navigationService.NavigateTo(NavigationHelper.GetNewsDetailsRoute(id), NavigationHelper.InAppNavigation);
 
         protected override Task OnInitializing(CancellationToken ct)

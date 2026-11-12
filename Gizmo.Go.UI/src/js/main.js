@@ -93,23 +93,5 @@ window.gizmoGoScroll = {
     toStart: function (element) {
         if (!element) return;
         element.scrollTo({ left: 0, behavior: 'smooth' });
-    },
-
-    // Centers an element of the page and briefly marks it with a class (a reservation opened from a notification);
-    // the class is removed when its animation ends, so the same element can be marked again.
-    toElement: function (id, highlightClass) {
-        var element = document.getElementById(id);
-        if (!element) return;
-
-        element.scrollIntoView({ block: 'center', behavior: 'smooth' });
-
-        if (highlightClass) {
-            element.classList.remove(highlightClass);
-            void element.offsetWidth;
-            element.classList.add(highlightClass);
-            element.addEventListener('animationend', function () {
-                element.classList.remove(highlightClass);
-            }, { once: true });
-        }
     }
 };

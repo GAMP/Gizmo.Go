@@ -59,6 +59,19 @@ namespace Gizmo.Go.UI.View.Services.Pages
             return LoadBlocksAsync();
         }
 
+        /// <summary>
+        /// Sets what the page shows: the reservation with the id (the nearest one when <paramref name="isNearest"/>) or the full list.
+        /// </summary>
+        public void SetView(int? id, bool isNearest)
+        {
+            if (ViewState.SingleId == id && ViewState.IsNearest == isNearest)
+                return;
+
+            ViewState.SingleId = id;
+            ViewState.IsNearest = isNearest;
+            RaiseViewStateChanged();
+        }
+
         public Task RetryCurrentAsync() => LoadCurrentAsync(GetLoadToken());
 
         public Task RetryCompletedAsync() => LoadCompletedAsync(GetLoadToken());
@@ -163,13 +176,25 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.ExpandedIdSet.Clear();
             ViewState.ConfirmingCancelId = null;
             ViewState.IsCanceling = false;
+            ViewState.IsReloading = false;
         }
 
         // the loaded lists stay on screen until the new result arrives
-        private Task ReloadAsync()
+        private async Task ReloadAsync()
         {
             CancelLoad();
-            return LoadBlocksAsync();
+
+            var cancellationToken = GetLoadToken();
+            ViewState.IsReloading = true;
+
+            await LoadBlocksAsync();
+
+            // a newer load owns the flag
+            if (cancellationToken.IsCancellationRequested)
+                return;
+
+            ViewState.IsReloading = false;
+            RaiseViewStateChanged();
         }
 
         private async Task LoadBlocksAsync()

@@ -18,7 +18,7 @@
         {
             <NearestReservationCard Reservation="@HomeViewState.Reservation.Value"
                                     IsLoading="@HomeViewState.Reservation.IsLoading"
-                                    OnOpen="HomeViewService.OpenReservations" />
+                                    OnOpen="HomeViewService.OpenNearestReservation" />
         }
 
         <NewsCarousel News="@HomeViewState.News.Value"
@@ -26,7 +26,7 @@
                       OnNewsClick="OnNewsClick"
                       OnAllNewsClick="HomeViewService.OpenAllNews" />
 
-        <QuickActions />
+        <QuickActions OnOpenReservations="HomeViewService.OpenReservations" />
 
         <section class="page-home__clubs">
             @* the city selector follows the title *@

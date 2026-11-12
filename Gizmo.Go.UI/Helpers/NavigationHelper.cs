@@ -33,8 +33,11 @@ public static class NavigationHelper
 
     public static string GetNewsDetailsRoute(int id) => $"{NewsRoute}/{id}";
 
-    /// <summary>Gets the reservations route that scrolls to the reservation with the specified id.</summary>
-    public static string GetReservationsRoute(int id) => $"{ReservationsRoute}?id={id}";
+    /// <summary>Gets the reservations route that shows only the reservation with the specified id.</summary>
+    public static string GetReservationRoute(int id) => $"{ReservationsRoute}?id={id}";
+
+    /// <summary>Gets the reservations route that shows only the nearest reservation (the Home block) with the specified id.</summary>
+    public static string GetNearestReservationRoute(int id) => $"{ReservationsRoute}?id={id}&nearest=true";
 
     public static string GetProfilePolicyRoute(int id) => $"{ProfilePoliciesRoute}/{id}";
 

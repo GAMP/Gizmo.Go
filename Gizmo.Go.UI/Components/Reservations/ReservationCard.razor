@@ -1,6 +1,6 @@
 @using Gizmo.Go.Core.Models.Reservation
 
-<article id="reservation-@Reservation.Id" class="reservation-list-card reservation-list-card--@StatusModifier @(IsCompleted ? "reservation-list-card--past" : "")">
+<article class="reservation-list-card reservation-list-card--@StatusModifier @(IsCompleted ? "reservation-list-card--past" : "")">
     <div class="reservation-list-card__header">
         <div class="reservation-list-card__club">
             <div class="reservation-list-card__club-name">@Reservation.BranchName</div>
