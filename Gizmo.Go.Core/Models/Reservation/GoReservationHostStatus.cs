@@ -1,9 +1,9 @@
 namespace Gizmo.Go.Core.Models.Reservation
 {
     /// <summary>
-    /// Status of a reservation, with the values of the server.
+    /// Status of the reservation of one host, with the values of the server.
     /// </summary>
-    public enum ReservationStatus
+    public enum GoReservationHostStatus
     {
         /// <summary>
         /// Not started yet.

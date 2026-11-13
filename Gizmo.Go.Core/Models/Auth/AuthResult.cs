@@ -1,4 +1,4 @@
-namespace Gizmo.Go.Core.Services
+namespace Gizmo.Go.Core.Models.Auth
 {
     /// <summary>
     /// Authentication result.

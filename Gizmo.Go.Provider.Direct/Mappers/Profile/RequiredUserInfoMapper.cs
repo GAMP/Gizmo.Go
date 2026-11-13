@@ -1,7 +1,7 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Web.Api.Models;
 
-namespace Gizmo.Go.Provider.Direct.Mappers.Common
+namespace Gizmo.Go.Provider.Direct.Mappers.Profile
 {
     internal static class RequiredUserInfoMapper
     {

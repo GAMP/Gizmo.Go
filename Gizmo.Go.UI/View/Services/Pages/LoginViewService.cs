@@ -1,4 +1,6 @@
 using System.Web;
+using Gizmo.Go.Core.Models.Auth;
+using Gizmo.Go.Core.Models.PhoneValidation;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.Services.Common;
@@ -238,7 +240,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             {
                 // the phone field stays disabled, the nickname tab still works
                 Logger.LogError(ex, "Cannot load phone countries for login.");
-                ViewState.PhoneCountries = Array.Empty<Gizmo.Go.Core.Models.PhoneValidation.PhoneCountry>();
+                ViewState.PhoneCountries = Array.Empty<PhoneCountry>();
             }
 
             ViewState.RaiseChanged();

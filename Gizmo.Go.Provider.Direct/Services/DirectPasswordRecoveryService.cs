@@ -1,8 +1,8 @@
 using Gizmo.Go.Core.Models.PasswordRecovery;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.Provider.Direct.Mappers.Common;
 using Gizmo.Go.Provider.Direct.Mappers.PasswordRecovery;
+using Gizmo.Go.Provider.Direct.Mappers.Registration;
 using Gizmo.Web.Api.Clients;
 using Gizmo.Web.Api.Models;
 using Microsoft.Extensions.DependencyInjection;

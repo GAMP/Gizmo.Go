@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Models.Notification;
 using Gizmo.Go.Core.Models.Reservation;
 using Gizmo.Go.Core.Services;

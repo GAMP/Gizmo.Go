@@ -1,4 +1,4 @@
-namespace Gizmo.Go.Core.Models
+namespace Gizmo.Go.Core.Models.Auth
 {
     /// <summary>
     /// Current authenticated user profile.

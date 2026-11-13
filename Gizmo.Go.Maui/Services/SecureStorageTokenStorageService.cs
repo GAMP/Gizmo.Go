@@ -1,5 +1,5 @@
 using System.Text.Json;
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Services;
 using Microsoft.Extensions.Logging;
 

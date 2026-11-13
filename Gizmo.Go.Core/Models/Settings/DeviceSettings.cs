@@ -1,4 +1,4 @@
-namespace Gizmo.Go.Core.Models
+namespace Gizmo.Go.Core.Models.Settings
 {
     /// <summary>
     /// App settings stored on the device only (never sent to the server).

@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 

@@ -1,4 +1,4 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Services;
 
 namespace Gizmo.Go.Provider.Platform.Services

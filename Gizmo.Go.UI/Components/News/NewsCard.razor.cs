@@ -4,7 +4,7 @@ using Gizmo.Go.UI.Helpers;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace Gizmo.Go.UI.Components.Home
+namespace Gizmo.Go.UI.Components.News
 {
     /// <summary>
     /// News card of the Home carousel and of the news list.

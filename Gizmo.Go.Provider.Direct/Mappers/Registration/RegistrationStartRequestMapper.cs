@@ -1,15 +1,16 @@
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Provider.Direct.Helpers;
+using Gizmo.Web.Api.Models;
 
 namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
     internal static class RegistrationStartRequestMapper
     {
-        public static Gizmo.Web.Api.Models.UserRegistrationMethodStartModel Map(RegistrationStartRequest request)
+        public static UserRegistrationMethodStartModel Map(RegistrationStartRequest request)
         {
             ArgumentNullException.ThrowIfNull(request);
 
-            return new Gizmo.Web.Api.Models.UserRegistrationMethodStartModel
+            return new UserRegistrationMethodStartModel
             {
                 MethodId = request.MethodId,
                 Value = request.Kind switch

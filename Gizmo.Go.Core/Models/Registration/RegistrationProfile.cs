@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models.Profile;
 namespace Gizmo.Go.Core.Models.Registration
 {
     public sealed class RegistrationProfile

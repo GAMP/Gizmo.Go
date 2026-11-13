@@ -1,7 +1,7 @@
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Web.Api.Models;
 
-namespace Gizmo.Go.Provider.Direct.Mappers.Common
+namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
     internal static class TokenConfirmedResultMapper
     {

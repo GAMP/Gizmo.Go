@@ -1,4 +1,4 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Go.Core.Models.Registration;
 
 namespace Gizmo.Go.Core.Services

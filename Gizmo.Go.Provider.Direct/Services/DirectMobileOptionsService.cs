@@ -1,7 +1,7 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Options;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.Provider.Direct.Helpers;
-using Gizmo.Go.Provider.Direct.Mappers.Common;
+using Gizmo.Go.Provider.Direct.Mappers.Options;
 using Microsoft.Extensions.DependencyInjection;
 using OptionsClient = Gizmo.Web.Api.User.Clients.OptionsWebApiClient;
 
@@ -13,14 +13,14 @@ namespace Gizmo.Go.Provider.Direct.Services
     internal sealed class DirectMobileOptionsService : IMobileOptionsService
     {
         private readonly IServiceProvider _serviceProvider;
-        private MobileOptions? _cached;
+        private GoMobileOptions? _cached;
 
         public DirectMobileOptionsService(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
 
-        public async Task<MobileOptions> GetAsync(CancellationToken cancellationToken = default)
+        public async Task<GoMobileOptions> GetAsync(CancellationToken cancellationToken = default)
         {
             if (_cached is not null)
                 return _cached;

@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;

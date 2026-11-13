@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Models.Events;
 using Gizmo.Go.Core.Models.News;
 using Gizmo.Go.Core.Models.Notification;

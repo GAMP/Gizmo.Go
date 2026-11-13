@@ -15,6 +15,6 @@ namespace Gizmo.Go.UI.View.States.Pages.Registration
 
         public bool IsRejectable { get; internal set; }
 
-        public UserAgreementAcceptState AcceptState { get; internal set; }
+        public GoUserAgreementAcceptState AcceptState { get; internal set; }
     }
 }

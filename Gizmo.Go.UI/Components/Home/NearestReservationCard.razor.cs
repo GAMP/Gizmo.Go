@@ -34,10 +34,10 @@ namespace Gizmo.Go.UI.Components.Home
         private bool ShowClubTimeHint => ReservationDisplayHelper.IsClubTimeHintNeeded(Reservation!);
 
         // an active reservation keeps the green pill, a waiting one takes the color of its payment
-        private string StatusModifier => Reservation!.Status == ReservationStatus.Active ? "" : Reservation.PaymentStatus switch
+        private string StatusModifier => Reservation!.Status == GoReservationStatus.Active ? "" : Reservation.PaymentStatus switch
         {
-            ReservationPaymentStatus.PartiallySatisfied => "reservation-card__status--partial",
-            ReservationPaymentStatus.NotSatisfied => "reservation-card__status--unpaid",
+            GoReservationPaymentStatus.PartiallySatisfied => "reservation-card__status--partial",
+            GoReservationPaymentStatus.NotSatisfied => "reservation-card__status--unpaid",
             _ => ""
         };
 

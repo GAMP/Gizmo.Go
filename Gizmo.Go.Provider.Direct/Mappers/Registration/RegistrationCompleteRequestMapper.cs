@@ -6,10 +6,10 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Registration
 {
     internal static class RegistrationCompleteRequestMapper
     {
-        public static Gizmo.Web.Api.Models.RegistrationCompleteModel MapComplete(RegistrationCompleteRequest request)
+        public static RegistrationCompleteModel MapComplete(RegistrationCompleteRequest request)
         {
             ArgumentNullException.ThrowIfNull(request);
-            return new Gizmo.Web.Api.Models.RegistrationCompleteModel
+            return new RegistrationCompleteModel
             {
                 Token          = request.Token ?? string.Empty,
                 Password       = request.Password,
@@ -26,7 +26,7 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Registration
                 {
                     UserId = 0,
                     UserAgreementId = c.AgreementId,
-                    AcceptState = (Gizmo.Web.Api.Models.UserAgreementAcceptState)c.AcceptState
+                    AcceptState = (UserAgreementAcceptState)c.AcceptState
                 }).ToList();
     }
 }

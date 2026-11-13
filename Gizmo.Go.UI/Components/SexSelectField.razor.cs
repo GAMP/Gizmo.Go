@@ -1,5 +1,5 @@
 using System.Linq.Expressions;
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Profile;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;

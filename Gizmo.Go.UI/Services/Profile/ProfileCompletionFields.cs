@@ -1,4 +1,3 @@
-using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Profile;
 
 namespace Gizmo.Go.UI.Services.Profile

@@ -1,7 +1,7 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Go.Core.Models.Registration;
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.Provider.Direct.Mappers.Common;
+using Gizmo.Go.Provider.Direct.Mappers.Profile;
 using Gizmo.Go.Provider.Direct.Mappers.Registration;
 using Gizmo.Web.Api.Clients;
 using Gizmo.Web.Api.Models;

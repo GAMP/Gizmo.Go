@@ -1,4 +1,5 @@
 using System.Globalization;
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Models.PhoneValidation;
 using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Go.Core.Models.Notification;

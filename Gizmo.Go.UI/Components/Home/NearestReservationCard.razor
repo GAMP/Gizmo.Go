@@ -5,7 +5,7 @@
 }
 else
 {
-    <div class="reservation-card @(Reservation.Status == ReservationStatus.Active ? "reservation-card--active" : "")">
+    <div class="reservation-card @(Reservation.Status == GoReservationStatus.Active ? "reservation-card--active" : "")">
         <div class="reservation-card__top">
             <div class="reservation-card__title">
                 <span class="reservation-card__dot"></span>

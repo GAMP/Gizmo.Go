@@ -23,6 +23,6 @@ namespace Gizmo.Go.Core.Models.Reservation
         /// <summary>
         /// Gets the status of the host reservation.
         /// </summary>
-        public ReservationHostStatus Status { get; init; }
+        public GoReservationHostStatus Status { get; init; }
     }
 }

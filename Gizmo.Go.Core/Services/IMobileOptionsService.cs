@@ -1,4 +1,4 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Options;
 
 namespace Gizmo.Go.Core.Services
 {
@@ -10,6 +10,6 @@ namespace Gizmo.Go.Core.Services
         /// <summary>
         /// Gets the options. A successful result is cached for the app run; failures are thrown to the caller.
         /// </summary>
-        Task<MobileOptions> GetAsync(CancellationToken cancellationToken = default);
+        Task<GoMobileOptions> GetAsync(CancellationToken cancellationToken = default);
     }
 }

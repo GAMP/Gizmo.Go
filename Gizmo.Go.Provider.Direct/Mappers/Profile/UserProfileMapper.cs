@@ -1,4 +1,3 @@
-using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Web.Api.Models;
 

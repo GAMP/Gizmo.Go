@@ -1,7 +1,5 @@
-using Gizmo.Go.Core.Models;
 using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Go.Core.Services;
-using Gizmo.Go.Provider.Direct.Mappers.Common;
 using Gizmo.Go.Provider.Direct.Mappers.Profile;
 using Gizmo.Server.Exceptions;
 using Gizmo.Web.Api.Clients;

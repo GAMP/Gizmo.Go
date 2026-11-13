@@ -1,12 +1,12 @@
 using Gizmo.Client.Options;
 using Gizmo.UI;
 
-namespace Gizmo.Go.Core.Models
+namespace Gizmo.Go.Core.Models.Options
 {
     /// <summary>
     /// Server options available before user login.
     /// </summary>
-    public sealed class MobileOptions
+    public sealed class GoMobileOptions
     {
         /// <summary>
         /// Gets whether mobile registration is enabled.

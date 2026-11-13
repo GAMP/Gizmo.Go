@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace Gizmo.Go.UI.Components.Home
+namespace Gizmo.Go.UI.Components
 {
     /// <summary>
     /// Top bar of a main zone screen: a round back button and the screen title.

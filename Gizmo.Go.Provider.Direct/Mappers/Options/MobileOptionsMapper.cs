@@ -1,11 +1,11 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Options;
 using Gizmo.Web.Api.Models;
 
-namespace Gizmo.Go.Provider.Direct.Mappers.Common
+namespace Gizmo.Go.Provider.Direct.Mappers.Options
 {
     internal static class MobileOptionsMapper
     {
-        internal static MobileOptions Map(MobileOptionsModel source, string baseUrl) =>
+        internal static GoMobileOptions Map(MobileOptionsModel source, string baseUrl) =>
             new()
             {
                 IsRegistrationEnabled     = source.IsRegistrationEnabled,

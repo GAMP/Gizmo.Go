@@ -3,7 +3,7 @@ namespace Gizmo.Go.Core.Models.Reservation
     /// <summary>
     /// Payment status of a reservation, with the values of the server.
     /// </summary>
-    public enum ReservationPaymentStatus
+    public enum GoReservationPaymentStatus
     {
         /// <summary>
         /// Payment is not required.

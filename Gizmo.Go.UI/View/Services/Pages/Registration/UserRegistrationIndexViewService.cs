@@ -59,7 +59,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                 Name = a.Name,
                 Agreement = a.Agreement,
                 IsRejectable = a.IsRejectable,
-                AcceptState = UserAgreementAcceptState.None
+                AcceptState = GoUserAgreementAcceptState.None
             }).ToList();
 
             foreach (var userAgreement in userAgreementStates)
@@ -79,11 +79,11 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                     {
                         if (dialogResult?.Accepted == true)
                         {
-                            userAgreement.AcceptState = UserAgreementAcceptState.Accepted;
+                            userAgreement.AcceptState = GoUserAgreementAcceptState.Accepted;
                         }
                         else if (userAgreement.IsRejectable)
                         {
-                            userAgreement.AcceptState = UserAgreementAcceptState.Rejected;
+                            userAgreement.AcceptState = GoUserAgreementAcceptState.Rejected;
                         }
                         else
                         {
@@ -94,7 +94,7 @@ namespace Gizmo.Go.UI.View.Services.Pages.Registration
                     {
                         if (userAgreement.IsRejectable)
                         {
-                            userAgreement.AcceptState = UserAgreementAcceptState.Rejected;
+                            userAgreement.AcceptState = GoUserAgreementAcceptState.Rejected;
                         }
                         else
                         {

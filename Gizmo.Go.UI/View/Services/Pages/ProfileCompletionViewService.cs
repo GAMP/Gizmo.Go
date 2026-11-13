@@ -1,4 +1,4 @@
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.PhoneValidation;
 using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
@@ -311,7 +311,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             ViewState.ShowPostCode = false;
             ViewState.ShowCountry = false;
 
-            ViewState.PhoneCountries = Array.Empty<Gizmo.Go.Core.Models.PhoneValidation.PhoneCountry>();
+            ViewState.PhoneCountries = Array.Empty<PhoneCountry>();
             ViewState.DefaultPhoneRegionCode = null;
             ViewState.IsShown = false;
             ViewState.IsLoading = false;
@@ -337,7 +337,7 @@ namespace Gizmo.Go.UI.View.Services.Pages
             if (ViewState.ShowCountry && !string.IsNullOrEmpty(ViewState.Country)) ValidateProperty(() => ViewState.Country);
         }
 
-        private static string? ResolvePhoneRegionCode(string phoneDigits, IReadOnlyList<Gizmo.Go.Core.Models.PhoneValidation.PhoneCountry> countries)
+        private static string? ResolvePhoneRegionCode(string phoneDigits, IReadOnlyList<PhoneCountry> countries)
         {
             var match = countries
                 .Where(country => phoneDigits.StartsWith(country.CallingCode.TrimStart('+')))

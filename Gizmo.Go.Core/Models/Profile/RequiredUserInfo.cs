@@ -1,4 +1,4 @@
-namespace Gizmo.Go.Core.Models
+namespace Gizmo.Go.Core.Models.Profile
 {
     public sealed class RequiredUserInfo
     {

@@ -1,5 +1,5 @@
 using System.Globalization;
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Options;
 using Gizmo.Go.Core.Services;
 using Gizmo.UI;
 using Microsoft.Extensions.Logging;
@@ -70,7 +70,7 @@ public static class CultureHelper
         return formatCulture;
     }
 
-    private static async Task<MobileOptions?> TryGetOptionsAsync(IMobileOptionsService mobileOptionsService, ILogger logger)
+    private static async Task<GoMobileOptions?> TryGetOptionsAsync(IMobileOptionsService mobileOptionsService, ILogger logger)
     {
         try
         {

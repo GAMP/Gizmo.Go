@@ -1,12 +1,11 @@
 using Gizmo.Go.Core.Models.Reservation;
-using Api = Gizmo.Web.Api.Models;
-using CoreReservation = Gizmo.Go.Core.Models.Reservation.Reservation;
+using Gizmo.Web.Api.Models;
 
 namespace Gizmo.Go.Provider.Direct.Mappers.Reservation
 {
     internal static class ReservationMapper
     {
-        internal static CoreReservation Map(Api.UserReservationModel source) =>
+        internal static Core.Models.Reservation.Reservation Map(UserReservationModel source) =>
             new()
             {
                 Id                      = source.Id,
@@ -26,7 +25,7 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Reservation
                 Hosts                   = source.Hosts.Select(MapHost).ToList(),
             };
 
-        private static ReservationHost MapHost(Api.UserReservationHostModel source) =>
+        private static ReservationHost MapHost(UserReservationHostModel source) =>
             new()
             {
                 HostNumber    = source.HostNumber,
@@ -36,38 +35,38 @@ namespace Gizmo.Go.Provider.Direct.Mappers.Reservation
             };
 
         // unknown values fall back to the completed style, which has no actions
-        private static ReservationStatus MapStatus(Api.ReservationStatus source) =>
+        private static GoReservationStatus MapStatus(ReservationStatus source) =>
             source switch
             {
-                Api.ReservationStatus.Waiting   => ReservationStatus.Waiting,
-                Api.ReservationStatus.Canceled  => ReservationStatus.Canceled,
-                Api.ReservationStatus.Active    => ReservationStatus.Active,
-                Api.ReservationStatus.Expired   => ReservationStatus.Expired,
-                Api.ReservationStatus.Completed => ReservationStatus.Completed,
-                Api.ReservationStatus.Released  => ReservationStatus.Released,
-                _                               => ReservationStatus.Completed,
+                ReservationStatus.Waiting   => GoReservationStatus.Waiting,
+                ReservationStatus.Canceled  => GoReservationStatus.Canceled,
+                ReservationStatus.Active    => GoReservationStatus.Active,
+                ReservationStatus.Expired   => GoReservationStatus.Expired,
+                ReservationStatus.Completed => GoReservationStatus.Completed,
+                ReservationStatus.Released  => GoReservationStatus.Released,
+                _                           => GoReservationStatus.Completed,
             };
 
-        private static ReservationHostStatus MapHostStatus(Api.ReservationHostStatus source) =>
+        private static GoReservationHostStatus MapHostStatus(ReservationHostStatus source) =>
             source switch
             {
-                Api.ReservationHostStatus.Waiting   => ReservationHostStatus.Waiting,
-                Api.ReservationHostStatus.Canceled  => ReservationHostStatus.Canceled,
-                Api.ReservationHostStatus.Active    => ReservationHostStatus.Active,
-                Api.ReservationHostStatus.Expired   => ReservationHostStatus.Expired,
-                Api.ReservationHostStatus.Completed => ReservationHostStatus.Completed,
-                Api.ReservationHostStatus.Released  => ReservationHostStatus.Released,
-                _                                   => ReservationHostStatus.Completed,
+                ReservationHostStatus.Waiting   => GoReservationHostStatus.Waiting,
+                ReservationHostStatus.Canceled  => GoReservationHostStatus.Canceled,
+                ReservationHostStatus.Active    => GoReservationHostStatus.Active,
+                ReservationHostStatus.Expired   => GoReservationHostStatus.Expired,
+                ReservationHostStatus.Completed => GoReservationHostStatus.Completed,
+                ReservationHostStatus.Released  => GoReservationHostStatus.Released,
+                _                               => GoReservationHostStatus.Completed,
             };
 
-        private static ReservationPaymentStatus MapPaymentStatus(Api.ReservationPaymentStatus source) =>
+        private static GoReservationPaymentStatus MapPaymentStatus(ReservationPaymentStatus source) =>
             source switch
             {
-                Api.ReservationPaymentStatus.NotRequired        => ReservationPaymentStatus.NotRequired,
-                Api.ReservationPaymentStatus.NotSatisfied       => ReservationPaymentStatus.NotSatisfied,
-                Api.ReservationPaymentStatus.PartiallySatisfied => ReservationPaymentStatus.PartiallySatisfied,
-                Api.ReservationPaymentStatus.Satisfied          => ReservationPaymentStatus.Satisfied,
-                _                                               => ReservationPaymentStatus.NotRequired,
+                ReservationPaymentStatus.NotRequired        => GoReservationPaymentStatus.NotRequired,
+                ReservationPaymentStatus.NotSatisfied       => GoReservationPaymentStatus.NotSatisfied,
+                ReservationPaymentStatus.PartiallySatisfied => GoReservationPaymentStatus.PartiallySatisfied,
+                ReservationPaymentStatus.Satisfied          => GoReservationPaymentStatus.Satisfied,
+                _                                           => GoReservationPaymentStatus.NotRequired,
             };
     }
 }

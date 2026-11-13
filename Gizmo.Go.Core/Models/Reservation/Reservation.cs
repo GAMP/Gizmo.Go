@@ -28,7 +28,7 @@ namespace Gizmo.Go.Core.Models.Reservation
         /// <summary>
         /// Gets the reservation status.
         /// </summary>
-        public ReservationStatus Status { get; init; }
+        public GoReservationStatus Status { get; init; }
 
         /// <summary>
         /// Gets the branch (club) id.
@@ -58,7 +58,7 @@ namespace Gizmo.Go.Core.Models.Reservation
         /// <summary>
         /// Gets the payment status.
         /// </summary>
-        public ReservationPaymentStatus PaymentStatus { get; init; }
+        public GoReservationPaymentStatus PaymentStatus { get; init; }
 
         /// <summary>
         /// Gets the total of the reservation invoices.

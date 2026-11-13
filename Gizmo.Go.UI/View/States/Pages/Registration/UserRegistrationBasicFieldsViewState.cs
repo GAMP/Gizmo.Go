@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Profile;
 using Gizmo.Go.Core.Models.PhoneValidation;
 using Gizmo.Go.UI.View.States;
 using Gizmo.UI.View.States;

@@ -1,3 +1,4 @@
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Services;
 using Gizmo.Go.UI.Helpers;
 using Gizmo.Go.UI.Services.Common;

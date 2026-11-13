@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
-using Gizmo.Go.Core.Models;
+using Gizmo.Go.Core.Models.Auth;
 using Gizmo.Go.Core.Services;
 using Gizmo.Server.Exceptions;
 using Gizmo.Web.Api.Clients;
