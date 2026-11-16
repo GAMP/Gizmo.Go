@@ -1315,4 +1315,247 @@
   <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
     <value>/ساعة</value>
   </data>
+  <data name="GO_BOOKING_TITLE" xml:space="preserve">
+    <value>الحجز</value>
+  </data>
+  <data name="GO_BOOKING_STEP_SESSION" xml:space="preserve">
+    <value>الجلسة</value>
+  </data>
+  <data name="GO_BOOKING_STEP_HOSTS" xml:space="preserve">
+    <value>اختيار الجهاز</value>
+  </data>
+  <data name="GO_BOOKING_STEP_CONFIRM" xml:space="preserve">
+    <value>التأكيد</value>
+  </data>
+  <data name="GO_BOOKING_PCS_CHIP" xml:space="preserve">
+    <value>{0} أجهزة</value>
+  </data>
+  <data name="GO_BOOKING_DATE" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="GO_BOOKING_TODAY_SHORT" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="GO_BOOKING_TOMORROW_SHORT" xml:space="preserve">
+    <value>غدًا</value>
+  </data>
+  <data name="GO_BOOKING_START_TIME" xml:space="preserve">
+    <value>بداية الجلسة</value>
+  </data>
+  <data name="GO_BOOKING_PART_MORNING" xml:space="preserve">
+    <value>الصباح</value>
+  </data>
+  <data name="GO_BOOKING_PART_DAY" xml:space="preserve">
+    <value>النهار</value>
+  </data>
+  <data name="GO_BOOKING_PART_EVENING" xml:space="preserve">
+    <value>المساء</value>
+  </data>
+  <data name="GO_BOOKING_DURATION" xml:space="preserve">
+    <value>المدة</value>
+  </data>
+  <data name="GO_BOOKING_SELECT_PC" xml:space="preserve">
+    <value>اختيار الجهاز</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_CAPTION" xml:space="preserve">
+    <value>تم التحقق من التوفر</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TITLE" xml:space="preserve">
+    <value>لا توجد خيارات متاحة</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TEXT" xml:space="preserve">
+    <value>لا توجد أجهزة متاحة في التاريخ والوقت المحددين.</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_HINT" xml:space="preserve">
+    <value>اختر وقتًا أو مدة أخرى.</value>
+  </data>
+  <data name="GO_BOOKING_CHOOSE_OTHER_TIME" xml:space="preserve">
+    <value>اختيار وقت آخر</value>
+  </data>
+  <data name="GO_BOOKING_TAB_ALL" xml:space="preserve">
+    <value>كل الأجهزة</value>
+  </data>
+  <data name="GO_BOOKING_TAB_OTHER" xml:space="preserve">
+    <value>أجهزة أخرى</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_MAP" xml:space="preserve">
+    <value>الخريطة</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_LIST" xml:space="preserve">
+    <value>القائمة</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_FREE" xml:space="preserve">
+    <value>متاح</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_SELECTED" xml:space="preserve">
+    <value>محدد</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_BUSY" xml:space="preserve">
+    <value>مشغول</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_COLOR" xml:space="preserve">
+    <value>اللون = المجموعة</value>
+  </data>
+  <data name="GO_BOOKING_RATE_PER_HOUR" xml:space="preserve">
+    <value>{0}/ساعة</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_IN" xml:space="preserve">
+    <value>تكبير</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_OUT" xml:space="preserve">
+    <value>تصغير</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_FIT" xml:space="preserve">
+    <value>ملاءمة الشاشة</value>
+  </data>
+  <data name="GO_BOOKING_HINT_MAP" xml:space="preserve">
+    <value>اختر جهازًا على الخريطة</value>
+  </data>
+  <data name="GO_BOOKING_HINT_LIST" xml:space="preserve">
+    <value>اختر جهازًا من القائمة</value>
+  </data>
+  <data name="GO_BOOKING_SELECTED_COUNT" xml:space="preserve">
+    <value>تم اختيار {0} أجهزة</value>
+  </data>
+  <data name="GO_BOOKING_CLEAR_ALL" xml:space="preserve">
+    <value>إزالة الكل</value>
+  </data>
+  <data name="GO_BOOKING_REMOVE" xml:space="preserve">
+    <value>إزالة</value>
+  </data>
+  <data name="GO_BOOKING_TO_CONFIRM" xml:space="preserve">
+    <value>إلى التأكيد</value>
+  </data>
+  <data name="GO_BOOKING_PC_NUMBER" xml:space="preserve">
+    <value>جهاز {0}</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TITLE" xml:space="preserve">
+    <value>التأكيد</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TEXT" xml:space="preserve">
+    <value>راجع تفاصيل الحجز</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_CLUB" xml:space="preserve">
+    <value>النادي</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_DATE" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_TIME" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_SESSION" xml:space="preserve">
+    <value>الجلسة</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_PCS" xml:space="preserve">
+    <value>الأجهزة</value>
+  </data>
+  <data name="GO_BOOKING_PCS_COUNT" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="GO_BOOKING_COST_TITLE" xml:space="preserve">
+    <value>تفاصيل التكلفة</value>
+  </data>
+  <data name="GO_BOOKING_FEE" xml:space="preserve">
+    <value>رسوم الخدمة</value>
+  </data>
+  <data name="GO_BOOKING_FEE_PERCENT" xml:space="preserve">
+    <value>رسوم الخدمة ({0}%)</value>
+  </data>
+  <data name="GO_BOOKING_TOTAL" xml:space="preserve">
+    <value>الإجمالي</value>
+  </data>
+  <data name="GO_BOOKING_MINIMUM_NOTE" xml:space="preserve">
+    <value>الحد الأدنى للدفع لتأكيد الحجز هو {0}. يُدفع الباقي في المكان.</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_TITLE" xml:space="preserve">
+    <value>مبلغ الدفع</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM" xml:space="preserve">
+    <value>ادفع الحد الأدنى</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM_SUB" xml:space="preserve">
+    <value>يتم تأكيد الحجز. يُدفع المتبقي {0} في المكان</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL" xml:space="preserve">
+    <value>ادفع كاملًا</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL_SUB" xml:space="preserve">
+    <value>تعال دون دفع في المكان</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE" xml:space="preserve">
+    <value>احجز دون دفع</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE_SUB" xml:space="preserve">
+    <value>الدفع في المكان</value>
+  </data>
+  <data name="GO_BOOKING_WARNING" xml:space="preserve">
+    <value>المكان غير مضمون حتى تأكيد الدفع. يتم التحقق من التوفر عند الضغط على «حجز».</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TITLE" xml:space="preserve">
+    <value>طريقة الدفع</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_BALANCE" xml:space="preserve">
+    <value>من رصيد النادي</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_ENOUGH" xml:space="preserve">
+    <value>{0} · كافٍ</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_SHORT" xml:space="preserve">
+    <value>{0} · ينقص {1}</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP" xml:space="preserve">
+    <value>اشحن وادفع</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP_SUB" xml:space="preserve">
+    <value>اشحن الرصيد للدفع</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY" xml:space="preserve">
+    <value>ادفع</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY_SUB" xml:space="preserve">
+    <value>خيارات الدفع</value>
+  </data>
+  <data name="GO_BOOKING_FOOTER_INFO" xml:space="preserve">
+    <value>{0} أجهزة · {1}</value>
+  </data>
+  <data name="GO_BOOKING_BOOK" xml:space="preserve">
+    <value>احجز</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
+    <value>الجهاز المحدد مشغول بالفعل</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
+    <value>أثناء إتمام الحجز، حجز مستخدم آخر هذا الجهاز. يرجى العودة واختيار وقت أو جهاز آخر.</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
+    <value>جهاز غير متاح</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
+    <value>العودة إلى الاختيار</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_CHANGE_TIME" xml:space="preserve">
+    <value>تغيير وقت الجلسة</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_TITLE" xml:space="preserve">
+    <value>تم الحجز!</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_COST" xml:space="preserve">
+    <value>تكلفة الجلسة</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_PIN" xml:space="preserve">
+    <value>رمز PIN في قسم الحجوزات</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_RESERVATIONS" xml:space="preserve">
+    <value>حجوزاتي</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_HOME" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="GO_BOOKING_FOR_DURATION" xml:space="preserve">
+    <value>لمدة {0}</value>
+  </data>
+  <data name="GO_BOOKING_FREE_COUNT" xml:space="preserve">
+    <value>متاح: {0}</value>
+  </data>
 </root>

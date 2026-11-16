@@ -1,0 +1,301 @@
+@use '../themes/default/theme' as *;
+
+// Booking dialogs: no options, host already taken (bottom sheet), booked.
+.giz-dialog:has(.giz-booking-dialog) {
+    background: $color-home-overlay;
+}
+
+.giz-dialog:has(.giz-booking-dialog--sheet) {
+    align-items: flex-end;
+}
+
+// compound selector: _dialog.scss comes later in app.scss
+.giz-dialog__card.giz-booking-dialog {
+    gap: 20px;
+    max-width: 343px;
+    padding: 24px;
+    border-color: $color-home-dialog-border;
+    border-radius: 16px;
+    background: $color-home-dialog;
+    box-shadow: 0 12px 40px rgba($color-home-shadow, 0.50);
+
+    &--sheet {
+        max-width: 480px;
+        border-radius: 20px 20px 16px 16px;
+    }
+
+    &--center {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.giz-booking-dialog {
+    &__icon {
+        @include flex-center;
+        width: 52px;
+        height: 52px;
+        border-radius: $radius-full;
+
+        &--error {
+            background: rgba($color-home-danger, 0.15);
+            color: $color-home-danger;
+        }
+
+        &--success {
+            background: rgba($color-success, 0.15);
+            color: $color-success-light;
+        }
+    }
+
+    &__text-block {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__caption {
+        font-size: 12px;
+        line-height: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: $color-home-text-muted;
+    }
+
+    &__title {
+        font-family: 'Rubik', $font-family-heading;
+        font-size: 19px;
+        font-weight: $font-weight-bold;
+        line-height: 24px;
+        letter-spacing: 0.12px;
+    }
+
+    &__text {
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: -0.23px;
+        color: $color-home-text-muted;
+    }
+
+    &__hosts {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__host {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        border: 1px solid $color-home-card-border;
+        border-radius: 12px;
+        background: $color-home-card;
+    }
+
+    &__host-number {
+        @include flex-center;
+        flex-shrink: 0;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: $color-home-chip;
+        font-size: 13px;
+        font-weight: $font-weight-bold;
+    }
+
+    &__host-text {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    &__host-name {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__host-details {
+        font-size: 12px;
+        line-height: 16px;
+        color: $color-home-text-muted;
+    }
+
+    &__host-busy {
+        flex-shrink: 0;
+        padding: 2px 8px;
+        border-radius: $radius-full;
+        background: rgba($color-home-danger, 0.15);
+        font-size: 11px;
+        color: $color-home-danger;
+    }
+
+    &__facts {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    &__fact {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 14px;
+        color: $color-home-text-muted;
+    }
+
+    &__fact-value {
+        font-weight: $font-weight-bold;
+        color: $color-text-on-primary;
+    }
+
+    &__pin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        background: $color-home-chip;
+        font-size: 13px;
+        color: $color-welcome-accent;
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    &__button {
+        width: 100%;
+        height: 48px;
+        padding: 0;
+        border: 1px solid rgba($color-text-on-primary, 0.08);
+        border-radius: 10px;
+        background: $color-home-chip;
+        color: $color-text-on-primary;
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 15px;
+        font-weight: $font-weight-medium;
+        letter-spacing: 0.02px;
+        cursor: pointer;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: opacity $transition-fast;
+
+        &:hover {
+            opacity: 0.85;
+        }
+
+        &--primary {
+            border: none;
+            background: $color-welcome-btn-primary;
+        }
+    }
+}
+
+// the booked dialog: a bigger card, a big ringed check, the cost and the PIN hint as tinted blocks
+.giz-dialog:has(.giz-booking-dialog--success) {
+    background: rgba($color-home-shadow, 0.88);
+}
+
+.giz-dialog__card.giz-booking-dialog--success {
+    gap: 16px;
+    max-width: 327px;
+    padding: 24px 25px;
+    border-color: rgba($color-text-on-primary, 0.1);
+    border-radius: 24px;
+    background: rgba($color-booking-success-card, 0.98);
+}
+
+.giz-booking-dialog--success {
+    .giz-booking-dialog__icon {
+        width: 80px;
+        height: 80px;
+        box-sizing: border-box;
+        border: 2px solid rgba($color-success-light, 0.4);
+        background: rgba($color-success-light, 0.12);
+        color: $color-success-light;
+    }
+
+    .giz-booking-dialog__text-block {
+        gap: 8px;
+    }
+
+    .giz-booking-dialog__title {
+        font-size: 22px;
+        line-height: 28px;
+        letter-spacing: 0.38px;
+    }
+
+    .giz-booking-dialog__facts {
+        gap: 16px;
+    }
+
+    .giz-booking-dialog__fact {
+        align-items: center;
+        height: 52px;
+        padding: 0 16px;
+        box-sizing: border-box;
+        border: 1px solid rgba($color-welcome-accent-mid, 0.2);
+        border-radius: 12px;
+        background: rgba($color-booking-selection-header, 0.15);
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 13px;
+        line-height: 18px;
+        letter-spacing: -0.08px;
+        color: rgba($color-text-on-primary, 0.45);
+    }
+
+    .giz-booking-dialog__fact-value {
+        font-family: 'Rubik', $font-family-heading;
+        font-size: 19px;
+        line-height: 24px;
+        letter-spacing: 0.12px;
+    }
+
+    .giz-booking-dialog__pin {
+        justify-content: flex-start;
+        gap: 8px;
+        height: 40px;
+        padding: 0 14px;
+        box-sizing: border-box;
+        border: 1px solid rgba($color-success-light, 0.18);
+        border-radius: 12px;
+        background: rgba($color-success-light, 0.07);
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 12px;
+        line-height: 18px;
+        color: rgba($color-text-on-primary, 0.45);
+
+        svg {
+            flex-shrink: 0;
+            color: $color-success-light;
+        }
+    }
+
+    .giz-booking-dialog__actions {
+        gap: 8px;
+    }
+
+    .giz-booking-dialog__button {
+        height: 40px;
+        border: 1px solid rgba($color-text-on-primary, 0.1);
+        border-radius: 12px;
+        background: rgba($color-text-on-primary, 0.06);
+        color: rgba($color-text-on-primary, 0.55);
+        font-size: 13px;
+        letter-spacing: -0.08px;
+
+        &--primary {
+            border: none;
+            background: $color-welcome-btn-primary;
+            color: $color-text-on-primary;
+        }
+    }
+}

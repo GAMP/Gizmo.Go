@@ -1,0 +1,387 @@
+@use '../themes/default/theme' as *;
+
+// Booking step 3: details card, cost breakdown card, booking rules row, payment amount / method cards, footer.
+.booking-confirm {
+  gap: 16px;
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 27px;
+    color: $color-text-on-primary;
+  }
+
+  &__text {
+    margin: 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    line-height: 20px;
+    color: rgba($color-text-on-primary, 0.4);
+  }
+}
+
+// the cards of the step: details and cost breakdown
+.booking-details,
+.booking-cost {
+  margin: 0;
+  border: 1px solid rgba($color-text-on-primary, 0.08);
+  border-radius: 16px;
+  background: rgba($color-welcome-btn-primary, 0.05);
+  box-shadow: 0 8px 24px rgba($color-home-shadow, 0.25);
+}
+
+.booking-details {
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 51px;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    & + & {
+      border-top: 1px solid rgba($color-text-on-primary, 0.05);
+    }
+
+    dt {
+      flex: 1;
+      font-family: 'Noto Sans', $font-family-base;
+      font-size: 12px;
+      line-height: 18px;
+      color: rgba($color-text-on-primary, 0.38);
+    }
+
+    dd {
+      margin: 0;
+      font-family: 'Noto Sans', $font-family-base;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 20px;
+      color: $color-text-on-primary;
+      text-align: right;
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: rgba($color-welcome-btn-primary, 0.1);
+    color: $color-welcome-accent;
+  }
+}
+
+.booking-cost {
+  &__title {
+    margin: 0;
+    padding: 12px 16px 11px;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    color: rgba($color-text-on-primary, 0.35);
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 16px;
+    border-top: 1px solid rgba($color-text-on-primary, 0.05);
+
+    &:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    &--total {
+      padding-top: 14px;
+      padding-bottom: 13px;
+    }
+  }
+
+  &__line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    color: $color-text-on-primary;
+  }
+
+  &__dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: $radius-full;
+    background: var(--booking-group-color);
+  }
+
+  &__amount {
+    flex-shrink: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+    line-height: 20px;
+    color: $color-text-on-primary;
+  }
+
+  &__sub {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 17px;
+    color: rgba($color-text-on-primary, 0.35);
+  }
+
+  &__fee {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba($color-text-on-primary, 0.45);
+  }
+
+  &__fee-amount {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    color: rgba($color-text-on-primary, 0.45);
+  }
+
+  &__total-label {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    color: rgba($color-text-on-primary, 0.6);
+  }
+
+  &__total {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 33px;
+    letter-spacing: -0.5px;
+    color: $color-text-on-primary;
+  }
+
+  &__note {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 11px 16px 14px;
+    border-top: 1px solid rgba($color-text-on-primary, 0.05);
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 17px;
+    color: rgba($color-text-on-primary, 0.4);
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: rgba($color-welcome-accent, 0.8);
+    }
+  }
+}
+
+.booking-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// a radio card of the payment amount or the payment method
+.booking-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 62px;
+  padding: 12px 14px 12px 16px;
+  box-sizing: border-box;
+  border: 1px solid rgba($color-text-on-primary, 0.07);
+  border-radius: 12px;
+  background: rgba($color-text-on-primary, 0.03);
+  color: $color-text-on-primary;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__radio {
+    position: relative;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    border: 2px solid $color-booking-radio;
+    border-radius: $radius-full;
+  }
+
+  &__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__line {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &__title {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+    color: $color-text-on-primary;
+  }
+
+  &__amount {
+    flex-shrink: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 23px;
+    color: rgba($color-text-on-primary, 0.6);
+  }
+
+  &__sub {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.06px;
+    color: rgba($color-text-on-primary, 0.4);
+
+    &--ok {
+      color: rgba($color-success-light, 0.8);
+    }
+
+    &--error {
+      color: $color-home-closed;
+    }
+  }
+
+  &__retry {
+    margin-left: 6px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: $color-welcome-accent;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  &__icon {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: $radius-full;
+    background: rgba($color-text-on-primary, 0.06);
+    color: rgba($color-text-on-primary, 0.5);
+  }
+
+  &--selected {
+    border-color: rgba($color-welcome-accent-mid, 0.35);
+    background: rgba($color-welcome-btn-primary, 0.14);
+  }
+
+  &--selected &__radio {
+    border-color: $color-welcome-accent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: $radius-full;
+      background: $color-welcome-accent;
+    }
+  }
+
+  &--selected &__amount {
+    color: $color-welcome-accent;
+  }
+
+  // top up and card payment are not available yet (balance top up item)
+  &--inactive {
+    cursor: default;
+  }
+}
+
+.booking-warning {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba($color-warning, 0.18);
+  border-radius: 9px;
+  background: rgba($color-warning, 0.06);
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 11px;
+  line-height: 17px;
+  color: rgba($color-booking-warning-text, 0.8);
+
+  &__icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: $color-warning;
+  }
+}
+
+// confirmation footer: a dark panel with the PCs, the duration and the total over the button
+.booking-footer {
+  border-top: 1px solid rgba($color-text-on-primary, 0.07);
+  background: rgba($color-booking-footer, 0.97);
+
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &__info {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba($color-text-on-primary, 0.4);
+  }
+
+  &__amount {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 30px;
+    color: $color-text-on-primary;
+  }
+}

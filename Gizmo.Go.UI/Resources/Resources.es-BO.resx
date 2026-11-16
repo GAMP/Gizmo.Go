@@ -1315,4 +1315,247 @@
   <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
     <value>/h</value>
   </data>
+  <data name="GO_BOOKING_TITLE" xml:space="preserve">
+    <value>Reserva</value>
+  </data>
+  <data name="GO_BOOKING_STEP_SESSION" xml:space="preserve">
+    <value>Sesión</value>
+  </data>
+  <data name="GO_BOOKING_STEP_HOSTS" xml:space="preserve">
+    <value>Elegir PC</value>
+  </data>
+  <data name="GO_BOOKING_STEP_CONFIRM" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
+  <data name="GO_BOOKING_PCS_CHIP" xml:space="preserve">
+    <value>{0} PC</value>
+  </data>
+  <data name="GO_BOOKING_DATE" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="GO_BOOKING_TODAY_SHORT" xml:space="preserve">
+    <value>Hoy</value>
+  </data>
+  <data name="GO_BOOKING_TOMORROW_SHORT" xml:space="preserve">
+    <value>Mañ.</value>
+  </data>
+  <data name="GO_BOOKING_START_TIME" xml:space="preserve">
+    <value>Inicio de la sesión</value>
+  </data>
+  <data name="GO_BOOKING_PART_MORNING" xml:space="preserve">
+    <value>Mañana</value>
+  </data>
+  <data name="GO_BOOKING_PART_DAY" xml:space="preserve">
+    <value>Día</value>
+  </data>
+  <data name="GO_BOOKING_PART_EVENING" xml:space="preserve">
+    <value>Tarde</value>
+  </data>
+  <data name="GO_BOOKING_DURATION" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="GO_BOOKING_SELECT_PC" xml:space="preserve">
+    <value>Elegir PC</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_CAPTION" xml:space="preserve">
+    <value>Disponibilidad comprobada</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TITLE" xml:space="preserve">
+    <value>No hay opciones disponibles</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TEXT" xml:space="preserve">
+    <value>No hay PC libres en la fecha y hora elegidas.</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_HINT" xml:space="preserve">
+    <value>Elige otra hora o duración.</value>
+  </data>
+  <data name="GO_BOOKING_CHOOSE_OTHER_TIME" xml:space="preserve">
+    <value>Elegir otra hora</value>
+  </data>
+  <data name="GO_BOOKING_TAB_ALL" xml:space="preserve">
+    <value>Todos los PC</value>
+  </data>
+  <data name="GO_BOOKING_TAB_OTHER" xml:space="preserve">
+    <value>Otros PC</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_MAP" xml:space="preserve">
+    <value>Mapa</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_LIST" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_FREE" xml:space="preserve">
+    <value>Libre</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_SELECTED" xml:space="preserve">
+    <value>Seleccionado</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_BUSY" xml:space="preserve">
+    <value>Ocupado</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_COLOR" xml:space="preserve">
+    <value>color = grupo</value>
+  </data>
+  <data name="GO_BOOKING_RATE_PER_HOUR" xml:space="preserve">
+    <value>{0}/h</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_IN" xml:space="preserve">
+    <value>Acercar</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_OUT" xml:space="preserve">
+    <value>Alejar</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_FIT" xml:space="preserve">
+    <value>Ajustar a la pantalla</value>
+  </data>
+  <data name="GO_BOOKING_HINT_MAP" xml:space="preserve">
+    <value>Elige un PC en el mapa</value>
+  </data>
+  <data name="GO_BOOKING_HINT_LIST" xml:space="preserve">
+    <value>Elige un PC de la lista</value>
+  </data>
+  <data name="GO_BOOKING_SELECTED_COUNT" xml:space="preserve">
+    <value>{0} PC seleccionados</value>
+  </data>
+  <data name="GO_BOOKING_CLEAR_ALL" xml:space="preserve">
+    <value>Quitar todos</value>
+  </data>
+  <data name="GO_BOOKING_REMOVE" xml:space="preserve">
+    <value>Quitar</value>
+  </data>
+  <data name="GO_BOOKING_TO_CONFIRM" xml:space="preserve">
+    <value>A la confirmación</value>
+  </data>
+  <data name="GO_BOOKING_PC_NUMBER" xml:space="preserve">
+    <value>PC {0}</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TITLE" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TEXT" xml:space="preserve">
+    <value>Revisa los detalles de la reserva</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_CLUB" xml:space="preserve">
+    <value>Club</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_DATE" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_TIME" xml:space="preserve">
+    <value>Hora</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_SESSION" xml:space="preserve">
+    <value>Sesión</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_PCS" xml:space="preserve">
+    <value>PC</value>
+  </data>
+  <data name="GO_BOOKING_PCS_COUNT" xml:space="preserve">
+    <value>{0} uds.</value>
+  </data>
+  <data name="GO_BOOKING_COST_TITLE" xml:space="preserve">
+    <value>Desglose del costo</value>
+  </data>
+  <data name="GO_BOOKING_FEE" xml:space="preserve">
+    <value>Tarifa de servicio</value>
+  </data>
+  <data name="GO_BOOKING_FEE_PERCENT" xml:space="preserve">
+    <value>Tarifa de servicio ({0}%)</value>
+  </data>
+  <data name="GO_BOOKING_TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="GO_BOOKING_MINIMUM_NOTE" xml:space="preserve">
+    <value>El pago mínimo para confirmar la reserva es {0}. El resto se paga en el local.</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_TITLE" xml:space="preserve">
+    <value>Importe a pagar</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM" xml:space="preserve">
+    <value>Pagar el mínimo</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM_SUB" xml:space="preserve">
+    <value>La reserva se confirma. Los {0} restantes se pagan en el local</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL" xml:space="preserve">
+    <value>Pagar todo</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL_SUB" xml:space="preserve">
+    <value>Ven sin pagar en el local</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE" xml:space="preserve">
+    <value>Reservar sin pago</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE_SUB" xml:space="preserve">
+    <value>Pago en el local</value>
+  </data>
+  <data name="GO_BOOKING_WARNING" xml:space="preserve">
+    <value>El lugar no está garantizado hasta confirmar el pago. La disponibilidad se comprueba al pulsar «Reservar».</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TITLE" xml:space="preserve">
+    <value>Método de pago</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_BALANCE" xml:space="preserve">
+    <value>Con el saldo del club</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_ENOUGH" xml:space="preserve">
+    <value>{0} · suficiente</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_SHORT" xml:space="preserve">
+    <value>{0} · faltan {1}</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP" xml:space="preserve">
+    <value>Recargar y pagar</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP_SUB" xml:space="preserve">
+    <value>Recarga el saldo para pagar</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY" xml:space="preserve">
+    <value>Pagar</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY_SUB" xml:space="preserve">
+    <value>Opciones de pago</value>
+  </data>
+  <data name="GO_BOOKING_FOOTER_INFO" xml:space="preserve">
+    <value>{0} PC · {1}</value>
+  </data>
+  <data name="GO_BOOKING_BOOK" xml:space="preserve">
+    <value>Reservar</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
+    <value>El PC elegido ya está ocupado</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
+    <value>Mientras reservabas, otro usuario ocupó este PC. Vuelve y elige otra hora u otro PC.</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
+    <value>PC no disponible</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
+    <value>Volver a la selección</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_CHANGE_TIME" xml:space="preserve">
+    <value>Cambiar la hora de la sesión</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_TITLE" xml:space="preserve">
+    <value>¡Reservado!</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_COST" xml:space="preserve">
+    <value>Costo de la sesión</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_PIN" xml:space="preserve">
+    <value>El código PIN está en la sección de reservas</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_RESERVATIONS" xml:space="preserve">
+    <value>Mis reservas</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_HOME" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="GO_BOOKING_FOR_DURATION" xml:space="preserve">
+    <value>por {0}</value>
+  </data>
+  <data name="GO_BOOKING_FREE_COUNT" xml:space="preserve">
+    <value>libres: {0}</value>
+  </data>
 </root>

@@ -1,0 +1,227 @@
+@use '../themes/default/theme' as *;
+
+// Booking step 1: date strip, start time grid, duration chips, session summary card.
+// Selected chips are tinted blue with a blue border, not filled like a button.
+.booking-session {
+  gap: 24px;
+}
+
+.booking-dates {
+  display: flex;
+  gap: 6px;
+  margin: 0 (-$spacing-md);
+  padding: 0 $spacing-md 3px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.booking-date {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  width: 58px;
+  height: 74px;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba($color-text-on-primary, 0.07);
+  border-radius: 12px;
+  background: rgba($color-text-on-primary, 0.05);
+  color: $color-text-on-primary;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__weekday {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 9px;
+    font-weight: $font-weight-medium;
+    line-height: 14px;
+    letter-spacing: 0.27px;
+    text-transform: uppercase;
+    color: rgba($color-text-on-primary, 0.28);
+  }
+
+  &__day {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 21px;
+    color: rgba($color-text-on-primary, 0.7);
+  }
+
+  &__month {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 9px;
+    font-weight: $font-weight-medium;
+    line-height: 14px;
+    color: rgba($color-text-on-primary, 0.22);
+  }
+
+  &--weekend &__weekday {
+    color: rgba($color-home-bonus, 0.6);
+  }
+
+  &--selected {
+    border-color: $color-welcome-accent-mid;
+    background: linear-gradient(180deg, rgba($color-booking-selected-start, 0.35), rgba($color-booking-selected-end, 0.5));
+  }
+
+  &--selected &__weekday {
+    color: rgba($color-welcome-accent, 0.85);
+  }
+
+  &--selected &__day {
+    color: $color-text-on-primary;
+  }
+
+  &--selected &__month {
+    color: rgba($color-text-on-primary, 0.5);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.35;
+  }
+}
+
+.booking-time {
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__group-name {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+    color: rgba($color-text-on-primary, 0.22);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+}
+
+.booking-slot {
+  height: 39px;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba($color-text-on-primary, 0.07);
+  border-radius: 10px;
+  background: rgba($color-text-on-primary, 0.05);
+  color: rgba($color-text-on-primary, 0.5);
+  font-family: 'Rubik', $font-family-heading;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &--selected {
+    border-color: $color-welcome-accent-mid;
+    background: rgba($color-welcome-btn-primary, 0.25);
+    color: $color-text-on-primary;
+    font-weight: $font-weight-bold;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+}
+
+.booking-durations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+.booking-duration {
+  height: 40px;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba($color-text-on-primary, 0.1);
+  border-radius: 10px;
+  background: rgba($color-text-on-primary, 0.06);
+  color: $color-home-text-muted;
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  letter-spacing: -0.08px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &--selected {
+    border-color: $color-welcome-accent-mid;
+    background: rgba($color-welcome-btn-primary, 0.25);
+    color: $color-text-on-primary;
+    font-weight: $font-weight-bold;
+  }
+}
+
+// the chosen session: lightning icon, date and time, duration, green check
+.booking-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 0 14px;
+  min-height: 65px;
+  box-sizing: border-box;
+  border: 1px solid rgba($color-welcome-accent-mid, 0.25);
+  border-radius: 14px;
+  background: rgba($color-booking-summary, 0.18);
+  box-shadow: 0 4px 16px rgba($color-booking-summary, 0.15);
+
+  &__icon {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    border: 1px solid rgba($color-welcome-accent-mid, 0.25);
+    border-radius: $radius-full;
+    background: rgba($color-welcome-accent-mid, 0.15);
+    color: $color-welcome-accent;
+  }
+
+  &__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__title {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+    line-height: 21px;
+    color: $color-text-on-primary;
+  }
+
+  &__sub {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 17px;
+    color: rgba($color-text-on-primary, 0.4);
+  }
+
+  &__check {
+    flex-shrink: 0;
+    color: $color-success-light;
+  }
+}

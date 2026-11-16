@@ -1,0 +1,17 @@
+<div class="booking-tabs" role="tablist">
+    @foreach (var tab in State.Tabs)
+    {
+        var key = tab.Key;
+        var isSelected = key == State.SelectedTabKey;
+        var free = tab.Hosts.Count(host => State.FreeHostIds.Contains(host.Host.Id));
+
+        <button type="button"
+                role="tab"
+                class="booking-tab @(isSelected ? "booking-tab--selected" : "")"
+                aria-selected="@isSelected.ToString().ToLowerInvariant()"
+                @onclick="() => Service.SelectTab(key)">
+            <span class="booking-tab__name">@tab.Name</span>
+            <span class="booking-tab__count">@free</span>
+        </button>
+    }
+</div>

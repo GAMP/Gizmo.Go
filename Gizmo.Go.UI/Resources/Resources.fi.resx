@@ -1315,4 +1315,247 @@
   <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
     <value>/h</value>
   </data>
+  <data name="GO_BOOKING_TITLE" xml:space="preserve">
+    <value>Varaus</value>
+  </data>
+  <data name="GO_BOOKING_STEP_SESSION" xml:space="preserve">
+    <value>Istunto</value>
+  </data>
+  <data name="GO_BOOKING_STEP_HOSTS" xml:space="preserve">
+    <value>Valitse PC</value>
+  </data>
+  <data name="GO_BOOKING_STEP_CONFIRM" xml:space="preserve">
+    <value>Vahvistus</value>
+  </data>
+  <data name="GO_BOOKING_PCS_CHIP" xml:space="preserve">
+    <value>{0} PC:tä</value>
+  </data>
+  <data name="GO_BOOKING_DATE" xml:space="preserve">
+    <value>Päivämäärä</value>
+  </data>
+  <data name="GO_BOOKING_TODAY_SHORT" xml:space="preserve">
+    <value>Tänään</value>
+  </data>
+  <data name="GO_BOOKING_TOMORROW_SHORT" xml:space="preserve">
+    <value>Huom.</value>
+  </data>
+  <data name="GO_BOOKING_START_TIME" xml:space="preserve">
+    <value>Istunnon alku</value>
+  </data>
+  <data name="GO_BOOKING_PART_MORNING" xml:space="preserve">
+    <value>Aamu</value>
+  </data>
+  <data name="GO_BOOKING_PART_DAY" xml:space="preserve">
+    <value>Päivä</value>
+  </data>
+  <data name="GO_BOOKING_PART_EVENING" xml:space="preserve">
+    <value>Ilta</value>
+  </data>
+  <data name="GO_BOOKING_DURATION" xml:space="preserve">
+    <value>Kesto</value>
+  </data>
+  <data name="GO_BOOKING_SELECT_PC" xml:space="preserve">
+    <value>Valitse PC</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_CAPTION" xml:space="preserve">
+    <value>Saatavuus tarkistettu</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TITLE" xml:space="preserve">
+    <value>Ei vaihtoehtoja saatavilla</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TEXT" xml:space="preserve">
+    <value>Valittuna päivänä ja aikana ei ole vapaita PC:itä.</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_HINT" xml:space="preserve">
+    <value>Valitse toinen aika tai kesto.</value>
+  </data>
+  <data name="GO_BOOKING_CHOOSE_OTHER_TIME" xml:space="preserve">
+    <value>Valitse toinen aika</value>
+  </data>
+  <data name="GO_BOOKING_TAB_ALL" xml:space="preserve">
+    <value>Kaikki PC:t</value>
+  </data>
+  <data name="GO_BOOKING_TAB_OTHER" xml:space="preserve">
+    <value>Muut PC:t</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_MAP" xml:space="preserve">
+    <value>Kartta</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_LIST" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_FREE" xml:space="preserve">
+    <value>Vapaa</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_SELECTED" xml:space="preserve">
+    <value>Valittu</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_BUSY" xml:space="preserve">
+    <value>Varattu</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_COLOR" xml:space="preserve">
+    <value>väri = ryhmä</value>
+  </data>
+  <data name="GO_BOOKING_RATE_PER_HOUR" xml:space="preserve">
+    <value>{0}/h</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_IN" xml:space="preserve">
+    <value>Lähennä</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_OUT" xml:space="preserve">
+    <value>Loitonna</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_FIT" xml:space="preserve">
+    <value>Sovita näyttöön</value>
+  </data>
+  <data name="GO_BOOKING_HINT_MAP" xml:space="preserve">
+    <value>Valitse PC kartalta</value>
+  </data>
+  <data name="GO_BOOKING_HINT_LIST" xml:space="preserve">
+    <value>Valitse PC luettelosta</value>
+  </data>
+  <data name="GO_BOOKING_SELECTED_COUNT" xml:space="preserve">
+    <value>{0} PC:tä valittu</value>
+  </data>
+  <data name="GO_BOOKING_CLEAR_ALL" xml:space="preserve">
+    <value>Poista kaikki</value>
+  </data>
+  <data name="GO_BOOKING_REMOVE" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="GO_BOOKING_TO_CONFIRM" xml:space="preserve">
+    <value>Vahvistukseen</value>
+  </data>
+  <data name="GO_BOOKING_PC_NUMBER" xml:space="preserve">
+    <value>PC {0}</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TITLE" xml:space="preserve">
+    <value>Vahvistus</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TEXT" xml:space="preserve">
+    <value>Tarkista varauksen tiedot</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_CLUB" xml:space="preserve">
+    <value>Klubi</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_DATE" xml:space="preserve">
+    <value>Päivämäärä</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_TIME" xml:space="preserve">
+    <value>Aika</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_SESSION" xml:space="preserve">
+    <value>Istunto</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_PCS" xml:space="preserve">
+    <value>PC:t</value>
+  </data>
+  <data name="GO_BOOKING_PCS_COUNT" xml:space="preserve">
+    <value>{0} kpl</value>
+  </data>
+  <data name="GO_BOOKING_COST_TITLE" xml:space="preserve">
+    <value>Hinnan erittely</value>
+  </data>
+  <data name="GO_BOOKING_FEE" xml:space="preserve">
+    <value>Palvelumaksu</value>
+  </data>
+  <data name="GO_BOOKING_FEE_PERCENT" xml:space="preserve">
+    <value>Palvelumaksu ({0}%)</value>
+  </data>
+  <data name="GO_BOOKING_TOTAL" xml:space="preserve">
+    <value>Yhteensä</value>
+  </data>
+  <data name="GO_BOOKING_MINIMUM_NOTE" xml:space="preserve">
+    <value>Varauksen vahvistamiseen vaaditaan vähintään {0}. Loput maksetaan paikan päällä.</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_TITLE" xml:space="preserve">
+    <value>Maksettava summa</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM" xml:space="preserve">
+    <value>Maksa vähimmäissumma</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM_SUB" xml:space="preserve">
+    <value>Varaus vahvistetaan. Loput {0} maksetaan paikan päällä</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL" xml:space="preserve">
+    <value>Maksa kokonaan</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL_SUB" xml:space="preserve">
+    <value>Tule ilman maksua paikan päällä</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE" xml:space="preserve">
+    <value>Varaa ilman maksua</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE_SUB" xml:space="preserve">
+    <value>Maksu paikan päällä</value>
+  </data>
+  <data name="GO_BOOKING_WARNING" xml:space="preserve">
+    <value>Paikkaa ei taata ennen maksun vahvistamista. Saatavuus tarkistetaan, kun painat «Varaa».</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TITLE" xml:space="preserve">
+    <value>Maksutapa</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_BALANCE" xml:space="preserve">
+    <value>Kerhon saldolta</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_ENOUGH" xml:space="preserve">
+    <value>{0} · riittää</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_SHORT" xml:space="preserve">
+    <value>{0} · puuttuu {1}</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP" xml:space="preserve">
+    <value>Lataa ja maksa</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP_SUB" xml:space="preserve">
+    <value>Lataa saldoa maksaaksesi</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY" xml:space="preserve">
+    <value>Maksa</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY_SUB" xml:space="preserve">
+    <value>Maksuvaihtoehdot</value>
+  </data>
+  <data name="GO_BOOKING_FOOTER_INFO" xml:space="preserve">
+    <value>{0} PC · {1}</value>
+  </data>
+  <data name="GO_BOOKING_BOOK" xml:space="preserve">
+    <value>Varaa</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
+    <value>Valittu PC on jo varattu</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
+    <value>Varauksen aikana toinen käyttäjä varasi tämän PC:n. Palaa takaisin ja valitse toinen aika tai PC.</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
+    <value>Ei käytettävissä oleva PC</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
+    <value>Takaisin valintaan</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_CHANGE_TIME" xml:space="preserve">
+    <value>Muuta istunnon aikaa</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_TITLE" xml:space="preserve">
+    <value>Varattu!</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_COST" xml:space="preserve">
+    <value>Istunnon hinta</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_PIN" xml:space="preserve">
+    <value>PIN-koodi löytyy varaukset-osiosta</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_RESERVATIONS" xml:space="preserve">
+    <value>Omat varaukset</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_HOME" xml:space="preserve">
+    <value>Etusivu</value>
+  </data>
+  <data name="GO_BOOKING_FOR_DURATION" xml:space="preserve">
+    <value>{0} ajalta</value>
+  </data>
+  <data name="GO_BOOKING_FREE_COUNT" xml:space="preserve">
+    <value>vapaana: {0}</value>
+  </data>
 </root>

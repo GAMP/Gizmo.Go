@@ -1315,4 +1315,247 @@
   <data name="GO_CLUB_PER_HOUR_SHORT" xml:space="preserve">
     <value>/saat'ten</value>
   </data>
+  <data name="GO_BOOKING_TITLE" xml:space="preserve">
+    <value>Rezervasyon</value>
+  </data>
+  <data name="GO_BOOKING_STEP_SESSION" xml:space="preserve">
+    <value>Seans</value>
+  </data>
+  <data name="GO_BOOKING_STEP_HOSTS" xml:space="preserve">
+    <value>PC seçimi</value>
+  </data>
+  <data name="GO_BOOKING_STEP_CONFIRM" xml:space="preserve">
+    <value>Onay</value>
+  </data>
+  <data name="GO_BOOKING_PCS_CHIP" xml:space="preserve">
+    <value>{0} PC</value>
+  </data>
+  <data name="GO_BOOKING_DATE" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="GO_BOOKING_TODAY_SHORT" xml:space="preserve">
+    <value>Bugün</value>
+  </data>
+  <data name="GO_BOOKING_TOMORROW_SHORT" xml:space="preserve">
+    <value>Yarın</value>
+  </data>
+  <data name="GO_BOOKING_START_TIME" xml:space="preserve">
+    <value>Seans başlangıcı</value>
+  </data>
+  <data name="GO_BOOKING_PART_MORNING" xml:space="preserve">
+    <value>Sabah</value>
+  </data>
+  <data name="GO_BOOKING_PART_DAY" xml:space="preserve">
+    <value>Gündüz</value>
+  </data>
+  <data name="GO_BOOKING_PART_EVENING" xml:space="preserve">
+    <value>Akşam</value>
+  </data>
+  <data name="GO_BOOKING_DURATION" xml:space="preserve">
+    <value>Süre</value>
+  </data>
+  <data name="GO_BOOKING_SELECT_PC" xml:space="preserve">
+    <value>PC seç</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_CAPTION" xml:space="preserve">
+    <value>Müsaitlik kontrol edildi</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TITLE" xml:space="preserve">
+    <value>Uygun seçenek yok</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_TEXT" xml:space="preserve">
+    <value>Seçilen tarih ve saatte boş PC yok.</value>
+  </data>
+  <data name="GO_BOOKING_NO_OPTIONS_HINT" xml:space="preserve">
+    <value>Başka bir saat veya süre seçin.</value>
+  </data>
+  <data name="GO_BOOKING_CHOOSE_OTHER_TIME" xml:space="preserve">
+    <value>Başka saat seç</value>
+  </data>
+  <data name="GO_BOOKING_TAB_ALL" xml:space="preserve">
+    <value>Tüm PC'ler</value>
+  </data>
+  <data name="GO_BOOKING_TAB_OTHER" xml:space="preserve">
+    <value>Diğer PC'ler</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_MAP" xml:space="preserve">
+    <value>Harita</value>
+  </data>
+  <data name="GO_BOOKING_VIEW_LIST" xml:space="preserve">
+    <value>Liste</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_FREE" xml:space="preserve">
+    <value>Boş</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_SELECTED" xml:space="preserve">
+    <value>Seçili</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_BUSY" xml:space="preserve">
+    <value>Dolu</value>
+  </data>
+  <data name="GO_BOOKING_LEGEND_COLOR" xml:space="preserve">
+    <value>renk = grup</value>
+  </data>
+  <data name="GO_BOOKING_RATE_PER_HOUR" xml:space="preserve">
+    <value>{0}/sa</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_IN" xml:space="preserve">
+    <value>Yakınlaştır</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_OUT" xml:space="preserve">
+    <value>Uzaklaştır</value>
+  </data>
+  <data name="GO_BOOKING_ZOOM_FIT" xml:space="preserve">
+    <value>Ekrana sığdır</value>
+  </data>
+  <data name="GO_BOOKING_HINT_MAP" xml:space="preserve">
+    <value>Haritadan bir PC seçin</value>
+  </data>
+  <data name="GO_BOOKING_HINT_LIST" xml:space="preserve">
+    <value>Listeden bir PC seçin</value>
+  </data>
+  <data name="GO_BOOKING_SELECTED_COUNT" xml:space="preserve">
+    <value>{0} PC seçildi</value>
+  </data>
+  <data name="GO_BOOKING_CLEAR_ALL" xml:space="preserve">
+    <value>Tümünü kaldır</value>
+  </data>
+  <data name="GO_BOOKING_REMOVE" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="GO_BOOKING_TO_CONFIRM" xml:space="preserve">
+    <value>Onaya geç</value>
+  </data>
+  <data name="GO_BOOKING_PC_NUMBER" xml:space="preserve">
+    <value>PC {0}</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TITLE" xml:space="preserve">
+    <value>Onay</value>
+  </data>
+  <data name="GO_BOOKING_CONFIRM_TEXT" xml:space="preserve">
+    <value>Rezervasyon ayrıntılarını kontrol edin</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_CLUB" xml:space="preserve">
+    <value>Kulüp</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_DATE" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_TIME" xml:space="preserve">
+    <value>Saat</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_SESSION" xml:space="preserve">
+    <value>Seans</value>
+  </data>
+  <data name="GO_BOOKING_DETAIL_PCS" xml:space="preserve">
+    <value>PC'ler</value>
+  </data>
+  <data name="GO_BOOKING_PCS_COUNT" xml:space="preserve">
+    <value>{0} adet</value>
+  </data>
+  <data name="GO_BOOKING_COST_TITLE" xml:space="preserve">
+    <value>Maliyet dökümü</value>
+  </data>
+  <data name="GO_BOOKING_FEE" xml:space="preserve">
+    <value>Hizmet bedeli</value>
+  </data>
+  <data name="GO_BOOKING_FEE_PERCENT" xml:space="preserve">
+    <value>Hizmet bedeli (%{0})</value>
+  </data>
+  <data name="GO_BOOKING_TOTAL" xml:space="preserve">
+    <value>Toplam</value>
+  </data>
+  <data name="GO_BOOKING_MINIMUM_NOTE" xml:space="preserve">
+    <value>Rezervasyonu onaylamak için minimum ödeme {0}. Kalan tutar yerinde ödenir.</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_TITLE" xml:space="preserve">
+    <value>Ödeme tutarı</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM" xml:space="preserve">
+    <value>Minimumu öde</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_MINIMUM_SUB" xml:space="preserve">
+    <value>Rezervasyon onaylanır. Kalan {0} yerinde ödenir</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL" xml:space="preserve">
+    <value>Tamamını öde</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_FULL_SUB" xml:space="preserve">
+    <value>Yerinde ödeme yapmadan gelin</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE" xml:space="preserve">
+    <value>Ödemesiz rezervasyon</value>
+  </data>
+  <data name="GO_BOOKING_AMOUNT_NONE_SUB" xml:space="preserve">
+    <value>Yerinde ödeme</value>
+  </data>
+  <data name="GO_BOOKING_WARNING" xml:space="preserve">
+    <value>Ödeme onaylanana kadar yer garanti edilmez. Müsaitlik «Rezervasyon yap» düğmesine bastığınızda kontrol edilir.</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TITLE" xml:space="preserve">
+    <value>Ödeme yöntemi</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_BALANCE" xml:space="preserve">
+    <value>Kulüp bakiyesinden</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_ENOUGH" xml:space="preserve">
+    <value>{0} · yeterli</value>
+  </data>
+  <data name="GO_BOOKING_BALANCE_SHORT" xml:space="preserve">
+    <value>{0} · {1} eksik</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP" xml:space="preserve">
+    <value>Yükle ve öde</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_TOPUP_SUB" xml:space="preserve">
+    <value>Ödemek için bakiye yükleyin</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY" xml:space="preserve">
+    <value>Öde</value>
+  </data>
+  <data name="GO_BOOKING_METHOD_PAY_SUB" xml:space="preserve">
+    <value>Ödeme seçenekleri</value>
+  </data>
+  <data name="GO_BOOKING_FOOTER_INFO" xml:space="preserve">
+    <value>{0} PC · {1}</value>
+  </data>
+  <data name="GO_BOOKING_BOOK" xml:space="preserve">
+    <value>Rezervasyon yap</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
+    <value>Seçilen PC zaten dolu</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
+    <value>Siz rezervasyon yaparken başka bir kullanıcı bu PC'yi aldı. Lütfen geri dönüp başka bir saat veya PC seçin.</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
+    <value>Kullanılamayan PC</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
+    <value>Seçime dön</value>
+  </data>
+  <data name="GO_BOOKING_TAKEN_CHANGE_TIME" xml:space="preserve">
+    <value>Seans saatini değiştir</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_TITLE" xml:space="preserve">
+    <value>Rezerve edildi!</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_COST" xml:space="preserve">
+    <value>Seans ücreti</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_PIN" xml:space="preserve">
+    <value>PIN kodu rezervasyonlar bölümünde</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_RESERVATIONS" xml:space="preserve">
+    <value>Rezervasyonlarım</value>
+  </data>
+  <data name="GO_BOOKING_SUCCESS_HOME" xml:space="preserve">
+    <value>Ana sayfa</value>
+  </data>
+  <data name="GO_BOOKING_FOR_DURATION" xml:space="preserve">
+    <value>{0} için</value>
+  </data>
+  <data name="GO_BOOKING_FREE_COUNT" xml:space="preserve">
+    <value>boş: {0}</value>
+  </data>
 </root>

@@ -78,5 +78,46 @@ namespace Gizmo.Go.UI.Services.Dialog
                 CloseOnClick = true
             }, default, cancellationToken);
         }
+
+        public Task<AddDialogResult<EmptyComponentResult>> ShowBookingNoOptionsDialogAsync(CancellationToken cancellationToken = default)
+        {
+            return ShowDialogAsync<BookingNoOptionsDialog, EmptyComponentResult>(new Dictionary<string, object>(), new DialogDisplayOptions()
+            {
+                Closable = true,
+                CloseOnClick = true
+            }, default, cancellationToken);
+        }
+
+        public Task<AddDialogResult<BookingHostTakenResult>> ShowBookingHostTakenDialogAsync(IReadOnlyList<BookingHostTakenItem> hosts, bool isFinal = false, CancellationToken cancellationToken = default)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                [nameof(BookingHostTakenDialog.Hosts)] = hosts,
+                [nameof(BookingHostTakenDialog.IsFinal)] = isFinal
+            };
+
+            // an overlay click dismisses the sheet: the caller treats it as "back to the selection" (or "Home" when final)
+            return ShowDialogAsync<BookingHostTakenDialog, BookingHostTakenResult>(parameters, new DialogDisplayOptions()
+            {
+                Closable = true,
+                CloseOnClick = true
+            }, default, cancellationToken);
+        }
+
+        public Task<AddDialogResult<BookingSuccessResult>> ShowBookingSuccessDialogAsync(string hosts, string period, string cost, CancellationToken cancellationToken = default)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                [nameof(BookingSuccessDialog.Hosts)] = hosts,
+                [nameof(BookingSuccessDialog.Period)] = period,
+                [nameof(BookingSuccessDialog.Cost)] = cost
+            };
+
+            return ShowDialogAsync<BookingSuccessDialog, BookingSuccessResult>(parameters, new DialogDisplayOptions()
+            {
+                Closable = false,
+                CloseOnClick = false
+            }, default, cancellationToken);
+        }
     }
 }

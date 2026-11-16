@@ -43,6 +43,7 @@ namespace Gizmo.Go.Provider.Direct.Extensions
             services.AddSingleton<ILadderService, DirectLadderService>();
             services.AddSingleton<IUserBalanceService, DirectUserBalanceService>();
             services.AddSingleton<IReservationService, DirectReservationService>();
+            services.AddSingleton<IBookingService, DirectBookingService>();
             services.AddSingleton<INewsService, DirectNewsService>();
             services.AddSingleton<IUserRegistrationService, DirectUserRegistrationService>();
             services.AddSingleton<IPasswordRecoveryService, DirectPasswordRecoveryService>();

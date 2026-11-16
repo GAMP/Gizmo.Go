@@ -84,12 +84,43 @@ namespace Gizmo.Go.UI.Helpers
             return time < end && IsBusinessWeekDay(branch, (DayOfWeek)(((int)day + 6) % 7));
         }
 
-        private static DateTime ToBranchTime(Branch branch, DateTime utcNow)
-        {
-            if (!string.IsNullOrEmpty(branch.TimeZone) && TimeZoneInfo.TryFindSystemTimeZoneById(branch.TimeZone, out var timeZone))
-                return TimeZoneInfo.ConvertTimeFromUtc(utcNow, timeZone);
+        /// <summary>
+        /// Gets the time zone of the branch; the device time zone when the branch zone is unknown.
+        /// </summary>
+        internal static TimeZoneInfo GetTimeZone(Branch branch) =>
+            !string.IsNullOrEmpty(branch.TimeZone) && TimeZoneInfo.TryFindSystemTimeZoneById(branch.TimeZone, out var timeZone)
+                ? timeZone
+                : TimeZoneInfo.Local;
 
-            return utcNow.ToLocalTime();
+        /// <summary>
+        /// Gets the wall-clock time of the branch at <paramref name="utcNow"/>.
+        /// </summary>
+        internal static DateTime ToBranchTime(Branch branch, DateTime utcNow) =>
+            TimeZoneInfo.ConvertTimeFromUtc(DateTime.SpecifyKind(utcNow, DateTimeKind.Utc), GetTimeZone(branch));
+
+        /// <summary>
+        /// Gets the UTC time of a branch wall-clock time; false when the local time does not exist or is ambiguous
+        /// (a daylight saving change).
+        /// </summary>
+        internal static bool TryToUtc(Branch branch, DateTime branchTime, out DateTime utc) =>
+            TryToUtc(GetTimeZone(branch), branchTime, out utc);
+
+        /// <summary>
+        /// Gets the UTC time of a wall-clock time of the zone; false when the local time does not exist or is ambiguous
+        /// (a daylight saving change).
+        /// </summary>
+        internal static bool TryToUtc(TimeZoneInfo zone, DateTime branchTime, out DateTime utc)
+        {
+            var local = DateTime.SpecifyKind(branchTime, DateTimeKind.Unspecified);
+
+            if (zone.IsInvalidTime(local) || zone.IsAmbiguousTime(local))
+            {
+                utc = default;
+                return false;
+            }
+
+            utc = TimeZoneInfo.ConvertTimeToUtc(local, zone);
+            return true;
         }
     }
 }

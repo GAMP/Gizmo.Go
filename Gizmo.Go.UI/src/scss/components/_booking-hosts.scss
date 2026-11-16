@@ -1,0 +1,693 @@
+@use '../themes/default/theme' as *;
+
+// Booking step 2: hall tabs with the view toggle, host map / list by hall, legend, group chips, selection panel.
+.booking-hosts {
+  gap: 12px;
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__hint {
+    margin: 4px 0 0;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+    text-align: center;
+    color: $color-home-text-muted;
+  }
+}
+
+// hall tabs and the map / list toggle share the segmented control look
+.booking-tabs,
+.booking-view-toggle {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  box-sizing: border-box;
+  border: 1px solid rgba($color-text-on-primary, 0.07);
+  border-radius: 9px;
+  background: rgba($color-text-on-primary, 0.05);
+}
+
+.booking-tabs {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.booking-tab {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__name {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 10px;
+    line-height: 12px;
+    white-space: nowrap;
+    color: rgba($color-text-on-primary, 0.35);
+  }
+
+  &__count {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 10px;
+    font-weight: $font-weight-bold;
+    line-height: 12px;
+    color: $color-booking-free-dim;
+  }
+
+  &--selected {
+    background: $color-booking-tab;
+  }
+
+  &--selected &__name {
+    font-weight: $font-weight-bold;
+    color: $color-text-on-primary;
+  }
+
+  &--selected &__count {
+    color: $color-booking-free;
+  }
+}
+
+.booking-view-toggle {
+  flex-shrink: 0;
+
+  &__button {
+    @include flex-center;
+    width: 32px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: rgba($color-text-on-primary, 0.35);
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &--active {
+      background: $color-booking-tab;
+      color: $color-text-on-primary;
+    }
+  }
+}
+
+// the map canvas: scrollable grid, zoom buttons on the right, the zoom level in the bottom left corner
+.booking-map {
+  position: relative;
+  height: 428px;
+  box-sizing: border-box;
+  border: 1px solid rgba($color-text-on-primary, 0.07);
+  border-radius: 16px;
+  background: rgba($color-booking-map, 0.96);
+  overflow: hidden;
+
+  &__viewport {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__grid {
+    --booking-zoom: 1;
+    --booking-tile: calc(52px * var(--booking-zoom));
+    --booking-gap: calc(14px * var(--booking-zoom));
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--booking-gap);
+    width: max-content;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 24px 56px 32px 16px;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+
+  &__row {
+    display: flex;
+    gap: var(--booking-gap);
+  }
+
+  &__controls {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(-50%);
+  }
+
+  &__control {
+    @include flex-center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid rgba($color-text-on-primary, 0.14);
+    border-radius: 8px;
+    background: rgba($color-booking-control, 0.88);
+    color: $color-text-on-primary;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.35;
+    }
+  }
+
+  &__zoom {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgba($color-home-shadow, 0.4);
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 9px;
+    line-height: 14px;
+    color: rgba($color-text-on-primary, 0.2);
+  }
+}
+
+// zoom steps of the map, 50 - 200 %
+@for $percent from 2 through 8 {
+  .booking-map__grid--zoom-#{$percent * 25} {
+    --booking-zoom: #{$percent * 0.25};
+  }
+}
+
+// a host on the map: number in a tile with the border of its group; selected — tinted, with a check
+.booking-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: var(--booking-tile);
+  height: var(--booking-tile);
+  padding: 0;
+  box-sizing: border-box;
+  border: 2px solid var(--booking-group-color, $color-welcome-accent);
+  border-radius: 10px;
+  background: rgba($color-booking-tile, 0.9);
+  color: var(--booking-group-color, $color-welcome-accent);
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__number {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 14px;
+    color: rgba($color-text-on-primary, 0.85);
+  }
+
+  &--empty {
+    border: none;
+    background: none;
+    cursor: default;
+  }
+
+  &--selected {
+    background: var(--booking-group-fill);
+  }
+
+  &--selected &__number {
+    color: $color-text-on-primary;
+  }
+
+  &--busy {
+    border-color: rgba($color-text-on-primary, 0.1);
+    background: rgba($color-booking-tile-busy, 0.75);
+    opacity: 0.38;
+    cursor: default;
+  }
+
+  &--busy &__number {
+    color: rgba($color-text-on-primary, 0.25);
+  }
+}
+
+// legend: host states as small check boxes, the "color = group" note and the group chips with rates
+.booking-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__states {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__state {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 10px;
+    line-height: 15px;
+    color: rgba($color-text-on-primary, 0.28);
+  }
+
+  &__swatch {
+    @include flex-center;
+    width: 13px;
+    height: 13px;
+    box-sizing: border-box;
+    border: 1px solid rgba($color-welcome-accent, 0.5);
+    border-radius: 4px;
+    background: rgba($color-welcome-accent, 0.04);
+    color: $color-text-on-primary;
+
+    &--selected {
+      border-color: rgba($color-welcome-accent, 0.9);
+      background: rgba($color-welcome-accent, 0.28);
+    }
+
+    &--busy {
+      border-color: rgba($color-text-on-primary, 0.1);
+      background: rgba($color-booking-tile-busy, 0.75);
+    }
+  }
+
+  &__note {
+    margin-left: auto;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 10px;
+    line-height: 15px;
+    color: rgba($color-text-on-primary, 0.18);
+  }
+
+  &__groups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+.booking-group-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 23px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--booking-group-line);
+  border-radius: $radius-full;
+  background: var(--booking-group-soft);
+  font-family: 'Noto Sans', $font-family-base;
+  font-size: 10px;
+  line-height: 15px;
+  color: var(--booking-group-text);
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background: var(--booking-group-color);
+  }
+}
+
+// list view: a section per hall, a row per host
+.booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+
+  &__hall {
+    margin: 0;
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+    line-height: 20px;
+    color: $color-text-on-primary;
+  }
+
+  &__free {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 17px;
+    color: $color-success-light;
+  }
+}
+
+.booking-host-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 60px;
+  padding: 0 14px 0 12px;
+  box-sizing: border-box;
+  border: 1px solid var(--booking-group-ring);
+  border-radius: 12px;
+  background: rgba($color-booking-row, 0.85);
+  color: $color-text-on-primary;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__bar {
+    flex-shrink: 0;
+    width: 3px;
+    height: 34px;
+    border-radius: 2px;
+    background: var(--booking-group-text);
+  }
+
+  &__number {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    box-sizing: border-box;
+    border: 1px solid rgba($color-text-on-primary, 0.08);
+    border-radius: 9px;
+    background: rgba($color-text-on-primary, 0.05);
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 14px;
+    font-weight: 900;
+    color: rgba($color-text-on-primary, 0.85);
+  }
+
+  &__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__name {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    color: rgba($color-text-on-primary, 0.9);
+    @include text-truncate;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    font-weight: $font-weight-medium;
+    line-height: 17px;
+    color: rgba($color-text-on-primary, 0.3);
+    @include text-truncate;
+  }
+
+  &__dot {
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: $radius-full;
+    background: var(--booking-group-color);
+  }
+
+  &__mark {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    box-sizing: border-box;
+    border: 1px solid var(--booking-group-mark);
+    border-radius: $radius-full;
+    color: $color-text-on-primary;
+  }
+
+  &__busy {
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: rgba($color-text-on-primary, 0.05);
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    line-height: 15px;
+    color: rgba($color-text-on-primary, 0.2);
+  }
+
+  &--selected {
+    border-color: var(--booking-group-color);
+    background: rgba($color-booking-row-selected, 0.22);
+  }
+
+  &--selected &__bar {
+    background: var(--booking-group-color);
+  }
+
+  &--selected &__number {
+    border-color: var(--booking-group-ring);
+    background: var(--booking-group-tint);
+    color: var(--booking-group-color);
+  }
+
+  &--selected &__name {
+    color: var(--booking-group-color);
+  }
+
+  &--selected &__mark {
+    border: none;
+    background: var(--booking-group-color);
+  }
+
+  &--busy {
+    border-color: rgba($color-text-on-primary, 0.06);
+    opacity: 0.32;
+    cursor: default;
+  }
+}
+
+// selection panel at the bottom: header (count, clear, total, collapse), the selected hosts and the button
+.booking-selection {
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba($color-welcome-accent-mid, 0.2);
+    border-radius: 12px;
+    background: $color-booking-selection;
+    overflow: hidden;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 6px 8px 16px;
+    background: rgba($color-booking-selection-header, 0.15);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: $color-welcome-accent;
+  }
+
+  &__summary {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  &__count {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+    color: $color-text-on-primary;
+  }
+
+  &__clear {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
+    color: $color-welcome-accent;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__sum {
+    font-family: 'Rubik', $font-family-heading;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 19px;
+    color: $color-text-on-primary;
+  }
+
+  &__for {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
+    color: $color-home-text-muted;
+  }
+
+  &__toggle {
+    @include flex-center;
+    position: relative;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: $color-text-on-primary;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    // the circle around the chevron
+    &::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      box-sizing: border-box;
+      border: 1px solid rgba($color-text-on-primary, 0.1);
+      border-radius: $radius-full;
+      background: rgba($color-text-on-primary, 0.05);
+    }
+  }
+
+  &__chevron {
+    position: relative;
+    transition: transform $transition-fast;
+
+    &--up {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 0 0 16px;
+    border-top: 1px solid $color-booking-divider;
+  }
+
+  &__dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background: var(--booking-group-color);
+  }
+
+  &__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__host,
+  &__amount {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.08px;
+    color: $color-text-on-primary;
+  }
+
+  &__details,
+  &__rate {
+    font-family: 'Noto Sans', $font-family-base;
+    font-size: 11px;
+    line-height: 12px;
+    letter-spacing: 0.06px;
+    color: $color-home-text-muted;
+    @include text-truncate;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__remove {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: $color-home-text-muted;
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__footer {
+    padding: 16px;
+    border-top: 1px solid $color-booking-divider;
+  }
+}

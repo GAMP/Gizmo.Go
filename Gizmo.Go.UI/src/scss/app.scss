@@ -26,6 +26,7 @@
 @use 'pages/home';
 @use 'pages/news';
 @use 'pages/club';
+@use 'pages/booking';
 @use 'pages/reservations';
 @use 'pages/profile';
 @use 'pages/profile-language';
@@ -48,6 +49,10 @@
 // -- Components --
 @use 'components/app-loading';
 @use 'components/balance-cards';
+@use 'components/booking-confirm';
+@use 'components/booking-dialog';
+@use 'components/booking-hosts';
+@use 'components/booking-session';
 @use 'components/channel-icon';
 @use 'components/city-select';
 @use 'components/club-card';

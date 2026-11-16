@@ -1,5 +1,6 @@
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace Gizmo.Go.UI.Helpers;
 
@@ -13,6 +14,7 @@ public static class NavigationHelper
     public const string NewsDetailsRoute = "/news/{id:int}";
     public const string ReservationsRoute = "/reservations";
     public const string ClubRoute = "/clubs/{id:int}";
+    public const string BookingRoute = "/clubs/{id:int}/booking";
     public const string ProfileLanguageRoute = "/profile/language";
     public const string ProfilePoliciesRoute = "/profile/policies";
     public const string ProfilePolicyRoute = "/profile/policies/{id:int}";
@@ -36,6 +38,9 @@ public static class NavigationHelper
 
     public static string GetClubRoute(int id) => $"/clubs/{id}";
 
+    /// <summary>Gets the booking route of the club at the step (1 session, 2 PC selection, 3 confirmation).</summary>
+    public static string GetBookingRoute(int id, int step = 1) => $"/clubs/{id}/booking?step={step}";
+
     /// <summary>Gets the reservations route that shows only the reservation with the specified id.</summary>
     public static string GetReservationRoute(int id) => $"{ReservationsRoute}?id={id}";
 
@@ -56,6 +61,36 @@ public static class NavigationHelper
             await navigationService.GoBackAsync();
         else
             navigationService.NavigateTo(fallbackRoute, new NavigationOptions { ReplaceHistoryEntry = true });
+    }
+
+    /// <summary>
+    /// Leaves a flow of several history entries (the booking steps): steps back over the <paramref name="flowEntries"/>
+    /// entries of the flow to the screen it was opened from, so a back step never returns into the flow. The browser cannot
+    /// delete history entries; the flow entries become forward entries and are dropped by the next navigation.
+    /// </summary>
+    /// <returns>True when the history was stepped back; false when nothing was done (no entries, no JS runtime).</returns>
+    public static async Task<bool> LeaveFlowAsync(this NavigationService navigationService, JSRuntimeService jsRuntimeService, int flowEntries)
+    {
+        if (flowEntries <= 0 || jsRuntimeService.JSRuntime is not { } jsRuntime)
+            return false;
+
+        var locationChanged = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e) => locationChanged.TrySetResult();
+
+        navigationService.LocationChanged += OnLocationChanged;
+        try
+        {
+            await jsRuntime.InvokeVoidAsync("window.history.go", -flowEntries);
+
+            // the next navigation must apply to the entry the history stepped back to
+            await Task.WhenAny(locationChanged.Task, Task.Delay(TimeSpan.FromSeconds(2)));
+        }
+        finally
+        {
+            navigationService.LocationChanged -= OnLocationChanged;
+        }
+
+        return true;
     }
 
     public const string ProfileCompletionRoute = "/profile-completion";

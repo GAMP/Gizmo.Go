@@ -84,6 +84,33 @@ $color-club-map-end: null !default;
 $color-club-map-strip: null !default;
 $color-club-price-card: null !default;
 
+// Booking: border / dot colors of the host groups (assigned by the position of the group)
+$color-booking-selected-start: null !default;
+$color-booking-selected-end: null !default;
+$color-booking-summary: null !default;
+$color-booking-map: null !default;
+$color-booking-tile: null !default;
+$color-booking-tile-busy: null !default;
+$color-booking-control: null !default;
+$color-booking-tab: null !default;
+$color-booking-free: null !default;
+$color-booking-free-dim: null !default;
+$color-booking-row: null !default;
+$color-booking-row-selected: null !default;
+$color-booking-selection: null !default;
+$color-booking-selection-header: null !default;
+$color-booking-divider: null !default;
+$color-booking-radio: null !default;
+$color-booking-warning-text: null !default;
+$color-booking-footer: null !default;
+$color-booking-success-card: null !default;
+$color-host-group-1: null !default;
+$color-host-group-2: null !default;
+$color-host-group-3: null !default;
+$color-host-group-4: null !default;
+$color-host-group-5: null !default;
+$color-host-group-6: null !default;
+
 // -- Typography --
 $font-family-base: null !default;
 $font-family-heading: null !default;
