@@ -6,7 +6,7 @@ namespace Gizmo.Go.UI.Components.Dialog
 {
     /// <summary>
     /// "Host already taken" sheet of the booking: the hosts that are no longer free and the way back to the PC selection
-    /// or to the session time; a refused booking (<see cref="IsFinal"/>) offers only the way to Home.
+    /// or to the session time.
     /// </summary>
     public partial class BookingHostTakenDialog : ComponentBase
     {
@@ -15,12 +15,6 @@ namespace Gizmo.Go.UI.Components.Dialog
 
         [Parameter]
         public IReadOnlyList<BookingHostTakenItem> Hosts { get; set; } = [];
-
-        /// <summary>
-        /// Gets or sets whether the booking itself was refused: the flow ends and the only action is "Home".
-        /// </summary>
-        [Parameter]
-        public bool IsFinal { get; set; }
 
         [Parameter]
         public DialogDisplayOptions? DisplayOptions { get; set; }

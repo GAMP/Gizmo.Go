@@ -1523,13 +1523,13 @@
     <value>احجز</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>الجهاز المحدد مشغول بالفعل</value>
+    <value>المضيف المحدد محجوز بالفعل</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>أثناء إتمام الحجز، حجز مستخدم آخر هذا الجهاز. يرجى العودة واختيار وقت أو جهاز آخر.</value>
+    <value>أثناء إتمام الحجز، حجز مستخدم آخر هذا المضيف. يرجى العودة واختيار وقت أو مضيف آخر.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>جهاز غير متاح</value>
+    <value>مضيف غير متاح</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>العودة إلى الاختيار</value>

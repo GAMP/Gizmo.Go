@@ -299,3 +299,252 @@
         }
     }
 }
+
+// the host already taken sheet: full width at the bottom, a handle, a red ringed cross, the taken hosts in red
+.giz-dialog:has(.giz-booking-dialog--taken) {
+    padding: 0;
+    background: rgba($color-home-shadow, 0.82);
+}
+
+.giz-dialog__card.giz-booking-dialog--taken {
+    gap: 0;
+    max-width: 480px;
+    padding: 0 24px calc(24px + env(safe-area-inset-bottom, 0px));
+    border: 1px solid rgba($color-reservation-danger, 0.18);
+    border-bottom: none;
+    // the sheet takes two thirds of the screen from the bottom, the content stays at its top
+    min-height: 67dvh;
+    border-radius: 24px 24px 0 0;
+    background: rgba($color-booking-sheet, 0.99);
+    box-shadow: 0 -12px 60px rgba($color-home-shadow, 0.6);
+}
+
+.giz-booking-dialog--taken {
+    align-items: center;
+
+    .giz-booking-dialog__handle {
+        flex-shrink: 0;
+        width: 40px;
+        height: 4px;
+        margin: 9px 0 22px;
+        border-radius: 2px;
+        background: rgba($color-text-on-primary, 0.12);
+    }
+
+    // a soft red glow, a thin ring and the circle with the cross
+    .giz-booking-dialog__alarm {
+        position: relative;
+        @include flex-center;
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: $radius-full;
+            background: radial-gradient(circle, rgba($color-reservation-danger, 0.12), rgba($color-reservation-danger, 0) 70%);
+        }
+    }
+
+    .giz-booking-dialog__alarm-ring {
+        position: absolute;
+        width: 86px;
+        height: 86px;
+        box-sizing: border-box;
+        border: 1px solid rgba($color-reservation-danger, 0.18);
+        border-radius: $radius-full;
+    }
+
+    .giz-booking-dialog__alarm-icon {
+        position: relative;
+        @include flex-center;
+        width: 64px;
+        height: 64px;
+        box-sizing: border-box;
+        border: 2px solid rgba($color-reservation-danger, 0.48);
+        border-radius: $radius-full;
+        background: rgba($color-reservation-danger, 0.1);
+        box-shadow: 0 0 28px rgba($color-reservation-danger, 0.25), inset 0 0 10px rgba($color-reservation-danger, 0.15);
+        color: $color-reservation-danger;
+    }
+
+    .giz-booking-dialog__text-block {
+        gap: 8px;
+        max-width: 320px;
+        margin-top: 16px;
+        text-align: center;
+    }
+
+    .giz-booking-dialog__title {
+        font-size: 22px;
+        line-height: 28px;
+        letter-spacing: 0.38px;
+    }
+
+    .giz-booking-dialog__text {
+        font-size: 13px;
+        line-height: 18px;
+        letter-spacing: -0.08px;
+        color: rgba($color-text-on-primary, 0.45);
+    }
+
+    .giz-booking-dialog__hosts {
+        align-self: stretch;
+        gap: 8px;
+        margin-top: 40px;
+    }
+
+    .giz-booking-dialog__caption {
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 10px;
+        font-weight: $font-weight-bold;
+        line-height: 15px;
+        letter-spacing: 0.9px;
+        color: rgba($color-text-on-primary, 0.22);
+    }
+
+    .giz-booking-dialog__host {
+        gap: 12px;
+        height: 68px;
+        padding: 0 14px 0 12px;
+        box-sizing: border-box;
+        border: 1px solid rgba($color-reservation-danger, 0.22);
+        border-radius: 15px;
+        background: rgba($color-reservation-danger, 0.06);
+    }
+
+    .giz-booking-dialog__host-bar {
+        flex-shrink: 0;
+        width: 3px;
+        height: 38px;
+        border-radius: 2px;
+        background: var(--booking-group-text);
+    }
+
+    .giz-booking-dialog__host-number {
+        width: 40px;
+        height: 40px;
+        box-sizing: border-box;
+        border: 1px solid rgba($color-reservation-danger, 0.3);
+        border-radius: 10px;
+        background: rgba($color-reservation-danger, 0.1);
+        font-family: 'Rubik', $font-family-heading;
+        font-size: 14px;
+        font-weight: 900;
+        color: rgba($color-reservation-danger, 0.82);
+    }
+
+    .giz-booking-dialog__host-name {
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 13px;
+        font-weight: $font-weight-bold;
+        line-height: 20px;
+        color: rgba($color-text-on-primary, 0.85);
+    }
+
+    .giz-booking-dialog__host-details {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 11px;
+        line-height: 17px;
+        color: rgba($color-text-on-primary, 0.32);
+    }
+
+    .giz-booking-dialog__host-dot {
+        flex-shrink: 0;
+        width: 5px;
+        height: 5px;
+        border-radius: $radius-full;
+        background: var(--booking-group-color);
+    }
+
+    .giz-booking-dialog__host-busy {
+        height: 24px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        border: 1px solid rgba($color-reservation-danger, 0.32);
+        background: rgba($color-reservation-danger, 0.12);
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 10px;
+        font-weight: $font-weight-bold;
+        line-height: 22px;
+        color: rgba($color-reservation-danger, 0.88);
+    }
+
+    .giz-booking-dialog__actions {
+        gap: 8px;
+        margin-top: 24px;
+    }
+
+    .giz-booking-dialog__button {
+        height: 52px;
+        border: 1px solid rgba($color-text-on-primary, 0.09);
+        border-radius: 12px;
+        background: rgba($color-text-on-primary, 0.05);
+        color: rgba($color-text-on-primary, 0.5);
+
+        &--primary {
+            border: none;
+            background: $color-welcome-btn-primary;
+            color: $color-text-on-primary;
+        }
+    }
+}
+
+// no options dialog: a plain caption, the main sentence in white, the hint muted, "close" as a text link
+.giz-dialog:has(.giz-booking-dialog--no-options) {
+    background: rgba($color-home-shadow, 0.64);
+}
+
+.giz-dialog__card.giz-booking-dialog--no-options {
+    gap: 24px;
+    max-width: 343px;
+    padding: 21px;
+    border-color: $color-booking-divider;
+    border-radius: 16px;
+    background: $color-booking-dialog;
+}
+
+.giz-booking-dialog--no-options {
+    .giz-booking-dialog__text-block {
+        gap: 12px;
+    }
+
+    .giz-booking-dialog__caption {
+        font-family: 'Noto Sans', $font-family-base;
+        font-size: 13px;
+        line-height: 18px;
+        letter-spacing: -0.08px;
+        text-transform: none;
+        color: $color-home-text-muted;
+    }
+
+    .giz-booking-dialog__title {
+        font-size: 19px;
+        line-height: 24px;
+        letter-spacing: 0.12px;
+    }
+
+    .giz-booking-dialog__text--main {
+        color: $color-text-on-primary;
+    }
+
+    .giz-booking-dialog__actions {
+        gap: 8px;
+    }
+
+    .giz-booking-dialog__button {
+        height: 52px;
+        border-radius: 12px;
+
+        &--link {
+            border: none;
+            background: none;
+            color: $color-home-text-muted;
+        }
+    }
+}

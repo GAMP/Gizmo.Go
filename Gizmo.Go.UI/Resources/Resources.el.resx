@@ -1523,13 +1523,13 @@
     <value>Κράτηση</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>Ο επιλεγμένος υπολογιστής είναι ήδη κατειλημμένος</value>
+    <value>Ο επιλεγμένος host είναι ήδη κατειλημμένος</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>Ενώ κάνατε την κράτηση, ένας άλλος χρήστης κατέλαβε αυτό το PC. Επιστρέψτε και επιλέξτε άλλη ώρα ή άλλο PC.</value>
+    <value>Ενώ κάνατε την κράτηση, ένας άλλος χρήστης κατέλαβε αυτόν τον host. Παρακαλούμε επιστρέψτε και επιλέξτε άλλη ώρα ή άλλον host.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>Μη διαθέσιμο PC</value>
+    <value>Μη διαθέσιμος host</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>Επιστροφή στην επιλογή</value>

@@ -467,14 +467,14 @@ namespace Gizmo.Go.UI.View.Services.Pages
                     await ShowSuccessAsync(offer, result.ReservationId);
                     break;
 
-                // the booking is refused: the flow ends as after a success
+                // the booking is refused: the sheet leads back to the PC selection or to the session, as at step 2
                 case BookingResultCode.HostsUnavailable:
-                    await ShowRefusalAsync(result.UnavailableHostIds);
+                    await HandleHostsUnavailableAsync(result.UnavailableHostIds);
                     break;
 
                 // the selection cannot be offered again
                 case BookingResultCode.OfferExpired when renewed is { Code: not BookingOfferResultCode.Success }:
-                    await ShowRefusalAsync(renewed.UnavailableHostIds);
+                    await HandleHostsUnavailableAsync(renewed.UnavailableHostIds);
                     break;
             }
         }
@@ -657,12 +657,18 @@ namespace Gizmo.Go.UI.View.Services.Pages
                     return;
 
                 // the time grid stays on the screen, "choose another time" only closes the dialog
-                await dialog.WaitForResultAsync();
+                var result = await dialog.WaitForResultAsync();
+                if (dialog.Result != AddComponentResultCode.Ok || result?.LeaveBooking != true)
+                    return;
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Cannot show the booking no options dialog.");
+                return;
             }
+
+            // "close" leaves the booking for Home, as a finished booking does
+            await FinishFlowAsync(null);
         }
 
         // the hosts are marked busy; the sheet leads back to the PC selection (fresh availability) or to the session
@@ -702,24 +708,6 @@ namespace Gizmo.Go.UI.View.Services.Pages
             {
                 Logger.LogError(ex, "Cannot handle the hosts that are no longer available.");
             }
-        }
-
-        // a refused booking shows the taken hosts with the only way to Home; the sheet closed in any way finishes the flow
-        private async Task ShowRefusalAsync(IReadOnlyCollection<int> hostIds)
-        {
-            try
-            {
-                var dialog = await _dialogService.ShowBookingHostTakenDialogAsync(BuildTakenItems(hostIds.ToHashSet()), isFinal: true);
-
-                if (dialog.Result == AddComponentResultCode.Opened)
-                    await dialog.WaitForResultAsync();
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Cannot show the booking refusal sheet.");
-            }
-
-            await FinishFlowAsync(null);
         }
 
         // reloads availability and prices and shows the PC selection
@@ -774,7 +762,8 @@ namespace Gizmo.Go.UI.View.Services.Pages
                     {
                         Number = host.Number,
                         Name = host.Name,
-                        Details = string.Join(" · ", new[] { groupName, rate }.Where(text => text.Length > 0))
+                        Details = string.Join(" · ", new[] { groupName, rate }.Where(text => text.Length > 0)),
+                        GroupColor = ViewState.GetGroupColor(host.HostGroupId)
                     };
                 })
                 .ToList();

@@ -1523,13 +1523,13 @@
     <value>Varaa</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>Valittu PC on jo varattu</value>
+    <value>Valittu host on jo varattu</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>Varauksen aikana toinen käyttäjä varasi tämän PC:n. Palaa takaisin ja valitse toinen aika tai PC.</value>
+    <value>Varauksen aikana toinen käyttäjä varasi tämän hostin. Palaa takaisin ja valitse toinen aika tai host.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>Ei käytettävissä oleva PC</value>
+    <value>Ei saatavilla oleva host</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>Takaisin valintaan</value>

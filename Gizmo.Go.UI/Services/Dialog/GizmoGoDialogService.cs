@@ -79,24 +79,23 @@ namespace Gizmo.Go.UI.Services.Dialog
             }, default, cancellationToken);
         }
 
-        public Task<AddDialogResult<EmptyComponentResult>> ShowBookingNoOptionsDialogAsync(CancellationToken cancellationToken = default)
+        public Task<AddDialogResult<BookingNoOptionsResult>> ShowBookingNoOptionsDialogAsync(CancellationToken cancellationToken = default)
         {
-            return ShowDialogAsync<BookingNoOptionsDialog, EmptyComponentResult>(new Dictionary<string, object>(), new DialogDisplayOptions()
+            return ShowDialogAsync<BookingNoOptionsDialog, BookingNoOptionsResult>(new Dictionary<string, object>(), new DialogDisplayOptions()
             {
                 Closable = true,
                 CloseOnClick = true
             }, default, cancellationToken);
         }
 
-        public Task<AddDialogResult<BookingHostTakenResult>> ShowBookingHostTakenDialogAsync(IReadOnlyList<BookingHostTakenItem> hosts, bool isFinal = false, CancellationToken cancellationToken = default)
+        public Task<AddDialogResult<BookingHostTakenResult>> ShowBookingHostTakenDialogAsync(IReadOnlyList<BookingHostTakenItem> hosts, CancellationToken cancellationToken = default)
         {
             var parameters = new Dictionary<string, object>
             {
-                [nameof(BookingHostTakenDialog.Hosts)] = hosts,
-                [nameof(BookingHostTakenDialog.IsFinal)] = isFinal
+                [nameof(BookingHostTakenDialog.Hosts)] = hosts
             };
 
-            // an overlay click dismisses the sheet: the caller treats it as "back to the selection" (or "Home" when final)
+            // an overlay click dismisses the sheet: the caller treats it as "back to the selection"
             return ShowDialogAsync<BookingHostTakenDialog, BookingHostTakenResult>(parameters, new DialogDisplayOptions()
             {
                 Closable = true,

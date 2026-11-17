@@ -1523,13 +1523,13 @@
     <value>Reservar</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>O PC escolhido já está ocupado</value>
+    <value>O host selecionado já está ocupado</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>Enquanto você reservava, outro usuário ocupou este PC. Volte e escolha outro horário ou outro PC.</value>
+    <value>Enquanto você reservava, outro usuário ocupou este host. Por favor, volte e escolha outro horário ou outro host.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>PC indisponível</value>
+    <value>Host indisponível</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>Voltar à seleção</value>

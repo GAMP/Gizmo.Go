@@ -1523,13 +1523,13 @@
     <value>Забронировать</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>Выбранный ПК уже занят</value>
+    <value>Выбранный хост уже занят</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>Пока вы оформляли бронирование, этот ПК был занят другим пользователем. Вернитесь и выберите другое время или ПК.</value>
+    <value>Пока вы оформляли бронирование, этот хост был занят другим пользователем. Пожалуйста, вернитесь и выберите другое время или хост.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>Недоступный ПК</value>
+    <value>Недоступный хост</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>Вернуться к выбору</value>

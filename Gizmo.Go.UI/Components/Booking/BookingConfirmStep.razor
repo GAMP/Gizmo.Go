@@ -2,8 +2,9 @@
     var offer = State.Offer!;
     var club = State.Club.Value!.Branch;
     var amount = State.PaymentAmount ?? 0;
-    var hasDeposit = State.Balance.Value is not null;
-    var canPay = amount == 0 || (hasDeposit && State.Balance.Value!.Deposits >= amount);
+    // as the desktop client: the balance (deposits minus unpaid invoices and usage) must cover the amount
+    var hasBalance = State.Balance.Value is not null;
+    var canPay = amount == 0 || (hasBalance && State.Balance.Value!.Balance >= amount);
     var duration = BookingTimeHelper.FormatDuration(State.Duration!.Value, LocalizationService);
 }
 

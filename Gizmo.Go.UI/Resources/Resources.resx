@@ -1523,13 +1523,13 @@
     <value>Book</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>The chosen PC is already taken</value>
+    <value>The selected host is already taken</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>While you were booking, another user took this PC. Please go back and choose another time or PC.</value>
+    <value>While you were booking, another user took this host. Please go back and choose another time or host.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>Unavailable PC</value>
+    <value>Unavailable host</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>Back to selection</value>

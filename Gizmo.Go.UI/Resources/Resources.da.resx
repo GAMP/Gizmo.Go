@@ -1523,13 +1523,13 @@
     <value>Book</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>Den valgte pc er allerede optaget</value>
+    <value>Den valgte host er allerede optaget</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>Mens du bookede, blev denne pc optaget af en anden bruger. Gå tilbage og vælg et andet tidspunkt eller en anden pc.</value>
+    <value>Mens du bookede, blev denne host optaget af en anden bruger. Gå venligst tilbage og vælg et andet tidspunkt eller en anden host.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>Utilgængelig pc</value>
+    <value>Utilgængelig host</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>Tilbage til valg</value>

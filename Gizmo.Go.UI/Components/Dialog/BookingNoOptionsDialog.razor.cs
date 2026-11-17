@@ -1,3 +1,4 @@
+using Gizmo.Go.UI.Services.Dialog;
 using Gizmo.UI.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -19,7 +20,7 @@ namespace Gizmo.Go.UI.Components.Dialog
         public EventCallback DismissCallback { get; set; }
 
         [Parameter]
-        public EventCallback<EmptyComponentResult> ResultCallback { get; set; }
+        public EventCallback<BookingNoOptionsResult> ResultCallback { get; set; }
 
         // ErrorCallback, SuspendTimeoutCallback and Identifier are always supplied by the dialog controller (IComponentController.Parameters)
         [Parameter]
@@ -31,8 +32,8 @@ namespace Gizmo.Go.UI.Components.Dialog
         [Parameter]
         public int Identifier { get; set; }
 
-        private Task ChooseTimeAsync() => ResultCallback.InvokeAsync(new EmptyComponentResult());
+        private Task ChooseTimeAsync() => ResultCallback.InvokeAsync(new BookingNoOptionsResult());
 
-        private Task CloseAsync() => DismissCallback.InvokeAsync();
+        private Task CloseAsync() => ResultCallback.InvokeAsync(new BookingNoOptionsResult() { LeaveBooking = true });
     }
 }

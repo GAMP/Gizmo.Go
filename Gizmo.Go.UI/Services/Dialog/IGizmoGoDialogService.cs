@@ -42,20 +42,19 @@ namespace Gizmo.Go.UI.Services.Dialog
             CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Shows the "no options" dialog of the booking. The result is <see cref="AddComponentResultCode.Ok"/> for
-        /// "Choose another time"; "Close" and the overlay click give any other code.
+        /// Shows the "no options" dialog of the booking. "Choose another time" and "Close" give
+        /// <see cref="AddComponentResultCode.Ok"/> with <see cref="BookingNoOptionsResult.LeaveBooking"/> false / true;
+        /// the overlay click gives any other code.
         /// </summary>
-        Task<AddDialogResult<EmptyComponentResult>> ShowBookingNoOptionsDialogAsync(
+        Task<AddDialogResult<BookingNoOptionsResult>> ShowBookingNoOptionsDialogAsync(
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Shows the "host already taken" sheet of the booking with the hosts that are no longer free.
         /// </summary>
         /// <param name="hosts">Hosts that are no longer free.</param>
-        /// <param name="isFinal">Whether the booking itself was refused: the sheet offers only the way to Home.</param>
         Task<AddDialogResult<BookingHostTakenResult>> ShowBookingHostTakenDialogAsync(
             IReadOnlyList<BookingHostTakenItem> hosts,
-            bool isFinal = false,
             CancellationToken cancellationToken = default);
 
         /// <summary>

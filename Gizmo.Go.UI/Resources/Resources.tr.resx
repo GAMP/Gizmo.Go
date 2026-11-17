@@ -1523,13 +1523,13 @@
     <value>Rezervasyon yap</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TITLE" xml:space="preserve">
-    <value>Seçilen PC zaten dolu</value>
+    <value>Seçilen host zaten dolu</value>
   </data>
   <data name="GO_BOOKING_TAKEN_TEXT" xml:space="preserve">
-    <value>Siz rezervasyon yaparken başka bir kullanıcı bu PC'yi aldı. Lütfen geri dönüp başka bir saat veya PC seçin.</value>
+    <value>Siz rezervasyon yaparken başka bir kullanıcı bu host'u aldı. Lütfen geri dönüp başka bir saat veya host seçin.</value>
   </data>
   <data name="GO_BOOKING_TAKEN_HOSTS" xml:space="preserve">
-    <value>Kullanılamayan PC</value>
+    <value>Kullanılamayan host</value>
   </data>
   <data name="GO_BOOKING_TAKEN_RETURN" xml:space="preserve">
     <value>Seçime dön</value>
